@@ -1,7 +1,8 @@
 import React ,{Component} from 'react';
 import './App.css';
 import axios from 'axios';
-import {BrowserRouter , Link , Switch , Route} from 'react-router-dom';
+// import {BrowserRouter , Link , Switch , Route} from 'react-router-dom';
+import SignUpSoldiers from './SignUpSoldiers';
 class App extends Component{
   url = "/api";
   state = {data : ''};
@@ -21,6 +22,7 @@ class App extends Component{
         <h2>Hello World</h2>
         <button onClick = {this.clickHandler}>Click Me</button>
         <p>{this.state.data}</p>
+        <SignUpSoldiers/>
       </div>
       // <BrowserRouter>
       //   <Link to = '/'>Home|</Link>

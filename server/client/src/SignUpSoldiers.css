@@ -1,0 +1,94 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.warpFprPOsition{
+    position: relative;
+    background-image: url(https://galperel.files.wordpress.com/2015/06/1613586-54.jpg?w=450);
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+
+
+}
+.warpInputs{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 400px;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.inputs{
+    border-radius: 24px;
+    text-align: center;
+}
+
+/* inputs full name */
+.personal-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15%;
+}
+.personal-details-item{
+    height: 50%;
+    width: 30%;
+}
+
+/*inputs military details */
+.military{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15%;
+    width: 87%;
+}
+.military-item{
+    height: 50%;
+    width: 40%;
+}
+
+/* contact details */
+.contact-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15%;
+    width: 87%;
+}
+.contact-details-item{
+    height: 50%;
+    width: 40%;
+}
+
+.passwords{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15%;
+    width: 87%;
+}
+.password-item{
+    height: 50%;
+    width: 40%;
+}
+
+.warpAddress{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    width: 87%;
+}
+.Address{
+    height: 50%;
+    width: 100%;
+}
