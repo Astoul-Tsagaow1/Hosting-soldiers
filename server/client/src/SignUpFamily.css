@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.SignUp-Family-Form{
+    text-align: center;
+    border: 1px solid black;
+
+}
+input:focus {
+    border: 3px solid rgb(143, 142, 142);
+  }
