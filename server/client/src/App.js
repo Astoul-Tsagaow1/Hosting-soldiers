@@ -53,7 +53,7 @@ https://img.icons8.com/color/48/000000/camo-cream.png
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/SignUpSoldiers"   render={() => (<SignUpSoldiers sendSoldierInfo = {this.newSoldier}/>)} />
-                                                      {/* render = {()=>(<AddBook handelAddBook = {this.addbookfunc}/>)}/> */}
+                                                      
             <Route exact  component={PageNotFound} />
             <Route exact  component={PageNotFound} />
             <Route exact  component={PageNotFound} />
