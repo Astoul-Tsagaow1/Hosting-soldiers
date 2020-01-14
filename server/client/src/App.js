@@ -1,35 +1,66 @@
-import React, { Component } from "react";
-import "./App.css";
-import axios from "axios";
-
+import React, { Component } from 'react';
+import './App.css';
+import './Home.css';
+import axios from 'axios';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import PageNotFound from './PageNotFound'
+import Home from './Home'
+// import { Link } from "react-router-dom";
+import { Nav, Navbar, NavItem } from "react-bootstrap";
+import SignUpSoldiers from './SignUpSoldiers'
+// import Navbar from 'react-bootstrap/Navbar'
 class App extends Component {
   url = "/api";
-  state = { data: "" };
-
+  state = { data: '' };
   clickHandler = () => {
     console.log("clicked");
-    axios
-      .get(this.url)
+    axios.get(this.url)
       .then(res => {
-        console.log(res.data.res);
+        console.log(res.data);
         this.setState({ data: res.data.res });
       })
       .catch(err => console.log(err));
-    // fetch(this.url)
-    //   .then(res => res.json())
-    //   .then(data => this.setState({data : data.res}))
-    //   .catch(err => console.log(err));
-  };
-
+  }
   render() {
     return (
-      <div className="App">
-        <p>Hello Nathan Krasney</p>
-        <button onClick={this.clickHandler}>Access express server !!!!!</button>
-        <p>Got : {this.state.data}</p>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          {/* <h2>Hello World</h2>
+          <button onClick={this.clickHandler}>Click Me</button>
+          <p>{this.state.data}</p> */}
+          <Navbar bg="light" expand="lg">
+            <Navbar.Brand href="#home"><img src="https://img.icons8.com/color/48/000000/camo-cream.png(2 kB)
+https://img.icons8.com/color/48/000000/camo-cream.png
+"/></Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Nav className="mr-auto">
+              <Nav.Link  href="/">Home</Nav.Link>
+              <Nav.Link href="/SignUpSoldiers">SignUp Soldiers</Nav.Link>
+              <Nav.Link href="/x">SignUp Family</Nav.Link>
+              <Nav.Link href="/x">Login</Nav.Link>
+              <Nav.Link href="/x">About</Nav.Link>
+            </Nav>
+          </Navbar>
+          <div className="Links">
+            {/* <Link to='/'>Home|</Link>
+            <Link to='/SignUp'>SignUp Soldiers|</Link>
+            <Link to='/SignUp'>SignUp Family|</Link>
+            <Link to='/Login'>Login|</Link>
+            <Link to='/About'>About|</Link> */}
+          </div>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/SignUpSoldiers"  component={SignUpSoldiers} />
+            <Route exact  component={PageNotFound} />
+            <Route exact  component={PageNotFound} />
+            <Route exact  component={PageNotFound} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
-
 export default App;
+
+
+

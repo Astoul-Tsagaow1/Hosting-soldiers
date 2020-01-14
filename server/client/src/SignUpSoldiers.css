@@ -4,18 +4,15 @@
 }
 .warpFprPOsition{
     position: relative;
-    background-image: url(https://galperel.files.wordpress.com/2015/06/1613586-54.jpg?w=450);
     height: 100vh;
     width: 100%;
     background-size: cover;
-
-
 }
 .warpInputs{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50 %);
+    transform: translate(-50%,-50%);
     border: 1px solid black;
     display: flex;
     flex-direction: column;
@@ -25,12 +22,10 @@
     justify-content: space-evenly;
     
 }
-
 .inputs{
     border-radius: 24px;
     text-align: center;
 }
-
 /* inputs full name */
 .personal-details{
     display: flex;
@@ -42,7 +37,6 @@
     height: 50%;
     width: 30%;
 }
-
 /*inputs military details */
 .military{
     display: flex;
@@ -55,7 +49,6 @@
     height: 50%;
     width: 40%;
 }
-
 /* contact details */
 .contact-details{
     display: flex;
@@ -68,7 +61,6 @@
     height: 50%;
     width: 40%;
 }
-
 .passwords{
     display: flex;
     justify-content: space-between;
@@ -80,7 +72,6 @@
     height: 50%;
     width: 40%;
 }
-
 .warpAddress{
     display: flex;
     justify-content: center;
