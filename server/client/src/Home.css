@@ -1,21 +1,24 @@
 .Home-page{
     background-image: linear-gradient(rgba(0, 0, 0, 0.068), rgba(0, 0, 0, 0.281)) ,url(../src/images/img1.jpg);
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
    
    
  }
  .Carousel{
      text-align: center;
-     top:25%;
+     top:30%;
      position: relative;
-     left: 10%;
+     left: 3%;
      width: 45%;
  }
  .d-block {
      position: inherit;
-     left: 25%;
+     left: 18%;
    
  }
  .d-block{
