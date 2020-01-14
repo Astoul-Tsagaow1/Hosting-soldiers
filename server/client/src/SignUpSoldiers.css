@@ -23,7 +23,7 @@
     
 }
 .inputs{
-    border-radius: 24px;
+    border-radius: 7%;
     text-align: center;
 }
 /* inputs full name */
@@ -32,10 +32,11 @@
     justify-content: space-between;
     align-items: center;
     height: 15%;
+    width: 87%;
 }
 .personal-details-item{
     height: 50%;
-    width: 30%;
+    width: 32.5%;
 }
 /*inputs military details */
 .military{

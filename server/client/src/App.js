@@ -10,18 +10,20 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
 import SignUpSoldiers from './SignUpSoldiers'
 // import Navbar from 'react-bootstrap/Navbar'
 class App extends Component {
-  url = "/api";
-  state = { data: '' };
-  clickHandler = () => {
-    console.log("clicked");
-    axios.get(this.url)
-      .then(res => {
-        console.log(res.data);
-        this.setState({ data: res.data.res });
-      })
-      .catch(err => console.log(err));
+ 
+  state = { soldier: '' };
+  
+  newSoldier = (nameArg,lastNameArg,ageArg,quiteArg,identityNumberArg,emailArg,phoneArg,passwordArg,addressArg,loneSoldierArg) =>{
+    let ojbSoldiers = {
+                       name:nameArg , lastName:lastNameArg , age:ageArg , quite:quiteArg , identityNumber:identityNumberArg ,
+                       email:emailArg , phone:phoneArg , password:passwordArg , address:addressArg , loneSoldier:loneSoldierArg
+                      }
+      this.setState({soldier:ojbSoldiers});
+      console.log(this.state.soldier,"now");
   }
+ 
   render() {
+    
     return (
       <BrowserRouter>
         <div className="App">
@@ -50,7 +52,8 @@ https://img.icons8.com/color/48/000000/camo-cream.png
           </div>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/SignUpSoldiers"  component={SignUpSoldiers} />
+            <Route exact path="/SignUpSoldiers"   render={() => (<SignUpSoldiers sendSoldierInfo = {this.newSoldier}/>)} />
+                                                      {/* render = {()=>(<AddBook handelAddBook = {this.addbookfunc}/>)}/> */}
             <Route exact  component={PageNotFound} />
             <Route exact  component={PageNotFound} />
             <Route exact  component={PageNotFound} />
