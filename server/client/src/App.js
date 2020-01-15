@@ -8,9 +8,11 @@ import Home from './Home'
 import SignUpSoldiers from './SignUpSoldiers'
 import SignUpFamily from './SignUpFamily'
 import NavbaR from './Navbar'
+
 class App extends Component {
 
-  state = { soldier: {} , family: [] , reqSoldiers:false };
+  state = { soldier: {} , family: [] , reqSoldiers:false,reqFamily:false ,post:false };
+  obj = {name:"astoul"}
 
   newSoldier = (nameArg, lastNameArg, ageArg, quiteArg, identityNumberArg, emailArg, phoneArg, passwordArg, addressArg, loneSoldierArg) => {
     let ojbSoldiers = {
@@ -20,19 +22,34 @@ class App extends Component {
     this.setState({ soldier: ojbSoldiers , reqSoldiers:true});
   }
   
-  NewFamily = (FamilyNameArg, EmailArg, PhoneNumberArg, CityArg, NumberSoldersHostArg, PasswordArg, AboutFamilyArg) => {
-    alert("NewFamily")
-    let NEwfamilyobj = {
-      FamilyName: FamilyNameArg, Email: EmailArg, PhoneNumber: PhoneNumberArg, City: CityArg
-      , NumberSoldersHost: NumberSoldersHostArg, Password: PasswordArg, AboutFamily: AboutFamilyArg
-    };
+ 
+  // NewFamily = (FamilyNameArg, EmailArg, PhoneNumberArg, CityArg, NumberSoldersHostArg, PasswordArg, AboutFamilyArg) => {
 
-    this.setState({ family: NEwfamilyobj })
-    console.log(this.state.family);
+  //   let NEwfamilyobj = {
+  //     FamilyName: FamilyNameArg, Email: EmailArg, PhoneNumber: PhoneNumberArg, City: CityArg
+  //     , NumberSoldersHost: NumberSoldersHostArg, Password: PasswordArg, AboutFamily: AboutFamilyArg
+  //   };
+  //   // alert(NEwfamilyobj)
+  //    this.setState({ family: NEwfamilyobj ,reqFamily: true,post:true})
+  // }
 
+
+  
+  handleSubmit = event => {
+    event.preventDefault();
+ 
+
+    console.log(event);
+    
+   
   }
 
+
+
+
+
   render() {
+
     if(this.state.reqSoldiers){
       console.log(this.state.soldier , "statae");
    
@@ -44,7 +61,7 @@ class App extends Component {
       console.log(error);
     });
     }
-    
+   
     return (
       <BrowserRouter>
         <div className="App">
@@ -53,9 +70,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/SignUpSoldiers" render={() => (<SignUpSoldiers sendSoldierInfo={this.newSoldier} />)} />
-            <Route exact path="/SignUpFamily" render={() => {return <SignUpFamily add={this.NewFamily} /> }} />
+            <Route exact path="/SignUpFamily" render={() => {return <SignUpFamily add={this.NewFamily}  send={this.handleSubmit}/> }} />
             <Route exact component={PageNotFound} />
-            
           </Switch>
         </div>
       </BrowserRouter>

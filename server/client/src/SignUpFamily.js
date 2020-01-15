@@ -3,84 +3,79 @@ import React, { Component } from 'react';
 import './SignUpFamily.css'
 
 export default class SignUpFamily extends Component {
+    state ={}
 
-   
-render() {
- let fname, femail, fPhonNumber, fNumberSoldiersHosts, fPassword, fCity, FamilyDescription;
-    return (
-        <div>
-            <form className="SignUp-Family-Form">
+    constructor(props) {
 
-                <h1>Family Form</h1>
-                <label for="fname"> Family-Name :</label><br />
-                <input id="fname" type="text" required="required" onChange={(e) => {
+        super(props)
+        this.state = {
+            fname: "",
+            femail: "",
+            fPhonNumber: "",
+            fNumberSoldiersHosts: "",
+            fPassword: "",
+            ConfirmePassword: "", 
+            FamilyDescriptionvlue: "",
+            fCity: "",
+           
 
-                    fname = e.target.value
+        }
+        this.Hendelchange = this.Hendelchange.bind(this)
+    }
 
-
-                }} /> <br />
-                <label for="email">  e-mail  :</label><br />
-                <input id="email" type="email" required="required" onChange={(e) => {
-
-                    femail = e.target.value
-
-
-                }} /> <br />
-                <label for="Phone-Number">  Phone-Number  :</label><br />
-                <input id="Phone-Number" type="number" required="required" onChange={(e) => {
-
-                    fPhonNumber = e.target.value
-
-
-                }} /> <br />
-                <label for="City"> City :</label><br />
-                <input id="City" type="text" required="required" onChange={(e) => {
-
-                    fCity = e.target.value
+    Hendelchange(e){
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+    
 
 
-                }} /> <br />
-                <label for="NumberSoldiers">  Number of soliders you can host :</label><br />
-                <input id="NumberSoldiers" type="number" required="required" onChange={(e) => {
+    render() {
 
-                    fNumberSoldiersHosts = e.target.value
+        return (
+            <div>
+                <form className="SignUp-Family-htmlForm" onSubmit={this.props.send}>
+
+                    <h1>Family Form</h1>
+                    <label htmlFor="fname"> Family-Name :
+                    <input value={this.state.fname} name="fname"  type="text" required="required" onChange={this.Hendelchange} /> <br />
+                    </label><br />
+
+                    <label htmlFor="email">  e-mail  :
+                    <input value={this.state.femail} name="email" id="email" type="email" onChange={this.Hendelchange} /> <br />
+                    </label><br />
+
+                    <label htmlFor="Phone-Number">  Phone-Number  :
+                    <input value={this.state.fPhonNumber} name="fPhonNumber" id="Phone-Number" type="number" required="required" onChange={this.Hendelchange} /> <br />
+                    </label><br />
+
+                    <label htmlFor="City"> City :
+                    <input value={this.state.fCity} name="fCity" id="City" type="text" required="required" onChange={this.Hendelchange} /> <br />
+                    </label><br />
+
+                    <label htmlFor="NumberSoldiers">  Number of soliders you can host :
+                    <input value={this.state.fNumberSoldiersHosts} name="fNumberSoldiersHosts" id="NumberSoldiers" type="number" required="required" onChange={this.Hendelchange} /> <br />
+                    </label><br />
+
+                    <label htmlFor="Password">   Password :
+                    <input value={this.state.fPassword} name="fPassword" type="Password" id="Password" required="required" onChange={this.Hendelchange} /> <br />
+                    </label><br />
+
+                    <label htmlFor=" ConfirmePassword ">  Confirme - Password :
+                    <input value={this.state.ConfirmePassword} name="ConfirmePassword" type="Password" id="ConfirmePassword" required="required" onChange={this.Hendelchange} /> <br />
+                    </label><br />
 
 
-                }} /> <br />
+                    <textarea value={this.state.FamilyDescriptionvlue} name="FamilyDescription" id="Family-Description" name="Family_Description" placeholder="About the family.." onChange={this.Hendelchange}></textarea><br />
 
-                <label for="Password">   Password :</label><br />
-                <input type="Password" id="Password" required="required" onChange={(e) => {
+                    <button required="required" type="submit"  > Submit </button>
 
-                    fPassword = e.target.value
+                </form>
+            </div>
+        )
 
-
-                }} /> <br />
-                <label for="Password">   Password :</label><br />
-                <input type="Password" id="Password" required="required" /> <br />
-
-
-                <textarea id="Family-Description" name="Family_Description" placeholder="About the family.." Style="height:200px" onChange={(e) => {
-
-                    FamilyDescription = e.target.value
-
-
-                }}></textarea><br />
-                <button required="required" onClick={() => {
-
-                  this.props.add(fname, femail, fPhonNumber, fNumberSoldiersHosts, fPassword, fCity, FamilyDescription);
-
-                }} > Submit </button>
-
-            </form>
-        </div>
-    )
-
+    }
 }
-}
 
-//             <form>
-//   <label for="fname">First Name</label>
-//   <input type="text" id="fname" name="fname" value="John">
-//   <label for="lname">Last Name</label>
-//   <input type="text" id="lname" name="lname" value="Doe">
-// </form>
+
