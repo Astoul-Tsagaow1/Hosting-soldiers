@@ -10,17 +10,16 @@ import SignUpFamily from './SignUpFamily'
 import NavbaR from './Navbar'
 class App extends Component {
 
-  state = { soldier: '' , family: [] };
+  state = { soldier: {} , family: [] , reqSoldiers:false };
 
   newSoldier = (nameArg, lastNameArg, ageArg, quiteArg, identityNumberArg, emailArg, phoneArg, passwordArg, addressArg, loneSoldierArg) => {
     let ojbSoldiers = {
       name: nameArg, lastName: lastNameArg, age: ageArg, quite: quiteArg, identityNumber: identityNumberArg,
       email: emailArg, phone: phoneArg, password: passwordArg, address: addressArg, loneSoldier: loneSoldierArg
     }
-    this.setState({ soldier: ojbSoldiers });
-    console.log(this.state.soldier, "now");
+    this.setState({ soldier: ojbSoldiers , reqSoldiers:true});
   }
-
+  
   NewFamily = (FamilyNameArg, EmailArg, PhoneNumberArg, CityArg, NumberSoldersHostArg, PasswordArg, AboutFamilyArg) => {
     alert("NewFamily")
     let NEwfamilyobj = {
@@ -34,6 +33,17 @@ class App extends Component {
   }
 
   render() {
+    if(this.state.reqSoldiers){
+      console.log(this.state.soldier , "statae");
+   
+      axios.post('/soldier',this.state.soldier)
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    }
     
     return (
       <BrowserRouter>

@@ -6,25 +6,30 @@
     position: relative;
     height: 100vh;
     width: 100%;
+    background-image: url(https://www.kan-ashkelon.co.il/wp-content/uploads/2017/05/RBH003-831x555.jpg);
     background-size: cover;
+    opacity: 0.7;
 }
 .warpInputs{
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%,-50%);
-    border: 1px solid black;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     width: 45%;
     height: 400px;
     align-items: center;
     justify-content: space-evenly;
+    background-color: gray;
+    opacity: 0.7;
     
 }
 .inputs{
-    border-radius: 7%;
+    border-radius:5px;
     text-align: center;
+    font-weight: bold;
 }
 /* inputs full name */
 .personal-details{
@@ -83,4 +88,19 @@
 .Address{
     height: 50%;
     width: 100%;
+}
+
+.warpButton{
+    width: 100%;
+    text-align: center;
+}
+#button{
+    width: 50%;
+    border-radius: 5px;
+    font-weight: bold;
+}
+@media screen and (min-width: 1000px){
+    .warpInputs{
+        width: 30%;
+    }
 }

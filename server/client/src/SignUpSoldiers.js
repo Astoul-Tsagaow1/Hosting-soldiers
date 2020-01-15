@@ -43,7 +43,7 @@ export default class SignUpSoldiers extends Component{
                         <input className="password-item inputs" type="password" placeholder="Enter password" onChange = {(e)=>{
                             password = e.target.value;
                         }}></input>
-                        <input className="password-item inputs" type="password" placeholder="Enter password" onChange = {(e)=>{
+                        <input className="password-item inputs" type="password" placeholder="Confirm password" onChange = {(e)=>{
                             confirmPassword = e.target.value;
                         }}></input>
                     </div>
@@ -55,18 +55,21 @@ export default class SignUpSoldiers extends Component{
                     </div>
     
                     <div>
-                        Lone soldier:<input className=" inputs" type="checkbox"></input>
+                        Lone soldier:<input className=" inputs" type="checkbox" ></input>
                     </div>
                       
-                    <div>
-                 
-
+                    <div className = "warpButton">
                        <button onClick = {()=>{
+                           if(password == confirmPassword){
                             this.props.sendSoldierInfo(name,lastName,age,quite,identityNumber,email,phone,password,address,loneSoldier);   
-                       }}>send</button>
+                           }
+                           else{
+                            console.log('Password not same!');
+                           }
+                       }} id = "button">send</button>
                     </div>
     
-                    {/* warp all inp uts */}
+                    {/* warp all inputs */}
                 </div>
                 {/* warp for position */}
             </div>
