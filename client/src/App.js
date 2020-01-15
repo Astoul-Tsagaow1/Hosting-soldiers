@@ -11,13 +11,13 @@ import NavbaR from './Navbar'
 
 class App extends Component {
 
-  state = { soldier: {} , family: [] , reqSoldiers:false,reqFamily:false ,post:false };
+  state = { soldier: {} , family: [] , reqSoldiers:false , reqFamily:false , post:false };
   obj = {name:"astoul"}
 
   newSoldier = (nameArg, lastNameArg, ageArg, quiteArg, identityNumberArg, emailArg, phoneArg, passwordArg, addressArg, loneSoldierArg) => {
     let ojbSoldiers = {
-      name: nameArg, lastName: lastNameArg, age: ageArg, quite: quiteArg, identityNumber: identityNumberArg,
-      email: emailArg, phone: phoneArg, password: passwordArg, address: addressArg, loneSoldier: loneSoldierArg
+      name: nameArg, lastName: lastNameArg, age: Number(ageArg), quite: quiteArg, identityNumber: Number(identityNumberArg),
+      email: emailArg, phone: Number(phoneArg), password: passwordArg, address: addressArg, loneSoldier: loneSoldierArg
     }
     this.setState({ soldier: ojbSoldiers , reqSoldiers:true});
   }
@@ -51,8 +51,6 @@ class App extends Component {
   render() {
 
     if(this.state.reqSoldiers){
-      console.log(this.state.soldier , "statae");
-   
       axios.post('/soldier',this.state.soldier)
     .then(function (response) {
       console.log(response.data);

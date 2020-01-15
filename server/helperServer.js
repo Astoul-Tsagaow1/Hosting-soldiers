@@ -15,12 +15,12 @@ function findSoldiers(req,res){
         dbo.collection(soldiersCollection).findOne({serchEmail}, function(err, emailExist) {
           if (err) throw err;
           
-          if (!emailExist) {
-            insertSoldiers();
-           res.status(201).send({new:true});
+          if (emailExist == false) {
+            insertSoldiers(req);
+            res.status(201).send({new:true});
           }
           else {
-            console.log('user not found');
+           
             res.status(201).send({new:false});
           }
         });
@@ -29,12 +29,12 @@ function findSoldiers(req,res){
 }
 
 
-function insertSoldiers(){
+function insertSoldiers(req){
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
         const dbo = db.db(mydb);
         const myobj = req.body;
-        dbo.collection(soldiersCollection).insertOne(myobj, function(err, res) {
+        dbo.collection(soldiersCollection).insertOne({myobj}, function(err, res) {
           if (err) throw err;
           console.log("1 document inserted");
           db.close();
