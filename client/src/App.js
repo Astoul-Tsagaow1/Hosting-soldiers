@@ -14,13 +14,13 @@ class App extends Component {
   state = { soldier: {} , family: [] , reqSoldiers:false , reqFamily:false , post:false };
   obj = {name:"astoul"}
 
-  newSoldier = (nameArg, lastNameArg, ageArg, quiteArg, identityNumberArg, emailArg, phoneArg, passwordArg, addressArg, loneSoldierArg) => {
-    let ojbSoldiers = {
-      name: nameArg, lastName: lastNameArg, age: Number(ageArg), quite: quiteArg, identityNumber: Number(identityNumberArg),
-      email: emailArg, phone: Number(phoneArg), password: passwordArg, address: addressArg, loneSoldier: loneSoldierArg
-    }
-    this.setState({ soldier: ojbSoldiers , reqSoldiers:true});
-  }
+  // newSoldier = (nameArg, lastNameArg, ageArg, quiteArg, identityNumberArg, emailArg, phoneArg, passwordArg, addressArg, loneSoldierArg) => {
+  //   let ojbSoldiers = {
+  //     name: nameArg, lastName: lastNameArg, age: Number(ageArg), quite: quiteArg, identityNumber: Number(identityNumberArg),
+  //     email: emailArg, phone: Number(phoneArg), password: passwordArg, address: addressArg, loneSoldier: loneSoldierArg
+  //   }
+  //   this.setState({ soldier: ojbSoldiers , reqSoldiers:true});
+  // }
   
  
   // NewFamily = (FamilyNameArg, EmailArg, PhoneNumberArg, CityArg, NumberSoldersHostArg, PasswordArg, AboutFamilyArg) => {
