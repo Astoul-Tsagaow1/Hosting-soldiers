@@ -44,8 +44,17 @@ export default class SignUpSoldiers extends Component{
         axios.post('/soldiers' , {soldierObj})
         .then(res => {
             alert("soldier");
-            console.log(res.data);
+            if(res.status == 201){
+               console.log("Welcome to your page") 
+            }
+            else{
+                console.log(`This email : ${res.data.email} allredy exsit`);
+            }
+            
         })
+        .catch(err =>{
+            console.log(err)
+        } )
     }
     render(){
         
