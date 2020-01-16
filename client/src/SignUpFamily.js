@@ -29,19 +29,29 @@ export default class SignUpFamily extends Component {
         console.log(event.target.fname.value);
         const Familyobj = {
             familyname: this.state.fname,
-            familyemail: this.state.femail,
+            email: this.state.femail,
             familyPhonNumber: this.state.fPhonNumber,
             familyNumberSoldiersHosts: this.state.fNumberSoldiersHosts,
             familyPassword: this.state.fPassword,
             familyConfirmePassword: this.state.ConfirmePassword,
             familyCity: this.state.fCity
         }
-        console.log(Familyobj);
         axios.post('/family', { Familyobj })
             .then(response => {
                 alert("family")
-                console.log(response);
-                console.log(response.data);
+              if (response.status == 201 ) {
+                  console.log(response.data , "welcome to your login page");
+                  
+              }
+              else{
+                   console.log(response.data.email,"is exsit"); 
+              }
+              
+            })
+            .catch(err =>{
+
+                console.log(err);
+                
             })
     }
     render() {

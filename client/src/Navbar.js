@@ -5,7 +5,7 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
 export default function NavbaR() {
     return (
         <div className="Navbar">
-               <Navbar navbar bg-transparent fixed="top">
+               <Navbar navbar bg="light" fixed="top" navbar="true">
             <Navbar.Brand href="#home"><img src="https://img.icons8.com/color/48/000000/camo-cream.png(2 kB)
 https://img.icons8.com/color/48/000000/camo-cream.png
 "/></Navbar.Brand>
