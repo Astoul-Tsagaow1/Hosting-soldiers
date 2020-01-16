@@ -42,11 +42,16 @@ export default class SignUpFamily extends Component {
                 alert("family")
               if (response.status == 201 ) {
                   console.log(response.data , "welcome to your login page");
-                //   <Redirect to='/login' />
+                  this.props.UserRegister(true);
+                 console.log("before redirect");
+                 
+                return  <Redirect to='/FamilyPage' />;
+
                   
               }
               else{
                    console.log(response.data.email,"is exsit"); 
+
               }
               
             })
