@@ -2,7 +2,7 @@ import React from 'react'
 import { Nav, Navbar, NavItem } from "react-bootstrap";
 
 
-export default function NavbaR() {
+export default function NavBarBeforeRegistration() {
     return (
         <div className="Navbar">
                <Navbar navbar bg="light" fixed="top" navbar="true">

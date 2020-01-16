@@ -7,12 +7,12 @@ import PageNotFound from './PageNotFound'
 import Home from './Home'
 import SignUpSoldiers from './SignUpSoldiers'
 import SignUpFamily from './SignUpFamily'
-import NavbaR from './Navbar'
+import NavBarBeforeRegistration from './Navbar'
+// import FamilyName from './familyPage'
 
 class App extends Component {
 
-  state = { soldier: {} , family: [] , reqSoldiers:false , reqFamily:false , post:false };
-  obj = {name:"astoul"}
+  state = { ChangeNabBar:false };
 
   // newSoldier = (nameArg, lastNameArg, ageArg, quiteArg, identityNumberArg, emailArg, phoneArg, passwordArg, addressArg, loneSoldierArg) => {
   //   let ojbSoldiers = {
@@ -34,16 +34,11 @@ class App extends Component {
   // }
 
 
-  
-  handleSubmit = event => {
-    event.preventDefault();
- 
+ UserRegister = (arg)=>{
 
-    console.log(event);
-    
-   
-  }
+ this.setState({ChangeNabBar:arg})
 
+ }
 
 
 
@@ -63,12 +58,13 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-
-          <NavbaR />
+           
+           {this.state.ChangeNabBar ? "" :<NavBarBeforeRegistration />}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/SignUpSoldiers" render={() => (<SignUpSoldiers sendSoldierInfo={this.newSoldier} />)} />
             <Route exact path="/SignUpFamily" render={() => {return <SignUpFamily add={this.NewFamily}  send={this.handleSubmit}/> }} />
+            {/* <Route exact path="/FamilyPage" render={() => {return <FamilyName add={this.NewFamily}  send={this.handleSubmit}/> }} /> */}
             <Route exact component={PageNotFound} />
           </Switch>
         </div>

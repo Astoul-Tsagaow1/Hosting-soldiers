@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './SignUpFamily.css'
+import { Redirect } from 'react-router-dom'
 export default class SignUpFamily extends Component {
     state = {}
     constructor(props) {
@@ -41,6 +42,7 @@ export default class SignUpFamily extends Component {
                 alert("family")
               if (response.status == 201 ) {
                   console.log(response.data , "welcome to your login page");
+                //   <Redirect to='/login' />
                   
               }
               else{
