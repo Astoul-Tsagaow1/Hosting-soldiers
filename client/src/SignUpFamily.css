@@ -1,12 +1,56 @@
 *{
     margin: 0;
-    padding: 0;
+    padding: 0; 
+       box-sizing: border-box;
 }
-.SignUp-Family-Form{
-    text-align: center;
-    border: 1px solid black;
-
-}
-input:focus {
-    border: 3px solid rgb(143, 142, 142);
+body {
+    font-family: Arial;
+    font-size: 17px;
+    padding: 8px;
   }
+  
+  
+  .row {
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+  }
+  
+  .col-25 {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+  }
+  
+  .col-50 {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+  }
+  
+  .col-75 {
+    -ms-flex: 75%; /* IE10 */
+    flex: 75%;
+  }
+input[type=text],input[type=email],input[type=number],input[type=password] {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    z-index: 2;
+  }
+label {
+    margin-bottom: 10px;
+    display: block;
+  }
+  .container {
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    background-color: transparent;
+    background-image: url(https://cdn.pixabay.com/photo/2012/03/03/23/06/backdrop-21534_960_720.jpg);
+     /* filter: blur(2px); */
+  }
+  .col-25,.col-50,.col-75 {
+  padding: 0 16px;
+}
