@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom'
 import './SignUpSoldiers.css';
 export default class SignUpSoldiers extends Component{
     constructor(props){
@@ -15,7 +16,8 @@ export default class SignUpSoldiers extends Component{
              password:"",
              confirmPassword:"",
              address:"",
-             loneSoldier:""
+             loneSoldier:"",
+             flage: false
         }
         this.handelChange = this.handelChange.bind(this);
         this.handelSubmit = this.handelSubmit.bind(this);
@@ -39,16 +41,18 @@ export default class SignUpSoldiers extends Component{
              password: this.state.password,
              confirmPassword: this.state.confirmPassword,
              address: this.state.address,
-             loneSoldier: this.state.loneSoldier
+             loneSoldier: this.state.loneSoldier  
         }
         axios.post('/soldiers' , {soldierObj})
         .then(res => {
             alert("soldier");
             if(res.status == 201){
-               console.log("Welcome to your page") 
+               console.log(res.data,"Welcome to your page");
+               this.props.UserRegister(true);
+               this.setState({flage:"soldier"});
             }
             else{
-                console.log(`This email : ${res.data.email} allredy exsit`);
+                console.log(res.data.emailExist.email , "allredy exsit");
             }
             
         })
@@ -60,6 +64,7 @@ export default class SignUpSoldiers extends Component{
         
         return (
             <div className="warpFprPOsition">
+                {this.state.flage?<Redirect to = '/SoldiersPage'/>:""}
                 <form className="warpInputs" onSubmit = {this.handelSubmit}>
     
                     <div className="personal-details">

@@ -10,6 +10,7 @@ import SignUpFamily from './SignUpFamily'
 import NavBarBeforeRegistration from './Navbar'
 import FamilyNavBar from './FamilyNavBar'
 import FamilyPage from './FamilyPage'
+import SoldiersPage from './SoldiersPage';
 
 class App extends Component {
 
@@ -44,28 +45,18 @@ class App extends Component {
 
 
 
-  render() {
-
-    if(this.state.reqSoldiers){
-      axios.post('/soldier',this.state.soldier)
-    .then(function (response) {
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-    }
-   
+  render() { 
     return (
       <BrowserRouter>
         <div className="App">
            
-           {this.state.ChangeNabBar ? <FamilyNavBar/> :<NavBarBeforeRegistration />}
+           {!this.state.ChangeNabBar ?  <NavBarBeforeRegistration/> : <FamilyNavBar soldiersOrFamily = {this.state.ChangeNabBar}/>}
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/SignUpSoldiers" render={() => (<SignUpSoldiers sendSoldierInfo={this.newSoldier} />)} />
+            <Route exact path="/SignUpSoldiers" render={() => (<SignUpSoldiers UserRegister={this.UserRegister} />)} />
             <Route exact path="/SignUpFamily" render={() => {return <SignUpFamily  UserRegister={this.UserRegister}/> }} />
             <Route exact path="/FamilyPage" render={() => {return <FamilyPage /> }} />
+            <Route exact path="/SoldiersPage" render={() => {return <SoldiersPage /> }} />
             <Route exact component={PageNotFound} />
           </Switch>
         </div>

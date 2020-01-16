@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './SignUpFamily.css'
+import './SignUpFamily.css';
 import { Redirect } from 'react-router-dom'
 export default class SignUpFamily extends Component {
     state = {}
@@ -15,6 +15,7 @@ export default class SignUpFamily extends Component {
             ConfirmePassword: "",
             FamilyDescriptionvlue: "",
             fCity: "",
+            flage: false
         }
         this.Hendelchange = this.Hendelchange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -40,30 +41,23 @@ export default class SignUpFamily extends Component {
         axios.post('/family', { Familyobj })
             .then(response => {
                 alert("family")
-              if (response.status == 201 ) {
-                  console.log(response.data , "welcome to your login page");
-                  this.props.UserRegister(true);
-                 console.log("before redirect");
-                 
-                return  <Redirect to='/FamilyPage' />;
-
-                  
-              }
-              else{
-                   console.log(response.data.email,"is exsit"); 
-
-              }
-              
+                if (response.status == 201) {
+                    console.log(response.data, "welcome to your login page");
+                    this.props.UserRegister(true);
+                    this.setState({ flage: "family" });
+                }
+                else {
+                    console.log(response.data.emailExist.email, "is exsit");
+                }
             })
-            .catch(err =>{
-
+            .catch(err => {
                 console.log(err);
-                
             })
     }
     render() {
         return (
             <div className="row">
+                {this.state.flage ? <Redirect to='/FamilyPage' /> : ""}
                 <div className="col-75">
                     <div className="bg-image"></div>
                     <div className="container">
