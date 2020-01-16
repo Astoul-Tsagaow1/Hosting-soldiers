@@ -48,7 +48,7 @@ label {
     border: 1px solid lightgrey;
     border-radius: 3px;
     background-color: transparent;
-    background-image: url(https://cdn.pixabay.com/photo/2012/03/03/23/06/backdrop-21534_960_720.jpg);
+    /* background-image: url(https://cdn.pixabay.com/photo/2012/03/03/23/06/backdrop-21534_960_720.jpg); */
      /* filter: blur(2px); */
   }
   .col-25,.col-50,.col-75 {

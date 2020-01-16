@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 const helperServer = require('./helperServer');
+const soldiersCollection = 'soldiers'
+const FamliysCollection ="families"
 
 
 app.get("/api", (req, res) => {
@@ -15,14 +17,14 @@ app.post("/soldier",(req,res) => {
   let newObj = req.body;
   console.log(newObj , '------------post soldier')
   console.log('got req post in server')
-  helperServer.findSoldiers(req,res)
+  helperServer.FindAndInsertUsers(req,res,soldiersCollection)
 });
  
 
 app.post("/family",(req,res)=>{
-  console.log("this is the family");
-  console.log(req.body);
-  res.status(201).send(req.body)
+ 
+  helperServer.FindAndInsertUsers(req,res,FamliysCollection)
+  
 })
 
  
