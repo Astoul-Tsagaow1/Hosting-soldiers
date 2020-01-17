@@ -11,7 +11,7 @@ function FindAndInsertUsers(req,res,collectionARG){
   let serchEmail ;
   let ResponseFromFindEmail;
   if(collectionARG == "soldiers"){
-   serchEmail = req.body.soldiersObj.email;
+   serchEmail = req.body.soldierObj.email;
   }
   else{
     serchEmail = req.body.Familyobj.email;
@@ -35,8 +35,10 @@ function FindAndInsertUsers(req,res,collectionARG){
           }
           else {
            console.log("emailExist");
-           ResponsefromFindEmail = emailExist;
-            res.status(204).send(ResponsefromFindEmail);
+           ResponsefromFindEmail = {...emailExist};
+
+           console.log(ResponsefromFindEmail , "res from findOne");
+            res.json({emailExist});
           }
         }));
         
@@ -52,7 +54,7 @@ function InsertUsers(req,collectionARG){
        if (collectionARG == "soldiers") {
          console.log("insert new soldier");
          
-        myobj = req.body.soldiersObj;
+        myobj = req.body.soldierObj;
        }
        else{
         console.log("insert new Family");

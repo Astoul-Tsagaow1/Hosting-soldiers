@@ -13,7 +13,7 @@ app.get("/api", (req, res) => {
 });
 
 
-app.post("/soldier",(req,res) => {
+app.post("/soldiers",(req,res) => {
   let newObj = req.body;
   console.log(newObj , '------------post soldier')
   console.log('got req post in server')

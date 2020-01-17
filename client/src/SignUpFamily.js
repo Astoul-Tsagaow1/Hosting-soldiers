@@ -74,6 +74,7 @@ export default class SignUpFamily extends Component {
     render() {
         return (
             <div className="row">
+                {this.state.flage ? <Redirect to='/FamilyPage' /> : ""}
                 <div className="col-75">
                     <div className="bg-image"></div>
                     <div className="container">
