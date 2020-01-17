@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './SignUpFamily.css'
+import './SignUpFamily.css';
 import { Redirect } from 'react-router-dom'
+
+// import { Redirect } from 'react-router-dom'
 export default class SignUpFamily extends Component {
     state = {}
     constructor(props) {
@@ -15,6 +17,7 @@ export default class SignUpFamily extends Component {
             ConfirmePassword: "",
             FamilyDescriptionvlue: "",
             fCity: "",
+            falg : true
         }
         this.Hendelchange = this.Hendelchange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -40,25 +43,32 @@ export default class SignUpFamily extends Component {
         axios.post('/family', { Familyobj })
             .then(response => {
                 alert("family")
-              if (response.status == 201 ) {
-                  console.log(response.data , "welcome to your login page");
-                  this.props.UserRegister(true);
-                 console.log("before redirect");
-                 
-                return  <Redirect to='/FamilyPage' />;
+                if (response.status == 201) {
+                    console.log(response.data, "welcome to your login page");
+                    this.props.UserRegister(true);
+                    console.log("before redirect");
+                    //  let loggedIn = ;
+                    // return <Redirect to='/FamilyPage' />;
+                    // <Route exact path="/">
+                    // if (this.state.falg === true) {
+                    //     console.log("insideredirect");
+                        
+                    //  return   <Redirect to="/FamilyPage" />
+                    // }
 
-                  
-              }
-              else{
-                   console.log(response.data.email,"is exsit"); 
+                    // // </Route>
 
-              }
-              
+                }
+                else {
+                    console.log(response.data.email, "is exsit");
+
+                }
+
             })
-            .catch(err =>{
+            .catch(err => {
 
                 console.log(err);
-                
+
             })
     }
     render() {
