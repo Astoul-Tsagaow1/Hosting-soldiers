@@ -14,7 +14,9 @@ import SoldiersPage from './SoldiersPage';
 class App extends Component {
 
   state = { ChangeNabBar:false , falg:false };
-
+  UserRegister = (arg)=>{
+   this.setState({ChangeNabBar:arg});
+  }
   render() {
     return (
       <BrowserRouter>

@@ -46,6 +46,7 @@ export default class SignUpFamily extends Component {
                 if (response.status == 201) {
                     console.log(response.data, "welcome to your login page");
                     this.props.UserRegister(true);
+                    this.setState({flage:'FamilyPage'});
                     console.log("before redirect");
                     //  let loggedIn = ;
                     // return <Redirect to='/FamilyPage' />;
