@@ -17,7 +17,9 @@ export default class SignUpFamily extends Component {
             ConfirmePassword: "",
             FamilyDescriptionvlue: "",
             fCity: "",
-            falg : true
+            falg : true,
+            fromDate:"",
+            untilDate:""
         }
         this.Hendelchange = this.Hendelchange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -38,28 +40,21 @@ export default class SignUpFamily extends Component {
             familyNumberSoldiersHosts: this.state.fNumberSoldiersHosts,
             familyPassword: this.state.fPassword,
             familyConfirmePassword: this.state.ConfirmePassword,
-            familyCity: this.state.fCity
+            familyCity: this.state.fCity,
+            fromDate:this.state.fromDate,
+            untilDate:this.state.untilDate
         }
+
+        localStorage.setItem('Email', this.state.femail);
         axios.post('/family', { Familyobj })
             .then(response => {
                 alert("family")
                 if (response.status == 201) {
                     console.log(response.data, "welcome to your login page");
                     this.props.UserRegister(true);
-                    
                     this.setState({flage:'FamilyPage'});
 
                     console.log("before redirect");
-                    //  let loggedIn = ;
-                    // return <Redirect to='/FamilyPage' />;
-                    // <Route exact path="/">
-                    // if (this.state.falg === true) {
-                    //     console.log("insideredirect");
-                        
-                    //  return   <Redirect to="/FamilyPage" />
-                    // }
-
-                    // // </Route>
 
                 }
                 else {
@@ -77,7 +72,7 @@ export default class SignUpFamily extends Component {
     render() {
         return (
             <div className="row">
-                {this.state.flage ? <Redirect to='/FamilyPage' /> : ""}
+                {this.state.flage ? <Redirect to='/FamilyPage'  /> : ""}
                 <div className="col-75">
                     <div className="bg-image"></div>
                     <div className="container">
@@ -85,30 +80,30 @@ export default class SignUpFamily extends Component {
                             <div className="row">
                                 <div className="col-50">
                                     <h1>Family Form</h1>
-                                    <label htmlFor="fname"> Family-Name :
+                                    <label htmlFor="fname"> Family-Name : </label><br />
                  <input value={this.state.fname} name="fname" type="text" required="required" onChange={this.Hendelchange} /> <br />
-                                    </label><br />
-                                    <label htmlFor="email">  e-mail  :
+                                   
+                                    <label htmlFor="email">  e-mail  :  </label><br />
                  <input value={this.state.femail} name="femail" type="email" required="required" onChange={this.Hendelchange} /> <br />
-                                    </label><br />
-                                    <label htmlFor="Phone-Number">  Phone-Number  :
+                                  
+                                    <label htmlFor="Phone-Number">  Phone-Number  :     </label><br />
                  <input value={this.state.fPhonNumber} name="fPhonNumber" id="Phone-Number" type="number" required="required" onChange={this.Hendelchange} /> <br />
-                                    </label><br />
-                                    <label htmlFor="City"> City :
+                               
+                                    <label htmlFor="City"> City :   </label><br />
                  <input value={this.state.fCity} name="fCity" id="City" type="text" required="required" onChange={this.Hendelchange} /> <br />
-                                    </label><br />
+                                 
                                 </div>
                                 <div className="col-50">
                                     <h1>Family Form</h1>
-                                    <label htmlFor="NumberSoldiers">  Number of soliders you can host :
+                                    <label htmlFor="NumberSoldiers">  Number of soliders you can host :  </label><br />
                    <input value={this.state.fNumberSoldiersHosts} name="fNumberSoldiersHosts" id="NumberSoldiers" type="number" required="required" onChange={this.Hendelchange} /> <br />
-                                    </label><br />
-                                    <label htmlFor="Password">   Password :
+                                  
+                                    <label htmlFor="Password">   Password : </label><br />
                    <input value={this.state.fPassword} name="fPassword" type="Password" id="Password" required="required" onChange={this.Hendelchange} /> <br />
-                                    </label><br />
-                                    <label htmlFor=" ConfirmePassword ">  Confirme - Password :
+                                   
+                                    <label htmlFor=" ConfirmePassword ">  Confirme - Password :  </label><br />
                    <input value={this.state.ConfirmePassword} name="ConfirmePassword" type="Password" id="ConfirmePassword" required="required" onChange={this.Hendelchange} /> <br />
-                                    </label><br />
+                                  
                                     {/* <textarea value={this.state.FamilyDescriptionvlue} name="FamilyDescription" id="Family-Description" name="Family_Description" placeholder="About the family.." onChange={this.Hendelchange}></textarea><br /> */}
                                     <button required="required" type="submit"  > Submit </button>
                                     {/* <div class="row">

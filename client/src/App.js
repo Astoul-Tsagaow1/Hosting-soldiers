@@ -13,10 +13,11 @@ import SoldiersPage from './SoldiersPage';
 
 class App extends Component {
 
-  state = { ChangeNabBar:false , falg:false };
+  state = { ChangeNabBar:false , falg:false};
   UserRegister = (arg)=>{
    this.setState({ChangeNabBar:arg});
   }
+
   render() {
     return (
       <BrowserRouter>
@@ -25,8 +26,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/SignUpSoldiers" render={() => (<SignUpSoldiers UserRegister={this.UserRegister} />)} />
-            <Route exact path="/SignUpFamily" render={() => {return <SignUpFamily  UserRegister={this.UserRegister}/> }} />
-            <Route exact path="/FamilyPage" render={() => {return <FamilyPage /> }} />
+            <Route exact path="/SignUpFamily" render={() => {return <SignUpFamily  UserRegister={this.UserRegister} /> }} />
+            <Route exact path="/FamilyPage" render={() => {return <FamilyPage/> }} />
             <Route exact path="/SoldiersPage" render={() => {return <SoldiersPage /> }} />
             <Route exact component={PageNotFound} />
           </Switch>
