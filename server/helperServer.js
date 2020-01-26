@@ -6,6 +6,7 @@ const mydb = 'soldiersHosting';
 
 
 module.exports.FindAndInsertUsers = FindAndInsertUsers;
+module.exports.updateDate = updateDate;
 
 function FindAndInsertUsers(req,res,collectionARG){
   let serchEmail ;
@@ -71,6 +72,19 @@ function InsertUsers(req,collectionARG){
 }
 
 // === update 
+function updateDate(req,res,collectionARG){
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db(mydb);
+    var myquery = { email: req.body.CurrentEmail };
+    var newvalues = {$set: {fromDate: req.body.fromDate , untilDate:req.body.untilDate} };
+    dbo.collection(collectionARG).updateOne(myquery, newvalues, function(err, res) {
+      if (err) throw err;
+      console.log("1 document updated");      
+      db.close();
+    });
+  });
+}
 
 
 

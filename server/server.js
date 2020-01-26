@@ -7,10 +7,7 @@ const soldiersCollection = 'soldiers'
 const FamliysCollection ="families"
 
 
-const mongo = require('mongodb');
-const MongoClient = mongo.MongoClient;
-const ObjectID = mongo.ObjectID;
-const  url = "mongodb://localhost:27017/";
+
 
 app.get("/api", (req, res) => {
   console.log("root is accessed");
@@ -25,6 +22,15 @@ app.post("/soldiers",(req,res) => {
   helperServer.FindAndInsertUsers(req,res,soldiersCollection)
 });
  
+
+app.post("/soldierDate",(req,res)=>{
+  console.log(req.body , "this is date soldier");
+  helperServer.updateDate(req , res , soldiersCollection);
+
+})
+
+
+
 // =============================== Familys 
 app.post("/family",(req,res)=>{
  
@@ -33,24 +39,8 @@ app.post("/family",(req,res)=>{
 })
 app.post("/datefamily",(req,res)=>{
 
-
-  console.log(req.body , "this is date ");
-  
-
-  MongoClient.connect(url, function(err, db) {
-    if (err) throw err;
-    var dbo = db.db("soldiersHosting");
-    var myquery = { email: req.body.CurrentAimail };
-    var newvalues = {$set: {fromDate: req.body.from , untilDate:req.body.Until} };
-    dbo.collection("families").updateOne(myquery, newvalues, function(err, res) {
-      if (err) throw err;
-      console.log("1 document updated");
-      // console.log(res);
-      
-      db.close();
-    });
-  });
-
+  console.log(req.body , "this is date family");
+  helperServer.updateDate(req , res , FamliysCollection);
 })
 
 

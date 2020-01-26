@@ -30,7 +30,11 @@ return (
             untilDate = e.target.value;
         }}></input>
         <button onClick={() => {
-            this.setState({ fromDate: fromDate, untilDate: untilDate, sendRequset: true });
+            // const datefamily = {from:from , Until :Until , CurrentAimail:localStorage.Email}
+            // axios.post("/SoldierDate" ,datefamily ).then(res =>{
+               
+            //  console.log(res,"this is response");
+             
         }}>send</button>
     </div>
 )
