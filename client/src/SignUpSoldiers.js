@@ -43,6 +43,7 @@ export default class SignUpSoldiers extends Component{
              address: this.state.address,
              loneSoldier: this.state.loneSoldier  
         }
+        localStorage.setItem("email", this.state.email);
         axios.post('/soldiers' , {soldierObj})
         .then(res => {
             alert("soldier");
@@ -50,6 +51,8 @@ export default class SignUpSoldiers extends Component{
                console.log(res.data,"Welcome to your page");
                this.props.UserRegister(true);
                this.setState({flage:"soldier"});
+               
+               
             }
             else{
                 console.log(res.data.emailExist.email , "allredy exsit");

@@ -31,8 +31,7 @@ class App extends Component {
             <Route exact component={PageNotFound} />
           </Switch>
         </div>
-      </BrowserRouter>
-    );
+      </BrowserRouter>    );
   }
 }
 export default App;
