@@ -4,19 +4,6 @@ import './SoldiersPage.css';
 import Axios from 'axios';
 export default class SoldiersPage extends Component {
     render() {
-        if (this.state.sendRequset) {
-            axios.get('/soldiersDate')
-                .then(res => {
-                    console.log(res);
-                })
-                .catch(err => {
-                    console.log(err);
-                })
-        }
-        else{
-            
-        }
-  
     let fromDate, untilDate;
 return (
 
