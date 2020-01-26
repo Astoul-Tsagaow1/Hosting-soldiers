@@ -3,7 +3,6 @@ import axios from 'axios';
 import './SoldiersPage.css';
 import Axios from 'axios';
 export default class SoldiersPage extends Component {
-    state = { fromDate: '', untilDate: '', sendRequset: '' }
     render() {
         if (this.state.sendRequset) {
             axios.get('/soldiersDate')
@@ -30,12 +29,12 @@ return (
             untilDate = e.target.value;
         }}></input>
         <button onClick={() => {
-            // const datefamily = {from:from , Until :Until , CurrentAimail:localStorage.Email}
-            // axios.post("/SoldierDate" ,datefamily ).then(res =>{
+            const dateSoldier = {fromDate:fromDate , untilDate :untilDate , CurrentEmail:localStorage.email}
+            axios.post("/SoldierDate" ,dateSoldier ).then(res =>{
                
-            //  console.log(res,"this is response");
+             console.log(res,"this is response");}
              
-        }}>send</button>
+ )}}>send</button>
     </div>
 )
     }
