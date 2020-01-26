@@ -13,9 +13,16 @@ import SoldiersPage from './SoldiersPage';
 
 class App extends Component {
 
-  state = { ChangeNabBar:false , falg:false };
+  state = { ChangeNabBar:false , falg:false ,CurrentFamilyEmail:" ",CurrentSoldiersEmail:""};
   UserRegister = (arg)=>{
    this.setState({ChangeNabBar:arg});
+  }
+
+  getCurrentEmail = (arg)=>{
+     console.log(arg,'arg email');
+     
+    this.setState({CurrentFamilyEmail:arg})
+
   }
   render() {
     return (
@@ -25,8 +32,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/SignUpSoldiers" render={() => (<SignUpSoldiers UserRegister={this.UserRegister} />)} />
-            <Route exact path="/SignUpFamily" render={() => {return <SignUpFamily  UserRegister={this.UserRegister}/> }} />
-            <Route exact path="/FamilyPage" render={() => {return <FamilyPage /> }} />
+            <Route exact path="/SignUpFamily" render={() => {return <SignUpFamily  UserRegister={this.UserRegister} getCurrentFamilyEmail={this.getCurrentEmail} /> }} />
+            <Route exact path="/FamilyPage" render={() => {return <FamilyPage CurrentFamilyEmail={this.state.CurrentEmail} /> }} />
             <Route exact path="/SoldiersPage" render={() => {return <SoldiersPage /> }} />
             <Route exact component={PageNotFound} />
           </Switch>
