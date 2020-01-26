@@ -45,7 +45,7 @@ export default class SignUpFamily extends Component {
             untilDate:this.state.untilDate
         }
 
-        localStorage.setItem('Email', this.state.femail);
+        localStorage.setItem('email', this.state.femail);
         axios.post('/family', { Familyobj })
             .then(response => {
                 alert("family")
