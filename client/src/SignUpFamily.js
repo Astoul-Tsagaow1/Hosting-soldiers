@@ -46,6 +46,7 @@ export default class SignUpFamily extends Component {
         }
 
         localStorage.setItem('email', this.state.femail);
+        localStorage.setItem('namfamily', this.state.fname);
         axios.post('/family', { Familyobj })
             .then(response => {
                 alert("family")
@@ -73,13 +74,13 @@ export default class SignUpFamily extends Component {
         return (
             <div className="blurred-bg-container">
                 {this.state.flage ? <Redirect to='/FamilyPage'  /> : ""}
+                 <h1 className="Sign-up-FamilyPage">Sign up</h1>
                 <div className="content">
-                  
+                 
                     <div className="text">
                         <form onSubmit={this.handleSubmit}>
                             <div className="row">
                                 <div className="col-50">
-                                    <h1>Family Form</h1>
                                     <label htmlFor="fname"> Family-Name : </label><br />
                  <input value={this.state.fname} name="fname" type="text" required="required" onChange={this.Hendelchange} /> <br />
                                    
@@ -94,7 +95,6 @@ export default class SignUpFamily extends Component {
                                  
                                 </div>
                                 <div className="col-50">
-                                    <h1>Family Form</h1>
                                     <label htmlFor="NumberSoldiers">  Number of soliders you can host :  </label><br />
                    <input value={this.state.fNumberSoldiersHosts} name="fNumberSoldiersHosts" id="NumberSoldiers" type="number" required="required" onChange={this.Hendelchange} /> <br />
                                   
@@ -105,18 +105,18 @@ export default class SignUpFamily extends Component {
                    <input value={this.state.ConfirmePassword} name="ConfirmePassword" type="Password" id="ConfirmePassword" required="required" onChange={this.Hendelchange} /> <br />
                                   
                                     {/* <textarea value={this.state.FamilyDescriptionvlue} name="FamilyDescription" id="Family-Description" name="Family_Description" placeholder="About the family.." onChange={this.Hendelchange}></textarea><br /> */}
-                                    <button required="required" type="submit"  > Submit </button>
+                                    <button required="required" type="submit" className="submitbutoon"  > Submit </button>
                                     
-                                    {/* <div class="row">
-                                        <div class="col-50">
-                                            <label for="expyear">Exp Year</label>
-                                            <input type="text" id="expyear" name="expyear" placeholder="2018" />
+                                   
+                                        <div className="facebookwrpper">
+                                        <button className="facebookbutton">facebook</button>
                                         </div>
-                                        <div class="col-50">
-                                            <label for="cvv">CVV</label>
-                                            <input type="text" id="cvv" name="cvv" placeholder="352" />
+                                        <div className="gmailwrapper">
+                                            <button className="gmailbutton">Gmail</button>
+                                          
+                                         
                                         </div>
-                                    </div> */}
+                                   
                                 </div>
                             </div>
                         </form>

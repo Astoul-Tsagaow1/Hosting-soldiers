@@ -5,75 +5,61 @@ import axios from 'axios';
 import React, { Component } from 'react';
 
 
-    
-    
-  
 
 
-export default class FamilyPage extends Component { 
- state ={flage:false}
 
-    
-  render() {  
+
+
+export default class FamilyPage extends Component {
+  state = { flage: false,flage2:false }
+  render() {
     console.log("Family page");
-     let from;
+    let from;
     let Until;
+   let FamilyName =  localStorage.namfamily;
     return (
-    
+      <div className="Family-Page-Wrapper">
   
-      <div className="Family-Page">
+        <div className="Family-Page-Form"> 
+        <div className="Family-Page-Inputs-Wrapper">
+        <h1>Welcome FAmily {FamilyName} </h1>
+        when you can host from ?  <input type="date" onChange={(e) => {
+          from = e.target.value;
+        }} />
+        Until ?  <input type="date"  onChange={(e) => {
+          Until = e.target.value;
+        }} />
+        <button className="Family-Page-Buttun" onClick={() => {
+          console.log(from);
+          console.log(Until);
+          
+          if (from == undefined || Until == undefined ){
+            console.log("pless insert date");
+            this.setState({ flage2: true })
+          }
+          else{
 
-      <h1> Welcome to Family page </h1>   
-       
-        when you can host from ?  <input type="date" onChange={(e)=>{
-      
-      from =e.target.value;
-        }}/> 
-      
-      Until ?  <input type="date" onChange={(e)=>{
-      
-      Until =e.target.value;
-      }}/> 
-      
-        <button onClick={()=>{
-             console.log(from , "from"); 
-             console.log(Until , "until"); 
-             console.log(localStorage.email , "current Email");
-             
-      
-            const datefamily = {fromDate:from , untilDate :Until , CurrentEmail:localStorage.email};
-
-
-             axios.post("/datefamily" ,datefamily ).then(res =>{
-
-              console.log(res.status,"this is response");
-
-              // if (res.status === 201) {
-
-              // this.setState({flage: true})
-                
-              // }
-              // else{
-
-              //   console.log("else");
-                
-              // }
-                
-              // console.log(res.status,"this is response");
-
-              
-             }).catch(errr=>{
-
+            const datefamily = { fromDate: from, untilDate: Until, CurrentEmail: localStorage.email };
+            axios.post("/datefamily", datefamily).then(res => {
+              console.log(res.status, "this is response");
+              if (res.status === 201) {
+                this.setState({ flage: true })
+              }
+            }).catch(errr => {
               console.log(errr);
-              
-             })
-             console.log("after axios");
-             
+            })
+            console.log("after axios");
+          }
         }}>Click to send ditails</button>
-
-       {this.state.flage ? <h1>"ffdgdfgdg"</h1> :""}
-
+        {this.state.flage ? <h1 className="Date-is-send">"ffdgdfgdg"</h1> : ""}
+        {this.state.flage2 ? <div className="Date-is-NotEnter"><h1 className="Date-is-NotEnter-msg">Pleses enter date</h1> </div> : ""}
         </div>
+        <div className="Family-Page-blur-background"></div>
+
+
+        </div>  
+
+      </div>
     )
   }
 }

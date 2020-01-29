@@ -94,20 +94,20 @@ body {
  }
  
  .blurred-bg-container {
-   background: url(../src/images/img1.jpg);
+   background: url(../src/images/חיילים.jpg);
    height: 100vh; /* =h */
    background-size: cover;
  }
  
  .content {
    background: inherit;
-   width: 60%; /* =cw */
-   height: 40%; /* =ch */
+   width: 35%; /* =cw */
+   height: 60%; /* =ch */
    border-radius: 8px;
    box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
    position: absolute;
-   top: 50%; /* =ct */
-   left: 40%; /* =cl */
+   top: 55%; /* =ct */
+   left: 50%; /* =cl */
    transform: translate(-50%, -50%);
    overflow: hidden;
  }
@@ -122,10 +122,11 @@ body {
   .blur {
    background: inherit;
    height: 100vh; /* h */
-   width: 166.667%; /* (100/cw) x 100% */
+   width: 166.667%;
    position: absolute;
-   left: 0;
-   top: 0;
+   left:-25%;
+   top: 25%;
+   right: 10%;
    transform: translate(
      -10%,
      -30%
@@ -133,3 +134,97 @@ body {
    filter: blur(15px);
    z-index: -1;
  }
+ input{
+
+  border-radius: 5px;
+  border: none;
+ }
+
+ .col-50{
+
+  margin: 5%;
+
+ }
+ .Sign-up-FamilyPage{
+   position: absolute;
+   top: 13.5%;
+   left: 45%;
+
+ }
+ .facebookwrpper{
+  /* background-color: blue; */
+  position: absolute;
+  left: 5%;
+  color: aliceblue;
+  width: 80%;
+  height: 100%;
+  top: 65%;
+  text-align: center;
+ }
+.facebookbutton{
+  border-radius: 5px;
+  background: rgb(66, 103, 178);
+  color: aliceblue;
+}
+.gmailwrapper{
+position:absolute;
+top: 80%;
+color: aliceblue;
+width: 80%;
+height: 100%;
+left: 5%;
+
+}
+ .gmailbutton{
+  color: aliceblue;
+  border-radius: 5px;
+  text-align: center;
+
+ }
+
+ /* .submitbutoon{
+  height: 20%;
+  border-radius: 5px;
+ } */
+
+
+ .submitbutoon {
+  color: #FFF;
+  transition: all 0.5s;
+  position: relative;
+  height: 20%;
+  border-radius: 5px;
+  background-color: rgb(102, 161, 130);
+}
+.submitbutoon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(255,255,255,0.1);
+  transition: all 0.3s;
+}
+.submitbutoon:hover::before {
+  opacity: 0 ;
+  transform: scale(0.5,0.5);
+}
+.submitbutoon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border: 1px solid rgba(255,255,255,0.5);
+  transform: scale(1.2,1.2);
+}
+.submitbutoon:hover::after {
+  opacity: 1;
+  transform: scale(1,1);
+}
