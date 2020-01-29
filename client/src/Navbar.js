@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function NavBarBeforeRegistration() {
     return (
         <div className="Navbar">
-               <Navbar navbar bg="light" p="0" fixed="top" navbar="true">
+               <Navbar navbar bg="light" p="0" navbar="true">
             <Navbar.Brand href="#home"><img src="https://img.icons8.com/color/48/000000/camo-cream.png(2 kB)
 https://img.icons8.com/color/48/000000/camo-cream.png
 "/></Navbar.Brand>

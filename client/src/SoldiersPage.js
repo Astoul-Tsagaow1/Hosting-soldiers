@@ -3,13 +3,14 @@ import axios from 'axios';
 import './SoldiersPage.css';
 import Axios from 'axios';
 export default class SoldiersPage extends Component {
-    state = {flag:false , resultFamily : ''}
+    state = {flag:false , resultFamily : []}
     render() {
     let fromDate, untilDate,optionsHosting;
-    if(this.state.flag){
-        optionsHosting = this.state.resultFamily.map((obj , index)=>{return(
+    if(this.state.flag == true){
+        let families = [...this.state.resultFamily];
+        optionsHosting = families.map((obj)=>{return(
             <div>
-                <h1>{obj}</h1>
+                <p>{obj.familyname}</p>
            </div>)})
     }
     
@@ -31,12 +32,13 @@ return (
              let resultFamily = res.data;
             
             this.setState({flag:true , resultFamily:resultFamily})
-        }
-
-            
-             
- )}}>send</button>
- {this.state.flag?{optionsHosting}:''}
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+          })
+        }}>send</button>
+ {this.state.flag?optionsHosting:'not'}
  
     </div>
 )

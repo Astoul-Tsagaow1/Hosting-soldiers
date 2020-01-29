@@ -3,14 +3,13 @@ const MongoClient = mongo.MongoClient;
 const ObjectID = mongo.ObjectID;
 const  url = "mongodb://localhost:27017/";
 const mydb = 'soldiersHosting';
-
+const FamliysCollection ="families";
 
 module.exports.FindAndInsertUsers = FindAndInsertUsers;
 module.exports.updateDate = updateDate;
 
 function FindAndInsertUsers(req,res,collectionARG){
   let serchEmail ;
-  let ResponseFromFindEmail;
   if(collectionARG == "soldiers"){
    serchEmail = req.body.soldierObj.email;
   }
@@ -80,13 +79,34 @@ function updateDate(req,res,collectionARG){
     var newvalues = {$set: {fromDate: req.body.fromDate , untilDate:req.body.untilDate} };
     dbo.collection(collectionARG).updateOne(myquery, newvalues, function(err, resx) {
       if (err) throw err;
-      console.log("1 document updated");   
-      res.status(201).send(req.body);
-            db.close();
+      console.log("1 document updated");
+      if(collectionARG == 'datefamily'){
+        res.status(201).send(req.body);
+        return;
+      }
+      else{
+        FindRelevantFamilies(req, res);
+      }
+      db.close();
     });
   });
 }
 
 
 
+function FindRelevantFamilies(req, res) {
+  MongoClient.connect(url, function (err, db) {
+    if (err)
+      throw err;
+    var dbo = db.db(mydb);
+    const myqury = req.body.fromDate;
+    console.log(myqury, 'date req from soldoer');
+    dbo.collection(FamliysCollection).find({ fromDate: req.body.fromDate }).toArray(function (err, result) {
+      if (err)
+        throw err;
+      console.log(result, 'result from db');
+      res.status(201).send(result);
+    });
+  });
+}
 

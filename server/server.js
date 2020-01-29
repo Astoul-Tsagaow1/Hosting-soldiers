@@ -31,19 +31,6 @@ app.post("/soldiers",(req,res) => {
 app.post("/soldierDate",(req,res)=>{
   console.log(req.body , "this is date soldier");
   helperServer.updateDate(req , res , soldiersCollection);
-
-  MongoClient.connect(url, function(err, db) {
-    if (err) throw err;
-    var dbo = db.db(mydb);
-    const myqury = req.body.fromDate;
-    console.log(myqury, 'date req from soldoer');
-    dbo.collection(FamliysCollection).find({fromDate:req.body.fromDate}).toArray(function(err, result){
-      if (err) throw err;
-      console.log(result , 'result from db');
-      res.status(201).send(result);
-      db.close();
-    });
-  });
   
   });
 

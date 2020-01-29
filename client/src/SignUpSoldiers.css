@@ -6,14 +6,14 @@
     position: relative;
     height: 100vh;
     width: 100%;
-    background-image: url(https://www.kan-ashkelon.co.il/wp-content/uploads/2017/05/RBH003-831x555.jpg);
+    background-image: url(../src/images/קצינים.jpg);
     background-size: cover;
     opacity: 0.7;
 }
 .warpInputs{
     position: absolute;
-    top: 45%;
-    left: 50%;
+    top: 50%;
+    left: 51%;
     transform: translate(-50%,-50%);
     border-radius: 5px;
     display: flex;
@@ -102,5 +102,6 @@
 @media screen and (min-width: 1000px){
     .warpInputs{
         width: 30%;
+        top: 48%
     }
 }
