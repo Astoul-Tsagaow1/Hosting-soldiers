@@ -61,6 +61,9 @@ app.post("/datefamily",(req,res)=>{
 
   console.log(req.body , "this is date family");
   helperServer.updateDate(req , res , FamliysCollection);
+
+  console.log(res.status , "this is status");
+  
 })
 
 
