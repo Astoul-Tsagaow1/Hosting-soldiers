@@ -81,8 +81,8 @@ function updateDate(req,res,collectionARG){
     dbo.collection(collectionARG).updateOne(myquery, newvalues, function(err, resx) {
       if (err) throw err;
       console.log("1 document updated");   
-      res.status(201);
-      db.close();
+      res.status(201).send(req.body);
+            db.close();
     });
   });
 }
