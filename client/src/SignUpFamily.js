@@ -71,11 +71,11 @@ export default class SignUpFamily extends Component {
     }
     render() {
         return (
-            <div className="row">
+            <div className="blurred-bg-container">
                 {this.state.flage ? <Redirect to='/FamilyPage'  /> : ""}
-                <div className="col-75">
-                    <div className="bg-image"></div>
-                    <div className="container">
+                <div className="content">
+                  
+                    <div className="text">
                         <form onSubmit={this.handleSubmit}>
                             <div className="row">
                                 <div className="col-50">
@@ -106,6 +106,7 @@ export default class SignUpFamily extends Component {
                                   
                                     {/* <textarea value={this.state.FamilyDescriptionvlue} name="FamilyDescription" id="Family-Description" name="Family_Description" placeholder="About the family.." onChange={this.Hendelchange}></textarea><br /> */}
                                     <button required="required" type="submit"  > Submit </button>
+                                    
                                     {/* <div class="row">
                                         <div class="col-50">
                                             <label for="expyear">Exp Year</label>
@@ -121,7 +122,7 @@ export default class SignUpFamily extends Component {
                         </form>
 
                     </div>
-
+<div className="blur"></div>
                 </div>
             </div>
         )
