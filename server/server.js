@@ -4,8 +4,13 @@ const app = express();
 app.use(express.json());
 const helperServer = require('./helperServer');
 const soldiersCollection = 'soldiers'
-const FamliysCollection ="families"
+const FamliysCollection ="families";
 
+const mongo = require('mongodb');
+const MongoClient = mongo.MongoClient;
+const ObjectID = mongo.ObjectID;
+const  url = "mongodb://localhost:27017/";
+const mydb = 'soldiersHosting';
 
 
 
@@ -27,7 +32,22 @@ app.post("/soldierDate",(req,res)=>{
   console.log(req.body , "this is date soldier");
   helperServer.updateDate(req , res , soldiersCollection);
 
-})
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db(mydb);
+    const myqury = req.body.fromDate;
+    console.log(myqury, 'date req from soldoer');
+    dbo.collection(FamliysCollection).find({fromDate:req.body.fromDate}).toArray(function(err, result){
+      if (err) throw err;
+      console.log(result , 'result from db');
+      res.status(201).send(result);
+      db.close();
+    });
+  });
+  
+  });
+
+
 
 
 

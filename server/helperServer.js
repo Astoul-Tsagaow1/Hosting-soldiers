@@ -78,9 +78,10 @@ function updateDate(req,res,collectionARG){
     var dbo = db.db(mydb);
     var myquery = { email: req.body.CurrentEmail };
     var newvalues = {$set: {fromDate: req.body.fromDate , untilDate:req.body.untilDate} };
-    dbo.collection(collectionARG).updateOne(myquery, newvalues, function(err, res) {
+    dbo.collection(collectionARG).updateOne(myquery, newvalues, function(err, resx) {
       if (err) throw err;
-      console.log("1 document updated");      
+      console.log("1 document updated");   
+      res.status(201);
       db.close();
     });
   });
