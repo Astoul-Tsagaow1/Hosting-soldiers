@@ -74,9 +74,9 @@ export default class SignUpFamily extends Component {
         return (
             <div className="blurred-bg-container">
                 {this.state.flage ? <Redirect to='/FamilyPage'  /> : ""}
-                 <h1 className="Sign-up-FamilyPage">Sign up</h1>
-                <div className="content">
                  
+                <div className="content">
+                 <h1 className="Sign-up-FamilyPage">Sign up</h1>
                     {/* <div className="text"> */}
                         <form className="text" onSubmit={this.handleSubmit}>
                          
@@ -107,16 +107,16 @@ export default class SignUpFamily extends Component {
                                     {/* <textarea value={this.state.FamilyDescriptionvlue} name="FamilyDescription" id="Family-Description" name="Family_Description" placeholder="About the family.." onChange={this.Hendelchange}></textarea><br /> */}
                                     <button required="required" type="submit" className="submitbutoon"  > Submit </button>
                                     
-                                   
-                                        <div className="facebookwrpper">
+                                       {/* <div className="facebookwrpper">
                                         <button className="facebookbutton">facebook</button>
                                         </div>
                                         <div className="gmailwrapper">
                                             <button className="gmailbutton">Gmail</button>
                                           
                                          
-                                        </div>
+                                        </div> */}
                                    
+                                    
                                 </div>
                          
                         </form>

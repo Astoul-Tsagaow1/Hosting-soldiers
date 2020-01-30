@@ -1,0 +1,13 @@
+.main-navBar{
+    color:rgba(100, 100, 100, 0.836) ;
+    padding: 15px;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Lato', sans-serif;
+}
+
+
+.main-navBar:hover{
+
+    font-weight: bold;
+    color:rgb(0, 0, 0) ;
+}

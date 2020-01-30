@@ -1,6 +1,7 @@
 import React from 'react'
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import './nav-bar.css'
 
 
 
@@ -13,11 +14,11 @@ https://img.icons8.com/color/48/000000/camo-cream.png
 "/></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Nav className="mr-auto">
-              <Link  to="/">Home</Link>
-              <Link to="/SignUpSoldiers">SignUp Soldiers</Link>
-              <Link to="/SignUpFamily">SignUp Family</Link>
-              <Link to="/x">Login</Link>
-              <Link to="/x">About</Link>
+              <Link className="main-navBar" to="/">Home</Link>
+              <Link  className="main-navBar" to="/SignUpSoldiers">SignUp Soldiers</Link>
+              <Link  className="main-navBar" to="/SignUpFamily">SignUp Family</Link>
+              <Link  className="main-navBar" to="/x">Login</Link>
+              <Link  className="main-navBar" to="/x">About</Link>
             </Nav>
           </Navbar>
             
