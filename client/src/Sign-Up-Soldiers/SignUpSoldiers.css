@@ -134,6 +134,9 @@
     border-radius: 5px;
     font-weight: bold;
 }
+#buttonSingUpSoldiers{
+    background-color: hotpink;
+}
 .facebook{
     background-color: blue;
     color: white;
@@ -148,4 +151,5 @@
         height: 100%;
         top: 48%
     }
+   
 }

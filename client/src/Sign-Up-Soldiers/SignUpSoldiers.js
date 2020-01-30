@@ -98,7 +98,7 @@ export default class SignUpSoldiers extends Component{
                         <input className="Address inputs" name = "address" value = {this.state.address} type="text" placeholder="address" onChange = {this.handelChange}></input>
                     </div>
     
-                    <div>
+                    <div className = "warpCheckBox">
                         Lone soldier:<input className=" inputs" type="checkbox" ></input>
                     </div>
                       
