@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import './App.css';
 import './Home.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import PageNotFound from './PageNotFound'
+import PageNotFound from './Page-Not-Found/PageNotFound'
 import Home from './Home'
-import SignUpSoldiers from './SignUpSoldiers'
-import SignUpFamily from './SignUpFamily'
-import NavBarBeforeRegistration from './Navbar'
-import FamilyNavBar from './FamilyNavBar'
-import FamilyPage from './FamilyPage'
-import SoldiersPage from './SoldiersPage';
+import SignUpSoldiers from './Sign-Up-Soldiers/SignUpSoldiers'
+import SignUpFamily from './Sign-Up-Family/SignUpFamily'
+import NavBarBeforeRegistration from './Nav-bar/Navbar'
+import FamilyNavBar from './Family-Nav-Bar/FamilyNavBar'
+import FamilyPage from './Family-Page/FamilyPage'
+import SoldiersPage from './Soldiers-Page/SoldiersPage';
 
 class App extends Component {
 

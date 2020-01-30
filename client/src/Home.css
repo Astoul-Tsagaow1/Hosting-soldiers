@@ -1,6 +1,6 @@
 .Home-page{
     background-image: linear-gradient(rgba(0, 0, 0, 0.068), rgba(0, 0, 0, 0.281)) ,url(../src/images/img1.jpg);
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
