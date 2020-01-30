@@ -10,6 +10,33 @@
     background-size: cover;
     opacity: 0.7;
 }
+.contentSoldiers{
+    background: inherit;
+   width: 50%; /* =cw */
+   height: 80%; /* =ch */
+   border-radius: 8px;
+   box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
+   position: absolute;
+   top: 52%; /* =ct */
+   left: 50%; /* =cl */
+   transform: translate(-50%, -50%);
+   overflow: hidden;
+}
+.blurSoldiers{
+    background: inherit;
+    height: 100vh; /* h */
+    width: 166.667%;
+    position: absolute;
+    left:-25%;
+    top: 25%;
+    right: 10%;
+    transform: translate(
+      -10%,
+      -30%
+    ); /* - [cl - (cw/2)] % ,  -[ct - (ch/2)] % */
+    filter: blur(15px);
+    z-index: -1;
+}
 .warpInputs{
     position: absolute;
     top: 50%;
@@ -18,13 +45,14 @@
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    width: 45%;
+    /* width: 1%; */
     height: 400px;
     align-items: center;
     justify-content: space-evenly;
-    background-color: gray;
-    opacity: 0.7;
-    
+    /* background-color: gray; */
+    /* opacity: 0.7; */
+    width: 200px;
+    /* border: solid; */
 }
 .inputs{
     border-radius:5px;
@@ -37,7 +65,8 @@
     justify-content: space-between;
     align-items: center;
     height: 15%;
-    width: 87%;
+    width: 100%;
+    /* border: solid; */
 }
 .personal-details-item{
     height: 50%;
@@ -49,11 +78,13 @@
     justify-content: space-between;
     align-items: center;
     height: 15%;
-    width: 87%;
+    width: 100%;
+    /* border: solid; */
 }
 .military-item{
     height: 50%;
     width: 40%;
+   
 }
 /* contact details */
 .contact-details{
@@ -61,7 +92,8 @@
     justify-content: space-between;
     align-items: center;
     height: 15%;
-    width: 87%;
+    width: 100%;
+    /* border: solid; */
 }
 .contact-details-item{
     height: 50%;
@@ -72,7 +104,8 @@
     justify-content: space-between;
     align-items: center;
     height: 15%;
-    width: 87%;
+    width: 100%;
+    /* border: solid; */
 }
 .password-item{
     height: 50%;
@@ -83,7 +116,8 @@
     justify-content: center;
     align-items: center;
     height: 15%;
-    width: 87%;
+    width: 100%;
+    /* border: solid; */
 }
 .Address{
     height: 50%;
@@ -93,15 +127,25 @@
 .warpButton{
     width: 100%;
     text-align: center;
+    /* border: solid; */
 }
 #button{
     width: 50%;
     border-radius: 5px;
     font-weight: bold;
 }
+.facebook{
+    background-color: blue;
+    color: white;
+}
+.gmail{
+    background-color: red;
+    color: white;
+}
 @media screen and (min-width: 1000px){
     .warpInputs{
-        width: 30%;
+        width: 90%;
+        height: 100%;
         top: 48%
     }
 }

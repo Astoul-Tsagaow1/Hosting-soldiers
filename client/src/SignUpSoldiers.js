@@ -68,6 +68,9 @@ export default class SignUpSoldiers extends Component{
         return (
             <div className="warpFprPOsition">
                 {this.state.flage?<Redirect to = '/SoldiersPage'/>:""}
+                <div className = "contentSoldiers">
+
+                
                 <form className="warpInputs" onSubmit = {this.handelSubmit}>
     
                     <div className="personal-details">
@@ -102,10 +105,16 @@ export default class SignUpSoldiers extends Component{
                     <div className = "warpButton">
                        <button type = "submit" > submit </button>
                     </div>
+                    <button className = "facebook" > Facebook </button>
+                    <button className = "gmail" > Gmail </button>
     
                     {/* warp all inputs */}
                 </form>
                 {/* warp for position */}
+                <div className = "blurSoldiers">
+
+                </div>
+                </div>
             </div>
         )
     }
