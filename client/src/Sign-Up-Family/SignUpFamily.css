@@ -94,7 +94,7 @@ body {
  }
  
  .blurred-bg-container {
-   background: url(../src/images/חיילים.jpg);
+   background: url(../images/חיילים.jpg);
    height: 100vh; /* =h */
    background-size: cover;
  }
@@ -138,6 +138,7 @@ body {
 
   border-radius: 5px;
   border: none;
+  width: 100%;
  }
 
  .col-50{
