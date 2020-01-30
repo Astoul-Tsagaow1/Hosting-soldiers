@@ -112,12 +112,7 @@ body {
    overflow: hidden;
  }
  
-  .text {
-   padding: 16px;
-   background: rgba(255, 255, 255, 0.3);
-   height: 100%;
-   box-sizing: border-box; /* so that padding is included in height */
- }
+
  
   .blur {
    background: inherit;
@@ -141,11 +136,7 @@ body {
   width: 100%;
  }
 
- .col-50{
 
-  margin: 5%;
-
- }
  .Sign-up-FamilyPage{
    position: absolute;
    top: 13.5%;
@@ -157,7 +148,7 @@ body {
   position: absolute;
   left: 5%;
   color: aliceblue;
-  width: 80%;
+  width: 90%;
   height: 100%;
   top: 65%;
   text-align: center;
@@ -171,7 +162,7 @@ body {
 position:absolute;
 top: 80%;
 color: aliceblue;
-width: 80%;
+width: 90%;
 height: 100%;
 left: 5%;
 
@@ -228,4 +219,39 @@ left: 5%;
 .submitbutoon:hover::after {
   opacity: 1;
   transform: scale(1,1);
+}
+
+
+
+.text {
+  padding: 16px;
+  /* background: rgba(255, 255, 255, 0.3); */
+  height: 100%;
+  box-sizing: border-box; /* so that padding is included in height */
+  border: solid 1px darkorange;
+  height: 50%;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+
+  
+}
+
+.left-side-form{
+  border:solid;
+  height: 70%;
+  /* flex: 50%; */
+  width: 45%;
+
+ 
+
+}
+
+.right-side-form{
+  border:solid 1px red;
+  height: 70%;
+  /* flex: 50%; */
+  width: 45%;
+
 }

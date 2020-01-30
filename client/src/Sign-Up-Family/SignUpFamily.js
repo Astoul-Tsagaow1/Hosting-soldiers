@@ -77,10 +77,10 @@ export default class SignUpFamily extends Component {
                  <h1 className="Sign-up-FamilyPage">Sign up</h1>
                 <div className="content">
                  
-                    <div className="text">
-                        <form onSubmit={this.handleSubmit}>
-                            <div className="row">
-                                <div className="col-50">
+                    {/* <div className="text"> */}
+                        <form className="text" onSubmit={this.handleSubmit}>
+                         
+                                <div className="col-50 right-side-form">
                                     <label htmlFor="fname"> Family-Name : </label><br />
                  <input value={this.state.fname} name="fname" type="text" required="required" onChange={this.Hendelchange} /> <br />
                                    
@@ -94,7 +94,7 @@ export default class SignUpFamily extends Component {
                  <input value={this.state.fCity} name="fCity" id="City" type="text" required="required" onChange={this.Hendelchange} /> <br />
                                  
                                 </div>
-                                <div className="col-50">
+                                <div className="col-50 left-side-form">
                                     <label htmlFor="NumberSoldiers">  Number of soliders you can host :  </label><br />
                    <input value={this.state.fNumberSoldiersHosts} name="fNumberSoldiersHosts" id="NumberSoldiers" type="number" required="required" onChange={this.Hendelchange} /> <br />
                                   
@@ -118,10 +118,10 @@ export default class SignUpFamily extends Component {
                                         </div>
                                    
                                 </div>
-                            </div>
+                         
                         </form>
 
-                    </div>
+                    {/* </div> */}
 <div className="blur"></div>
                 </div>
             </div>
