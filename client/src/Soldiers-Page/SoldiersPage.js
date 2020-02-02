@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './SoldiersPage.css';
+import DisplayMatchingFamilies from '../Display-Matching-Families/DisplayMatchingFamilies';
 import Axios from 'axios';
 export default class SoldiersPage extends Component {
     state = {flag:false , resultFamily : []}
     render() {
     let fromDate, untilDate,optionsHosting;
-    if(this.state.flag == true){
-        let families = [...this.state.resultFamily];
-        optionsHosting = families.map((obj)=>{return(
-            <div>
-                <p>{obj.familyname}</p>
-           </div>)})
-    }
+    // if(this.state.flag == true){
+    //     let families = [...this.state.resultFamily];
+
+    //     // optionsHosting = families.map((obj)=>{return(
+    //     //     <div>
+    //     //         <p>{obj.familyname}</p>
+    //     //    </div>)})
+    // }
     
 return (
 
@@ -38,7 +40,7 @@ return (
             console.log(error);
           })
         }}>send</button>
- {this.state.flag?optionsHosting:'not'}
+ {this.state.flag?<DisplayMatchingFamilies resultMatch = {this.state.resultFamily}/>:'not'} 
  
     </div>
 )
