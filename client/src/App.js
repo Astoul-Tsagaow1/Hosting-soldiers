@@ -38,25 +38,18 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-<<<<<<< HEAD
              
            
-=======
            {this.state.ChangeNabBar ? <NavBarAfterRegistration/> :<NavBarBeforeRegistration />}
->>>>>>> 8a6ddfcaaf8782c1e2573a63ba0479f4d605b60e
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/SignUpSoldiers" render={() => (<SignUpSoldiers UserRegister={this.UserRegister} />)} />
             <Route exact path="/SignUpFamily" render={() => {return <SignUpFamily  UserRegister={this.UserRegister} /> }} />
-<<<<<<< HEAD
             <Route exact path="/FamilyPage" render={() => {return <FamilyPage UserRegister={this.UserRegister}/> }} />
             <Route exact path="/SoldiersPage" render={() => {return <SoldiersPage UserRegister={this.UserRegister}/> }} />
-=======
             <Route exact path="/FamilyPage" render={() => {return <FamilyPage/> }} />
             <Route exact path="/SoldiersPage" render={() => {return <SoldiersPage /> }} />
             <Route exact path="/Login" render={() => {return <Login /> }} />
->>>>>>> 8a6ddfcaaf8782c1e2573a63ba0479f4d605b60e
-            <Route exact component={PageNotFound} />
           </Switch>
         </div>
       </BrowserRouter>    );
