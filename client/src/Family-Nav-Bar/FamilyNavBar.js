@@ -1,18 +1,21 @@
 import React from 'react'
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import './Familynavbar.css'
 
 
-export default function FamilyNavBar(props) {
+export default function NavBarAfterRegistration(props) {
     return (
-        <div className="Navbar">
+        <div className="Navbar NavBarAfterRegistration" >
             <Navbar navbar bg="light"  navbar="true">
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Nav className="mr-auto">
-                    <Link to="/Home">Home</Link>
-                    <Link to="/SignUpSoldiers">History</Link>
-                    <Link to="/SignUpFamily">Setting</Link>
-                    <Link to="/x">About</Link>
+                <Link to="/"><img src="https://img.icons8.com/color/48/000000/camo-cream.png(2 kB)
+https://img.icons8.com/color/48/000000/camo-cream.png
+"/></Link>
+                    <Link to="/">Home</Link>
+                    <Link to="/">History</Link>
+                    <Link to="/">Setting</Link>
+                    <Link to="/">About</Link>
                 </Nav>
             </Navbar>
 

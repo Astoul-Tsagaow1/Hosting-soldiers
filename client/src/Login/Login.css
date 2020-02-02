@@ -1,0 +1,9 @@
+.Login-Wrapper{
+    border: solid;
+    height: 400px;
+}
+
+.Login-Wrapper > input {
+    border: solid;
+    width: 20%;
+}

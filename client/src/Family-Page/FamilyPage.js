@@ -1,15 +1,7 @@
 
 import './FamilyPage.css'
 import axios from 'axios';
-
 import React, { Component } from 'react';
-
-
-
-
-
-
-
 export default class FamilyPage extends Component {
   state = { flage: false,flage2:false }
   render() {
@@ -19,11 +11,11 @@ export default class FamilyPage extends Component {
    let FamilyName =  localStorage.namfamily;
     return (
       <div className="Family-Page-Wrapper">
-  
         <div className="Family-Page-Form"> 
         <div className="Family-Page-Inputs-Wrapper">
-        <h1>Welcome FAmily {FamilyName} </h1>
-        when you can host from ?  <input type="date" onChange={(e) => {
+        <h1>Welcome  {FamilyName} </h1>
+        <h2>When can you host ?</h2>
+        From  ?  <input type="date" onChange={(e) => {
           from = e.target.value;
         }} />
         Until ?  <input type="date"  onChange={(e) => {
@@ -50,8 +42,8 @@ export default class FamilyPage extends Component {
             })
             console.log("after axios");
           }
-        }}>Click to send ditails</button>
-        {this.state.flage ? <h1 className="Date-is-send">"ffdgdfgdg"</h1> : ""}
+        }}>Click to send </button>
+        {this.state.flage ? <p className="Date-is-send">Your date has been sent successfully</p> : ""}
         {this.state.flage2 ? <div className="Date-is-NotEnter"><h1 className="Date-is-NotEnter-msg">Pleses enter date</h1> </div> : ""}
         </div>
         <div className="Family-Page-blur-background"></div>
@@ -62,4 +54,7 @@ export default class FamilyPage extends Component {
       </div>
     )
   }
+//   componentDidMount(){
+//     this.props.UserRegister(true);
+// }
 }
