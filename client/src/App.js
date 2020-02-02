@@ -10,6 +10,7 @@ import NavBarBeforeRegistration from './Main-Nav-bar/Navbar'
 import NavBarAfterRegistration from './Family-Nav-Bar/FamilyNavBar'
 import FamilyPage from './Family-Page/FamilyPage'
 import SoldiersPage from './Soldiers-Page/SoldiersPage';
+import Login from './Login/Login'
 
 class App extends Component {
 
@@ -29,6 +30,7 @@ class App extends Component {
             <Route exact path="/SignUpFamily" render={() => {return <SignUpFamily  UserRegister={this.UserRegister} /> }} />
             <Route exact path="/FamilyPage" render={() => {return <FamilyPage/> }} />
             <Route exact path="/SoldiersPage" render={() => {return <SoldiersPage /> }} />
+            <Route exact path="/Login" render={() => {return <Login /> }} />
             <Route exact component={PageNotFound} />
           </Switch>
         </div>

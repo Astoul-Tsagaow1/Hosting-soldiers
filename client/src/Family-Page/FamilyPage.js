@@ -54,4 +54,7 @@ export default class FamilyPage extends Component {
       </div>
     )
   }
+//   componentDidMount(){
+//     this.props.UserRegister(true);
+// }
 }

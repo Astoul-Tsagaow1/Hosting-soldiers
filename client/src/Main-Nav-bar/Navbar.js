@@ -17,7 +17,7 @@ https://img.icons8.com/color/48/000000/camo-cream.png
               <Link className="main-navBar" to="/">Home</Link>
               <Link  className="main-navBar" to="/SignUpSoldiers">SignUp Soldiers</Link>
               <Link  className="main-navBar" to="/SignUpFamily">SignUp Family</Link>
-              <Link  className="main-navBar" to="/x">Login</Link>
+              <Link  className="main-navBar" to="/Login">Login</Link>
               <Link  className="main-navBar" to="/x">About</Link>
             </Nav>
           </Navbar>
