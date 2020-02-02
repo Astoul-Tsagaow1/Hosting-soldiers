@@ -12,6 +12,7 @@ function FindAndInsertUsers(req,res,collectionARG){
   let serchEmail ;
   if(collectionARG == "soldiers"){
    serchEmail = req.body.soldierObj.email;
+   console.log(serchEmail, "undifind----------------------------");
   }
   else{
     serchEmail = req.body.Familyobj.email;

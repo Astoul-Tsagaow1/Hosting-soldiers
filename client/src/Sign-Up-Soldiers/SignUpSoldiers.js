@@ -16,7 +16,7 @@ export default class SignUpSoldiers extends Component{
              password:"",
              confirmPassword:"",
              address:"",
-             loneSoldier:"",
+             loneSoldier: false,
              flage: false
         }
         this.handelChange = this.handelChange.bind(this);
@@ -24,8 +24,18 @@ export default class SignUpSoldiers extends Component{
     }
 
     handelChange(e){
-        console.log(e.target.value)
-      this.setState({[e.target.name]:e.target.value})
+        console.log(e.target.name);
+        console.log(e.target.value , "value before");
+        let loneSoldier;
+        if(e.target.name == "loneSoldier"){
+            (e.target.value == "false")? loneSoldier = e.target.value = true : loneSoldier = e.target.value = false;
+           console.log( loneSoldier,"value after");
+           this.setState({[e.target.name]:loneSoldier});
+        }
+        else{
+            this.setState({[e.target.name]:e.target.value});
+        }
+       
     }
 
     handelSubmit = event =>{
@@ -44,6 +54,7 @@ export default class SignUpSoldiers extends Component{
              loneSoldier: this.state.loneSoldier  
         }
         localStorage.setItem("email", this.state.email);
+        console.log(soldierObj,"soldier obj---------------------")
         axios.post('/soldiers' , {soldierObj})
         .then(res => {
             alert("soldier");
@@ -63,16 +74,19 @@ export default class SignUpSoldiers extends Component{
             console.log(err)
         } )
     }
+    
     render(){
-        
+        console.log(this.state.loneSoldier,"sate.lonesoldier");
         return (
             <div className="warpFprPOsition">
                 {this.state.flage?<Redirect to = '/SoldiersPage'/>:""}
                 <div className = "contentSoldiers">
 
-                
+               
                 <form className="warpInputs" onSubmit = {this.handelSubmit}>
-    
+                <div className = 'titleSignUp'>
+                    <h2>Sign up</h2>
+                </div>
                     <div className="personal-details">
                         <input className="personal-details-item inputs" name = "name" value = {this.state.name} type="text" placeholder="name" onChange = {this.handelChange}></input>
                         <input className="personal-details-item inputs" name = "lastName" value = {this.state.lastName} type="text" placeholder="last name"  onChange = {this.handelChange}></input>
@@ -99,14 +113,16 @@ export default class SignUpSoldiers extends Component{
                     </div>
     
                     <div className = "warpCheckBox">
-                        Lone soldier:<input className=" inputs" type="checkbox" ></input>
+                        Lone soldier:<input id = "checkBox" className="inputs" name = "loneSoldier" value = {this.state.loneSoldier} type="checkbox" onChange = {this.handelChange}></input>
                     </div>
                       
                     <div className = "warpButton">
-                       <button type = "submit" > submit </button>
+                       <button id = "button" className = "submitbutoon" type = "submit" onChange = {()=>{
+
+                       }}>Submit </button>
                     </div>
-                    <button className = "facebook" > Facebook </button>
-                    <button className = "gmail" > Gmail </button>
+                    {/* <button className = "facebook" > Facebook </button>
+                    <button className = "gmail" > Gmail </button> */}
     
                     {/* warp all inputs */}
                 </form>
