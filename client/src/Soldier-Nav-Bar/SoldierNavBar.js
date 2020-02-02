@@ -11,7 +11,7 @@ export default class SoldierNavBar extends Component {
                     <Link to="/">Home</Link>
                     <Link to="/">History</Link>
                     <Link to="/">Setting</Link>
-                    <Link to="/">About</Link>
+                    <Link to="/">About soldier</Link>
                 </Nav>
             </Navbar>
             </div>

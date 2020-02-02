@@ -6,11 +6,12 @@ import PageNotFound from './Page-Not-Found/PageNotFound'
 import Home from './Home'
 import SignUpSoldiers from './Sign-Up-Soldiers/SignUpSoldiers'
 import SignUpFamily from './Sign-Up-Family/SignUpFamily'
-import NavBarBeforeRegistration from './Main-Nav-bar/Navbar'
-import NavBarAfterRegistration from './Family-Nav-Bar/FamilyNavBar'
+import MainNavBar from './Main-Nav-bar/MainNavBar'
+import FamilyNavBar from './Family-Nav-Bar/FamilyNavBar'
 import FamilyPage from './Family-Page/FamilyPage'
 import SoldiersPage from './Soldiers-Page/SoldiersPage';
 import Login from './Login/Login'
+import SoldierNavBar from './Soldier-Nav-Bar/SoldierNavBar';
 
 class App extends Component {
 
@@ -19,30 +20,29 @@ class App extends Component {
    this.setState({ChangeNabBar:arg});
   }
  
-  // renderSwitch(){
-  //   switch (this.state.ChangeNabBar) {
-  //     case false:
-  //      <NavBarBeforeRegistration />
-  //       break;
-  //       case 'SoldierNav':
-  //        <FamilyNavBar/>
-  //        break;
-  //        case 'FamilyNav':
-  //          <FamilyNavBar/>
-  //       break;
-  //   }
-  // }
+  renderSwitch(arg){
+    switch (arg) {
+      
+      case false:
+         return <MainNavBar/>
+      
+        case 'SoldierNavBar':
+          return <SoldierNavBar/>
+  
+         case 'FamilyNav':
+          return <FamilyNavBar/>
+      
+    }
+  }
 
   render() {
    
     return (
       <BrowserRouter>
-        <div className="App">
-             
-           
-           {this.state.ChangeNabBar ? <NavBarAfterRegistration/> :<NavBarBeforeRegistration />}
+        <div className="App"> 
+           {this.renderSwitch(this.state.ChangeNabBar)}
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" render={() => (<Home UserRegister={this.UserRegister} />)} /> />
             <Route exact path="/SignUpSoldiers" render={() => (<SignUpSoldiers UserRegister={this.UserRegister} />)} />
             <Route exact path="/SignUpFamily" render={() => {return <SignUpFamily  UserRegister={this.UserRegister} /> }} />
             <Route exact path="/FamilyPage" render={() => {return <FamilyPage UserRegister={this.UserRegister}/> }} />

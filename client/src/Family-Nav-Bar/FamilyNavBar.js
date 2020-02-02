@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import './Familynavbar.css'
 
 
-export default function NavBarAfterRegistration(props) {
+export default function FamilyNavBar(props) {
     return (
         <div className="Navbar NavBarAfterRegistration" >
             <Navbar navbar bg="light"  navbar="true">
@@ -15,7 +15,7 @@ https://img.icons8.com/color/48/000000/camo-cream.png
                     <Link to="/">Home</Link>
                     <Link to="/">History</Link>
                     <Link to="/">Setting</Link>
-                    <Link to="/">About</Link>
+                    <Link to="/">About Family</Link>
                 </Nav>
             </Navbar>
 

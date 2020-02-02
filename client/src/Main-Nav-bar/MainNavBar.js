@@ -5,7 +5,7 @@ import './nav-bar.css'
 
 
 
-export default function NavBarBeforeRegistration() {
+export default function MainNavBar() {
     return (
         <div className="Navbar">
                <Navbar navbar bg="light" p="0" navbar="true">

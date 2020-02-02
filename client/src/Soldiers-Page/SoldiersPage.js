@@ -44,6 +44,6 @@ return (
 )
     }
     componentDidMount(){
-        this.props.UserRegister(true);
+        this.props.UserRegister('SoldierNavBar');
     }
 }
