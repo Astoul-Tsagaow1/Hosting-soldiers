@@ -116,27 +116,27 @@ function FindRelevantFamilies(req, res) {
 
 function SoldiersUsers(collection,serchEmail,req,res) {
 
-  // var dbo = db.db(mydb);
-  // dbo.collection(collection).findOne({ email: serchEmail }, function (err, result) {
-   
-  //     console.log("not exsit in Familys ");
-  //     console.log("check in soldiars");
-  //     //check in others Collection 
-
-  //     console.log(result);
-      
-  //     db.close();
-  //     res.status(201).send("Familys");
-
-  // })
-
   MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     var dbo = db.db(mydb);
-    dbo.collection(collection).findOne({email:serchEmail}, function(err, result) {
+    dbo.collection(collection).findOne({email:serchEmail.Email}, function(err, result) {
       if (err) throw err;
-      console.log(result.name);
-      res.status(201).send("soldiars");
+      console.log("inside Solders collection");
+
+      console.log(result);
+      if (serchEmail.password === result.password ) {
+
+        console.log("success");
+        
+            return  res.status(201).send("soldiars");
+      }
+      else{
+  res.status(205).send("Fail")
+        console.log("Fail");
+      
+        
+      }
+
 
     });
   });
@@ -144,23 +144,26 @@ function SoldiersUsers(collection,serchEmail,req,res) {
 
 function Login(req, res) {
   console.log("Inside login");
-  serchEmail = req.body.Email;
-  console.log("Serch this Email", serchEmail);
+  serchEmail = req.body;
+  console.log("Serch this Email", serchEmail.Email);
 
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     var dbo = db.db(mydb);
-    dbo.collection(FamliysCollection).findOne({ email: serchEmail }, function (err, result) {
+    dbo.collection(FamliysCollection).findOne({ email: serchEmail.Email }, function (err, result) {
       if (result === null) {
         console.log("not exsit in Familys ");
-        SoldiersUsers(soldiersCollection,serchEmail,req,res) 
-             return;
+      return  SoldiersUsers(soldiersCollection,serchEmail,req,res) 
+      
+      }
 
-        //check in others Collection 
+      if (result.familyPassword === serchEmail.password) {
+        console.log("success");
 
+           return res.status(201).send("Familys");
       }
       else{
-        res.status(201).send("Familys");
+        res.status(201);
 
       }
      
@@ -168,8 +171,8 @@ function Login(req, res) {
 
       
 
-      if (err) throw err;
-      console.log(result, "This is result");
+      // if (err) throw err;
+      // console.log(result, "This is result");
 
 
     });
