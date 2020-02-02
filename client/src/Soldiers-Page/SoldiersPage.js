@@ -43,4 +43,7 @@ return (
     </div>
 )
     }
+    componentDidMount(){
+        this.props.UserRegister(true);
+    }
 }

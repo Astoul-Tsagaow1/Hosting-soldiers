@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom'
 import './SignUpSoldiers.css';
 export default class SignUpSoldiers extends Component{
+    
     constructor(props){
         super(props)
         this.state = {
@@ -87,48 +88,33 @@ export default class SignUpSoldiers extends Component{
                 <div className = 'titleSignUp'>
                     <h2>Sign up</h2>
                 </div>
-                    <div className="personal-details">
-                        <input className="personal-details-item inputs" name = "name" value = {this.state.name} type="text" placeholder="name" onChange = {this.handelChange}></input>
-                        <input className="personal-details-item inputs" name = "lastName" value = {this.state.lastName} type="text" placeholder="last name"  onChange = {this.handelChange}></input>
-                        <input className="personal-details-item inputs" name = "age" value = {this.state.age} type="number" placeholder="age"  onChange = {this.handelChange}></input>
-                    </div>
-    
-                    <div className="military">
-                        <input className="military-item inputs" name = "quite" value = {this.state.quite} type="text" placeholder="quite"   onChange = {this.handelChange}></input>
-                        <input className="military-item inputs" name = "identityNumber" value = {this.state.identityNumber} type="number" placeholder="identity num" onChange = {this.handelChange}></input>
-                    </div>
-    
-                    <div className="contact-details">
-                        <input className="contact-details-item inputs" name = "email" value = {this.state.email} type="email" placeholder="email" onChange = {this.handelChange}></input>
-                        <input className="contact-details-item inputs" name = "phone" value = {this.state.phone} type="number" placeholder="phone" onChange = {this.handelChange}></input>
-                    </div>
-    
-                    <div className="passwords" >
-                        <input className="password-item inputs" name = "password" value = {this.state.password} type="password" placeholder="password" onChange = {this.handelChange}></input>
-                        <input className="password-item inputs" name = "confirmPassword" value = {this.state.confirmPassword} type="password" placeholder="Confpassword" onChange = {this.handelChange}></input>
-                    </div>
-    
-                    <div className="warpAddress">
-                        <input className="Address inputs" name = "address" value = {this.state.address} type="text" placeholder="address" onChange = {this.handelChange}></input>
-                    </div>
-    
-                    <div className = "warpCheckBox">
-                        Lone soldier:<input id = "checkBox" className="inputs" name = "loneSoldier" value = {this.state.loneSoldier} type="checkbox" onChange = {this.handelChange}></input>
-                    </div>
-                      
-                    <div className = "warpButton">
-                       <button id = "button" className = "submitbutoon" type = "submit" onChange = {()=>{
 
+                <div className = "warpb">
+                    <div className="asideLeft">
+                        <input className="asideLeft-item inputs" name = "name" value = {this.state.name} type="text" placeholder="name" onChange = {this.handelChange}></input>
+                        <input className="asideLeft-item inputs" name = "lastName" value = {this.state.lastName} type="text" placeholder="last name"  onChange = {this.handelChange}></input>
+                        <input className="asideLeft-item inputs" name = "age" value = {this.state.age} type="number" placeholder="age"  onChange = {this.handelChange}></input>
+                        <input className="asideLeft-item inputs" name = "quite" value = {this.state.quite} type="text" placeholder="quite"   onChange = {this.handelChange}></input>
+                        <input className="asideLeft-item inputs" name = "identityNumber" value = {this.state.identityNumber} type="number" placeholder="identity num" onChange = {this.handelChange}></input>
+                        Lone soldier:<input id = "checkBox" className="asideLeft-item inputs" name = "loneSoldier" value = {this.state.loneSoldier} type="checkbox" onChange = {this.handelChange}></input>
+                    </div>
+    
+                    <div className="asideRight">
+                        <input className="asideRight-item inputs" name = "email" value = {this.state.email} type="email" placeholder="email" onChange = {this.handelChange}></input>
+                        <input className="asideRight-item inputs" name = "phone" value = {this.state.phone} type="number" placeholder="phone" onChange = {this.handelChange}></input>
+                        <input className="asideRight-item inputs" name = "password" value = {this.state.password} type="password" placeholder="password" onChange = {this.handelChange}></input>
+                        <input className="asideRight-item inputs" name = "confirmPassword" value = {this.state.confirmPassword} type="password" placeholder="Confpassword" onChange = {this.handelChange}></input>
+                        <input className="asideRight-item inputs" name = "address" value = {this.state.address} type="text" placeholder="address" onChange = {this.handelChange}></input>
+                        <button id = "button" className = "asideRight-item submitbutoon" type = "submit" onChange = {()=>{
                        }}>Submit </button>
                     </div>
-                    {/* <button className = "facebook" > Facebook </button>
-                    <button className = "gmail" > Gmail </button> */}
-    
-                    {/* warp all inputs */}
+
+                   
+                    </div>
+                    
                 </form>
                 {/* warp for position */}
                 <div className = "blurSoldiers">
-
                 </div>
                 </div>
             </div>

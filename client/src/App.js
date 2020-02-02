@@ -17,18 +17,34 @@ class App extends Component {
   UserRegister = (arg)=>{
    this.setState({ChangeNabBar:arg});
   }
+ 
+  renderSwitch(){
+    switch (this.state.ChangeNabBar) {
+      case false:
+       <NavBarBeforeRegistration />
+        break;
+        case 'soldierNav':
+         <FamilyNavBar/>
+         break;
+         case 'FamilyNav':
+           <FamilyNavBar/>
+        break;
+    }
+  }
 
   render() {
+   
     return (
       <BrowserRouter>
         <div className="App">
-           {this.state.ChangeNabBar ? <FamilyNavBar/> :<NavBarBeforeRegistration />}
+             
+           
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/SignUpSoldiers" render={() => (<SignUpSoldiers UserRegister={this.UserRegister} />)} />
             <Route exact path="/SignUpFamily" render={() => {return <SignUpFamily  UserRegister={this.UserRegister} /> }} />
-            <Route exact path="/FamilyPage" render={() => {return <FamilyPage/> }} />
-            <Route exact path="/SoldiersPage" render={() => {return <SoldiersPage /> }} />
+            <Route exact path="/FamilyPage" render={() => {return <FamilyPage UserRegister={this.UserRegister}/> }} />
+            <Route exact path="/SoldiersPage" render={() => {return <SoldiersPage UserRegister={this.UserRegister}/> }} />
             <Route exact component={PageNotFound} />
           </Switch>
         </div>
