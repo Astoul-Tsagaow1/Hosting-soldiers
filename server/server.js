@@ -55,25 +55,9 @@ app.post("/datefamily", (req, res) => {
 
 
 app.post("/Login", (req, res) => {
-  console.log("Inside login");
-  serchEmail = req.body.Email;
-  console.log("Serch this Email", serchEmail);
+  helperServer.Login(req, res);
 
-  MongoClient.connect(url, function (err, db) {
-    if (err) throw err;
-    var dbo = db.db(mydb);
-    dbo.collection(FamliysCollection).findOne({ email: serchEmail }, function (err, result) {
-      if (result === null) {
-        console.log("not exsit in Familys ");
-   }
-
-      if (err) throw err;
-      console.log(result, "This is result");
-      db.close();
-
-      res.status(201).send("Familys");
-    });
-  });
+  
 })
 
 const PORT = process.env.PORT || 5000;

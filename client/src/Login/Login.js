@@ -25,7 +25,9 @@ state = {flage:false}
                let objUser = {Email:email,password:password};
 
                axios.post("/Login",objUser).then(res =>{
-
+                  
+                console.log(res.status , "this is status");
+                
                 
                 if (res.status === 201) {
                     
