@@ -29,7 +29,7 @@ class App extends Component {
         case 'SoldierNavBar':
           return <SoldierNavBar/>
   
-         case 'FamilyNav':
+         case 'FamilyNavBar':
           return <FamilyNavBar/>
       
     }
