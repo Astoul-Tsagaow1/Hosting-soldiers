@@ -11,14 +11,14 @@
 
 
 .Family-Page-Wrapper {
-  background: url(https://cdn.pixabay.com/photo/2016/07/25/19/24/camouflage-1541188_1280.jpg);
+  /* background: url(https://cdn.pixabay.com/photo/2016/07/25/19/24/camouflage-1541188_1280.jpg); */
   height: 100vh; /* =h */
   background-size: cover;
 }
 
 .Family-Page-Form {
   background: inherit;
-  width: 60%; /* =cw */
+  width:35%; /* =cw */
   height: 40%; /* =ch */
   border-radius: 8px;
   box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);

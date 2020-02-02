@@ -6,8 +6,8 @@ import PageNotFound from './Page-Not-Found/PageNotFound'
 import Home from './Home'
 import SignUpSoldiers from './Sign-Up-Soldiers/SignUpSoldiers'
 import SignUpFamily from './Sign-Up-Family/SignUpFamily'
-import NavBarBeforeRegistration from './Nav-bar/Navbar'
-import FamilyNavBar from './Family-Nav-Bar/FamilyNavBar'
+import NavBarBeforeRegistration from './Main-Nav-bar/Navbar'
+import NavBarAfterRegistration from './Family-Nav-Bar/FamilyNavBar'
 import FamilyPage from './Family-Page/FamilyPage'
 import SoldiersPage from './Soldiers-Page/SoldiersPage';
 
@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-           {this.state.ChangeNabBar ? <FamilyNavBar/> :<NavBarBeforeRegistration />}
+           {this.state.ChangeNabBar ? <NavBarAfterRegistration/> :<NavBarBeforeRegistration />}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/SignUpSoldiers" render={() => (<SignUpSoldiers UserRegister={this.UserRegister} />)} />
