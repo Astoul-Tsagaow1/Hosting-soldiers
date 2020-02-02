@@ -19,19 +19,19 @@ class App extends Component {
    this.setState({ChangeNabBar:arg});
   }
  
-  renderSwitch(){
-    switch (this.state.ChangeNabBar) {
-      case false:
-       <NavBarBeforeRegistration />
-        break;
-        case 'soldierNav':
-         <FamilyNavBar/>
-         break;
-         case 'FamilyNav':
-           <FamilyNavBar/>
-        break;
-    }
-  }
+  // renderSwitch(){
+  //   switch (this.state.ChangeNabBar) {
+  //     case false:
+  //      <NavBarBeforeRegistration />
+  //       break;
+  //       case 'SoldierNav':
+  //        <FamilyNavBar/>
+  //        break;
+  //        case 'FamilyNav':
+  //          <FamilyNavBar/>
+  //       break;
+  //   }
+  // }
 
   render() {
    
