@@ -52,11 +52,15 @@ export default class Login extends Component {
                   if (res.status == 205) {
                     console.log(res.data, "inside familys");
                     localStorage.setItem("email", objUser.Email);
-                    localStorage.setItem("namfamily", res.data.familyname);
+                    localStorage.setItem("user", 'family');
+                    this.props.changeAuthentication(localStorage.user);
                     this.setState({ flage: true });
                   } 
                   else if (res.status == 209) {
                     console.log(res.data, "inside soldiars");
+                    localStorage.setItem("email", objUser.Email);
+                    localStorage.setItem("user", 'soldier');
+                    this.props.changeAuthentication(localStorage.user);
                     this.setState({ flage: false });
                   }
                 })

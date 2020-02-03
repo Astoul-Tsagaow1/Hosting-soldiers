@@ -16,6 +16,7 @@ export default class SignUpSoldiers extends Component {
       password: "",
       confirmPassword: "",
       address: "",
+      autogo: "" ,
       loneSoldier: false,
       flage: false
     };
@@ -32,9 +33,9 @@ export default class SignUpSoldiers extends Component {
         ? (loneSoldier = e.target.value = true)
         : (loneSoldier = e.target.value = false);
       console.log(loneSoldier, "value after");
-      this.setState({ [e.target.name]: loneSoldier });
+      this.setState({ [e.target.name]: loneSoldier , autogo : true });
     } else {
-      this.setState({ [e.target.name]: e.target.value });
+      this.setState({ [e.target.name]: e.target.value  , autogo : true });
     }
   }
 
@@ -51,18 +52,20 @@ export default class SignUpSoldiers extends Component {
       password: this.state.password,
       confirmPassword: this.state.confirmPassword,
       address: this.state.address,
-      loneSoldier: this.state.loneSoldier
+      loneSoldier: this.state.loneSoldier,
+      autogo : this.state.autogo
     };
     localStorage.setItem("email", this.state.email);
+    localStorage.setItem("user", "soldier");
     console.log(soldierObj, "soldier obj---------------------");
     axios
-      .post("/soldiers", { soldierObj })
+      .post("/soldiers", { soldierObj})
       .then(res => {
         alert("soldier");
         if (res.status == 201) {
           console.log(res.data, "Welcome to your page");
           this.props.UserRegister(true);
-          this.setState({ flage: "soldier" });
+          this.setState({ flage: "soldier"});
         } else {
           console.log(res.data.emailExist.email, "allredy exsit");
         }

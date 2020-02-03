@@ -14,9 +14,13 @@ import Login from "./Login/Login";
 import SoldierNavBar from "./Soldier-Nav-Bar/SoldierNavBar";
 
 class App extends Component {
-  state = { ChangeNabBar: false, falg: false };
+  state = { ChangeNabBar: false, falg: false, authentication: "" };
   UserRegister = arg => {
     this.setState({ ChangeNabBar: arg });
+  };
+
+  changeAuthentication = arg => {
+    this.setState({ authentication: arg });
   };
 
   renderSwitch(arg) {
@@ -59,35 +63,32 @@ class App extends Component {
               exact
               path="/FamilyPage"
               render={() => {
-                return <FamilyPage UserRegister={this.UserRegister} />;
+                return this.state.authentication == "family" ? (
+                  <FamilyPage UserRegister={this.UserRegister} />
+                ) : (
+                  "can't access only registered families"
+                );
               }}
             />
             <Route
               exact
               path="/SoldiersPage"
               render={() => {
-                return <SoldiersPage UserRegister={this.UserRegister} />;
+                return this.state.authentication == "soldier" ? (
+                  <SoldiersPage UserRegister={this.UserRegister} />
+                ) : (
+                  "can't access only registered soldiers"
+                );
               }}
             />
-            <Route
-              exact
-              path="/FamilyPage"
-              render={() => {
-                return <FamilyPage />;
-              }}
-            />
-            <Route
-              exact
-              path="/SoldiersPage"
-              render={() => {
-                return <SoldiersPage />;
-              }}
-            />
+
             <Route
               exact
               path="/Login"
               render={() => {
-                return <Login />;
+                return (
+                  <Login changeAuthentication={this.changeAuthentication} />
+                );
               }}
             />
           </Switch>

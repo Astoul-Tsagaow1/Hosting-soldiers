@@ -45,6 +45,8 @@ export default class SignUpFamily extends Component {
 
     localStorage.setItem("email", this.state.femail);
     localStorage.setItem("namfamily", this.state.fname);
+    localStorage.setItem("user", "family");
+
     axios
       .post("/family", { Familyobj })
       .then(response => {
