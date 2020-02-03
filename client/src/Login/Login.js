@@ -27,7 +27,10 @@ switch (arg) {
 
         let email ,password;
         return (
-            <div className="Login-Wrapper">
+            <div className="bg">
+                <div className="c">
+                <h1>Login</h1>
+
                 {this.renderSwitchLogin(this.state.flage)}
           
 
@@ -40,7 +43,7 @@ switch (arg) {
                 password = e.target.value
             } } />
 
-           <button onClick={()=>{
+           <button className="submitbutoon" onClick={()=>{
                let objUser = {Email:email,password:password};
 
                axios.post("/Login",objUser).then(res =>{
@@ -87,6 +90,10 @@ switch (arg) {
 
              
            }}>Login</button>
+               <div className="x"></div>
+
+           </div>
+
           
             
         </div>
