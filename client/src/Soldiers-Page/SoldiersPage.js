@@ -9,7 +9,8 @@ export default class SoldiersPage extends Component {
     let fromDate, untilDate;
 
     return (
-      <div className="soldierPage">
+      <div className = "warpAllSoldierPage">
+      <div className="soldierPageSearch">
         <h3>SoldiersPage</h3>
         From what date:
         <input
@@ -50,11 +51,12 @@ export default class SoldiersPage extends Component {
         >
           send
         </button>
+        </div>
         <div className="resultFamiles">
           {this.state.flag ? (
             <DisplayMatchingFamilies resultMatch={this.state.resultFamily} />
           ) : (
-            "not"
+            ""
           )}
         </div>
       </div>

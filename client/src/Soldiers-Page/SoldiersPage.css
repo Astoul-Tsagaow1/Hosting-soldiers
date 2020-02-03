@@ -2,13 +2,21 @@
     padding: 0;
     margin: 0;
 }
-
-.soldierPage{
-    margin-top:5% ;
+.warpAllSoldierPage{
+}
+.soldierPageSearch{
+    margin-left: 24%;
+    width: 50%;
+    /* border: solid; */
 }
 .resultFamiles{
     width: 100%;
-    /* display: flex; */
-    justify-content: space-evenly;
-    border:1px solid blue;
+    /* border:1px solid blue; */
 }
+/* @media screen and (min-width: 1000px){
+    .resultFamiles{
+        width: 100%;
+        justify-content: space-evenly;
+    }
+   
+} */
