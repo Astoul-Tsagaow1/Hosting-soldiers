@@ -1,18 +1,17 @@
 
 
 
-.c > input{
+.Wrapper-Login-content > input{
 
     width: 35%;
-    height: 13%;
+    height:10%;
+    margin: 15px;
+    text-align: center;
     
 }
-body,
- .bg .c h1 {
-   margin: 0;
- }
+
  
- .bg {
+ .bg-Login-Page {
    background: url(../images/soldiers-6.jpg);
    height: 100vh; /* =h */
    background-size: cover;
@@ -21,7 +20,7 @@ body,
    font-weight: 900;
  }
 
-.c {
+.Wrapper-Login-content {
     background: inherit;
     width: 35%; /* =cw */
     height: 50%; /* =ch */
@@ -29,24 +28,30 @@ body,
     box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
     position: absolute;
     top: 45%; /* =ct */
-    left: 25%; /* =cl */
+    left: 30%; /* =cl */
     transform: translate(-50%, -50%);
     overflow: hidden;
     position: relative;
+    text-align: center;
   }
 
-.x{ 
+.Blur-bg-Login-page{ 
      background: inherit;
     height: 100vh; 
     width: 166.667%;
     position: absolute;
-    left:20%;
+    left:45%;
     top: 55%;
-    right: 10%;
     transform: translate(
-      -10%,
+      -30%,
       -30%
     );
-    filter: blur(0px);
+    filter: blur(15px);
     z-index: -1;
+  }
+  .Login-butoon{
+    position: absolute;
+    top: 55%;
+    width: 45%;
+    right: 27%;
   }

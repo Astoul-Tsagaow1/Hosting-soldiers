@@ -10,7 +10,7 @@ export default function FamilyNavBar(props) {
             <Navbar navbar bg="light"  navbar="true">
                 <Nav className="mr-auto">
                 <Link to="/"><img src="https://img.icons8.com/color/48/000000/camo-cream.png(2 kB)https://img.icons8.com/color/48/000000/camo-cream.png"/></Link>
-                    <Link to="/">Home</Link>
+                    <Link to="/">Logout</Link>
                     <Link to="/">History</Link>
                     <Link to="/">Setting</Link>
                     <Link to="/">About Family</Link>
