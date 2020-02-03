@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import soldier from './images/soldiers-11.jpg'
+import soldier2 from './images/soldiers-6.jpg'
+import soldier3 from './images/soldiers-20.jpg'
 export default class Home extends Component{
     render(){
         return (
@@ -8,13 +11,13 @@ export default class Home extends Component{
                 <div className="Carousel ">
                     <Carousel>
                         <Carousel.Item>
-                            <img className="d-block w-20" src="https://media-public.canva.com/MADarVVQnoU/1/thumbnail_large-1.jpg" alt="First slide" />
+                            <img className="carusel-images" src={soldier} alt="First slide" />
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img className="d-block w-20" src="https://media-public.canva.com/MADarVVQnoU/1/thumbnail_large-1.jpg" alt="Third slide" />
+                            <img className="carusel-images" src={soldier2} alt="Third slide" />
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img className="d-block w-20 " src="https://media-public.canva.com/MADarVVQnoU/1/thumbnail_large-1.jpg" alt="Third slide" />
+                            <img className="carusel-images" src={soldier3} alt="Third slide" />
                         </Carousel.Item>
                     </Carousel>
                 </div>

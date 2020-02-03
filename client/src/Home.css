@@ -15,16 +15,23 @@
      position: relative;
      left: 3%;
      width: 45%;
+     border: solid;
+     height: 50%;
  }
  .d-block {
      position: inherit;
      left: 18%;
    
  }
- .d-block{
+ .carusel-images{
      opacity: 0.5;
  }
- .d-block:hover{
+ .carusel-images:hover{
      opacity: 1;
  }
- 
+
+ .carusel-images{
+
+    height: 350px;
+    width: 500px;
+ }
