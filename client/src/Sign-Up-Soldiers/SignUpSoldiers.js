@@ -52,8 +52,7 @@ export default class SignUpSoldiers extends Component {
       password: this.state.password,
       confirmPassword: this.state.confirmPassword,
       address: this.state.address,
-      loneSoldier: this.state.loneSoldier,
-      autogo : this.state.autogo
+      loneSoldier: this.state.loneSoldier
     };
     localStorage.setItem("email", this.state.email);
     localStorage.setItem("user", "soldier");
@@ -65,6 +64,8 @@ export default class SignUpSoldiers extends Component {
         if (res.status == 201) {
           console.log(res.data, "Welcome to your page");
           this.props.UserRegister(true);
+          localStorage.setItem("user", 'soldier');
+          this.props.changeAuthentication(localStorage.user);
           this.setState({ flage: "soldier"});
         } else {
           console.log(res.data.emailExist.email, "allredy exsit");

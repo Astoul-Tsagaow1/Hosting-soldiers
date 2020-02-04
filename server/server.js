@@ -21,7 +21,6 @@ app.get("/api", (req, res) => {
 app.post("/soldiers", (req, res) => {
    newObj = req.body;
   console.log(newObj, "------------post soldier in server");
-  console.log(newObj.soldierObj.autogo, "-----------------------autogo soldier in server");
   console.log("got req post in server");
   helperServer.FindAndInsertUsers(req, res, soldiersCollection);
 });

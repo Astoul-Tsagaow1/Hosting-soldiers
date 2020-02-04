@@ -36,6 +36,20 @@ class App extends Component {
     }
   }
 
+  // renderAuthentication(arg) {
+  //   switch (arg) {
+  
+  //     case "soldier":
+  //       return <SoldiersPage UserRegister={this.UserRegister} />;
+
+  //     case "family":
+  //       return <FamilyPage UserRegister={this.UserRegister} />;
+
+  //     default :
+  //       return  <Home UserRegister={this.UserRegister} />
+  //   }
+  // }
+
   render() {
     return (
       <BrowserRouter>
@@ -50,13 +64,23 @@ class App extends Component {
             <Route
               exact
               path="/SignUpSoldiers"
-              render={() => <SignUpSoldiers UserRegister={this.UserRegister} />}
+              render={() => (
+                <SignUpSoldiers
+                  changeAuthentication={this.changeAuthentication}
+                  UserRegister={this.UserRegister}
+                />
+              )}
             />
             <Route
               exact
               path="/SignUpFamily"
               render={() => {
-                return <SignUpFamily UserRegister={this.UserRegister} />;
+                return (
+                  <SignUpFamily
+                    changeAuthentication={this.changeAuthentication}
+                    UserRegister={this.UserRegister}
+                  />
+                );
               }}
             />
             <Route
