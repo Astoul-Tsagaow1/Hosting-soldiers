@@ -25,7 +25,7 @@ export default class FamilyPage extends Component {
           console.log(from);
           console.log(Until);
           
-          if (from == undefined || Until == undefined ){
+          if (from === undefined || Until === undefined ){
             console.log("pless insert date");
             this.setState({ flage2: true })
           }

@@ -40,8 +40,10 @@ app.post("/soldierDate", (req, res) => {
 
 // =============================== Familys 
 app.post("/family", (req, res) => {
-
+   console.log(res.body);
+   
   helperServer.FindAndInsertUsers(req, res, FamliysCollection)
+
 
 })
 app.post("/datefamily", (req, res) => {
