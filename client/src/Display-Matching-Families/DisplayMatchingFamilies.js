@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./DisplayMatchingFamilies.css";
 import solimg from "../images/soldiers-10.jpg";
+import axios from "axios";
 export default class DisplayMatchingFamilies extends Component {
   render() {
     const families = this.props.resultMatch;
@@ -27,10 +28,18 @@ export default class DisplayMatchingFamilies extends Component {
                 Card link
               </a>
               <a href="#" className="card-link">
-                Another link
+                
               </a>
             </div>
-            <button className="buttonSendReqHosting">send</button>
+            <button className="buttonSendReqHosting" onClick = {()=>{
+              axios.post("/sendMail", { email: obj.email,familyName: "test family" })
+              .then(response => {
+                console.log(response);
+              })
+              .catch(err => {
+                console.log(err);
+              });
+            }}>send</button>
           </div>
         </div>
       );
