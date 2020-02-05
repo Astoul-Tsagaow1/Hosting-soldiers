@@ -49,14 +49,14 @@ export default class Login extends Component {
                   console.log(res, "this is the data");
                   console.log(res.status, "this is status");
                
-                  if (res.status == 205) {
+                  if (res.status === 205) {
                     console.log(res.data, "inside familys");
                     localStorage.setItem("email", objUser.Email);
                     localStorage.setItem("user", 'family');
                     this.props.changeAuthentication(localStorage.user);
                     this.setState({ flage: true });
                   } 
-                  else if (res.status == 209) {
+                  else if (res.status === 209) {
                     console.log(res.data, "inside soldiars");
                     localStorage.setItem("email", objUser.Email);
                     localStorage.setItem("user", 'soldier');

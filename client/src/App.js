@@ -36,19 +36,35 @@ class App extends Component {
     }
   }
 
-  // renderAuthentication(arg) {
-  //   switch (arg) {
+  renderAuthentication(arg) {
+    switch (arg) {
   
-  //     case "soldier":
-  //       return <SoldiersPage UserRegister={this.UserRegister} />;
+      case "soldier":
+         return <SoldiersPage UserRegister={this.UserRegister} />;
 
-  //     case "family":
-  //       return <FamilyPage UserRegister={this.UserRegister} />;
+      case "family":
+        return <FamilyPage UserRegister={this.UserRegister} />;
 
-  //     default :
-  //       return  <Home UserRegister={this.UserRegister} />
-  //   }
-  // }
+      default :
+        return  <Home UserRegister={this.UserRegister} />;
+    }
+  }
+
+  renderAuthenticationSolFamPage(arg) {
+    switch (arg) {
+  
+      case "soldier":
+         return <SoldiersPage UserRegister={this.UserRegister} />;
+
+      case "family":
+        return <FamilyPage UserRegister={this.UserRegister} />;
+
+      default :
+      return  <Home UserRegister={this.UserRegister} />;
+        // return  "can't access only registered users s"
+    }
+  }
+
 
   render() {
     return (
@@ -56,10 +72,17 @@ class App extends Component {
         <div className="App">
           {this.renderSwitch(this.state.ChangeNabBar)}
           <Switch>
+
+          {/* <Route
+              exact
+              path="/logout"
+              render={() => <Home UserRegister={this.UserRegister} />}
+            /> */}
+
             <Route
               exact
               path="/"
-              render={() => <Home UserRegister={this.UserRegister} />}
+              render={() => this.renderAuthentication(localStorage.user)}
             />
             <Route
               exact
@@ -86,24 +109,12 @@ class App extends Component {
             <Route
               exact
               path="/FamilyPage"
-              render={() => {
-                return this.state.authentication == "family" ? (
-                  <FamilyPage UserRegister={this.UserRegister} />
-                ) : (
-                  "can't access only registered families"
-                );
-              }}
+              render={() => this.renderAuthenticationSolFamPage(localStorage.user)}
             />
             <Route
               exact
               path="/SoldiersPage"
-              render={() => {
-                return this.state.authentication == "soldier" ? (
-                  <SoldiersPage UserRegister={this.UserRegister} />
-                ) : (
-                  "can't access only registered soldiers"
-                );
-              }}
+              render={() => this.renderAuthenticationSolFamPage(localStorage.user)}
             />
 
             <Route

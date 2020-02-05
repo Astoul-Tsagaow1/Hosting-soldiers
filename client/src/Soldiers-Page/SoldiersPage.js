@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./SoldiersPage.css";
 import DisplayMatchingFamilies from "../Display-Matching-Families/DisplayMatchingFamilies";
-import Axios from "axios";
+// import Axios from "axios";
 export default class SoldiersPage extends Component {
   state = { flag: false, resultFamily: [] };
   render() {

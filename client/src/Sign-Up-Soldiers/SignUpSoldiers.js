@@ -28,8 +28,8 @@ export default class SignUpSoldiers extends Component {
     console.log(e.target.name);
     console.log(e.target.value, "value before");
     let loneSoldier;
-    if (e.target.name == "loneSoldier") {
-      e.target.value == "false"
+    if (e.target.name === "loneSoldier") {
+      e.target.value === "false"
         ? (loneSoldier = e.target.value = true)
         : (loneSoldier = e.target.value = false);
       console.log(loneSoldier, "value after");
@@ -61,7 +61,7 @@ export default class SignUpSoldiers extends Component {
       .post("/soldiers", { soldierObj})
       .then(res => {
         alert("soldier");
-        if (res.status == 201) {
+        if (res.status === 201) {
           console.log(res.data, "Welcome to your page");
           this.props.UserRegister(true);
           localStorage.setItem("user", 'soldier');
