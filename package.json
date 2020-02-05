@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "concurrently": "^5.0.2",
+    "mdbreact": "^4.25.1",
     "react-redirect": "^1.0.0",
     "react-router-dom": "^5.1.2",
     "redirect": "^0.2.0"

@@ -73,6 +73,35 @@ export default class SignUpFamily extends Component {
 
   loadImgToServer = ()=>{
 
+
+    let ImgData =new FormData();
+    const config = {headers : {'content-type' :'multipart/form-data'}}
+
+    ImgData.append("FamilyIMG",this.state.file)
+
+
+    axios
+    .post('/imgload',ImgData,config)
+    .then(res =>{
+
+      if (res.status === 201 ) {
+
+        console.log(res);
+        
+        
+      }
+      else{
+        console.log("Status code");
+        
+      }
+    })
+
+    .catch(err =>{
+
+      console.log("not load");
+      
+    })
+
    console.log(this.state.file);
    
 
@@ -139,7 +168,7 @@ export default class SignUpFamily extends Component {
                 console.log(this.state.file);
                 
               }}></input> <br/>
-              <button onClick={this.loadImgToServer}>load img</button>
+              <button className="submit-butoon" onClick={this.loadImgToServer}>load img</button>
               <label htmlFor="NumberSoldiers">
                 {" "}
                 Number of soliders you can host :{" "}
