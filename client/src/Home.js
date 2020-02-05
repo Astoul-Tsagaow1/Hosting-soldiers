@@ -28,5 +28,6 @@ export default class Home extends Component{
     
     componentDidMount(){
         this.props.UserRegister(false);
+        localStorage.clear();
     }
 }

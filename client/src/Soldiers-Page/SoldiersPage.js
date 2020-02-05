@@ -10,6 +10,9 @@ export default class SoldiersPage extends Component {
 
     return (
       <div className = "warpAllSoldierPage">
+        <div className = "backSoliderPage">
+            
+        </div>
       <div className="soldierPageSearch">
         <h3>SoldiersPage</h3>
         From what date:
@@ -28,7 +31,8 @@ export default class SoldiersPage extends Component {
             untilDate = e.target.value;
           }}
         ></input>
-        <button
+{/* working about hrf */}
+        <a href="#top"><button href = "#resultFamilesHrf"
           onClick={() => {
             const dateSoldier = {
               fromDate: fromDate,
@@ -40,7 +44,6 @@ export default class SoldiersPage extends Component {
               .then(res => {
                 console.log(res.data, "this is response soldiers date ");
                 let resultFamily = res.data;
-
                 this.setState({ flag: true, resultFamily: resultFamily });
               })
               .catch(function(error) {
@@ -50,9 +53,9 @@ export default class SoldiersPage extends Component {
           }}
         >
           send
-        </button>
+        </button></a>
         </div>
-        <div className="resultFamiles">
+        <div className="resultFamiles" id = "resultFamilesHrf">
           {this.state.flag ? (
             <DisplayMatchingFamilies resultMatch={this.state.resultFamily} />
           ) : (

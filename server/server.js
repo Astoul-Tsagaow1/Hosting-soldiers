@@ -2,65 +2,58 @@ console.log("app is loading ....");
 const express = require("express");
 const app = express();
 app.use(express.json());
-const helperServer = require('./helperServer');
-const soldiersCollection = 'soldiers'
+const helperServer = require("./helperServer");
+const soldiersCollection = "soldiers";
 const FamliysCollection = "families";
 
-const mongo = require('mongodb');
+const mongo = require("mongodb");
 const MongoClient = mongo.MongoClient;
 const ObjectID = mongo.ObjectID;
 const url = "mongodb://localhost:27017/";
-const mydb = 'soldiersHosting';
-
-
+const mydb = "soldiersHosting";
+let newObj;
 
 app.get("/api", (req, res) => {
   console.log("root is accessed");
   res.send({ res: "result from server 123" });
 });
 
-
 app.post("/soldiers", (req, res) => {
-  let newObj = req.body;
-  console.log(newObj, '------------post soldier')
-  console.log('got req post in server')
-  helperServer.FindAndInsertUsers(req, res, soldiersCollection)
+   newObj = req.body;
+  console.log(newObj, "------------post soldier in server");
+  console.log("got req post in server");
+  helperServer.FindAndInsertUsers(req, res, soldiersCollection);
 });
-
 
 app.post("/soldierDate", (req, res) => {
   console.log(req.body, "this is date soldier");
   helperServer.updateDate(req, res, soldiersCollection);
-
 });
 
-
-
-
-
-// =============================== Familys 
+// =============================== Familys
 app.post("/family", (req, res) => {
+<<<<<<< HEAD
    console.log(res.body);
    
   helperServer.FindAndInsertUsers(req, res, FamliysCollection)
 
 
 })
+=======
+  helperServer.FindAndInsertUsers(req, res, FamliysCollection);
+});
+>>>>>>> d7a6eeb8cf284b203f1baade4d580ccd5fc69bf1
 app.post("/datefamily", (req, res) => {
-
   console.log(req.body, "this is date family");
   helperServer.updateDate(req, res, FamliysCollection);
 
   console.log(res.status, "this is status");
-
-})
+});
 
 
 app.post("/Login", (req, res) => {
   helperServer.Login(req, res);
-
-  
-})
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
