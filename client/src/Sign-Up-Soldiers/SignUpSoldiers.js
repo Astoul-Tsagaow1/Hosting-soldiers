@@ -65,6 +65,7 @@ export default class SignUpSoldiers extends Component {
           console.log(res.data, "Welcome to your page");
           this.props.UserRegister(true);
           localStorage.setItem("user", 'soldier');
+          localStorage.setItem("name",this.state.name);
           this.props.changeAuthentication(localStorage.user);
           this.setState({ flage: "soldier"});
         } else {

@@ -60,6 +60,8 @@ export default class Login extends Component {
                     console.log(res.data, "inside soldiars");
                     localStorage.setItem("email", objUser.Email);
                     localStorage.setItem("user", 'soldier');
+                    localStorage.setItem("name",res.data.name);
+                    localStorage.setItem("fromDate",res.data.fromDate);
                     this.props.changeAuthentication(localStorage.user);
                     this.setState({ flage: false });
                   }

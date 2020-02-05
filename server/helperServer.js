@@ -122,7 +122,7 @@ function SoldiersUsers(collection, serchEmail, req, res) {
         if (serchEmail.password === result.password) {
           console.log("success");
 
-          return res.status(209).send("soldiars");
+          return res.status(209).send(result);
         } else {
           res.status(205).send("Fail");
           console.log("Fail");

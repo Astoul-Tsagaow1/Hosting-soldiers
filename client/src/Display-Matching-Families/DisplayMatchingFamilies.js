@@ -3,6 +3,10 @@ import "./DisplayMatchingFamilies.css";
 import solimg from "../images/soldiers-10.jpg";
 import axios from "axios";
 export default class DisplayMatchingFamilies extends Component {
+  state = {successMatch : false}
+  displayContacxt(){
+   
+  }
   render() {
     const families = this.props.resultMatch;
     const displayFimilies = families.map((obj, index) => {
@@ -32,9 +36,13 @@ export default class DisplayMatchingFamilies extends Component {
               </a>
             </div>
             <button className="buttonSendReqHosting" onClick = {()=>{
-              axios.post("/sendMail", { email: obj.email,familyName: "test family" })
+              axios.post("/sendMail", { 
+                email: obj.email,
+                familyName: obj.familyname,
+                message:`${localStorage.name} wants to stay with you on the ${localStorage.fromDate} date.`})
               .then(response => {
                 console.log(response);
+                // this.setState({ssuccessMatch : true})
               })
               .catch(err => {
                 console.log(err);
