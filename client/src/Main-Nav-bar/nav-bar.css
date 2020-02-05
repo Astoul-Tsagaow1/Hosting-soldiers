@@ -15,3 +15,8 @@
     transform: scale(1.5); /* Equal to scaleX(0.7) scaleY(0.7) */
 
 }
+.Footer-main{
+    position: absolute;
+    top: 100%;
+    left: 25%;
+}
