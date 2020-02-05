@@ -1,5 +1,27 @@
 
-.mr-auto > a{
-    color: black;
-    padding: 10px;
+/* .mr-auto > a{
+    color: rgb(255, 255, 255);
+    text-align: center;
+} */
+a{
+    color:rgb(255, 255, 255) ;
+    padding: 16px;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Lato', sans-serif;
+    transition: transform 1.2s;
+
 }
+a:hover{
+
+    font-weight: bold;
+    color:rgb(33, 99, 64) ;
+    transform: scale(1.5); /* Equal to scaleX(0.7) scaleY(0.7) */
+
+}
+.mr-auto{
+
+    margin: 5px;
+
+}
+
+

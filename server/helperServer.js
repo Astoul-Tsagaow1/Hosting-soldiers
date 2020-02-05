@@ -53,10 +53,14 @@ function InsertUsers(req, collectionARG) {
       console.log("insert new soldier");
 
       myobj = req.body.soldierObj;
+      console.log(myobj);
+      
     } else {
       console.log("insert new Family");
 
       myobj = req.body.Familyobj;
+      console.log(myobj);
+
     }
     dbo.collection(collectionARG).insertOne(myobj, function(err, res) {
       if (err) throw err;
