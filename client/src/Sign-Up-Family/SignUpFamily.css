@@ -1,84 +1,4 @@
-/* *{
-    margin: 0;
-    padding: 0; 
-       box-sizing: border-box;
-}
-body {
-    font-family: Arial;
-    font-size: 17px;
-    padding: 8px;
-    color: white;
-       background-position: center center;
-   background-repeat: no-repeat;
-   background-attachment: fixed;
-   background-size: cover;
-   background-image: url(../src/images/img1.jpg);
 
-  }
-   */
-/*   
-  .row {
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin: 0 -16px;
-  }
-  
-  .col-25 {
-    -ms-flex: 25%; 
-    flex: 25%;
-  } */
-/*   
-  .col-50 {
-    -ms-flex: 50%;
-    flex: 50%;
-  } */
-  
-  /* .col-75 {
-    -ms-flex: 75%;  */
-    /* flex: 75%; */
-  /* } */
-/* input[type=text],input[type=email],input[type=number],input[type=password],button {
-    width: 50%;
-    padding: 1.5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  } */
-
-  /* .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  border: solid black; */
-  /* background: rgba(0, 0, 0, 0.295);
-  background-image: url(../src/images/img1.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover; */
-  
-
-
-
-  /* border-radius: 10px;
-  
-  }
-  .col-25,.col-50,.col-75 {
-  padding: 0 16px;
-} */
-/* .bg-image::before{ */
-   /* content: ''; */
- 
-   /* background-position: center center;
-   background-repeat: no-repeat;
-   background-attachment: fixed;
-   background-size: cover; */
-   /* filter: blur(8px);
-  position: fixed;
-
-
- } */
  button{
    background: red;
    border: none;
@@ -86,13 +6,6 @@ body {
    height: 9%;
    margin-top: 23px;
  }
-
-
- body,
- .blurred-bg-container .content h1 {
-   margin: 0;
- }
- 
  .blurred-bg-container {
    background: url(../images/soldiers-5.jpg);
    height: 100vh; /* =h */
@@ -101,11 +14,10 @@ body {
    font-family: 'Lato', sans-serif;
    font-weight: 900;
  }
- 
  .content {
    background: inherit;
-   width: 35%; /* =cw */
-   height: 50%; /* =ch */
+   width: 50%; /* =cw */
+   height: 60%; /* =ch */
    border-radius: 8px;
    box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
    position: absolute;
@@ -115,9 +27,6 @@ body {
    overflow: hidden;
    position: relative;
  }
- 
-
- 
   .blur {
    background: inherit;
    height: 100vh; /* h */
@@ -134,13 +43,10 @@ body {
    z-index: -1;
  }
  input{
-
   border-radius: 5px;
   border: none;
   width: 100%;
  }
-
-
  .Sign-up-FamilyPage{
    position: absolute;
    left: 40%; 
@@ -259,4 +165,11 @@ left: 5%;
   /* flex: 50%; */
   width: 45%;
 
+}
+
+
+@media screen and (max-width: 870px) {
+  .content {
+    width: 70%;
+   }
 }

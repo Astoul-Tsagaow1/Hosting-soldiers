@@ -32,8 +32,17 @@ app.post("/soldierDate", (req, res) => {
 
 // =============================== Familys
 app.post("/family", (req, res) => {
+<<<<<<< HEAD
+   console.log(res.body);
+   
+  helperServer.FindAndInsertUsers(req, res, FamliysCollection)
+
+
+})
+=======
   helperServer.FindAndInsertUsers(req, res, FamliysCollection);
 });
+>>>>>>> d7a6eeb8cf284b203f1baade4d580ccd5fc69bf1
 app.post("/datefamily", (req, res) => {
   console.log(req.body, "this is date family");
   helperServer.updateDate(req, res, FamliysCollection);

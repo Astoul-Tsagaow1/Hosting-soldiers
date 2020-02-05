@@ -17,7 +17,8 @@ export default class SignUpFamily extends Component {
       fCity: "",
       falg: true,
       fromDate: "",
-      untilDate: ""
+      untilDate: "",
+      file: ""
     };
     this.Hendelchange = this.Hendelchange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,8 +41,12 @@ export default class SignUpFamily extends Component {
       familyConfirmePassword: this.state.ConfirmePassword,
       familyCity: this.state.fCity,
       fromDate: this.state.fromDate,
-      untilDate: this.state.untilDate
+      untilDate: this.state.untilDate,
+      file : this.state.file
     };
+
+    console.log(Familyobj, "family obj");
+    
 
     localStorage.setItem("email", this.state.femail);
     localStorage.setItem("namfamily", this.state.fname);
@@ -51,7 +56,7 @@ export default class SignUpFamily extends Component {
       .post("/family", { Familyobj })
       .then(response => {
         alert("family");
-        if (response.status == 201) {
+        if (response.status === 201) {
           console.log(response.data, "welcome to your login page");
           this.props.UserRegister(true);
           this.setState({ flage: "FamilyPage" });
@@ -65,6 +70,14 @@ export default class SignUpFamily extends Component {
         console.log(err);
       });
   };
+
+  loadImgToServer = ()=>{
+
+   console.log(this.state.file);
+   
+
+  }
+
   render() {
     return (
       <div className="blurred-bg-container">
@@ -119,6 +132,14 @@ export default class SignUpFamily extends Component {
               <br />
             </div>
             <div className="col-50 left-side-form">
+              <input type="file" required name="file"  onChange={(e)=>{
+
+                this.setState({file:e.target.files[0]})
+
+                console.log(this.state.file);
+                
+              }}></input> <br/>
+              <button onClick={this.loadImgToServer}>load img</button>
               <label htmlFor="NumberSoldiers">
                 {" "}
                 Number of soliders you can host :{" "}
