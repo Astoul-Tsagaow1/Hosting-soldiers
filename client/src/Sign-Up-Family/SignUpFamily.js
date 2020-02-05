@@ -52,28 +52,9 @@ export default class SignUpFamily extends Component {
     localStorage.setItem("namfamily", this.state.fname);
     localStorage.setItem("user", "family");
 
-    axios
-      .post("/family", { Familyobj })
-      .then(response => {
-        alert("family");
-        if (response.status === 201) {
-          console.log(response.data, "welcome to your login page");
-          this.props.UserRegister(true);
-          this.setState({ flage: "FamilyPage" });
+    // img post 
 
-          console.log("before redirect");
-        } else {
-          console.log(response.data.email, "is exsit");
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
-  loadImgToServer = ()=>{
-
-
+    
     let ImgData =new FormData();
     const config = {headers : {'content-type' :'multipart/form-data'}}
 
@@ -85,8 +66,9 @@ export default class SignUpFamily extends Component {
     .then(res =>{
 
       if (res.status === 201 ) {
+        console.log("succcsos")
 
-        console.log(res);
+        console.log(res.data);
         
         
       }
@@ -103,9 +85,32 @@ export default class SignUpFamily extends Component {
     })
 
    console.log(this.state.file);
+
+    // axios
+    //   .post("/family", { Familyobj })
+    //   .then(response => {
+    //     alert("family");
+    //     if (response.status === 201) {
+    //       console.log(response.data, "welcome to your login page");
+    //       this.props.UserRegister(true);
+    //       this.setState({ flage: "FamilyPage" });
+
+    //       console.log("before redirect");
+    //     } else {
+    //       console.log(response.data.email, "is exsit");
+    //     }
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
+  };
+
+  // loadImgToServer = ()=>{
+
+
    
 
-  }
+  // }
 
   render() {
     return (
@@ -168,7 +173,7 @@ export default class SignUpFamily extends Component {
                 console.log(this.state.file);
                 
               }}></input> <br/>
-              <button className="submit-butoon" onClick={this.loadImgToServer}>load img</button>
+              {/* <button className="submit-butoon" type="submit" onClick={this.loadImgToServer}>load img</button> */}
               <label htmlFor="NumberSoldiers">
                 {" "}
                 Number of soliders you can host :{" "}

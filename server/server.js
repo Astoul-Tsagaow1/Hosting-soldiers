@@ -12,6 +12,14 @@ const ObjectID = mongo.ObjectID;
 const url = "mongodb://localhost:27017/";
 const mydb = "soldiersHosting";
 let newObj;
+
+
+//// imge upload 
+const LocationOfImgs = "uploads/"
+const multer  = require('multer')
+const upload = multer({ dest: LocationOfImgs })
+
+
 app.get("/api", (req, res) => {
   console.log("root is accessed");
   res.send({ res: "result from server 123" });
@@ -28,7 +36,7 @@ app.post("/soldierDate", (req, res) => {
   console.log(req.body, "this is date soldier");
   helperServer.updateDate(req, res, soldiersCollection);
 });
-
+// ===================================send email
 app.post("/sendMail" , (req,res) =>{
   console.log(req.body,"---------email");
   let transporter = nodemailer.createTransport({
@@ -43,8 +51,9 @@ app.post("/sendMail" , (req,res) =>{
     from: 'soldierhostingwebsite@gmail.com',
     to: req.body.email,
     subject: 'Sending Email using Node.js',
-    text: 'Hello world from java script!'
+    text: req.body.message
   };
+  
   
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
@@ -75,6 +84,19 @@ app.post("/datefamily", (req, res) => {
 app.post("/Login", (req, res) => {
   helperServer.Login(req, res);
 });
+
+// ====== load imge 
+
+app.post("/imgload",upload.single('FamilyIMG'), (req,res)=>{
+  console.log(" inside imgload");
+  console.log(req.body);
+  console.log(req.file);
+  
+  
+
+  res.status(201).send({body:req.file})
+
+}) 
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
