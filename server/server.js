@@ -5,14 +5,13 @@ app.use(express.json());
 const helperServer = require("./helperServer");
 const soldiersCollection = "soldiers";
 const FamliysCollection = "families";
-
+let nodemailer = require('nodemailer');
 const mongo = require("mongodb");
 const MongoClient = mongo.MongoClient;
 const ObjectID = mongo.ObjectID;
 const url = "mongodb://localhost:27017/";
 const mydb = "soldiersHosting";
 let newObj;
-
 app.get("/api", (req, res) => {
   console.log("root is accessed");
   res.send({ res: "result from server 123" });
@@ -29,6 +28,33 @@ app.post("/soldierDate", (req, res) => {
   console.log(req.body, "this is date soldier");
   helperServer.updateDate(req, res, soldiersCollection);
 });
+
+app.post("/sendMail" , (req,res) =>{
+  console.log(req.body,"---------email");
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'soldierhostingwebsite@gmail.com',
+      pass: 'jgalofxuuzsfwxls'
+    }
+  });
+  
+  let mailOptions = {
+    from: 'soldierhostingwebsite@gmail.com',
+    to: req.body.email,
+    subject: 'Sending Email using Node.js',
+    text: 'Hello world from java script!'
+  };
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+  res.status(201).send({email:"was send"});
+})
 
 // =============================== Familys
 app.post("/family", (req, res) => {
