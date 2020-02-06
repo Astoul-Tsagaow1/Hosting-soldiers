@@ -12,13 +12,27 @@ const ObjectID = mongo.ObjectID;
 const url = "mongodb://localhost:27017/";
 const mydb = "soldiersHosting";
 let newObj;
-
+const path = require('path')
+const LocationOfImgs = "uploads";
+app.use(express.static(path.join(__dirname,'..',LocationOfImgs)))
+console.log(path.join(__dirname,LocationOfImgs));
 
 //// imge upload 
-const LocationOfImgs = "uploads/"
-const multer  = require('multer')
-const upload = multer({ dest: LocationOfImgs })
-const path = require('path')
+
+const multer  = require('multer');
+const Storage = multer.diskStorage({
+  destination : "uploads",
+  filename : function (req , file , clb) {
+console.log(file.originalname);
+
+    clb(null , Date.now()+file.originalname) 
+      
+  }
+
+})
+
+const upload = multer({storage : Storage , limits:{fileSize:5000000}})
+
 
 
 app.get("/api", (req, res) => {
@@ -67,8 +81,11 @@ app.post("/sendMail" , (req,res) =>{
 })
 
 // =============================== Familys
-app.post("/family", (req, res) => {
-   console.log(res.body);
+app.post("/family",upload.single('FamilyIMG'), (req, res) => {
+  console.log("inside Family form");
+  
+   console.log(req.body);
+   console.log(req.file);
    
   helperServer.FindAndInsertUsers(req, res, FamliysCollection)
 
@@ -88,22 +105,16 @@ app.post("/Login", (req, res) => {
 
 // ====== load imge 
 
-app.post("/imgload",upload.single('FamilyIMG'), (req,res)=>{
-  console.log(" inside imgload");
-  console.log(req.body);
-  console.log(req.file);
-  res.status(201).send({body:req.file})
 
-}) 
 
-app.get("images/:newFilename" , (req , res)=>{
+// app.get("images/:newFilename" , (req , res)=>{
 
-  console.log("images/ is accessed");
+//   console.log("images/ is accessed");
 
-  const Fullfilename = path.join(__dirname,LocationOfImgs,req.params.newFilename)
-  res.sendFile(Fullfilename)
+//   const Fullfilename = path.join(__dirname,LocationOfImgs,req.params.newFilename)
+//   res.sendFile(Fullfilename)
   
-})
+// })
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

@@ -6,18 +6,24 @@ const mydb = "soldiersHosting";
 const FamliysCollection = "families";
 const soldiersCollection = "soldiers";
 
+
+
+
 module.exports.FindAndInsertUsers = FindAndInsertUsers;
 module.exports.updateDate = updateDate;
-
+///  chack if user exsist
 function FindAndInsertUsers(req, res, collectionARG) {
   let serchEmail;
+    console.log(req.body);
+
   if (collectionARG == "soldiers") {
+    
     serchEmail = req.body.soldierObj.email;
     console.log(serchEmail, "undifind----------------------------");
   } else {
-    serchEmail = req.body.Familyobj.email;
+    serchEmail = req.body.email;
 
-    console.log(serchEmail, "undifind");
+    console.log(serchEmail, "undifind*******");
   }
 
   MongoClient.connect(url, function(err, db) {
@@ -52,13 +58,14 @@ function InsertUsers(req, collectionARG) {
     if (collectionARG == "soldiers") {
       console.log("insert new soldier");
 
-      myobj = req.body.soldierObj;
+      myobj = req.body;
       console.log(myobj);
       
     } else {
       console.log("insert new Family");
 
-      myobj = req.body.Familyobj;
+      myobj = req.body;
+      myobj.image = req.file.filename;
       console.log(myobj);
 
     }

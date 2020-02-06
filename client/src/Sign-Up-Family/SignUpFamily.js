@@ -42,75 +42,80 @@ export default class SignUpFamily extends Component {
       familyCity: this.state.fCity,
       fromDate: this.state.fromDate,
       untilDate: this.state.untilDate,
-      file : this.state.file
+      file: this.state.file
     };
 
     console.log(Familyobj, "family obj");
-    
 
     localStorage.setItem("email", this.state.femail);
     localStorage.setItem("namfamily", this.state.fname);
     localStorage.setItem("user", "family");
 
-    // img post 
+console.log(Familyobj,'data');
 
-    
-    let ImgData =new FormData();
-    const config = {headers : {'content-type' :'multipart/form-data'}}
+ let ImgData = new FormData();
+    const config = { headers: { "content-type": "multipart/form-data" } };
 
-    ImgData.append("FamilyIMG",this.state.file)
+    ImgData.append('FamilyIMG', Familyobj.file);
+    ImgData.append('email' , Familyobj.email);
+    ImgData.append('PhonNumber',Familyobj.familyPhonNumber);
+    ImgData.append('NumberSoldiersHosts',Familyobj.familyNumberSoldiersHosts);
+    ImgData.append('Password',Familyobj.familyPassword);
+    ImgData.append('ConfirmePassword',Familyobj.familyConfirmePassword);
+    ImgData.append('FamilyDescriptionvlue',Familyobj.familyCity)
+  
 
-
-    axios
-    .post('/imgload',ImgData,config)
-    .then(res =>{
-
-      if (res.status === 201 ) {
-        console.log("succcsos")
-
-        console.log(res.data);
-        
-        
-      }
-      else{
-        console.log("Status code");
-        
-      }
-    })
-
-    .catch(err =>{
-
-      console.log("not load");
-      
-    })
-
-   console.log(this.state.file);
+    console.log("befooor load img");
 
     // axios
-    //   .post("/family", { Familyobj })
-    //   .then(response => {
-    //     alert("family");
-    //     if (response.status === 201) {
-    //       console.log(response.data, "welcome to your login page");
-    //       this.props.UserRegister(true);
-    //       this.setState({ flage: "FamilyPage" });
+    //   .post("/imgload", ImgData, config)
+    //   .then(res => {
+    //     if (res.status === 201) {
+    //       console.log("succcsos");
 
-    //       console.log("before redirect");
+    //       console.log(res.data);
     //     } else {
-    //       console.log(response.data.email, "is exsit");
+    //       console.log("Status code");
     //     }
     //   })
+
     //   .catch(err => {
-    //     console.log(err);
+    //     console.log("not load");
     //   });
+
+    // console.log(this.state.file);
+
+    console.log(Familyobj);
+    console.log(ImgData);
+    
+    axios
+      .post("/family", ImgData ,config)
+      .then(response => {
+        alert("family");
+        console.log(Familyobj,'inside axios');
+
+        if (response.status === 201) {
+          console.log(response.data, "welcome to your login page");
+          this.props.UserRegister(true);
+          this.setState({ flage: "FamilyPage" });
+
+          console.log("before redirect");
+        } else {
+          console.log(response.data.email, "is exsit");
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+
   };
 
-  // loadImgToServer = ()=>{
+ 
 
-
+    /// and load image
    
-
-  // }
+  
 
   render() {
     return (
@@ -166,14 +171,6 @@ export default class SignUpFamily extends Component {
               <br />
             </div>
             <div className="col-50 left-side-form">
-              <input type="file" required name="file"  onChange={(e)=>{
-
-                this.setState({file:e.target.files[0]})
-
-                console.log(this.state.file);
-                
-              }}></input> <br/>
-              {/* <button className="submit-butoon" type="submit" onClick={this.loadImgToServer}>load img</button> */}
               <label htmlFor="NumberSoldiers">
                 {" "}
                 Number of soliders you can host :{" "}
@@ -232,7 +229,21 @@ export default class SignUpFamily extends Component {
                                         </div> */}
             </div>
           </form>
+          <div className="UploadImage">
+          <input
+            type="file"
+            required
+            name="imgf"
+            onChange={e => {
+              this.setState({ file: e.target.files[0] });
 
+              console.log(this.state.file);
+            }}
+          ></input>{" "}
+         </div>          
+
+          <br />
+          {/* <button className="submit-butoon" type="submit" onClick={this.UploadImg}>load img</button> */}
           {/* </div> */}
           <div className="blur"></div>
         </div>
