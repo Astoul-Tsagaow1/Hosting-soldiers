@@ -20,6 +20,10 @@
 .resultFamiles{
     width: 100%;
     /* border:1px solid blue; */
+    
+}
+.footer1{
+    top:110%
 }
 /* @media screen and (min-width: 1000px){
     .resultFamiles{
