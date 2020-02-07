@@ -42,7 +42,7 @@ export default class SignUpFamily extends Component {
       familyCity: this.state.fCity,
       fromDate: this.state.fromDate,
       untilDate: this.state.untilDate,
-      FamilyDescriptionvlue : this.state.FamilyDescription,
+      FamilyDescriptionvlue: this.state.FamilyDescription,
       file: this.state.file
     };
 
@@ -50,30 +50,29 @@ export default class SignUpFamily extends Component {
 
     localStorage.setItem("email", this.state.femail);
     localStorage.setItem("namfamily", this.state.fname);
-    localStorage.setItem("image", this.state.file.name);
+    localStorage.setItem("image", Date.now()+this.state.file.name);
     localStorage.setItem("user", "family");
 
-console.log(Familyobj,'data');
+    console.log(Familyobj, "data");
 
- let ImgData = new FormData();
+    let ImgData = new FormData();
     const config = { headers: { "content-type": "multipart/form-data" } };
 
-    ImgData.append('FamilyIMG', Familyobj.file);
-    ImgData.append('email' , Familyobj.email);
-    ImgData.append('PhonNumber',Familyobj.familyPhonNumber);
-    ImgData.append('NumberSoldiersHosts',Familyobj.familyNumberSoldiersHosts);
-    ImgData.append('Password',Familyobj.familyPassword);
-    ImgData.append('ConfirmePassword',Familyobj.familyConfirmePassword);
-    ImgData.append('familyCity',Familyobj.familyCity)
-    ImgData.append('fromDate',Familyobj.fromDate)
-    ImgData.append('untilDate',Familyobj.untilDate)
+    ImgData.append("FamilyIMG", Familyobj.file);
+    ImgData.append("email", Familyobj.email);
+    ImgData.append("PhonNumber", Familyobj.familyPhonNumber);
+    ImgData.append("NumberSoldiersHosts", Familyobj.familyNumberSoldiersHosts);
+    ImgData.append("Password", Familyobj.familyPassword);
+    ImgData.append("ConfirmePassword", Familyobj.familyConfirmePassword);
+    ImgData.append("familyCity", Familyobj.familyCity);
+    ImgData.append("fromDate", Familyobj.fromDate);
+    ImgData.append("untilDate", Familyobj.untilDate);
 
-    
     axios
-      .post("/family", ImgData ,config)
+      .post("/family", ImgData, config)
       .then(response => {
         alert("family");
-        console.log(Familyobj,'inside axios');
+        console.log(Familyobj, "inside axios");
 
         if (response.status === 201) {
           console.log(response.data, "welcome to your login page");
@@ -88,8 +87,6 @@ console.log(Familyobj,'data');
       .catch(err => {
         console.log(err);
       });
-
-
   };
 
   render() {
@@ -145,16 +142,16 @@ console.log(Familyobj,'data');
               <br />
             </div>
             <div className="col-50 left-side-form">
-            <input
-            type="file"
-            required
-            name="imgf"
-            onChange={e => {
-              this.setState({ file: e.target.files[0] });
+              <input
+                type="file"
+                required
+                name="imgf"
+                onChange={e => {
+                  this.setState({ file: e.target.files[0] });
 
-              console.log(this.state.file);
-            }}
-          ></input>{" "}
+                  console.log(this.state.file);
+                }}
+              ></input>{" "}
               <label htmlFor="NumberSoldiers">
                 {" "}
                 Number of soliders you can host :{" "}
@@ -194,12 +191,15 @@ console.log(Familyobj,'data');
                 onChange={this.Hendelchange}
               />{" "}
               <br />
-              <label htmlFor="FamilyDescription">
-                {" "}
-                About the family :{" "}
-              </label>
-             <textarea value={this.state.FamilyDescriptionvlue} name="FamilyDescription" id="FamilyDescription"  placeholder="Ex:A family that loves soldiers very much and wants to host and make them happy .." onChange={this.Hendelchange}></textarea><br />
-
+              <label htmlFor="FamilyDescription"> About the family : </label>
+              <textarea
+                value={this.state.FamilyDescriptionvlue}
+                name="FamilyDescription"
+                id="FamilyDescription"
+                placeholder="Ex:A family that loves soldiers very much and wants to host and make them happy .."
+                onChange={this.Hendelchange}
+              ></textarea>
+              <br />
               <button
                 required="required"
                 type="submit"
@@ -218,7 +218,6 @@ console.log(Familyobj,'data');
                                         </div> */}
             </div>
           </form>
-        
 
           <br />
           {/* <button className="submit-butoon" type="submit" onClick={this.UploadImg}>load img</button> */}
