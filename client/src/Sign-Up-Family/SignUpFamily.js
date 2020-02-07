@@ -42,6 +42,7 @@ export default class SignUpFamily extends Component {
       familyCity: this.state.fCity,
       fromDate: this.state.fromDate,
       untilDate: this.state.untilDate,
+      FamilyDescriptionvlue : this.state.FamilyDescriptionvlue,
       file: this.state.file
     };
 
@@ -62,31 +63,10 @@ console.log(Familyobj,'data');
     ImgData.append('NumberSoldiersHosts',Familyobj.familyNumberSoldiersHosts);
     ImgData.append('Password',Familyobj.familyPassword);
     ImgData.append('ConfirmePassword',Familyobj.familyConfirmePassword);
-    ImgData.append('FamilyDescriptionvlue',Familyobj.familyCity)
-  
+    ImgData.append('familyCity',Familyobj.familyCity)
+    ImgData.append('fromDate',Familyobj.fromDate)
+    ImgData.append('untilDate',Familyobj.untilDate)
 
-    console.log("befooor load img");
-
-    // axios
-    //   .post("/imgload", ImgData, config)
-    //   .then(res => {
-    //     if (res.status === 201) {
-    //       console.log("succcsos");
-
-    //       console.log(res.data);
-    //     } else {
-    //       console.log("Status code");
-    //     }
-    //   })
-
-    //   .catch(err => {
-    //     console.log("not load");
-    //   });
-
-    // console.log(this.state.file);
-
-    console.log(Familyobj);
-    console.log(ImgData);
     
     axios
       .post("/family", ImgData ,config)
@@ -111,12 +91,6 @@ console.log(Familyobj,'data');
 
   };
 
- 
-
-    /// and load image
-   
-  
-
   render() {
     return (
       <div className="blurred-bg-container">
@@ -124,7 +98,6 @@ console.log(Familyobj,'data');
 
         <div className="content">
           <h1 className="Sign-up-FamilyPage">Sign up</h1>
-          {/* <div className="text"> */}
           <form className="text" onSubmit={this.handleSubmit}>
             <div className="col-50 right-side-form">
               <label htmlFor="fname"> Family-Name : </label>
@@ -171,6 +144,16 @@ console.log(Familyobj,'data');
               <br />
             </div>
             <div className="col-50 left-side-form">
+            <input
+            type="file"
+            required
+            name="imgf"
+            onChange={e => {
+              this.setState({ file: e.target.files[0] });
+
+              console.log(this.state.file);
+            }}
+          ></input>{" "}
               <label htmlFor="NumberSoldiers">
                 {" "}
                 Number of soliders you can host :{" "}
@@ -210,7 +193,8 @@ console.log(Familyobj,'data');
                 onChange={this.Hendelchange}
               />{" "}
               <br />
-              {/* <textarea value={this.state.FamilyDescriptionvlue} name="FamilyDescription" id="Family-Description" name="Family_Description" placeholder="About the family.." onChange={this.Hendelchange}></textarea><br /> */}
+             {/* <textarea value={this.state.FamilyDescriptionvlue} name="FamilyDescription" id="Family-Description" name="Family_Description" placeholder="About the family.." onChange={this.Hendelchange}></textarea><br /> */}
+
               <button
                 required="required"
                 type="submit"
@@ -229,18 +213,7 @@ console.log(Familyobj,'data');
                                         </div> */}
             </div>
           </form>
-          <div className="UploadImage">
-          <input
-            type="file"
-            required
-            name="imgf"
-            onChange={e => {
-              this.setState({ file: e.target.files[0] });
-
-              console.log(this.state.file);
-            }}
-          ></input>{" "}
-         </div>          
+        
 
           <br />
           {/* <button className="submit-butoon" type="submit" onClick={this.UploadImg}>load img</button> */}
