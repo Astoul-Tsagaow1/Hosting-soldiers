@@ -12,6 +12,7 @@ import FamilyPage from "./Family-Page/FamilyPage";
 import SoldiersPage from "./Soldiers-Page/SoldiersPage";
 import Login from "./Login/Login";
 import SoldierNavBar from "./Soldier-Nav-Bar/SoldierNavBar";
+import Footer from './Footer/Footer';
 
 class App extends Component {
   state = { ChangeNabBar: false, falg: false, authentication: "" };
@@ -128,7 +129,11 @@ class App extends Component {
             />
           </Switch>
         </div>
+        <div className = "footer1">
+                    <Footer/>
+                </div>
       </BrowserRouter>
+
     );
   }
 }

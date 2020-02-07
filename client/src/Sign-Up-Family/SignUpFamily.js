@@ -58,6 +58,7 @@ export default class SignUpFamily extends Component {
     let ImgData = new FormData();
     const config = { headers: { "content-type": "multipart/form-data" } };
 
+<<<<<<< HEAD
     ImgData.append("FamilyIMG", Familyobj.file);
     ImgData.append("email", Familyobj.email);
     ImgData.append("PhonNumber", Familyobj.familyPhonNumber);
@@ -67,6 +68,19 @@ export default class SignUpFamily extends Component {
     ImgData.append("familyCity", Familyobj.familyCity);
     ImgData.append("fromDate", Familyobj.fromDate);
     ImgData.append("untilDate", Familyobj.untilDate);
+=======
+    ImgData.append('FamilyIMG', Familyobj.file);
+    ImgData.append('email' , Familyobj.email);
+    ImgData.append('PhonNumber',Familyobj.familyPhonNumber);
+    ImgData.append('NumberSoldiersHosts',Familyobj.familyNumberSoldiersHosts);
+    ImgData.append('Password',Familyobj.familyPassword);
+    ImgData.append('ConfirmePassword',Familyobj.familyConfirmePassword);
+    ImgData.append('familyCity',Familyobj.familyCity);
+    ImgData.append('fromDate',Familyobj.fromDate);
+    ImgData.append('untilDate',Familyobj.untilDate);
+    ImgData.append('discriptionFamily',Familyobj.FamilyDescriptionvlue);
+
+>>>>>>> 685cc082e00cc783ba671df51e784ffcbb5fe75f
 
     axios
       .post("/family", ImgData, config)

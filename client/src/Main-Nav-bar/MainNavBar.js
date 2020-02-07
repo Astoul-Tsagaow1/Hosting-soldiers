@@ -2,7 +2,6 @@ import React from 'react'
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import './nav-bar.css'
-import Footer from '../Footer/Footer'
 
 
 
@@ -25,9 +24,6 @@ https://img.icons8.com/color/48/000000/camo-cream.png
               <Link  className="main-navBar" to="/x">About</Link>
             </Nav>
           </Navbar>
-          <div className="Footer-main">
-          <Footer/>
-            </div>
         </div>
     )
 }

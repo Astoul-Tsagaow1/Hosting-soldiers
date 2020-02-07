@@ -8,7 +8,7 @@
  }
  .blurred-bg-container {
    background: url(../images/soldiers-15.jpg);
-   height: 100vh; /* =h */
+   height: 84vh; /* =h */
    background-size: cover;
    font-family: 'Oswald', sans-serif;
    font-family: 'Lato', sans-serif;

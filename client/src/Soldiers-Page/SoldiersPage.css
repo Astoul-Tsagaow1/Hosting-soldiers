@@ -2,6 +2,9 @@
     padding: 0;
     margin: 0;
 }
+.warpAllSoldierPage{
+    height: 84vh;
+}
 .backSoliderPage{
     background-image: url(../images/soldiers-1.jpeg);
     height: 70vh;
