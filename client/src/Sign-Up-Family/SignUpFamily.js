@@ -64,9 +64,11 @@ console.log(Familyobj,'data');
     ImgData.append('NumberSoldiersHosts',Familyobj.familyNumberSoldiersHosts);
     ImgData.append('Password',Familyobj.familyPassword);
     ImgData.append('ConfirmePassword',Familyobj.familyConfirmePassword);
-    ImgData.append('familyCity',Familyobj.familyCity)
-    ImgData.append('fromDate',Familyobj.fromDate)
-    ImgData.append('untilDate',Familyobj.untilDate)
+    ImgData.append('familyCity',Familyobj.familyCity);
+    ImgData.append('fromDate',Familyobj.fromDate);
+    ImgData.append('untilDate',Familyobj.untilDate);
+    ImgData.append('discriptionFamily',Familyobj.FamilyDescriptionvlue);
+
 
     
     axios
