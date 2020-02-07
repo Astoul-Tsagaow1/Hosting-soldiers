@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./DisplayMatchingFamilies.css";
-import solimg from "../images/soldiers-10.jpg";
 import axios from "axios";
 export default class DisplayMatchingFamilies extends Component {
   state = {ssuccessMatch : false};
@@ -20,9 +19,6 @@ export default class DisplayMatchingFamilies extends Component {
       return <h3>No result</h3>
    }
   }
-
-
-  
 
   render() {
     const families = this.props.resultMatch;
@@ -48,8 +44,7 @@ export default class DisplayMatchingFamilies extends Component {
               <a href="#" className="card-link">
                 Card link
               </a>
-              <a href="#" className="card-link">
-                
+              <a href="#" className="card-link">  
               </a>
             </div>
             <button className="buttonSendReqHosting" onClick = {()=>{
