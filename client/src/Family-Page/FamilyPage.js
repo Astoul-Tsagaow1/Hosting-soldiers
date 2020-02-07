@@ -9,11 +9,16 @@ export default class FamilyPage extends Component {
     let from;
     let Until;
    let FamilyName =  localStorage.namfamily;
+   let familyimage = localStorage.image;
     return (
       <div className="Family-Page-Wrapper">
         <div className="Family-Page-Form"> 
         <div className="Family-Page-Inputs-Wrapper">
         <h1>Welcome  {FamilyName} </h1>
+        <img
+              src={familyimage}
+              alt="some "
+            ></img>
         <h2>When can you host ?</h2>
         From  ?  <input type="date" onChange={(e) => {
           from = e.target.value;
@@ -21,10 +26,7 @@ export default class FamilyPage extends Component {
         Until ?  <input type="date"  onChange={(e) => {
           Until = e.target.value;
         }} />
-        <button className="Family-Page-Buttun" onClick={() => {
-          console.log(from);
-          console.log(Until);
-          
+        <button className="Family-Page-Buttun" onClick={() => {          
           if (from === undefined || Until === undefined ){
             console.log("pless insert date");
             this.setState({ flage2: true })

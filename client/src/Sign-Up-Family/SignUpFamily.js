@@ -13,7 +13,7 @@ export default class SignUpFamily extends Component {
       fNumberSoldiersHosts: "",
       fPassword: "",
       ConfirmePassword: "",
-      FamilyDescriptionvlue: "",
+      FamilyDescription: "",
       fCity: "",
       falg: true,
       fromDate: "",
@@ -42,7 +42,7 @@ export default class SignUpFamily extends Component {
       familyCity: this.state.fCity,
       fromDate: this.state.fromDate,
       untilDate: this.state.untilDate,
-      FamilyDescriptionvlue : this.state.FamilyDescriptionvlue,
+      FamilyDescriptionvlue : this.state.FamilyDescription,
       file: this.state.file
     };
 
@@ -50,6 +50,7 @@ export default class SignUpFamily extends Component {
 
     localStorage.setItem("email", this.state.femail);
     localStorage.setItem("namfamily", this.state.fname);
+    localStorage.setItem("image", this.state.file.name);
     localStorage.setItem("user", "family");
 
 console.log(Familyobj,'data');
@@ -193,7 +194,11 @@ console.log(Familyobj,'data');
                 onChange={this.Hendelchange}
               />{" "}
               <br />
-             {/* <textarea value={this.state.FamilyDescriptionvlue} name="FamilyDescription" id="Family-Description" name="Family_Description" placeholder="About the family.." onChange={this.Hendelchange}></textarea><br /> */}
+              <label htmlFor="FamilyDescription">
+                {" "}
+                About the family :{" "}
+              </label>
+             <textarea value={this.state.FamilyDescriptionvlue} name="FamilyDescription" id="FamilyDescription"  placeholder="Ex:A family that loves soldiers very much and wants to host and make them happy .." onChange={this.Hendelchange}></textarea><br />
 
               <button
                 required="required"
