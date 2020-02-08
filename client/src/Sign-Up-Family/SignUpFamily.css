@@ -1,11 +1,4 @@
 
- button{
-   background: red;
-   border: none;
-   width: 100%;
-   height: 9%;
-   margin-top: 23px;
- }
  .blurred-bg-container {
    background: url(../images/soldiers-15.jpg);
    height: 84vh; /* =h */
@@ -17,7 +10,7 @@
  .content {
    background: inherit;
    width: 50%; /* =cw */
-   height: 60%; /* =ch */
+   height: 70%; /* =ch */
    border-radius: 8px;
    box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
    position: absolute;
@@ -26,6 +19,7 @@
    transform: translate(-50%, -50%);
    overflow: hidden;
    position: relative;
+   color: #fff;
  }
   .blur {
    background: inherit;
@@ -52,22 +46,22 @@
    left: 40%; 
 
  }
- .facebookwrpper{
+ /* .facebookwrpper{ */
   /* background-color: blue; */
-  position: absolute;
+  /* position: absolute;
   left: 5%;
   color: aliceblue;
   width: 90%;
   height: 100%;
   top: 65%;
   text-align: center;
- }
-.facebookbutton{
+ } */
+/* .facebookbutton{
   border-radius: 5px;
   background: rgb(66, 103, 178);
   color: aliceblue;
-}
-.gmailwrapper{
+} */
+/* .gmailwrapper{
 position:absolute;
 top: 80%;
 color: aliceblue;
@@ -81,21 +75,20 @@ left: 5%;
   border-radius: 5px;
   text-align: center;
 
- }
-
- /* .submitbutoon{
-  height: 20%;
-  border-radius: 5px;
  } */
+
 
 
  .submitbutoon {
   color: #FFF;
   transition: all 0.5s;
   position: relative;
-  height: 20%;
+  height: 30%;
   border-radius: 5px;
   background-color: rgb(33, 99, 64);
+  border: none;
+  width: 100%;
+  margin-top: 10%;
 }
 .submitbutoon::before {
   content: '';
@@ -137,7 +130,6 @@ left: 5%;
 
 .text {
   padding: 16px;
-  /* background: rgba(255, 255, 255, 0.3); */
   height: 100%;
   box-sizing: border-box; /* so that padding is included in height */
   height: 60%;
@@ -166,14 +158,10 @@ left: 5%;
   width: 45%;
 
 }
-
-.submit-butoon{
-  width: 100%;
-  height: 5%;
-  background-color: black;
-  color: #FFF;
-  position: absolute;
-
+ 
+#FamilyDescription{
+  border: none;
+  border-radius: 5px;
 }
 
 @media screen and (max-width: 870px) {

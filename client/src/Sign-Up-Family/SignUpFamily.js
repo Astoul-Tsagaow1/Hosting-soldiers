@@ -50,7 +50,7 @@ export default class SignUpFamily extends Component {
 
     localStorage.setItem("email", this.state.femail);
     localStorage.setItem("namfamily", this.state.fname);
-    localStorage.setItem("image", Date.now()+this.state.file.name);
+    localStorage.setItem("image", "familyPhoto" + this.state.file.name);
     localStorage.setItem("user", "family");
 
     console.log(Familyobj, "data");
@@ -58,7 +58,6 @@ export default class SignUpFamily extends Component {
     let ImgData = new FormData();
     const config = { headers: { "content-type": "multipart/form-data" } };
 
-<<<<<<< HEAD
     ImgData.append("FamilyIMG", Familyobj.file);
     ImgData.append("email", Familyobj.email);
     ImgData.append("PhonNumber", Familyobj.familyPhonNumber);
@@ -68,19 +67,7 @@ export default class SignUpFamily extends Component {
     ImgData.append("familyCity", Familyobj.familyCity);
     ImgData.append("fromDate", Familyobj.fromDate);
     ImgData.append("untilDate", Familyobj.untilDate);
-=======
-    ImgData.append('FamilyIMG', Familyobj.file);
-    ImgData.append('email' , Familyobj.email);
-    ImgData.append('PhonNumber',Familyobj.familyPhonNumber);
-    ImgData.append('NumberSoldiersHosts',Familyobj.familyNumberSoldiersHosts);
-    ImgData.append('Password',Familyobj.familyPassword);
-    ImgData.append('ConfirmePassword',Familyobj.familyConfirmePassword);
-    ImgData.append('familyCity',Familyobj.familyCity);
-    ImgData.append('fromDate',Familyobj.fromDate);
-    ImgData.append('untilDate',Familyobj.untilDate);
-    ImgData.append('discriptionFamily',Familyobj.FamilyDescriptionvlue);
-
->>>>>>> 685cc082e00cc783ba671df51e784ffcbb5fe75f
+    ImgData.append("discriptionFamily", Familyobj.FamilyDescriptionvlue);
 
     axios
       .post("/family", ImgData, config)
@@ -154,8 +141,19 @@ export default class SignUpFamily extends Component {
                 onChange={this.Hendelchange}
               />{" "}
               <br />
+              <label htmlFor="FamilyDescription"> About the family : </label>
+              <textarea
+                value={this.state.FamilyDescriptionvlue}
+                name="FamilyDescription"
+                id="FamilyDescription"
+                rows="2" cols="39"
+                placeholder="Ex:A family that loves soldiers very much and wants to host and make them happy .."
+                onChange={this.Hendelchange}
+              ></textarea>
+              <br />
             </div>
             <div className="col-50 left-side-form">
+              family photo :
               <input
                 type="file"
                 required
@@ -205,15 +203,7 @@ export default class SignUpFamily extends Component {
                 onChange={this.Hendelchange}
               />{" "}
               <br />
-              <label htmlFor="FamilyDescription"> About the family : </label>
-              <textarea
-                value={this.state.FamilyDescriptionvlue}
-                name="FamilyDescription"
-                id="FamilyDescription"
-                placeholder="Ex:A family that loves soldiers very much and wants to host and make them happy .."
-                onChange={this.Hendelchange}
-              ></textarea>
-              <br />
+           
               <button
                 required="required"
                 type="submit"

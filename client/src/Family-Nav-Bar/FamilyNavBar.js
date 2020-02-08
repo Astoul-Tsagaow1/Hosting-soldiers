@@ -7,7 +7,7 @@ import './Familynavbar.css'
 export default function FamilyNavBar(props) {
     return (
         <div className="Navbar NavBarAfterRegistration" >
-            <Navbar className="Family-nav-bar" navbar bg="light"  navbar="true">
+            <Navbar className="Family-nav-bar" navbar bg="dark"  navbar="true">
             <Link to="/"><img src="https://img.icons8.com/color/48/000000/camo-cream.png(2 kB)
 https://img.icons8.com/color/48/000000/camo-cream.png
 "/></Link>    <div className="x">

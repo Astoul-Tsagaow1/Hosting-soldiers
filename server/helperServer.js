@@ -158,7 +158,7 @@ function Login(req, res) {
           return SoldiersUsers(soldiersCollection, serchEmail, req, res);
         }
 
-        if (result.familyPassword === serchEmail.password) {
+        if (result.Password === serchEmail.password) {
           console.log("success");
 
           return res.status(205).send(result);
