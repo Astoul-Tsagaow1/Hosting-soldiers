@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 import "./DisplayMatchingFamilies.css";
+import GuidelinesForContactingTheHostamily from "../Guidelines-for-contacting-the-host-family/GuidelinesForContactingTheHostamily"
 import axios from "axios";
 export default class DisplayMatchingFamilies extends Component {
-  state = {ssuccessMatch : false};
+  state = {
+    ssuccessMatch : false , 
+    familyName:'' , 
+    familyPhonNumber: ''};
 
   displayContacxt(familiesArray , componentDisplayFamilies){
    if(this.state.ssuccessMatch){
      console.log('successMatch');
-      return `${localStorage.name}   Levi family approved your application and hosted you on the date 1.1.2020`;
+     let familyDatalies = {...this.state};
+      return <GuidelinesForContactingTheHostamily familyDatalies = {familyDatalies}/>
    }
     else if(familiesArray.length > 0){
     console.log('componentDisplayFamilies' , this.state.ssuccessMatch);
@@ -22,10 +27,11 @@ export default class DisplayMatchingFamilies extends Component {
 
   render() {
     const families = this.props.resultMatch;
+    console.log(families)
     const displayFimilies = families.map((obj, index) => {
       return (
         <div id="cards" key={index}>
-          <div className="card" style={{ width: "18rem" }}>
+          <div className="card" style={{ width: "18rem"}}>
             <img
               className="card-img-top"
               src={obj.image}
@@ -33,7 +39,7 @@ export default class DisplayMatchingFamilies extends Component {
             ></img>
             <div className="card-body">
               <h5 className="card-title">Family:{obj.familyname}</h5>
-              <p className="card-text">Hello soldier</p>
+              <p className="card-text">{obj.discriptionFamily}</p>
             </div>
             <ul className="list-group list-group-flush">
               <li className="list-group-item">City:{obj.familyCity}</li>
@@ -51,11 +57,14 @@ export default class DisplayMatchingFamilies extends Component {
               axios.post("/sendMail", { 
                 email: obj.email,
                 familyName: obj.familyname,
-                message:`${localStorage.name} wants to stay with you on the ${localStorage.fromDate} date.`})
+                hostingDate: obj.fromDate,
+                familyPhonNumber: obj.PhonNumber,
+                familyCity: obj.familyCity,
+                message:`${localStorage.name} wants to stay with you on the ${localStorage.fromDate} date.`,
+                emailSoldier: localStorage.email
+              })
               .then(response => {
-                console.log(response);
-
-                this.setState({ssuccessMatch : true})
+                this.setState({ssuccessMatch : true , familyName : obj.familyname , familyPhonNumber: obj.PhonNumber})
               })
               .catch(err => {
                 console.log(err);
@@ -67,9 +76,6 @@ export default class DisplayMatchingFamilies extends Component {
     });
     return (
       <div className="warpResultMAtch">
-
-          {/* {displayFimilies} */}
-        {/* {(families.length > 0) ? displayFimilies : <h3>No result</h3>} */}
         {this.displayContacxt(families ,displayFimilies)}
       </div>
     )

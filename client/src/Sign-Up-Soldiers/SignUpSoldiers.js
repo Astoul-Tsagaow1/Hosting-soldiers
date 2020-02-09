@@ -17,6 +17,7 @@ export default class SignUpSoldiers extends Component {
       confirmPassword: "",
       address: "",
       autogo: "" ,
+      hostingHistory: [],
       loneSoldier: false,
       flage: false
     };
@@ -52,7 +53,8 @@ export default class SignUpSoldiers extends Component {
       password: this.state.password,
       confirmPassword: this.state.confirmPassword,
       address: this.state.address,
-      loneSoldier: this.state.loneSoldier
+      loneSoldier: this.state.loneSoldier,
+      hostingHistory: this.state.hostingHistory
     };
     localStorage.setItem("email", this.state.email);
     localStorage.setItem("user", "soldier");

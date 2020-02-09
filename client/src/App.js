@@ -141,9 +141,15 @@ class App extends Component {
             />
           </Switch>
         </div>
+<<<<<<< HEAD
         {/* <div className="footer1">
           <Footer />
         </div> */}
+=======
+        {/* <div className = "footer1">
+                    <Footer/>
+                </div> */}
+>>>>>>> 251b58ca84a5f1a0c6504d13d25a1ef6b9d29b83
       </BrowserRouter>
     );
   }

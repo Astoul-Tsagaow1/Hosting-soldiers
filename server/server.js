@@ -77,6 +77,45 @@ app.post("/sendMail" , (req,res) =>{
       console.log('Email sent: ' + info.response);
     }
   });
+
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    const dbo = db.db(mydb);
+    dbo
+      .collection(soldiersCollection)
+      .findOne({ email: req.body.emailSoldier }, function(err, emailExist) {
+        if (err) throw err;
+        console.log(emailExist, "email is null or else**************************************");
+        let tempArraySoldierHistory = [req.body.hostingHistory];
+        let familyobj = {
+              email: req.body.email,
+              familyName: req.body.familyname,
+              hostingDate: req.body.fromDate,
+              familyPhonNumber: req.body.PhonNumber,
+              familyCity: req.body.familyCity
+        }
+        tempArraySoldierHistory.push(familyobj);
+
+
+        MongoClient.connect(url, function(err, db) {
+          if (err) throw err;
+          var dbo = db.db(mydb);
+          var myquery = { email: req.body.emailSoldier};
+          var newvalues = {
+            $set: { hostingHistory: req.body.fromDate}
+          };
+          dbo
+            .collection(soldiersCollection)
+            .updateOne(myquery, newvalues, function(err, resx) {
+              if (err) throw err;
+              console.log("1 document updated");
+               console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1" , resx);
+              db.close();
+            });
+        });
+
+      });
+  });
   res.status(201).send({email:"was send"});
 })
 
@@ -103,18 +142,6 @@ app.post("/Login", (req, res) => {
   helperServer.Login(req, res);
 });
 
-// ====== load imge 
-
-
-
-// app.get("images/:newFilename" , (req , res)=>{
-
-//   console.log("images/ is accessed");
-
-//   const Fullfilename = path.join(__dirname,LocationOfImgs,req.params.newFilename)
-//   res.sendFile(Fullfilename)
-  
-// })
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

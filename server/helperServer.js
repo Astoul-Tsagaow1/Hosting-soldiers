@@ -34,7 +34,7 @@ function FindAndInsertUsers(req, res, collectionARG) {
       .findOne({ email: serchEmail }, function(err, emailExist) {
         if (err) throw err;
         console.log(emailExist, "email is null or else ");
-
+        
         if (emailExist == null) {
           InsertUsers(req, collectionARG);
           console.log("email noot Exist");
@@ -58,7 +58,7 @@ function InsertUsers(req, collectionARG) {
     if (collectionARG == "soldiers") {
       console.log("insert new soldier");
 
-      myobj = req.body;
+      myobj = req.body.soldierObj;
       console.log(myobj);
       
     } else {
@@ -66,7 +66,7 @@ function InsertUsers(req, collectionARG) {
 
       myobj = req.body;
       myobj.image = req.file.filename;
-      console.log(myobj);
+      console.log(myobj , "$$$$$$$");
 
     }
     dbo.collection(collectionARG).insertOne(myobj, function(err, res) {
@@ -121,20 +121,20 @@ function FindRelevantFamilies(req, res) {
 
 function SoldiersUsers(collection, serchEmail, req, res) {
   MongoClient.connect(url, function(err, db) {
+    console.log(serchEmail , "inside soldier user");
     if (err) throw err;
     var dbo = db.db(mydb);
     dbo
       .collection(collection)
       .findOne({ email: serchEmail.Email }, function(err, result) {
         if (err) throw err;
-        console.log("inside Solders collection");
-
-        console.log(result);
-        if (serchEmail.password === result.password) {
+        console.log("inside soldier collection");
+       console.log(result);
+       if(serchEmail.password === result.password) {
           console.log("success");
-
           return res.status(209).send(result);
-        } else {
+        }
+         else {
           res.status(205).send("Fail");
           console.log("Fail");
         }
@@ -152,7 +152,7 @@ function Login(req, res) {
     var dbo = db.db(mydb);
     dbo
       .collection(FamliysCollection)
-      .findOne({ email: serchEmail.Email }, function(err, result) {
+      .findOne({ soldierobj:{email: serchEmail.Email} }, function(err, result) {
         console.log(result, "befor status 205 login ***********");
 
         if (result === null) {
