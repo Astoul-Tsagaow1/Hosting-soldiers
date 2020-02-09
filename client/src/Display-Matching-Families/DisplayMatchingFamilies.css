@@ -7,6 +7,11 @@
 .buttonSendReqHosting{
     background-color: green;
 }
+.card-img-top{
+    height: 180px !important;
+    width: 100% !important;
+    
+}
 @media screen and (min-width: 1500px){
     #cards{
     width: 14.6%;
