@@ -42,7 +42,7 @@ function FindAndInsertUsers(req, res, collectionARG) {
         } else {
           console.log("emailExist");
           ResponsefromFindEmail = { ...emailExist };
-
+          res.status(400)
           console.log(ResponsefromFindEmail, "res from findOne");
           res.json({ emailExist });
         }

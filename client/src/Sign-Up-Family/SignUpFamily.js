@@ -3,7 +3,7 @@ import axios from "axios";
 import "./SignUpFamily.css";
 import { Redirect } from "react-router-dom";
 export default class SignUpFamily extends Component {
-  state = {};
+  state = {flag2:false};
   constructor(props) {
     super(props);
     this.state = {
@@ -74,7 +74,7 @@ export default class SignUpFamily extends Component {
       .post("/family", ImgData, config)
       .then(response => {
         alert("family");
-        console.log(Familyobj, "inside axios");
+        console.log(response.status, "inside axios");
 
         if (response.status === 201) {
           console.log(response.data, "welcome to your login page");
@@ -85,9 +85,15 @@ export default class SignUpFamily extends Component {
         } else {
           console.log(response.data.email, "is exsit");
         }
+
+        if (response.status === 400) {
+       
+          
+        }
       })
       .catch(err => {
-        console.log(err);
+        console.log(err);  
+           this.setState({flag2:true})
       });
   };
 
@@ -228,7 +234,30 @@ export default class SignUpFamily extends Component {
           {/* <button className="submit-butoon" type="submit" onClick={this.UploadImg}>load img</button> */}
           {/* </div> */}
           <div className="blur"></div>
-        </div>
+        
+
+        </div> 
+         {this.state.flag2 ? (
+            <div
+              class="alert alert-danger alert-dismissible  h-25 w-25 fade show"
+              role="alert"
+            >
+              <strong> One of the values ​​you entered is incorrect</strong>
+              <button
+                type="button"
+                class="close"
+                onClick={() => {
+                  this.setState({ flag2: false });
+                }}
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          ) : (
+            " "
+          )}
       </div>
     );
   }
