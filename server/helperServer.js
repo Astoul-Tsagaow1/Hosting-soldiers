@@ -176,4 +176,100 @@ function Login(req, res) {
   });
 }
 
+function sendMail(req , res) {
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'soldierhostingwebsite@gmail.com',
+      pass: 'jgalofxuuzsfwxls'
+    }
+  });
+  let mailOptions = {
+    from: 'soldierhostingwebsite@gmail.com',
+    to: req.body.email,
+    subject: 'Sending Email using Node.js',
+    text: req.body.message
+  };
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    }
+    else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+  updateHistory(req , res , soldiersCollection);
+  updateHistory(req , res , FamliysCollection);
+  res.status(201).send({email:"was send"});
+}
+
+function updateHistory(req,res,collectionARG){
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    const dbo = db.db(mydb);
+    let emailSearch;
+    if(collectionARG == "soldiers"){
+      emailSearch = req.body.ObjHistory.familyObj.emailSoldier;
+    }
+    else{
+      emailSearch = req.body.ObjHistory.soldierObj.emailFamily;
+    }
+    dbo
+      .collection(collectionARG)
+      .findOne({ email: emailSearch}, function(err, emailExist) {
+        if (err) throw err;
+        console.log(emailExist, "email is null or else**************************************");
+        let myquery,newHosting;
+        let tempArrayHistory = [...emailExist.hostingHistory];
+        if(collectionARG == "soldiers"){
+              newHosting = {
+                fanilyEmail: req.body.familyObj.email,
+                familyName: req.body.familyObj.familyName,
+                hostingDate: req.body.familyObj.hostingDate,
+                familyPhonNumber: req.body.familyObj.familyPhonNumber,
+                familyCity: req.body.familyObj.familyCity
+          }
+          tempArrayHistory.push(newHosting);
+        }
+        else{
+          newHosting = {
+            soldierEmail: req.body.soldierObj.email,
+            soldierName: req.body.soldierObj.soldierName,
+            hostingDate: req.body.soldierObj.hostingDate,
+            soldierPhonNumber: req.body.soldierObj.phoneNumberSoldirs,
+      }
+           tempArrayHistory.push(newHosting);
+        }
+        myquery = { ...emailSearch};
+        MongoClient.connect(url, function(err, db) {
+          console.log(tempArrayHistory , "$%$%yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy");
+          if (err) throw err;
+          var dbo = db.db(mydb);
+          
+          let newvalues = {
+            $set: { hostingHistory: tempArrayHistory}
+          };
+          dbo
+            .collection(collectionARG)
+            .updateOne(myquery, newvalues, function(err, resx) {
+              if (err) throw err;
+              console.log("1 document updated");
+               console.log(resx);
+               
+              
+            });
+            db.close();
+        });
+
+      });
+  
+    });
+    
+}
+  
+  
+
+
+
+module.exports.sendMail = sendMail;
 module.exports.Login = Login;

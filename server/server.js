@@ -54,71 +54,8 @@ app.post("/soldierDate", (req, res) => {
 // ===================================send email
 app.post("/sendMail" , (req,res) =>{
   console.log(req.body,"---------email");
-  let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'soldierhostingwebsite@gmail.com',
-      pass: 'jgalofxuuzsfwxls'
-    }
-  });
-  
-  let mailOptions = {
-    from: 'soldierhostingwebsite@gmail.com',
-    to: req.body.email,
-    subject: 'Sending Email using Node.js',
-    text: req.body.message
-  };
-  
-  
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  });
-
-  MongoClient.connect(url, function(err, db) {
-    if (err) throw err;
-    const dbo = db.db(mydb);
-    dbo
-      .collection(soldiersCollection)
-      .findOne({ email: req.body.emailSoldier }, function(err, emailExist) {
-        if (err) throw err;
-        console.log(emailExist, "email is null or else**************************************");
-        let tempArraySoldierHistory = [req.body.hostingHistory];
-        let familyobj = {
-              email: req.body.email,
-              familyName: req.body.familyname,
-              hostingDate: req.body.fromDate,
-              familyPhonNumber: req.body.PhonNumber,
-              familyCity: req.body.familyCity
-        }
-        tempArraySoldierHistory.push(familyobj);
-
-
-        MongoClient.connect(url, function(err, db) {
-          if (err) throw err;
-          var dbo = db.db(mydb);
-          var myquery = { email: req.body.emailSoldier};
-          var newvalues = {
-            $set: { hostingHistory: req.body.fromDate}
-          };
-          dbo
-            .collection(soldiersCollection)
-            .updateOne(myquery, newvalues, function(err, resx) {
-              if (err) throw err;
-              console.log("1 document updated");
-               console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1" , resx);
-              db.close();
-            });
-        });
-
-      });
-  });
-  res.status(201).send({email:"was send"});
-})
-
+  helperServer.sendMail(req , res);
+});
 // =============================== Familys
 app.post("/family",upload.single('FamilyIMG'), (req, res) => {
   console.log("inside Family form");
@@ -129,7 +66,7 @@ app.post("/family",upload.single('FamilyIMG'), (req, res) => {
   helperServer.FindAndInsertUsers(req, res, FamliysCollection)
 
 
-})
+});
 app.post("/datefamily", (req, res) => {
   console.log(req.body, "this is date family");
   helperServer.updateDate(req, res, FamliysCollection);

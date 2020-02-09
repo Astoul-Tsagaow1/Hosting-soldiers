@@ -54,15 +54,24 @@ export default class DisplayMatchingFamilies extends Component {
               </a>
             </div>
             <button className="buttonSendReqHosting" onClick = {()=>{
-              axios.post("/sendMail", { 
-                email: obj.email,
-                familyName: obj.familyname,
-                hostingDate: obj.fromDate,
-                familyPhonNumber: obj.PhonNumber,
-                familyCity: obj.familyCity,
-                message:`${localStorage.name} wants to stay with you on the ${localStorage.fromDate} date.`,
-                emailSoldier: localStorage.email
-              })
+              let ObjHistory = {familyObj :{ 
+                                email: obj.email,
+                                familyName: obj.familyname,
+                                hostingDate: obj.fromDate,
+                                familyPhonNumber: obj.PhonNumber,
+                                familyCity: obj.familyCity,
+                                message:`${localStorage.name} wants to stay with you on the ${localStorage.fromDate} date.`,
+                                emailSoldier: localStorage.email},
+
+                                soldierObj:{
+                                emailFamily: obj.email,
+                                soldierName : localStorage.soldierName,
+                                email: localStorage.email,
+                                phoneNumberSoldirs : localStorage.phoneNumberSoldirs,
+                                hostingDate : obj.fromDate,
+
+                                }}
+              axios.post("/sendMail", ObjHistory)
               .then(response => {
                 this.setState({ssuccessMatch : true , familyName : obj.familyname , familyPhonNumber: obj.PhonNumber})
               })

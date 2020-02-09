@@ -58,6 +58,8 @@ export default class SignUpSoldiers extends Component {
     };
     localStorage.setItem("email", this.state.email);
     localStorage.setItem("user", "soldier");
+    localStorage.setItem("phoneNumberSoldirs", this.state.phone);
+    localStorage.setItem("soldierName", this.state.name);
     console.log(soldierObj, "soldier obj---------------------");
     axios
       .post("/soldiers", { soldierObj})
