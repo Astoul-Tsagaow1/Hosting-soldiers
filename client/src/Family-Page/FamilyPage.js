@@ -10,35 +10,35 @@ export default class FamilyPage extends Component {
     let FamilyName = localStorage.namfamily;
     let familyimage = localStorage.image;
 
-    if (from < Until ) {
-
+    if (from < Until) {
       console.log("noooooo");
-      
-      
     }
     return (
       <div className="Family-Page-Wrapper">
         <div className="Family-Page-Form">
           <div className="titel-family-page-wraper">
             {" "}
-            <h1>Welcome {FamilyName} </h1>
-            <img className="Family-image" src={familyimage} alt="some "></img>
+            <h1 >Welcome {FamilyName} </h1>
+            <img className="Family-image" src={familyimage} alt="some"></img>
           </div>
 
           <div className="Family-Page-Inputs-Wrapper">
             <h2>When can you host ?</h2>
             From ?{" "}
             <input
+              className="FamilyPage-input"
               type="date"
               onChange={e => {
                 from = e.target.value;
               }}
-            />
-            Until ?{" "}
+            />{" "}
+            <br />
+            Until. ?{" "}
             <input
+              className="FamilyPage-input"
               type="date"
               onChange={e => {
-              Until = e.target.value;
+                Until = e.target.value;
               }}
             />
             <button
@@ -56,7 +56,6 @@ export default class FamilyPage extends Component {
                   axios
                     .post("/datefamily", datefamily)
                     .then(res => {
-                      
                       console.log(res.status, "this is response");
                       if (res.status === 201) {
                         this.setState({ flage: true });
@@ -72,15 +71,40 @@ export default class FamilyPage extends Component {
               Click to send{" "}
             </button>
             {this.state.flage ? (
-              <p className="Date-is-send">
-                Your date has been sent successfully
-              </p>
+              <div class="alert alert-success" role="alert">
+               Your date has been sent successfully{" "}
+               <button
+                  type="button"
+                  class="close"
+                  onClick={() => {
+                    this.setState({ flage: false });
+                  }}
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
             ) : (
               ""
             )}
             {this.state.flage2 ? (
-              <div className="Date-is-NotEnter">
-                <h1 className="Date-is-NotEnter-msg">Pleses enter date</h1>{" "}
+              <div
+                class="alert alert-danger alert-dismissible  h-80  fade show"
+                role="alert"
+              >
+                <strong>Please enter full dates</strong>
+                <button
+                  type="button"
+                  class="close"
+                  onClick={() => {
+                    this.setState({ flage2: false });
+                  }}
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
             ) : (
               ""

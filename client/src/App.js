@@ -3,6 +3,8 @@ import "./App.css";
 import "./Home.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import PageNotFound from "./Page-Not-Found/PageNotFound";
+import About from "./About/About";
+
 import Home from "./Home";
 import SignUpSoldiers from "./Sign-Up-Soldiers/SignUpSoldiers";
 import SignUpFamily from "./Sign-Up-Family/SignUpFamily";
@@ -14,7 +16,6 @@ import Login from "./Login/Login";
 import SoldierNavBar from "./Soldier-Nav-Bar/SoldierNavBar";
 import HistoryFamily from "../src/HistoryFamily/HistoryFamily";
 // import Fooetr from "./Footer/Footer";
-
 
 class App extends Component {
   state = { ChangeNabBar: false, falg: false, authentication: "" };
@@ -134,9 +135,15 @@ class App extends Component {
               exact
               path="/HistoryFamily"
               render={() => {
-                return (
-                  <HistoryFamily />
-                );
+                return <HistoryFamily />;
+              }}
+            />
+
+            <Route
+              exact
+              path="/About"
+              render={() => {
+                return <About />;
               }}
             />
           </Switch>

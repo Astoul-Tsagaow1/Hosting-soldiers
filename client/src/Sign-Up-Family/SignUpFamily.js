@@ -3,7 +3,7 @@ import axios from "axios";
 import "./SignUpFamily.css";
 import { Redirect } from "react-router-dom";
 export default class SignUpFamily extends Component {
-  state = {flag2:false};
+  state = { flag2: false };
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +18,8 @@ export default class SignUpFamily extends Component {
       falg: true,
       fromDate: "",
       untilDate: "",
-      file: ""
+      file: "",
+      hostingHistory:[]
     };
     this.Hendelchange = this.Hendelchange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -43,7 +44,8 @@ export default class SignUpFamily extends Component {
       fromDate: this.state.fromDate,
       untilDate: this.state.untilDate,
       FamilyDescriptionvlue: this.state.FamilyDescription,
-      file: this.state.file
+      file: this.state.file,
+      hostingHistory : this.state.hostingHistory
     };
 
     console.log(Familyobj, "family obj");
@@ -69,6 +71,7 @@ export default class SignUpFamily extends Component {
     ImgData.append("fromDate", Familyobj.fromDate);
     ImgData.append("untilDate", Familyobj.untilDate);
     ImgData.append("discriptionFamily", Familyobj.FamilyDescriptionvlue);
+    ImgData.append("hostingHistory", Familyobj.hostingHistory);
 
     axios
       .post("/family", ImgData, config)
@@ -87,13 +90,11 @@ export default class SignUpFamily extends Component {
         }
 
         if (response.status === 400) {
-       
-          
         }
       })
       .catch(err => {
-        console.log(err);  
-           this.setState({flag2:true})
+        console.log(err);
+        this.setState({ flag2: true });
       });
   };
 
@@ -153,18 +154,20 @@ export default class SignUpFamily extends Component {
                 value={this.state.FamilyDescriptionvlue}
                 name="FamilyDescription"
                 id="FamilyDescription"
-                rows="2" cols="39"
+                rows="2"
+                cols="39"
                 placeholder="Ex:A family that loves soldiers very much and wants to host and make them happy .."
                 onChange={this.Hendelchange}
               ></textarea>
               <br />
             </div>
-            <div className="col-50 left-side-form">
+            <div className="col-20 h-25 left-side-form">
               family photo :
               <input
                 type="file"
                 required
                 name="imgf"
+                className="file-input"
                 onChange={e => {
                   this.setState({ file: e.target.files[0] });
 
@@ -210,7 +213,6 @@ export default class SignUpFamily extends Component {
                 onChange={this.Hendelchange}
               />{" "}
               <br />
-           
               <button
                 required="required"
                 type="submit"
@@ -231,33 +233,30 @@ export default class SignUpFamily extends Component {
           </form>
 
           <br />
-          {/* <button className="submit-butoon" type="submit" onClick={this.UploadImg}>load img</button> */}
           {/* </div> */}
           <div className="blur"></div>
-        
-
-        </div> 
-         {this.state.flag2 ? (
-            <div
-              class="alert alert-danger alert-dismissible  h-25 w-25 fade show"
-              role="alert"
+        </div>
+        {this.state.flag2 ? (
+          <div
+            class="alert alert-danger alert-dismissible  h-25 w-25 fade show"
+            role="alert"
+          >
+            <strong> One of the values ​​you entered is incorrect</strong>
+            <button
+              type="button"
+              class="close"
+              onClick={() => {
+                this.setState({ flag2: false });
+              }}
+              data-dismiss="alert"
+              aria-label="Close"
             >
-              <strong> One of the values ​​you entered is incorrect</strong>
-              <button
-                type="button"
-                class="close"
-                onClick={() => {
-                  this.setState({ flag2: false });
-                }}
-                data-dismiss="alert"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-          ) : (
-            " "
-          )}
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        ) : (
+          " "
+        )}
       </div>
     );
   }

@@ -12,7 +12,7 @@
 .Family-Page-Form {
   background: inherit;
   width:50%; /* =cw */
-  height: 60%; /* =ch */
+  height: 70%; /* =ch */
   border-radius: 8px;
   box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -22,12 +22,7 @@
   overflow: hidden;
 }
 
- .Family-Page-Inputs-Wrapper {
-  padding: 16px;
-  background: rgba(255, 255, 255, 0.055);
-  height: 100%;
-  box-sizing: border-box; /* so that padding is included in height */
-}
+
 
  .Family-Page-blur-background {
   background: inherit;
@@ -46,10 +41,11 @@
 
 .Family-Page-button{
     position: absolute;
-    top: 95%;
-    left: 20%;
-    width: 20%;
+    top: 75%;
+    left: 7.5%;
+    width: 50%;
     margin: 0;
+    height: 12%;
 
 }
 .Date-is-NotEnter{
@@ -65,7 +61,16 @@
 .Family-image{
    height:200px;
    width:30%;
-   /* border-radius: 100%; */
+   border-radius: 100%;
 
 
+}
+.FamilyPage-input{
+
+  width: 50%;
+  padding: 10px;
+  margin:5px;
+}
+.alert{
+  height: 90px;
 }
