@@ -152,7 +152,7 @@ function Login(req, res) {
     var dbo = db.db(mydb);
     dbo
       .collection(FamliysCollection)
-      .findOne({ soldierobj:{email: serchEmail.Email} }, function(err, result) {
+      .findOne({ email: serchEmail.Email}, function(err, result) {
         console.log(result, "befor status 205 login ***********");
 
         if (result === null) {
