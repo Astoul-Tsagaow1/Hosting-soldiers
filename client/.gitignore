@@ -2,16 +2,6 @@
 
 # dependencies
 /node_modules
-/uploads/
-*.jpg
-*.jpeg
-*.jpe
-*.jif
-*.jfif
-*.jfi
-/.pnp
-.pnp.js
-
 # testing
 /coverage
 
