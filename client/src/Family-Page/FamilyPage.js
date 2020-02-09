@@ -9,6 +9,13 @@ export default class FamilyPage extends Component {
     let Until;
     let FamilyName = localStorage.namfamily;
     let familyimage = localStorage.image;
+
+    if (from < Until ) {
+
+      console.log("noooooo");
+      
+      
+    }
     return (
       <div className="Family-Page-Wrapper">
         <div className="Family-Page-Form">
@@ -31,7 +38,7 @@ export default class FamilyPage extends Component {
             <input
               type="date"
               onChange={e => {
-                Until = e.target.value;
+              Until = e.target.value;
               }}
             />
             <button

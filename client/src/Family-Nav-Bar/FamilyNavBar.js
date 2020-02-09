@@ -13,7 +13,7 @@ https://img.icons8.com/color/48/000000/camo-cream.png
 "/></Link>    <div className="x">
                 <Nav className="mr-auto">
                     <Link className="family-nav-bar" onClick = {()=>localStorage.clear()} to="/">Logout</Link>
-                    <Link className="family-nav-bar" to="/">History</Link>
+                    <Link className="family-nav-bar" to="/HistoryFamily">History</Link>
                     <Link className="family-nav-bar" to="/">Setting</Link>
                     <Link className="family-nav-bar" to="/">About Family</Link>
                 </Nav>

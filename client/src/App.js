@@ -12,7 +12,9 @@ import FamilyPage from "./Family-Page/FamilyPage";
 import SoldiersPage from "./Soldiers-Page/SoldiersPage";
 import Login from "./Login/Login";
 import SoldierNavBar from "./Soldier-Nav-Bar/SoldierNavBar";
-import Footer from './Footer/Footer';
+import HistoryFamily from "../src/HistoryFamily/HistoryFamily";
+// import Fooetr from "./Footer/Footer";
+
 
 class App extends Component {
   state = { ChangeNabBar: false, falg: false, authentication: "" };
@@ -39,33 +41,30 @@ class App extends Component {
 
   renderAuthentication(arg) {
     switch (arg) {
-  
       case "soldier":
-         return <SoldiersPage UserRegister={this.UserRegister} />;
+        return <SoldiersPage UserRegister={this.UserRegister} />;
 
       case "family":
         return <FamilyPage UserRegister={this.UserRegister} />;
 
-      default :
-        return  <Home UserRegister={this.UserRegister} />;
+      default:
+        return <Home UserRegister={this.UserRegister} />;
     }
   }
 
   renderAuthenticationSolFamPage(arg) {
     switch (arg) {
-  
       case "soldier":
-         return <SoldiersPage UserRegister={this.UserRegister} />;
+        return <SoldiersPage UserRegister={this.UserRegister} />;
 
       case "family":
         return <FamilyPage UserRegister={this.UserRegister} />;
 
-      default :
-      return  <Home UserRegister={this.UserRegister} />;
-        // return  "can't access only registered users s"
+      default:
+        return <Home UserRegister={this.UserRegister} />;
+      // return  "can't access only registered users s"
     }
   }
-
 
   render() {
     return (
@@ -73,8 +72,7 @@ class App extends Component {
         <div className="App">
           {this.renderSwitch(this.state.ChangeNabBar)}
           <Switch>
-
-          {/* <Route
+            {/* <Route
               exact
               path="/logout"
               render={() => <Home UserRegister={this.UserRegister} />}
@@ -110,12 +108,16 @@ class App extends Component {
             <Route
               exact
               path="/FamilyPage"
-              render={() => this.renderAuthenticationSolFamPage(localStorage.user)}
+              render={() =>
+                this.renderAuthenticationSolFamPage(localStorage.user)
+              }
             />
             <Route
               exact
               path="/SoldiersPage"
-              render={() => this.renderAuthenticationSolFamPage(localStorage.user)}
+              render={() =>
+                this.renderAuthenticationSolFamPage(localStorage.user)
+              }
             />
 
             <Route
@@ -127,13 +129,22 @@ class App extends Component {
                 );
               }}
             />
+
+            <Route
+              exact
+              path="/HistoryFamily"
+              render={() => {
+                return (
+                  <HistoryFamily />
+                );
+              }}
+            />
           </Switch>
         </div>
-        <div className = "footer1">
-                    <Footer/>
-                </div>
+        {/* <div className="footer1">
+          <Footer />
+        </div> */}
       </BrowserRouter>
-
     );
   }
 }
