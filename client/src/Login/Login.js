@@ -49,10 +49,12 @@ export default class Login extends Component {
                   console.log(res, "this is the data");
                   console.log(res.status, "this is status");
                
-                  if (res.status === 205) {
-                    console.log(res.data, "inside familys");
+                  if (res.status === 201) {
+                    console.log(res, "inside familys");
                     localStorage.setItem("email", objUser.Email);
                     localStorage.setItem("user", 'family');
+                    localStorage.setItem("image", res.data.image);
+ 
                     this.props.changeAuthentication(localStorage.user);
                     this.setState({ flage: true });
                   } 

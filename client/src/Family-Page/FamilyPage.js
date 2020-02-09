@@ -49,6 +49,7 @@ export default class FamilyPage extends Component {
                   axios
                     .post("/datefamily", datefamily)
                     .then(res => {
+                      
                       console.log(res.status, "this is response");
                       if (res.status === 201) {
                         this.setState({ flage: true });
