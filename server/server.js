@@ -5,7 +5,6 @@ app.use(express.json());
 const helperServer = require("./helperServer");
 const soldiersCollection = "soldiers";
 const FamliysCollection = "families";
-let nodemailer = require('nodemailer');
 const mongo = require("mongodb");
 const MongoClient = mongo.MongoClient;
 const ObjectID = mongo.ObjectID;
@@ -54,7 +53,7 @@ app.post("/soldierDate", (req, res) => {
 // ===================================send email
 app.post("/sendMail" , (req,res) =>{
   console.log(req.body,"---------email");
-  helperServer.sendMail(req , res);
+  helperServer.sendMail(req , res );
 });
 // =============================== Familys
 app.post("/family",upload.single('FamilyIMG'), (req, res) => {
