@@ -7,17 +7,17 @@ export default function FamilyNavBar(props) {
   return (
     <div className="Navbar NavBarAfterRegistration">
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">
-          <img
+        <Navbar.Brand >
+         <Link to="/"> <img
             src="https://img.icons8.com/color/48/000000/camo-cream.png(2 kB)
 https://img.icons8.com/color/48/000000/camo-cream.png
 "
-          />
+          /></Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-          <Link to="/">Home</Link>
+          {/* Home</Link> */}
 
             <Link
               className="family-nav-bar"

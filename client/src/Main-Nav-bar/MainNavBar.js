@@ -7,12 +7,12 @@ export default function MainNavBar() {
   return (
     <div className="Navbar">
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">
-          <img
+      <Navbar.Brand >
+         <Link to="/"> <img
             src="https://img.icons8.com/color/48/000000/camo-cream.png(2 kB)
 https://img.icons8.com/color/48/000000/camo-cream.png
 "
-          />
+          /></Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -20,12 +20,12 @@ https://img.icons8.com/color/48/000000/camo-cream.png
             <Link className="main-navBar" to="/">
               Home
             </Link>
-            <Link className="main-navBar" to="/SignUpSoldiers">
+            {/* <Link className="main-navBar" to="/SignUpSoldiers">
               SignUp Soldiers
             </Link>
             <Link className="main-navBar" to="/SignUpFamily">
               SignUp Family
-            </Link>
+            </Link> */}
             <Link className="main-navBar" to="/Login">
               Login
             </Link>
