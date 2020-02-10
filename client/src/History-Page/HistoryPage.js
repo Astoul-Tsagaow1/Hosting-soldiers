@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import HistoryFamily from "../HistoryFamily/HistoryFamily";
+import DisplaySoldierHistory from "../Display-Soldier-History/DisplaySoldierHistory";
 export default class historyPage extends Component {
    
    state = {result : ""}
@@ -12,7 +13,7 @@ export default class historyPage extends Component {
             
             <div>
                 
-                {(user === "soldier") ? "" : <HistoryFamily FamilyHistory = {this.state.result}/>}
+                {(user === "soldier") ? <DisplaySoldierHistory soldierHistory ={this.state.result}/> : <HistoryFamily FamilyHistory = {this.state.result}/>}
             </div>
         )
     }
