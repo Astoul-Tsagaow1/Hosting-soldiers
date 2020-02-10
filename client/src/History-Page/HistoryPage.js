@@ -3,7 +3,7 @@ import axios from "axios";
 import HistoryFamily from "../HistoryFamily/HistoryFamily";
 export default class historyPage extends Component {
    
-   
+   state = {result : ""}
     
     render() {
         let user = localStorage.user;
@@ -18,16 +18,15 @@ export default class historyPage extends Component {
     }
 
     componentDidMount(){
-        let currentComponent = this;
         let user = localStorage.user;
         let emailSearch = {email : localStorage.email};
         let userHistory;
         (user === "soldier") ? userHistory = "/historySoldier" : userHistory = "/historyFamily"
         axios.post(`${userHistory}` , {emailSearch})
-            .then(function (response) {
+            .then(response=>{
                 console.log(response.data);
                 let temp = [...response.data]
-                currentComponent.setState({result : temp });
+                this.setState({result : temp });
                 // console.log(currentComponent.state.result)
             })
             .catch(function (error) {
