@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import HistoryFamily from "../HistoryFamily/HistoryFamily";
+import HistoryFamily from "../Display-Family-History/HistoryFamily";
 import DisplaySoldierHistory from "../Display-Soldier-History/DisplaySoldierHistory";
 export default class historyPage extends Component {
    
