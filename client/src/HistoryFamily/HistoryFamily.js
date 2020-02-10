@@ -4,7 +4,7 @@ import Table from "react-bootstrap/Table";
 export default class HistoryFamily extends Component {
   render() {
     console.log(this.props.FamilyHistory);
-    let Historyprop = [...this.props.FamilyHistory];
+    let Historyprop = [...this.props.FamilyHistory,1,23];
     let History = Historyprop.map(his => {
       return (<div>
         <h1> HHHHHHHH</h1>
