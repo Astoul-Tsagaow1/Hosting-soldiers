@@ -24,8 +24,8 @@ export default class historyPage extends Component {
         return (
             
             <div>
-                history historyPage
-                {(user === "soldier") ? "" : <HistoryFamily FamilyHistory = {this.state.result}/>};
+                
+                {(user === "soldier") ? "" : <HistoryFamily FamilyHistory = {this.state.result}/>}
             </div>
         )
     }
