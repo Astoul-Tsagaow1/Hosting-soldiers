@@ -175,6 +175,7 @@ function Login(req, res) {
 }
 
 function sendMail(req , res) {
+  console.log(req.body.familyObj.email,"dfffffffffffffffffffffffffffffff")
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -184,7 +185,7 @@ function sendMail(req , res) {
   });
   let mailOptions = {
     from: 'soldierhostingwebsite@gmail.com',
-    to: 'shaybicha2@gmail.com',
+    to: req.body.familyObj.email,
     subject: 'Sending Email using Node.js',
     text: req.body.familyObj.message
   };

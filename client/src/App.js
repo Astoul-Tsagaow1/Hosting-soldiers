@@ -34,10 +34,10 @@ class App extends Component {
         return <MainNavBar />;
 
       case "SoldierNavBar":
-        return <SoldierNavBar />;
+        return <SoldierNavBar UserRegister={this.UserRegister}/>;
 
       case "FamilyNavBar":
-        return <FamilyNavBar />;
+        return <FamilyNavBar UserRegister={this.UserRegister}/>;
     }
   }
 
@@ -54,7 +54,7 @@ class App extends Component {
     }
   }
 
-  renderAuthenticationSolFamPage(arg) {
+  renderAuthenticationSoldierOrFamilyPage(arg) {
     switch (arg) {
       case "soldier":
         return <SoldiersPage UserRegister={this.UserRegister} />;
@@ -111,14 +111,14 @@ class App extends Component {
               exact
               path="/FamilyPage"
               render={() =>
-                this.renderAuthenticationSolFamPage(localStorage.user)
+                this.renderAuthenticationSoldierOrFamilyPage(localStorage.user)
               }
             />
             <Route
               exact
               path="/SoldiersPage"
               render={() =>
-                this.renderAuthenticationSolFamPage(localStorage.user)
+                this.renderAuthenticationSoldierOrFamilyPage(localStorage.user)
               }
             />
 
@@ -144,8 +144,8 @@ class App extends Component {
              <Route
               exact
               path="/history"
-              render={(params) => {
-                return <HistoryPage {...params}/>;
+              render={() => {
+                return <HistoryPage UserRegister = {this.UserRegister}/>;
               }}
             />
 
@@ -155,7 +155,7 @@ class App extends Component {
               exact
               path="/About"
               render={() => {
-                return <About />;
+                return <About UserRegister = {this.UserRegister}/>;
               }}
             />
           </Switch>  

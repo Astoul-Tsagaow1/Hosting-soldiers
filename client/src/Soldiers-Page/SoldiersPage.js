@@ -65,7 +65,8 @@ export default class SoldiersPage extends Component {
       </div>
     );
   }
-  componentDidMount() {
+  componentDidMount(){
     this.props.UserRegister("SoldierNavBar");
   }
+ 
 }
