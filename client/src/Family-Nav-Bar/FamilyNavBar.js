@@ -24,7 +24,7 @@ https://img.icons8.com/color/48/000000/camo-cream.png
             >
               Logout
             </Link>
-            <Link className="family-nav-bar" to="/history">
+            <Link className="family-nav-bar" onClick = {()=>{this.props.UserRegister("FamilyNavBar");}} to="/history">
               History
             </Link>
             <Link className="family-nav-bar" to="/">
