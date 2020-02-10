@@ -78,7 +78,14 @@ app.post("/Login", (req, res) => {
   helperServer.Login(req, res);
 });
 
+// =====================History request
+app.post("/historySoldier" , (req , res)=>{
+  helperServer.getHistory(soldiersCollection , req , res);
+})
 
+app.post("/historyFamily" , (req , res)=>{
+  helperServer.getHistory(FamliysCollection , req , res);
+})
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);

@@ -3,6 +3,7 @@ import Table from 'react-bootstrap/Table'
 
 export default class HistoryFamily extends Component {
     render() {
+      console.log(this.props.FamilyHistory);
         return (
             <Table striped bordered hover>
             <thead>

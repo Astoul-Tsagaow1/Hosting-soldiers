@@ -15,6 +15,7 @@ import SoldiersPage from "./Soldiers-Page/SoldiersPage";
 import Login from "./Login/Login";
 import SoldierNavBar from "./Soldier-Nav-Bar/SoldierNavBar";
 import HistoryFamily from "../src/HistoryFamily/HistoryFamily";
+import HistoryPage from "./History-Page/HistoryPage";
 // import Fooetr from "./Footer/Footer";
 
 class App extends Component {
@@ -138,6 +139,17 @@ class App extends Component {
                 return <HistoryFamily />;
               }}
             />
+
+            
+             <Route
+              exact
+              path="/history"
+              render={(params) => {
+                return <HistoryPage {...params}/>;
+              }}
+            />
+
+
 
             <Route
               exact

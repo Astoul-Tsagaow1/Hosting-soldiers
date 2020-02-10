@@ -9,7 +9,7 @@ export default class SoldierNavBar extends Component {
                 <Nav className="mr-auto">
                 <Link to="/"><img src="https://img.icons8.com/color/48/000000/camo-cream.png(2 kB)https://img.icons8.com/color/48/000000/camo-cream.png" alt ="logo"/></Link>
                     <Link onClick = {()=>localStorage.clear()} to="/">Logout</Link>
-                    <Link to="/">History</Link>
+                    <Link to="/history">History</Link>
                     <Link to="/">Setting</Link>
                     <Link to="/">About soldier</Link>
                 </Nav>

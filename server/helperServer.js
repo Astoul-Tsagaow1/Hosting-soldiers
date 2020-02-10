@@ -170,9 +170,6 @@ function Login(req, res) {
         }
 
         db.close();
-
-        // if (err) throw err;
-        // console.log(result, "This is result");
       });
   });
 }
@@ -229,7 +226,6 @@ function updateHistory(req,collectionARG){
                 familyPhonNumber: req.body.familyObj.familyPhonNumber,
                 familyCity: req.body.familyObj.familyCity
           }
-          
         }
         else{
           newHosting = {
@@ -265,9 +261,27 @@ function updateHistory(req,collectionARG){
     
 }
   
-  
+  // ==========history request
+function getHistory(collection,req, res) {
+  console.log(req.body, "**************&*************8");
+  let emailSerach = req.body.emailSearch.email;
+  MongoClient.connect(url, function(err, db) {
+    console.log(emailSerach , "inside soldier user");
+    if (err) throw err;
+    var dbo = db.db(mydb);
+    dbo
+      .collection(collection)
+      .findOne({ email: emailSerach}, function(err, result) {
+        if (err) throw err;
+        console.log("inside soldier collection");
+       console.log(result.hostingHistory);
+       return res.status(201).send(result.hostingHistory);
+      });
+      db.close();
+  });
+}
 
 
-
+module.exports.getHistory = getHistory;
 module.exports.sendMail = sendMail;
 module.exports.Login = Login;
