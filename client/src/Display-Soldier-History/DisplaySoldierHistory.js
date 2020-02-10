@@ -33,4 +33,5 @@ export default class DisplaySoldierHistory extends Component {
             </div>
         )
     }
+
 }

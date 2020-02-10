@@ -17,6 +17,8 @@ https://img.icons8.com/color/48/000000/camo-cream.png
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
+          <Link to="/">Home</Link>
+
             <Link
               className="family-nav-bar"
               onClick={() => localStorage.clear()}
@@ -24,7 +26,7 @@ https://img.icons8.com/color/48/000000/camo-cream.png
             >
               Logout
             </Link>
-            <Link className="family-nav-bar" onClick = {()=>{this.props.UserRegister("FamilyNavBar");}} to="/history">
+            <Link className="family-nav-bar" onClick = {()=>{props.UserRegister("FamilyNavBar");}} to="/history">
               History
             </Link>
             <Link className="family-nav-bar" to="/">

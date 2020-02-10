@@ -35,5 +35,8 @@ export default class historyPage extends Component {
                 console.log(error);
 
   })
+  let userNavBar;
+  (user === "soldier") ? userNavBar = "SoldierNavBar" : userNavBar = "FamilyNavBar";
+  this.props.UserRegister(userNavBar);
     }
 }

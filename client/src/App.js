@@ -144,8 +144,8 @@ class App extends Component {
              <Route
               exact
               path="/history"
-              render={(params) => {
-                return <HistoryPage {...params}/>;
+              render={() => {
+                return <HistoryPage UserRegister = {this.UserRegister}/>;
               }}
             />
 
