@@ -8,15 +8,21 @@
 }
 
 
-.main-navBar:hover{
+/* .main-navBar:hover{
 
     font-weight: bold;
     color:rgb(33, 99, 64) ;
-    transform: scale(1.2); /* Equal to scaleX(0.7) scaleY(0.7) */
+    transform: scale(1.2);
 
-}
+} */
 .Footer-main{
     position: absolute;
     top: 100%;
     left: 25%;
+}
+
+
+@media screen and (min-width: 1000px){
+  
+   
 }

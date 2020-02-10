@@ -11,13 +11,13 @@ a{
     transition: transform 1.2s;
 
 }
-a:hover{
+/* a:hover{
 
     font-weight: bold;
     color:rgb(33, 99, 64) ;
     transform: scale(1.5); /* Equal to scaleX(0.7) scaleY(0.7) */
 
-}
+ /* /* }    */
 .mr-auto{
 
     margin: 5px;
@@ -25,3 +25,7 @@ a:hover{
 }
 
 
+@media screen and (min-width: 1000px){
+   
+   
+}

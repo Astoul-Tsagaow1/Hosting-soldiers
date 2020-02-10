@@ -11,7 +11,7 @@
 
 .Family-Page-Form {
   background: inherit;
-  width:50%; /* =cw */
+  width:40%; /* =cw */
   height: 70%; /* =ch */
   border-radius: 8px;
   box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
@@ -41,9 +41,9 @@
 
 .Family-Page-button{
     position: absolute;
-    top: 75%;
-    left: 7.5%;
-    width: 50%;
+    top: 63%;
+    left: 9%;
+    width: 80%;
     margin: 0;
     height: 12%;
 
@@ -67,10 +67,105 @@
 }
 .FamilyPage-input{
 
-  width: 50%;
-  padding: 10px;
-  margin:5px;
+  width: 80%;
+  padding: 2%;
+  margin:1.5%;
 }
 .alert{
   height: 90px;
+}
+
+
+@media only screen and (max-width: 865px){
+  .Family-Page-button{
+    position: absolute;
+    top: 65%;
+    left:10%;
+    width: 80%;
+    margin: 0;
+    height: 9%;
+
+}
+.FamilyPage-input{
+  width: 80%;
+  padding: 10px;
+  margin:5px;
+
+
+}
+
+
+.Family-Page-Form {
+  background: inherit;
+  width:70%; /* =cw */
+  height: 70%; /* =ch */
+  border-radius: 8px;
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%; /* =ct */
+  left: 50%; /* =cl */
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+   
+}
+
+@media only screen and (max-width: 445px){
+
+  .Family-Page-button{
+    position: absolute;
+    top: 80%;
+    left:2%;
+    width: 90%;
+    margin: 0;
+    height: 9%;
+
+}
+
+.FamilyPage-input{
+  width: 90%;
+  padding: 10px;
+  margin:5px;
+
+
+}
+
+.Family-image{
+  height:200px;
+  width:75%;
+  border-radius: 100%;
+
+
+}
+
+
+}
+@media only screen and (max-height: 701px){
+  .Family-Page-button{
+    position: absolute;
+    top: 80%;
+    left:11%;
+    width: 80%;
+    margin: 0;
+    height: 9%;
+
+}
+
+
+
+}
+
+@media only screen and (max-width: 340px){
+  .Family-Page-button{
+    position: absolute;
+    top: 80%;
+    left:11%;
+    width: 80%;
+    margin: 0;
+    height: 9%;
+
+}
+
+
+
 }
