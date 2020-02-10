@@ -155,7 +155,7 @@ class App extends Component {
               exact
               path="/About"
               render={() => {
-                return <About />;
+                return <About UserRegister = {this.UserRegister}/>;
               }}
             />
           </Switch>

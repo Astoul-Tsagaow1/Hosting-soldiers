@@ -32,9 +32,16 @@ https://img.icons8.com/color/48/000000/camo-cream.png
             <Link className="family-nav-bar" to="/">
               Setting
             </Link>
-            <Link className="family-nav-bar" to="/">
+           
+            <Link 
+            className="family-nav-bar" 
+            onClick={() => {
+              props.UserRegister("SoldierNavBar");
+            }}
+            to="/About">
               About Family
             </Link>
+
           </Nav>
           <Nav></Nav>
         </Navbar.Collapse>

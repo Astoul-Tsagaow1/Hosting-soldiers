@@ -31,8 +31,12 @@ export default class SoldierNavBar extends Component {
 
             <Link to="/">Setting</Link>
 
-            <Link to="/">About soldier</Link>
-            
+            <Link 
+             onClick={() => {
+                this.props.UserRegister("SoldierNavBar");
+              }}
+            to="/About">About soldier</Link>
+
           </Nav>
         </Navbar>
       </div>
