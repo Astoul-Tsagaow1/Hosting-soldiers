@@ -16,7 +16,21 @@ const LocationOfImgs = "uploads";
 app.use(express.static(path.join(__dirname,'..',LocationOfImgs)))
 console.log(path.join(__dirname,LocationOfImgs));
 
-//// imge upload 
+///// SMS
+// const Nexmo = require('nexmo');
+
+// const nexmo = new Nexmo({
+//   apiKey: '9d8c72a9',
+//   apiSecret: '4qzLkHbjOuaTEjbT',
+// });
+
+// const from = 'x';
+// const to = '972532776230';
+// const text = 'Hello from Nexmo';
+
+// nexmo.message.sendSms(from, to, text);
+
+//// imge upload
 
 const multer  = require('multer');
 const Storage = multer.diskStorage({

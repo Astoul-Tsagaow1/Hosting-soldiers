@@ -1,13 +1,9 @@
 .App{
   position: relative;
   border:solid;
+  min-height: calc(100vh - 1rem);
 }
-.footer1{
-  position: absolute;
-  top:100%;
-  border: solid;
-  width: 100%;
-}
+
 
 
 

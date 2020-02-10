@@ -14,9 +14,9 @@ import FamilyPage from "./Family-Page/FamilyPage";
 import SoldiersPage from "./Soldiers-Page/SoldiersPage";
 import Login from "./Login/Login";
 import SoldierNavBar from "./Soldier-Nav-Bar/SoldierNavBar";
-import HistoryFamily from "../src/HistoryFamily/HistoryFamily";
+import HistoryFamily from "../src/Display-Family-History/HistoryFamily";
 import HistoryPage from "./History-Page/HistoryPage";
-// import Fooetr from "./Footer/Footer";
+import Fooetr from "./Footer/Footer";
 
 class App extends Component {
   state = { ChangeNabBar: false, falg: false, authentication: "" };
@@ -158,11 +158,11 @@ class App extends Component {
                 return <About />;
               }}
             />
-          </Switch>
+          </Switch>  
+          <Fooetr />  
+
         </div>
-        {/* <div className = "footer1">
-                    <Footer/>
-                </div> */}
+                  
       </BrowserRouter>
     );
   }

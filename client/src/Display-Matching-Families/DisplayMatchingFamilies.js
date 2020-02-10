@@ -65,10 +65,10 @@ export default class DisplayMatchingFamilies extends Component {
 
                                 soldierObj:{
                                 emailFamily: obj.email,
-                                soldierName : localStorage.soldierName,
+                                soldierName : localStorage.name,
                                 email: localStorage.email,
-                                phoneNumberSoldirs : localStorage.phoneNumberSoldirs,
-                                hostingDate : obj.fromDate,
+                                // phoneNumberSoldirs : localStorage.phoneNumberSoldirs,
+                                hostingDate : obj.fromDate
 
                                 }}
               axios.post("/sendMail", ObjHistory)

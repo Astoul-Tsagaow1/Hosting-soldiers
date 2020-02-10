@@ -123,7 +123,7 @@ function FindRelevantFamilies(req, res) {
 function SoldiersUsers(collection, serchEmail, req, res) {
   MongoClient.connect(url, function(err, db) {
     console.log(serchEmail , "inside soldier user");
-    if (err) throw err;
+    // if (err) throw err;
     var dbo = db.db(mydb);
     dbo
       .collection(collection)
@@ -232,8 +232,11 @@ function updateHistory(req,collectionARG){
             soldierEmail: req.body.soldierObj.email,
             soldierName: req.body.soldierObj.soldierName,
             hostingDate: req.body.soldierObj.hostingDate,
-            soldierPhonNumber: req.body.soldierObj.phoneNumberSoldirs,
+            // soldierPhonNumber: req.body.soldierObj.phone,
       }
+           console.log(newHosting,"**********123");
+           console.log(req.body.soldierObj);
+           
            
         }
         tempArrayHistory.push(newHosting);
