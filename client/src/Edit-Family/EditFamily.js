@@ -3,7 +3,8 @@ import axios from "axios";
 // import "./SignUpFamily.css";
 import { Redirect } from "react-router-dom";
 export default class SignUpFamily extends Component {
-  state = { flag2: false };
+     
+      state = { flag2: false ,  falg: false};
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +16,6 @@ export default class SignUpFamily extends Component {
       ConfirmePassword: "",
       FamilyDescription: "",
       fCity: "",
-      falg: true,
       fromDate: "",
       untilDate: "",
       file: "",
@@ -49,19 +49,15 @@ export default class SignUpFamily extends Component {
     };
 
     console.log(Familyobj, "family obj");
-
-    localStorage.setItem("email", this.state.femail);
-    localStorage.setItem("namfamily", this.state.fname);
-    localStorage.setItem("image", "familyPhoto" + this.state.file.name);
-    localStorage.setItem("user", "family");
-
     console.log(Familyobj, "data");
 
     let ImgData = new FormData();
-    const config = { headers: { "content-type": "multipart/form-data" } };
-
+    // const config = { headers: { "content-type": "multipart/form-data" } };
+     console.log(localStorage.email , "******** local Storage Email");
+     
     ImgData.append("FamilyIMG", Familyobj.file);
     ImgData.append("familyname", Familyobj.familyname);
+    ImgData.append("emailUpDate", localStorage.email);
     ImgData.append("email", Familyobj.email);
     ImgData.append("PhonNumber", Familyobj.familyPhonNumber);
     ImgData.append("NumberSoldiersHosts", Familyobj.familyNumberSoldiersHosts);
@@ -74,34 +70,43 @@ export default class SignUpFamily extends Component {
     ImgData.append("hostingHistory", Familyobj.hostingHistory);
 
     axios
-      .post("/Updatefamily", ImgData)
+      .patch("/Updatefamily", ImgData)
       .then(response => {
         alert("family");
-        console.log(response.status, "inside axios");
+        
 
         if (response.status === 201) {
-          console.log(response.data, "welcome to your login page");
-          this.props.UserRegister(true);
-          this.setState({ flage: "FamilyPage" });
-
+          console.log(response.status, "inside axios");
+          console.log(response.data, "***147");
+          localStorage.setItem("email", response.data.email);
+          localStorage.setItem("namfamily", response.data.familyname);
+          localStorage.setItem("image", "familyPhoto" + this.state.file.name);
+          localStorage.setItem("user", "family");
+          this.props.UserRegister(false);
+          
           console.log("before redirect");
+          this.setState({ falg: true });
+
+          
         } else {
-          console.log(response.data.email, "is exsit");
+          console.log(response.data, "is exsit");
         }
 
-        if (response.status === 400) {
+        if (response.status === 203) {
+        this.setState({ flag2: true });
+
         }
       })
       .catch(err => {
-        console.log(err);
-        this.setState({ flag2: true });
+        console.log("ERrrr");
+        // this.setState({ flag2: true });
       });
   };
 
   render() {
     return (
       <div className="blurred-bg-container">
-        {this.state.flage ? <Redirect to="/FamilyPage" /> : ""}
+        {this.state.falg ? <Redirect to="/FamilyPage" /> : ""}
 
         <div className="content">
           <h1 className="Sign-up-FamilyPage">Sign up</h1>
@@ -113,7 +118,6 @@ export default class SignUpFamily extends Component {
                 value={this.state.fname}
                 name="fname"
                 type="text"
-                required="required"
                 onChange={this.Hendelchange}
               />{" "}
               <br />
@@ -123,7 +127,7 @@ export default class SignUpFamily extends Component {
                 value={this.state.femail}
                 name="femail"
                 type="email"
-                required="required"
+               
                 onChange={this.Hendelchange}
               />{" "}
               <br />
@@ -134,7 +138,7 @@ export default class SignUpFamily extends Component {
                 name="fPhonNumber"
                 id="Phone-Number"
                 type="number"
-                required="required"
+               
                 onChange={this.Hendelchange}
               />{" "}
               <br />
@@ -145,7 +149,7 @@ export default class SignUpFamily extends Component {
                 name="fCity"
                 id="City"
                 type="text"
-                required="required"
+               
                 onChange={this.Hendelchange}
               />{" "}
               <br />
@@ -184,7 +188,7 @@ export default class SignUpFamily extends Component {
                 name="fNumberSoldiersHosts"
                 id="NumberSoldiers"
                 type="number"
-                required="required"
+               
                 onChange={this.Hendelchange}
               />{" "}
               <br />
@@ -195,7 +199,7 @@ export default class SignUpFamily extends Component {
                 name="fPassword"
                 type="Password"
                 id="Password"
-                required="required"
+               
                 onChange={this.Hendelchange}
               />{" "}
               <br />
@@ -209,12 +213,12 @@ export default class SignUpFamily extends Component {
                 name="ConfirmePassword"
                 type="Password"
                 id="ConfirmePassword"
-                required="required"
+               
                 onChange={this.Hendelchange}
               />{" "}
               <br />
               <button
-                required="required"
+               
                 type="submit"
                 className="submitbutoon"
               >
@@ -241,7 +245,7 @@ export default class SignUpFamily extends Component {
             class="alert alert-danger alert-dismissible  h-25 w-25 fade show"
             role="alert"
           >
-            <strong> One of the values ​​you entered is incorrect</strong>
+            <strong> Email is incorrect</strong>
             <button
               type="button"
               class="close"
