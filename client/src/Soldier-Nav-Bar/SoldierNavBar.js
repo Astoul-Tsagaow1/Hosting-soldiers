@@ -21,20 +21,14 @@ export default class SoldierNavBar extends Component {
             </Link>
 
             <Link
-              onClick={() => {
-                this.props.UserRegister("SoldierNavBar");
-              }}
               to="/history"
             >
               History
             </Link>
 
-            <Link to="/EditeSoldier">Ediat</Link>
+            <Link to="/EditSoldier">Edit</Link>
 
             <Link 
-             onClick={() => {
-                this.props.UserRegister("SoldierNavBar");
-              }}
             to="/About">About soldier</Link>
 
           </Nav>

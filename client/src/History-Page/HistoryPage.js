@@ -8,11 +8,8 @@ export default class historyPage extends Component {
     
     render() {
         let user = localStorage.user;
-         
-        return (
-            
-            <div>
-                
+        return ( 
+            <div>    
                 {(user === "soldier") ? <DisplaySoldierHistory soldierHistory ={this.state.result}/> : <HistoryFamily FamilyHistory = {this.state.result}/>}
             </div>
         )
@@ -28,12 +25,9 @@ export default class historyPage extends Component {
                 console.log(response.data);
                 let temp = [...response.data]
                 this.setState({result : temp });
-                // console.log(currentComponent.state.result)
             })
             .catch(function (error) {
-                
                 console.log(error);
-
   })
   let userNavBar;
   (user === "soldier") ? userNavBar = "SoldierNavBar" : userNavBar = "FamilyNavBar";
