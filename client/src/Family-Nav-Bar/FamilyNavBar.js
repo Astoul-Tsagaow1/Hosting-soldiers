@@ -29,8 +29,8 @@ https://img.icons8.com/color/48/000000/camo-cream.png
             <Link className="family-nav-bar" onClick = {()=>{props.UserRegister("FamilyNavBar");}} to="/history">
               History
             </Link>
-            <Link className="family-nav-bar" to="/">
-              Setting
+            <Link className="family-nav-bar" to="/EditFamily">
+              Edit profile
             </Link>
            
             <Link 
