@@ -11,7 +11,7 @@ export default class Home extends Component {
       <div className="Home-page">
         <div className="Sign-up-form">
           <Link className="main-navBar" to="/SignUpSoldiers">
-            SignUp Soldiers
+            SignUp Sold
           </Link>
           <Link className="main-navBar" to="/SignUpFamily">
             SignUp Family
