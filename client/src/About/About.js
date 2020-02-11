@@ -98,7 +98,12 @@ export default class About extends Component{
     componentDidMount(){
     let userNavBar;
     let user = localStorage.user;
-  (user === "soldier") ? userNavBar = "SoldierNavBar" : userNavBar = "FamilyNavBar";
-  this.props.UserRegister(userNavBar);
+    if(user != undefined){
+      (user === "soldier") ? userNavBar = "SoldierNavBar" : userNavBar = "FamilyNavBar";
+    }
+    else{
+       userNavBar = false;
+    }
+       this.props.UserRegister(userNavBar);
     }
 }

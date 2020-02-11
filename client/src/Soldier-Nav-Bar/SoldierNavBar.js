@@ -29,7 +29,7 @@ export default class SoldierNavBar extends Component {
               History
             </Link>
 
-            <Link to="/">Setting</Link>
+            <Link to="/EditeSoldier">Ediat</Link>
 
             <Link 
              onClick={() => {

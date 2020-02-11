@@ -16,6 +16,8 @@ import Login from "./Login/Login";
 import SoldierNavBar from "./Soldier-Nav-Bar/SoldierNavBar";
 import HistoryFamily from "../src/Display-Family-History/HistoryFamily";
 import HistoryPage from "./History-Page/HistoryPage";
+import EditPageSoldier from "./Edit-Page-Soldier/EditPageSoldier";
+import EditFamily from "./Edit-Family/EditFamily";
 import Fooetr from "./Footer/Footer";
 
 class App extends Component {
@@ -140,15 +142,21 @@ class App extends Component {
               }}
             />
 
-            
-             <Route
+            <Route
               exact
-              path="/history"
+              path="/EditSoldier"
               render={() => {
-                return <HistoryPage UserRegister = {this.UserRegister}/>;
+                return <EditPageSoldier UserRegister = {this.UserRegister}/>;
               }}
             />
-
+              
+            <Route
+              exact
+              path="/EditFamily"
+              render={() => {
+                return <EditFamily UserRegister = {this.UserRegister}/>;
+              }}
+            />
 
 
             <Route
