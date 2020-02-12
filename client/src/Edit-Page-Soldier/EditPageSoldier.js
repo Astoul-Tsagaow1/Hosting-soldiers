@@ -242,6 +242,31 @@ export default class EditPageSoldier extends Component {
         <button 
         className = "btn btn-danger"
         id = "deleteButton"
+        onClick={() => {
+          let answer = window.confirm(
+            "Are you sure you want to delete your account with us? ? "
+          );
+          if (answer === true) {
+            axios
+              .delete(`/DeleteSoldier/${localStorage.email}`)
+              .then(res => {
+                console.log("Clear localstorege");
+
+                localStorage.clear();
+                if (res.status === 200) {
+                  console.log("Befor redirect");
+
+                  this.setState({ MoveToHomePage: true });
+                }
+                console.log("success");
+              })
+              .catch(er => {
+                console.log("err");
+              });
+          } else {
+            console.log("stay with use ");
+          }
+        }}
         >
             Delete accuont
         </button>

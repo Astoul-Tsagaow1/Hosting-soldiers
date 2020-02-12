@@ -105,20 +105,17 @@ app.patch("/Updatefamily", upload.single("FamilyIMG"), (req, response) => {
   helperServer.Updatethis(req, response, FamliysCollection);
 });
 
-app.delete("/Delete/:id"  ,(req, res)=>{
-console.log("inside Delete");
+app.delete("/DeleteFamily/:id"  ,(req, res)=>{
+console.log("inside Delete family");
 console.log(req.params.id);
-
 helperServer.Deletethis(req, res, FamliysCollection);
-
-
-
-
-
-
-
 })
 
+app.delete("/DeleteSoldier/:id"  ,(req, res)=>{
+  console.log("inside Delete soldier");
+  console.log(req.params.id);
+  helperServer.Deletethis(req, res, soldiersCollection);
+  })
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
