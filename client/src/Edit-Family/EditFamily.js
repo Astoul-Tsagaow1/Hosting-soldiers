@@ -42,7 +42,7 @@ export default class SignUpFamily extends Component {
     if (this.state.fPassword === this.state.ConfirmePassword) {
       const Familyobj = {
         familyname: this.state.fname,
-        email: this.state.femail,
+        NewEmail: this.state.femail,
         familyPhonNumber: this.state.fPhonNumber,
         familyNumberSoldiersHosts: this.state.fNumberSoldiersHosts,
         familyPassword: this.state.fPassword,
@@ -57,7 +57,7 @@ export default class SignUpFamily extends Component {
       let ImgData = new FormData();
       ImgData.append("FamilyIMG", Familyobj.file);
       ImgData.append("familyname", Familyobj.familyname);
-      ImgData.append("emailUpDate", localStorage.email);
+      ImgData.append("currentEmail", localStorage.email);
       ImgData.append("email", Familyobj.email);
       ImgData.append("PhonNumber", Familyobj.familyPhonNumber);
       ImgData.append(
