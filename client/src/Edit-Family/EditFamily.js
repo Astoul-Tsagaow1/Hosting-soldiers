@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
-import './EditFamily.css'
+import "./EditFamily.css";
 import { Redirect } from "react-router-dom";
 export default class SignUpFamily extends Component {
-     
-      state = { flag2: false ,  falg: false,falg3:false};
+  state = {
+    EmailIsIncorrect: false,
+    MoveToFamilyPage: false,
+    MoveToHomePage: false,
+    PasswordDoesNotMatch:false,
+    CancelErorrMsg:false
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +24,7 @@ export default class SignUpFamily extends Component {
       fromDate: "",
       untilDate: "",
       file: "",
-      hostingHistory:[]
+      hostingHistory: []
     };
     this.Hendelchange = this.Hendelchange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,128 +38,125 @@ export default class SignUpFamily extends Component {
     event.preventDefault();
     console.log("form");
     console.log(event.target.fname.value);
-    const Familyobj = {
-      familyname: this.state.fname,
-      email: this.state.femail,
-      familyPhonNumber: this.state.fPhonNumber,
-      familyNumberSoldiersHosts: this.state.fNumberSoldiersHosts,
-      familyPassword: this.state.fPassword,
-      familyConfirmePassword: this.state.ConfirmePassword,
-      familyCity: this.state.fCity,
-      fromDate: this.state.fromDate,
-      untilDate: this.state.untilDate,
-      FamilyDescriptionvlue: this.state.FamilyDescription,
-      file: this.state.file,
-      hostingHistory : this.state.hostingHistory
-    };
+    if (this.state.fPassword === this.state.ConfirmePassword) {
+      const Familyobj = {
+        familyname: this.state.fname,
+        email: this.state.femail,
+        familyPhonNumber: this.state.fPhonNumber,
+        familyNumberSoldiersHosts: this.state.fNumberSoldiersHosts,
+        familyPassword: this.state.fPassword,
+        familyConfirmePassword: this.state.ConfirmePassword,
+        familyCity: this.state.fCity,
+        fromDate: this.state.fromDate,
+        untilDate: this.state.untilDate,
+        FamilyDescriptionvlue: this.state.FamilyDescription,
+        file: this.state.file,
+        hostingHistory: this.state.hostingHistory
+      };
+      let ImgData = new FormData();
+      ImgData.append("FamilyIMG", Familyobj.file);
+      ImgData.append("familyname", Familyobj.familyname);
+      ImgData.append("emailUpDate", localStorage.email);
+      ImgData.append("email", Familyobj.email);
+      ImgData.append("PhonNumber", Familyobj.familyPhonNumber);
+      ImgData.append(
+        "NumberSoldiersHosts",
+        Familyobj.familyNumberSoldiersHosts
+      );
+      ImgData.append("Password", Familyobj.familyPassword);
+      ImgData.append("ConfirmePassword", Familyobj.familyConfirmePassword);
+      ImgData.append("familyCity", Familyobj.familyCity);
+      ImgData.append("fromDate", Familyobj.fromDate);
+      ImgData.append("untilDate", Familyobj.untilDate);
+      ImgData.append("discriptionFamily", Familyobj.FamilyDescriptionvlue);
+      ImgData.append("hostingHistory", Familyobj.hostingHistory);
 
-    console.log(Familyobj, "family obj");
-    console.log(Familyobj, "data");
+      axios
+        .patch("/Updatefamily", ImgData)
+        .then(response => {
+          alert("family");
 
-    let ImgData = new FormData();
-    // const config = { headers: { "content-type": "multipart/form-data" } };
-     console.log(localStorage.email , "******** local Storage Email");
-     
-    ImgData.append("FamilyIMG", Familyobj.file);
-    ImgData.append("familyname", Familyobj.familyname);
-    ImgData.append("emailUpDate", localStorage.email);
-    ImgData.append("email", Familyobj.email);
-    ImgData.append("PhonNumber", Familyobj.familyPhonNumber);
-    ImgData.append("NumberSoldiersHosts", Familyobj.familyNumberSoldiersHosts);
-    ImgData.append("Password", Familyobj.familyPassword);
-    ImgData.append("ConfirmePassword", Familyobj.familyConfirmePassword);
-    ImgData.append("familyCity", Familyobj.familyCity);
-    ImgData.append("fromDate", Familyobj.fromDate);
-    ImgData.append("untilDate", Familyobj.untilDate);
-    ImgData.append("discriptionFamily", Familyobj.FamilyDescriptionvlue);
-    ImgData.append("hostingHistory", Familyobj.hostingHistory);
+          if (response.status === 201) {
+            console.log(response.status, "inside axios");
+            console.log(response.data, "***147");
+            localStorage.setItem("email", response.data.email);
+            localStorage.setItem("namfamily", response.data.familyname);
+            localStorage.setItem("image", "familyPhoto" + this.state.file.name);
+            localStorage.setItem("user", "family");
+            this.props.UserRegister(false);
 
-    axios
-      .patch("/Updatefamily", ImgData)
-      .then(response => {
-        alert("family");
-        
+            console.log("before redirect");
+            this.setState({ MoveToFamilyPage: true });
+          } else {
+            console.log(response.data, "is exsit");
+          }
 
-        if (response.status === 201) {
-          console.log(response.status, "inside axios");
-          console.log(response.data, "***147");
-          localStorage.setItem("email", response.data.email);
-          localStorage.setItem("namfamily", response.data.familyname);
-          localStorage.setItem("image", "familyPhoto" + this.state.file.name);
-          localStorage.setItem("user", "family");
-          this.props.UserRegister(false);
-          
-          console.log("before redirect");
-          this.setState({ falg: true });
-
-          
-        } else {
-          console.log(response.data, "is exsit");
-        }
-
-        if (response.status === 203) {
-        this.setState({ flag2: true });
-
-        }
-      })
-      .catch(err => {
-        console.log("ERrrr");
-        // this.setState({ flag2: true });
-      });
-  };
+          if (response.status === 203) {
+            this.setState({ EmailIsIncorrect: true });
+          }
+        })
+        .catch(err => {
+          console.log("ERrrr");
+          // this.setState({ EmailIsIncorrect: true });
+        });
+    }else{
+      console.log("The password does not match");
+      this.setState({PasswordDoesNotMatch:true})
+      
+    }
+  }
 
   render() {
     return (
-      <div className="blurred-bg-container">
-        {this.state.falg ? <Redirect to="/FamilyPage" /> : ""}
-        {this.state.falg3 ? <Redirect to="/" /> : ""}
+      
 
-        <div className="content">
+        <div className="warpFormEdit"> 
+         {this.state.MoveToFamilyPage ? <Redirect to="/FamilyPage" /> : ""}
+        {this.state.MoveToHomePage ? <Redirect to="/" /> : ""}
           <h1 className="Sign-up-FamilyPage">Edit page</h1>
-          <form className="text" onSubmit={this.handleSubmit}>
-            <div className="col-50 right-side-form">
-              <label htmlFor="fname"> Family-Name : </label>
-              <br />
+          <form className="formEdit" onSubmit={this.handleSubmit}>
+        
+              <div class="form-row">
+            <div class="form-group col-md-6">
+            <label htmlFor="fname"> Family-Name : </label>
               <input
-                value={this.state.fname}
-                name="fname"
-                type="text"
-                onChange={this.Hendelchange}
-              />{" "}
-              <br />
-              <label htmlFor="email"> e-mail : </label>
-              <br />
+                 value={this.state.fname}
+                 name="fname"
+                 type="text"
+                 onChange={this.Hendelchange}
+              />
+            </div>
+            <div class="form-group col-md-6">
+            <label htmlFor="email"> e-mail : </label>
               <input
                 value={this.state.femail}
                 name="femail"
                 type="email"
-               
                 onChange={this.Hendelchange}
               />{" "}
-              <br />
+            </div>
+            <div class="form-group warpEmail">
               <label htmlFor="Phone-Number"> Phone-Number : </label>
-              <br />
               <input
                 value={this.state.fPhonNumber}
                 name="fPhonNumber"
                 id="Phone-Number"
                 type="number"
-               
                 onChange={this.Hendelchange}
               />{" "}
-              <br />
-              <label htmlFor="City"> City : </label>
-              <br />
+            </div>
+            <div class="form-group col-md-6">
+            <label htmlFor="City"> City : </label>
               <input
                 value={this.state.fCity}
                 name="fCity"
                 id="City"
                 type="text"
-               
                 onChange={this.Hendelchange}
               />{" "}
-              <br />
-              <label htmlFor="FamilyDescription"> About the family : </label>
+            </div>
+            <div class="form-group col-md-6">
+            <label htmlFor="FamilyDescription"> About the family : </label>
               <textarea
                 value={this.state.FamilyDescriptionvlue}
                 name="FamilyDescription"
@@ -164,47 +166,48 @@ export default class SignUpFamily extends Component {
                 placeholder="Ex:A family that loves soldiers very much and wants to host and make them happy .."
                 onChange={this.Hendelchange}
               ></textarea>
-              <br />
             </div>
-            <div className="col-20 h-25 left-side-form">
-              family photo :
+          </div>
+          <div class="form-group">
+          family photo :
               <input
                 type="file"
                 required
                 name="imgf"
                 className="file-input"
                 onChange={e => {
-                  this.setState({ file: e.target.files[0]});
+                  this.setState({ file: e.target.files[0] });
 
                   console.log(this.state.file);
                 }}
               ></input>{" "}
-              <label htmlFor="NumberSoldiers">
+          </div>
+          <div class="form-group">
+          <label htmlFor="NumberSoldiers">
                 {" "}
                 Number of soliders you can host :{" "}
               </label>
-              <br />
-              <input
+             <input
                 value={this.state.fNumberSoldiersHosts}
                 name="fNumberSoldiersHosts"
                 id="NumberSoldiers"
                 type="number"
-               
                 onChange={this.Hendelchange}
               />{" "}
-              <br />
-              <label htmlFor="Password"> Password : </label>
-              <br />
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+            <label htmlFor="Password"> Password : </label>
               <input
                 value={this.state.fPassword}
                 name="fPassword"
                 type="Password"
                 id="Password"
-               
                 onChange={this.Hendelchange}
               />{" "}
-              <br />
-              <label htmlFor=" ConfirmePassword ">
+            </div>
+            <div class="form-group col-md-4">
+            <label htmlFor=" ConfirmePassword ">
                 {" "}
                 Confirme - Password :{" "}
               </label>
@@ -214,65 +217,52 @@ export default class SignUpFamily extends Component {
                 name="ConfirmePassword"
                 type="Password"
                 id="ConfirmePassword"
-               
                 onChange={this.Hendelchange}
               />{" "}
-              <br />
-              <button
-               
-                type="submit"
-                className="submitbutoon"
-              >
-                {" "}
-                Submit{" "}
-              </button>
             </div>
+            
+          </div>
+        
+          <button type="submit" className="submitbutoon">
+                {" "}
+                Edit account{" "}
+              </button>
+           
           </form>
           <button
-               onClick={()=>{
-                   let answer = window.confirm("you shur ? ");
-                   if (answer === true) {
+            onClick={() => {
+              let answer = window.confirm(
+                "Are you sure you want to delete your account with us? ? "
+              );
+              if (answer === true) {
+                axios
+                  .delete(`/Delete/${localStorage.email}`)
+                  .then(res => {
+                    console.log("Clear localstorege");
 
-                    axios.delete(`/Delete/${localStorage.email}`)
-                    .then(res =>{
-                     console.log("Clear localstorege");
-     
-                     localStorage.clear();
-                     if (res.status === 200) {
-                     console.log("Befor redirect");
-     
-                     this.setState({ falg3: true });
-                       
-                     }
-                     console.log("success");
-                     
-                    })
-                    .catch(er=>{
-     
-                     console.log("err");
-                     
-                    })
-                     
-                   }
-                   else{
-                     console.log("stay with use ");
-                     
-                   }
-                 
+                    localStorage.clear();
+                    if (res.status === 200) {
+                      console.log("Befor redirect");
 
-                   
-      
-           
-               }}
-               className="submitbutoon Delete-account"
-             >
-               {" "}
-               Delete account{" "}
-             </button>
+                      this.setState({ MoveToHomePage: true });
+                    }
+                    console.log("success");
+                  })
+                  .catch(er => {
+                    console.log("err");
+                  });
+              } else {
+                console.log("stay with use ");
+              }
+            }}
+            className="submitbutoon Delete-account"
+          >
+            {" "}
+            Delete account{" "}
+          </button>
           <br />
-          <div className="blur"></div>
-        </div>
-        {this.state.flag2 ? (
+     
+        {this.state.EmailIsIncorrect ? (
           <div
             class="alert alert-danger alert-dismissible  h-25 w-25 fade show"
             role="alert"
@@ -282,7 +272,9 @@ export default class SignUpFamily extends Component {
               type="button"
               class="close"
               onClick={() => {
-                this.setState({ flag2: false });
+                console.log("x");
+                  this.setState({ EmailIsIncorrect: false });
+              
               }}
               data-dismiss="alert"
               aria-label="Close"
@@ -293,7 +285,31 @@ export default class SignUpFamily extends Component {
         ) : (
           " "
         )}
-      </div>
-    );
+
+
+
+
+{this.state.PasswordDoesNotMatch ? (
+          <div
+            class="alert alert-danger alert-dismissible  h-25 w-25 fade show"
+            role="alert"
+          >
+            <strong>Password Does Not Match</strong>
+            <button
+              type="button"
+              class="close"
+              onClick={() => {
+                this.setState({ PasswordDoesNotMatch: false });
+              }}
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        ) : (
+          " "
+        )}
+   </div>    );
   }
 }
