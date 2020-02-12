@@ -7,8 +7,8 @@ export default class SignUpFamily extends Component {
     EmailIsIncorrect: false,
     MoveToFamilyPage: false,
     MoveToHomePage: false,
-    PasswordDoesNotMatch:false,
-    CancelErorrMsg:false
+    PasswordDoesNotMatch: false,
+    CancelErorrMsg: false
   };
   constructor(props) {
     super(props);
@@ -35,6 +35,7 @@ export default class SignUpFamily extends Component {
     });
   }
   handleSubmit = event => {
+    alert(147)
     event.preventDefault();
     console.log("form");
     console.log(event.target.fname.value);
@@ -99,80 +100,91 @@ export default class SignUpFamily extends Component {
           console.log("ERrrr");
           // this.setState({ EmailIsIncorrect: true });
         });
-    }else{
+    } else {
       console.log("The password does not match");
-      this.setState({PasswordDoesNotMatch:true})
-      
+      this.setState({ PasswordDoesNotMatch: true });
     }
-  }
+  };
 
   render() {
     return (
-      
-
-        <div className="warpFormEdit"> 
-         {this.state.MoveToFamilyPage ? <Redirect to="/FamilyPage" /> : ""}
+      <div className="warpFormEdit-family">
+        {this.state.MoveToFamilyPage ? <Redirect to="/FamilyPage" /> : ""}
         {this.state.MoveToHomePage ? <Redirect to="/" /> : ""}
-          <h1 className="Sign-up-FamilyPage">Edit page</h1>
-          <form className="formEdit" onSubmit={this.handleSubmit}>
-        
-              <div class="form-row">
+        {/* <h1 className="Sign-up-FamilyPage">Edit page</h1> */}
+     
+
+        <form className="formEdit-Family" onSubmit={this.handleSubmit}>
+          <div class="form-row ">
             <div class="form-group col-md-6">
-            <label htmlFor="fname"> Family-Name : </label>
+              <label htmlFor="fname"> Family-Name : </label>
               <input
-                 value={this.state.fname}
-                 name="fname"
-                 type="text"
-                 onChange={this.Hendelchange}
+                className="form-control"
+                value={this.state.fname}
+                name="fname"
+                type="text"
+                onChange={this.Hendelchange}
+                id="inputEmail4"
+                placeholder="Family name"
               />
             </div>
             <div class="form-group col-md-6">
-            <label htmlFor="email"> e-mail : </label>
+              <label for="inputPassword4">Email</label>
               <input
+                class="form-control"
+                id="inputPassword4"
                 value={this.state.femail}
                 name="femail"
                 type="email"
+                placeholder="Email"
                 onChange={this.Hendelchange}
-              />{" "}
+              />
             </div>
-            <div class="form-group warpEmail">
-              <label htmlFor="Phone-Number"> Phone-Number : </label>
-              <input
-                value={this.state.fPhonNumber}
-                name="fPhonNumber"
-                id="Phone-Number"
-                type="number"
-                onChange={this.Hendelchange}
-              />{" "}
-            </div>
+          
+          <div class="form-group col-md-6">
+            <label for="inputAddress">Phone Number</label>
+            <input
+              value={this.state.fPhonNumber}
+              name="fPhonNumber"
+              id="Phone-Number"
+              type="number"
+              onChange={this.Hendelchange}
+              class="form-control"
+              id="inputAddress"
+              placeholder="Phon Number"
+            />
+          </div>
+         
+          <div class="form-group col-md-6">
+            <label for="inputAddress2">Address 2</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputAddress2"
+              placeholder="Apartment, studio, or floor"
+            />
+          </div> 
+          {/*  */}
+          </div>
+          <div class="form-row">
             <div class="form-group col-md-6">
-            <label htmlFor="City"> City : </label>
+              <label for="inputCity">City</label>
               <input
+                type="text"
                 value={this.state.fCity}
                 name="fCity"
                 id="City"
                 type="text"
                 onChange={this.Hendelchange}
-              />{" "}
-            </div>
+                class="form-control"
+                placeholder="City"
+              />
+           </div> 
+           
             <div class="form-group col-md-6">
-            <label htmlFor="FamilyDescription"> About the family : </label>
-              <textarea
-                value={this.state.FamilyDescriptionvlue}
-                name="FamilyDescription"
-                id="FamilyDescription"
-                rows="2"
-                cols="39"
-                placeholder="Ex:A family that loves soldiers very much and wants to host and make them happy .."
-                onChange={this.Hendelchange}
-              ></textarea>
-            </div>
-          </div>
-          <div class="form-group">
-          family photo :
+              <label for="inputZip">Photo family</label>
               <input
                 type="file"
-                required
                 name="imgf"
                 className="file-input"
                 onChange={e => {
@@ -180,88 +192,103 @@ export default class SignUpFamily extends Component {
 
                   console.log(this.state.file);
                 }}
-              ></input>{" "}
-          </div>
-          <div class="form-group">
-          <label htmlFor="NumberSoldiers">
-                {" "}
-                Number of soliders you can host :{" "}
-              </label>
-             <input
+                class="form-control"
+                id="inputZip"
+              />
+        </div>
+        <div class="form-group col-md-6">
+              <label for="inputZip">Password</label>
+              <input
+                 value={this.state.fPassword}
+                 name="fPassword"
+                 type="Password"
+                 placeholder="Password"
+                 id="Password"
+ 
+                 onChange={this.Hendelchange}
+                className="file-input"
+                onChange={e => {
+                  this.setState({ file: e.target.files[0] });
+
+                  console.log(this.state.file);
+                }}
+                class="form-control"
+                id="inputZip"
+              />
+        </div>
+        <div class="form-group col-md-6">
+              <label for="inputZip">Confirme-Password</label>
+              <input
+                    value={this.state.ConfirmePassword}
+                    name="ConfirmePassword"
+                    type="Password"
+                    placeholder="ConfirmePassword"
+                    id="ConfirmePassword"
+                    onChange={this.Hendelchange}
+                className="file-input"
+                onChange={e => {
+                  this.setState({ file: e.target.files[0] });
+
+                  console.log(this.state.file);
+                }}
+                class="form-control"
+                id="inputZip"
+              />
+           
+               
+        
+        </div>
+
+            <div class="form-group col-md-6">
+            <label for="NumberSoldiers">Number Soldiers</label>
+
+              <input  
                 value={this.state.fNumberSoldiersHosts}
                 name="fNumberSoldiersHosts"
                 id="NumberSoldiers"
                 type="number"
-                onChange={this.Hendelchange}
-              />{" "}
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-            <label htmlFor="Password"> Password : </label>
-              <input
-                value={this.state.fPassword}
-                name="fPassword"
-                type="Password"
-                id="Password"
-                onChange={this.Hendelchange}
-              />{" "}
-            </div>
-            <div class="form-group col-md-4">
-            <label htmlFor=" ConfirmePassword ">
-                {" "}
-                Confirme - Password :{" "}
-              </label>
-              <br />
-              <input
-                value={this.state.ConfirmePassword}
-                name="ConfirmePassword"
-                type="Password"
-                id="ConfirmePassword"
-                onChange={this.Hendelchange}
-              />{" "}
-            </div>
+                class="form-control"
+                onChange={this.Hendelchange} placeholder="sscss"  />
             
+            </div>
           </div>
-        
-          <button type="submit" className="submitbutoon">
-                {" "}
-                Edit account{" "}
+          <button type="submit" classNameName="submitbutoon">
+                Edit account
               </button>
-           
-          </form>
-          <button
-            onClick={() => {
-              let answer = window.confirm(
-                "Are you sure you want to delete your account with us? ? "
-              );
-              if (answer === true) {
-                axios
-                  .delete(`/Delete/${localStorage.email}`)
-                  .then(res => {
-                    console.log("Clear localstorege");
+        </form>
+        <button
+          onClick={() => {
+            let answer = window.confirm(
+              "Are you sure you want to delete your account with us? ? "
+            );
+            if (answer === true) {
+              axios
+                .delete(`/Delete/${localStorage.email}`)
+                .then(res => {
+                  console.log("Clear localstorege");
 
-                    localStorage.clear();
-                    if (res.status === 200) {
-                      console.log("Befor redirect");
+                  localStorage.clear();
+                  if (res.status === 200) {
+                    console.log("Befor redirect");
 
-                      this.setState({ MoveToHomePage: true });
-                    }
-                    console.log("success");
-                  })
-                  .catch(er => {
-                    console.log("err");
-                  });
-              } else {
-                console.log("stay with use ");
-              }
-            }}
-            className="submitbutoon Delete-account"
-          >
-            {" "}
-            Delete account{" "}
-          </button>
-          <br />
-     
+                    this.setState({ MoveToHomePage: true });
+                  }
+                  console.log("success");
+                })
+                .catch(er => {
+                  console.log("err");
+                });
+            } else {
+              console.log("stay with use ");
+            }
+          }}
+          className="submitbutoon Delete-account"
+        >
+          {" "}
+          Delete account{" "}
+        </button>
+        <br />
+
         {this.state.EmailIsIncorrect ? (
           <div
             class="alert alert-danger alert-dismissible  h-25 w-25 fade show"
@@ -273,8 +300,7 @@ export default class SignUpFamily extends Component {
               class="close"
               onClick={() => {
                 console.log("x");
-                  this.setState({ EmailIsIncorrect: false });
-              
+                this.setState({ EmailIsIncorrect: false });
               }}
               data-dismiss="alert"
               aria-label="Close"
@@ -286,10 +312,7 @@ export default class SignUpFamily extends Component {
           " "
         )}
 
-
-
-
-{this.state.PasswordDoesNotMatch ? (
+        {this.state.PasswordDoesNotMatch ? (
           <div
             class="alert alert-danger alert-dismissible  h-25 w-25 fade show"
             role="alert"
@@ -310,6 +333,7 @@ export default class SignUpFamily extends Component {
         ) : (
           " "
         )}
-   </div>    );
+      </div>
+    );
   }
 }
