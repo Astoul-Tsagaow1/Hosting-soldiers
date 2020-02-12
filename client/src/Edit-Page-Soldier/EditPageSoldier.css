@@ -1,3 +1,15 @@
-.editInputs{
-    border : solid;
+
+.warpFormEdit{
+    position: relative;
+    min-height: calc(100vh - 1rem);
+}
+.formEdit{
+    position: absolute;
+    left: 25%;
+    top: 3%;
+    width: 50%;
+  
+}
+.warpEmail{
+    width: 100%;
 }
