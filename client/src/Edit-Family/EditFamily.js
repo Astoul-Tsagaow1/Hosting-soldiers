@@ -35,7 +35,7 @@ export default class SignUpFamily extends Component {
     });
   }
   handleSubmit = event => {
-    alert(147)
+    alert(147);
     event.preventDefault();
     console.log("form");
     console.log(event.target.fname.value);
@@ -58,7 +58,7 @@ export default class SignUpFamily extends Component {
       ImgData.append("FamilyIMG", Familyobj.file);
       ImgData.append("familyname", Familyobj.familyname);
       ImgData.append("currentEmail", localStorage.email);
-      ImgData.append("email", Familyobj.email);
+      ImgData.append("NewEmail", Familyobj.NewEmail);
       ImgData.append("PhonNumber", Familyobj.familyPhonNumber);
       ImgData.append(
         "NumberSoldiersHosts",
@@ -76,13 +76,12 @@ export default class SignUpFamily extends Component {
         .patch("/Updatefamily", ImgData)
         .then(response => {
           alert("family");
-
           if (response.status === 201) {
             console.log(response.status, "inside axios");
             console.log(response.data, "***147");
-            localStorage.setItem("email", response.data.email);
+            localStorage.setItem("email", response.data.NewEmail);
             localStorage.setItem("namfamily", response.data.familyname);
-            localStorage.setItem("image", "familyPhoto" + this.state.file.name);
+            // localStorage.setItem("image", "familyPhoto" + this.state.file.name);
             localStorage.setItem("user", "family");
             this.props.UserRegister(false);
 
@@ -91,7 +90,6 @@ export default class SignUpFamily extends Component {
           } else {
             console.log(response.data, "is exsit");
           }
-
           if (response.status === 203) {
             this.setState({ EmailIsIncorrect: true });
           }
@@ -112,7 +110,6 @@ export default class SignUpFamily extends Component {
         {this.state.MoveToFamilyPage ? <Redirect to="/FamilyPage" /> : ""}
         {this.state.MoveToHomePage ? <Redirect to="/" /> : ""}
         {/* <h1 className="Sign-up-FamilyPage">Edit page</h1> */}
-     
 
         <form className="formEdit-Family" onSubmit={this.handleSubmit}>
           <div class="form-row ">
@@ -140,31 +137,31 @@ export default class SignUpFamily extends Component {
                 onChange={this.Hendelchange}
               />
             </div>
-          
-          <div class="form-group col-md-6">
-            <label for="inputAddress">Phone Number</label>
-            <input
-              value={this.state.fPhonNumber}
-              name="fPhonNumber"
-              id="Phone-Number"
-              type="number"
-              onChange={this.Hendelchange}
-              class="form-control"
-              id="inputAddress"
-              placeholder="Phon Number"
-            />
-          </div>
-         
-          <div class="form-group col-md-6">
-            <label for="inputAddress2">Address 2</label>
-            <input
-              type="text"
-              class="form-control"
-              id="inputAddress2"
-              placeholder="Apartment, studio, or floor"
-            />
-          </div> 
-          {/*  */}
+
+            <div class="form-group col-md-6">
+              <label for="inputAddress">Phone Number</label>
+              <input
+                value={this.state.fPhonNumber}
+                name="fPhonNumber"
+                id="Phone-Number"
+                type="number"
+                onChange={this.Hendelchange}
+                class="form-control"
+                id="inputAddress"
+                placeholder="Phon Number"
+              />
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="inputAddress2">Address 2</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress2"
+                placeholder="Apartment, studio, or floor"
+              />
+            </div>
+            {/*  */}
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
@@ -179,8 +176,8 @@ export default class SignUpFamily extends Component {
                 class="form-control"
                 placeholder="City"
               />
-           </div> 
-           
+            </div>
+
             <div class="form-group col-md-6">
               <label for="inputZip">Photo family</label>
               <input
@@ -195,66 +192,51 @@ export default class SignUpFamily extends Component {
                 class="form-control"
                 id="inputZip"
               />
-        </div>
-        <div class="form-group col-md-6">
+            </div>
+            <div class="form-group col-md-6">
               <label for="inputZip">Password</label>
               <input
-                 value={this.state.fPassword}
-                 name="fPassword"
-                 type="Password"
-                 placeholder="Password"
-                 id="Password"
- 
-                 onChange={this.Hendelchange}
-                className="file-input"
-                onChange={e => {
-                  this.setState({ file: e.target.files[0] });
-
-                  console.log(this.state.file);
-                }}
+                value={this.state.fPassword}
+                name="fPassword"
+                type="Password"
+                placeholder="Password"
+                id="Password"
+                onChange={this.Hendelchange}
                 class="form-control"
                 id="inputZip"
               />
-        </div>
-        <div class="form-group col-md-6">
+            </div>
+            <div class="form-group col-md-6">
               <label for="inputZip">Confirme-Password</label>
               <input
-                    value={this.state.ConfirmePassword}
-                    name="ConfirmePassword"
-                    type="Password"
-                    placeholder="ConfirmePassword"
-                    id="ConfirmePassword"
-                    onChange={this.Hendelchange}
-                className="file-input"
-                onChange={e => {
-                  this.setState({ file: e.target.files[0] });
-
-                  console.log(this.state.file);
-                }}
+                value={this.state.ConfirmePassword}
+                name="ConfirmePassword"
+                type="Password"
+                placeholder="ConfirmePassword"
+                id="ConfirmePassword"
+                onChange={this.Hendelchange}
                 class="form-control"
                 id="inputZip"
               />
-           
-               
-        
-        </div>
+            </div>
 
             <div class="form-group col-md-6">
-            <label for="NumberSoldiers">Number Soldiers</label>
+              <label for="NumberSoldiers">Number Soldiers</label>
 
-              <input  
+              <input
                 value={this.state.fNumberSoldiersHosts}
                 name="fNumberSoldiersHosts"
                 id="NumberSoldiers"
                 type="number"
                 class="form-control"
-                onChange={this.Hendelchange} placeholder="sscss"  />
-            
+                onChange={this.Hendelchange}
+                placeholder="sscss"
+              />
             </div>
           </div>
           <button type="submit" classNameName="submitbutoon">
-                Edit account
-              </button>
+            Edit account
+          </button>
         </form>
         <button
           onClick={() => {
@@ -263,7 +245,7 @@ export default class SignUpFamily extends Component {
             );
             if (answer === true) {
               axios
-                .delete(`/Delete/${localStorage.email}`)
+                .delete(`/DeleteFamily/${localStorage.email}`)
                 .then(res => {
                   console.log("Clear localstorege");
 

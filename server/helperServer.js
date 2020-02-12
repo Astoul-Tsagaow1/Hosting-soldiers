@@ -337,7 +337,7 @@ function Updatethis(req ,response,collection) {
                     newvalues = {
                       $set: {
                         familyname: req.body.familyname,
-                        email: req.body.email,
+                        email: req.body.NewEmail,
                         PhonNumber: req.body.PhonNumber,
                         NumberSoldiersHosts: req.body.NumberSoldiersHosts,
                         Password: req.body.Password,
