@@ -94,11 +94,15 @@ app.post("/historyFamily", (req, res) => {
   helperServer.getHistory(FamliysCollection, req, res);
 });
 
+app.patch("/UpdateSoldier",(req, response) => {
+  console.log(req.body, "**** UpDate *****");
+  helperServer.Updatethis(req, response, soldiersCollection);
+});
+
+
 app.patch("/Updatefamily", upload.single("FamilyIMG"), (req, response) => {
   console.log(req.file, "**** UpDate *****");
   helperServer.Updatethis(req, response, FamliysCollection);
-  
- 
 });
 
 app.delete("/Delete/:id"  ,(req, res)=>{

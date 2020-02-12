@@ -295,7 +295,7 @@ function Updatethis(req ,response,collection) {
   MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     var dbo = db.db(mydb);
-    dbo.collection(collection).findOne({email: req.body.email}, function(err, result) {
+    dbo.collection(collection).findOne({email: req.body.NewEmail}, function(err, result) {
 
       if (result === null) {
 
@@ -305,7 +305,7 @@ function Updatethis(req ,response,collection) {
           var dbo = db.db(mydb);
           dbo
             .collection(collection)
-            .findOne({ email: req.body.emailUpDate }, function(err, result) {
+            .findOne({ email: req.body.currentEmail }, function(err, result) {
               if (err) throw err;
       
               Thempobj = result;
@@ -331,23 +331,42 @@ function Updatethis(req ,response,collection) {
                 MongoClient.connect(url, function(err, db) {
                   if (err) throw err;
                   var dbo = db.db(mydb);
-                  var myquery = { email: req.body.emailUpDate };
-                  var newvalues = {
-                    $set: {
-                      familyname: req.body.familyname,
-                      email: req.body.email,
-                      PhonNumber: req.body.PhonNumber,
-                      NumberSoldiersHosts: req.body.NumberSoldiersHosts,
-                      Password: req.body.Password,
-                      ConfirmePassword: req.body.ConfirmePassword,
-                      familyCity: req.body.familyCity,
-                      fromDate: req.body.fromDate,
-                      untilDate: req.body.untilDate,
-                      discriptionFamily: req.body.discriptionFamily,
-                      hostingHistory: req.body.hostingHistory,
-                      image: req.file
-                    }
-                  };
+                  var myquery = { email: req.body.currentEmail };
+                  var newvalues;
+                  if(collection == "families"){
+                    newvalues = {
+                      $set: {
+                        familyname: req.body.familyname,
+                        email: req.body.email,
+                        PhonNumber: req.body.PhonNumber,
+                        NumberSoldiersHosts: req.body.NumberSoldiersHosts,
+                        Password: req.body.Password,
+                        ConfirmePassword: req.body.ConfirmePassword,
+                        familyCity: req.body.familyCity,
+                        fromDate: req.body.fromDate,
+                        untilDate: req.body.untilDate,
+                        discriptionFamily: req.body.discriptionFamily,
+                        hostingHistory: req.body.hostingHistory,
+                        image: req.file
+                      }
+                    };
+                  }
+                  else{
+                    newvalues = {
+                      $set: {
+                        name : req.body.name,
+                        lastName : req.body.lastName,
+                        quite:req.body.quite,
+                        email:req.body.NewEmail,
+                        phone:req.body.phone,
+                        password:req.body.password,
+                        confirmPassword: req.body.confirmPassword,
+                        address:req.body.address,
+                        loneSoldier:req.body.loneSoldier
+                      }
+                    };
+                    console.log(newvalues , "Datals to update!!!!!@!@");
+                  }
                   dbo
                     .collection(collection)
                     .updateOne(myquery, newvalues,{returnNewDocument: true}, function(err, res) {
