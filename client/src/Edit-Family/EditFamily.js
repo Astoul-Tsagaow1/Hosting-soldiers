@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import "./SignUpFamily.css";
+import './EditFamily.css'
 import { Redirect } from "react-router-dom";
 export default class SignUpFamily extends Component {
      
-      state = { flag2: false ,  falg: false};
+      state = { flag2: false ,  falg: false,falg3:false};
   constructor(props) {
     super(props);
     this.state = {
@@ -107,9 +107,10 @@ export default class SignUpFamily extends Component {
     return (
       <div className="blurred-bg-container">
         {this.state.falg ? <Redirect to="/FamilyPage" /> : ""}
+        {this.state.falg3 ? <Redirect to="/" /> : ""}
 
         <div className="content">
-          <h1 className="Sign-up-FamilyPage">Sign up</h1>
+          <h1 className="Sign-up-FamilyPage">Edit page</h1>
           <form className="text" onSubmit={this.handleSubmit}>
             <div className="col-50 right-side-form">
               <label htmlFor="fname"> Family-Name : </label>
@@ -173,7 +174,7 @@ export default class SignUpFamily extends Component {
                 name="imgf"
                 className="file-input"
                 onChange={e => {
-                  this.setState({ file: e.target.files[0] });
+                  this.setState({ file: e.target.files[0]});
 
                   console.log(this.state.file);
                 }}
@@ -225,19 +226,50 @@ export default class SignUpFamily extends Component {
                 {" "}
                 Submit{" "}
               </button>
-              {/* <div className="facebookwrpper">
-                                        <button className="facebookbutton">facebook</button>
-                                        </div>
-                                        <div className="gmailwrapper">
-                                            <button className="gmailbutton">Gmail</button>
-                                          
-                                         
-                                        </div> */}
             </div>
           </form>
+          <button
+               onClick={()=>{
+                   let answer = window.confirm("you shur ? ");
+                   if (answer === true) {
 
+                    axios.delete(`/Delete/${localStorage.email}`)
+                    .then(res =>{
+                     console.log("Clear localstorege");
+     
+                     localStorage.clear();
+                     if (res.status === 200) {
+                     console.log("Befor redirect");
+     
+                     this.setState({ falg3: true });
+                       
+                     }
+                     console.log("success");
+                     
+                    })
+                    .catch(er=>{
+     
+                     console.log("err");
+                     
+                    })
+                     
+                   }
+                   else{
+                     console.log("stay with use ");
+                     
+                   }
+                 
+
+                   
+      
+           
+               }}
+               className="submitbutoon Delete-account"
+             >
+               {" "}
+               Delete account{" "}
+             </button>
           <br />
-          {/* </div> */}
           <div className="blur"></div>
         </div>
         {this.state.flag2 ? (

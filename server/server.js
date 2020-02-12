@@ -96,94 +96,25 @@ app.post("/historyFamily", (req, res) => {
 
 app.patch("/Updatefamily", upload.single("FamilyIMG"), (req, response) => {
   console.log(req.file, "**** UpDate *****");
-  let Thempobj;
-  // function Updatethis(Email ,collection ) {
-    MongoClient.connect(url, function(err, db) {
-      if (err) throw err;
-      var dbo = db.db(mydb);
-      dbo.collection(FamliysCollection).findOne({email: req.body.email}, function(err, result) {
-
-        if (result === null) {
-
-          MongoClient.connect(url, function(err, db) {
-            console.log("find and Update");
-            if (err) throw err;
-            var dbo = db.db(mydb);
-            dbo
-              .collection(FamliysCollection)
-              .findOne({ email: req.body.emailUpDate }, function(err, result) {
-                if (err) throw err;
-        
-                Thempobj = result;
-                console.log(Thempobj, "**123");
-                if (result === null) {
-                  console.log("notul found");
-                  Thempobj = "asto";
-                } else {
-        
-                  let Updateobj = req.body
-                  for (const [key, value] of Object.entries(Updateobj)) {
-                    console.log(`${key} ${value}`); 
-                    if(value == ""){
-                      Updateobj[key] = Thempobj[key];
-                    }
-                  }
-                  console.log(Updateobj , "after update obj ")
-        
-        
-                  Thempobj = result;
-                  console.log(Thempobj, "inside UpdateThis function");
-                  console.log(Thempobj, "******* fromUpdate , from find and Update  ");
-                  MongoClient.connect(url, function(err, db) {
-                    if (err) throw err;
-                    var dbo = db.db(mydb);
-                    var myquery = { email: req.body.emailUpDate };
-                    var newvalues = {
-                      $set: {
-                        familyname: req.body.familyname,
-                        email: req.body.email,
-                        PhonNumber: req.body.PhonNumber,
-                        NumberSoldiersHosts: req.body.NumberSoldiersHosts,
-                        Password: req.body.Password,
-                        ConfirmePassword: req.body.ConfirmePassword,
-                        familyCity: req.body.familyCity,
-                        fromDate: req.body.fromDate,
-                        untilDate: req.body.untilDate,
-                        discriptionFamily: req.body.discriptionFamily,
-                        hostingHistory: req.body.hostingHistory,
-                        image: req.file
-                      }
-                    };
-                    dbo
-                      .collection(FamliysCollection)
-                      .updateOne(myquery, newvalues,{returnNewDocument: true}, function(err, res) {
-                        if (err) throw err;
-                        console.log("1 document updated");
-                        console.log(Updateobj , "**** this is uPdate obj ");
-                        
-                          response.status(201).send(Updateobj);
-
-                        db.close();
-                      });
-                  });
-                }
-              });
-          })
-          
-        }
-        else{
-          console.log("cant Edit email is allredy exit");
-
-          response.status(203).send(result.email)
-          
-        }
-        if (err) throw err;
-        console.log(result);
-        db.close();
-      });
-    })
- ;
+  helperServer.Updatethis(req, response, FamliysCollection);
+  
+ 
 });
+
+app.delete("/Delete/:id"  ,(req, res)=>{
+console.log("inside Delete");
+console.log(req.params.id);
+
+helperServer.Deletethis(req, res, FamliysCollection);
+
+
+
+
+
+
+
+})
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
