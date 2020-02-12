@@ -4,6 +4,7 @@
     min-height: calc(100vh - 1rem);
 }
 .formEdit{
+    border: solid;
     position: absolute;
     left: 25%;
     top: 3%;
@@ -11,5 +12,28 @@
   
 }
 .warpEmail{
-    width: 100%;
+    width: 99%;
+    margin-left: 0.5%;
+}
+.warpCheckBox{
+    /* border: solid; */
+    width: 26%;
+    height: 10%;
+    margin:6% 0 0 7%;
+    
+}
+#gridCheck{
+  
+    height: 3%;
+    width: 9%;
+    margin-left:20%
+}
+#deleteButton{
+    position: absolute;
+    bottom: 1%;
+    right: 24.5%;
+    width:20%;
+}
+#editButton{
+    width:40%;
 }
