@@ -4,7 +4,8 @@ import { Redirect } from "react-router-dom";
 import React, { Component } from "react";
 
 export default class Login extends Component {
-  state = { flage: "", flag2: false, show: true, setShow: false };
+  state = { flage: "", flag2: false, show: true, setShow: false , email :"", password:"" , inCorrectLogin : false};
+  
   renderSwitchLogin(arg) {
     switch (arg) {
       case true:
@@ -16,7 +17,14 @@ export default class Login extends Component {
     }
   }
 
+  handelOnchange(e){
+    console.log(e.target.name,"target name");
+    console.log(e.target.value,"target value")
+    this.setState({ email:e.target.value});
+  }
+
   render() {
+    
     let email, password;
     return (
       <div className="bg-Login-Page">
@@ -28,36 +36,46 @@ export default class Login extends Component {
             type="email"
             placeholder="Email"
             required="required"
-            onChange={e => {
-              email = e.target.value;
-            }}
+            name = "email"
+            value ={ this.state.email}
+            onChange={(e)=>{console.log(e.target.name,"target name");
+            console.log(e.target.value,"target value")
+            email = e.target.value;
+            this.setState({[e.target.name]:e.target.value});}}
           />
           <br />
           <input
             className="Password-Login"
             placeholder=" Password"
             type="password"
+            name = "password"
             required="required"
-            onChange={e => {
-              password = e.target.value;
-            }}
+            value = {this.state.password}
+            onChange={(e)=>{console.log(e.target.name,"target name");
+            console.log(e.target.value,"target value")
+            console.log(email,"target value")
+            password = e.target.value;
+            this.setState({ [e.target.name]:e.target.value});}}
           />
 
           <button
             className="submitbutoon Login-butoon"
             onClick={() => {
-              console.log(email);
-              console.log(password);
+              let objUser = { Email: this.state.email, password: this.state.password };
+              console.log(this.state.email , "email onclick");
+              console.log(this.state.password , "password on click");
+              console.log(objUser, " this is the obj");
 
-              if (email === undefined && password === undefined) {
+              if (objUser.Email === undefined && objUser.password === undefined) {
+                
                 this.setState({ flag2: true });
               } else {
-                let objUser = { Email: email, password: password };
+               
                 console.log(objUser, " this is the obj");
                 axios
                   .post("/Login", objUser)
                   .then(res => {
-                    console.log(res, "this is the data");
+                    console.log(res.data, "this is the data");
                     console.log(res.status, "this is status");
 
                     if (res.status === 201) {
@@ -77,10 +95,13 @@ export default class Login extends Component {
                       this.props.changeAuthentication(localStorage.user);
                       this.setState({ flage: false });
                     }
-
+                    if(res.status === 203){
+                      console.log(res.data,"password incorrect");
+                      this.setState({flag2 : true ,email : res.data.email , password : password , inCorrectLogin : true});
+                    }
                     else if (res.status === 404){
-               
-
+                      
+                    
                     }
                   })
                   .catch(err => {

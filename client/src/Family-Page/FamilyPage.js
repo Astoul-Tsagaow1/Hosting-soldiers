@@ -2,7 +2,7 @@ import "./FamilyPage.css";
 import axios from "axios";
 import React, { Component } from "react";
 export default class FamilyPage extends Component {
-  state = { flage: false, flage2: false };
+  state = { alertSuccessfuly: false, alertEnterFullDate: false , from:'',until:''};
   render() {
     console.log("Family page");
     let from;
@@ -30,6 +30,7 @@ export default class FamilyPage extends Component {
               type="date"
               onChange={e => {
                 from = e.target.value;
+                this.setState({until:this.state.until,from:from})
               }}
             />{" "}
             <br />
@@ -39,18 +40,21 @@ export default class FamilyPage extends Component {
               type="date"
               onChange={e => {
                 Until = e.target.value;
+                this.setState({until:Until,from:this.state.from})
               }}
             />
             <button
               className="Family-Page-button submitbutoon"
               onClick={() => {
-                if (from === undefined || Until === undefined) {
+                console.log(this.state.from,"onclick-from");
+                console.log(this.state.until,"onclick-until");
+                if (this.state.from === '' || this.state.until === '') {
                   console.log("pless insert date");
-                  this.setState({ flage2: true });
+                  this.setState({ alertEnterFullDate: true });
                 } else {
                   const datefamily = {
-                    fromDate: from,
-                    untilDate: Until,
+                    fromDate: this.state.from,
+                    untilDate: this.state.until,
                     CurrentEmail: localStorage.email
                   };
                   axios
@@ -58,7 +62,7 @@ export default class FamilyPage extends Component {
                     .then(res => {
                       console.log(res.status, "this is response Data family ");
                       if (res.status === 201) {
-                        this.setState({ flage: true });
+                        this.setState({ alertSuccessfuly: true });
                       }
                     })
                     .catch(errr => {
@@ -70,14 +74,14 @@ export default class FamilyPage extends Component {
             >
               Click to send{" "}
             </button>
-            {this.state.flage ? (
+            {this.state.alertSuccessfuly ? (
               <div class="alert alert-success" role="alert">
                Your date has been sent successfully{" "}
                <button
                   type="button"
                   class="close"
                   onClick={() => {
-                    this.setState({ flage: false });
+                    this.setState({ alertSuccessfuly: false });
                   }}
                   data-dismiss="alert"
                   aria-label="Close"
@@ -88,7 +92,7 @@ export default class FamilyPage extends Component {
             ) : (
               ""
             )}
-            {this.state.flage2 ? (
+            {this.state.alertEnterFullDate ? (
               <div
                 class="alert alert-danger alert-dismissible  h-80  fade show"
                 role="alert"
@@ -98,7 +102,7 @@ export default class FamilyPage extends Component {
                   type="button"
                   class="close"
                   onClick={() => {
-                    this.setState({ flage2: false });
+                    this.setState({ alertEnterFullDate: false });
                   }}
                   data-dismiss="alert"
                   aria-label="Close"

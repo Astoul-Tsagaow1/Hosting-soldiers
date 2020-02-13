@@ -122,22 +122,22 @@ function FindRelevantFamilies(req, res) {
 
 function SoldiersUsers(collection, serchEmail, req, res) {
   MongoClient.connect(url, function(err, db) {
-    console.log(serchEmail , "inside soldier user");
+    console.log(serchEmail , "inside soldier user hhhhhhhhhhhhhhh");
     // if (err) throw err;
     var dbo = db.db(mydb);
     dbo
       .collection(collection)
       .findOne({ email: serchEmail.Email }, function(err, result) {
         if (err) throw err;
-        console.log("inside soldier collection");
-       console.log(result);
+        console.log(result,"inside soldier collection");
        if(serchEmail.password === result.password) {
           console.log("success");
           return res.status(209).send(result);
         }
          else {
-          res.status(205).send("Fail");
-          console.log("Fail");
+           console.log(result,"password soldier $$$$$$$$$$$$");
+          return res.status(203).send({email : result.email});
+         
         }
       });
   });
@@ -167,6 +167,9 @@ function Login(req, res) {
           
 
           return res.status(201).send(result);
+        }
+        else{
+                return res.status(203).send({email : result.email});
         }
 
         db.close();

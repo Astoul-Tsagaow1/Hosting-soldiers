@@ -4,7 +4,8 @@ import "./SoldiersPage.css";
 import DisplayMatchingFamilies from "../Display-Matching-Families/DisplayMatchingFamilies";
 // import Axios from "axios";
 export default class SoldiersPage extends Component {
-  state = { flag: false, resultFamily: [] };
+  state = { DisplayMatchingFamilies: false, resultFamily: [] , alertSuccessfuly: false, alertEnterFullDate: false , from:'',until:'' };
+
   render() {
     let fromDate, untilDate;
 
@@ -21,6 +22,7 @@ export default class SoldiersPage extends Component {
           name="bday"
           onChange={e => {
             fromDate = e.target.value;
+            this.setState({until:this.state.until,from:fromDate})
           }}
         ></input>
         Till what date:
@@ -29,14 +31,19 @@ export default class SoldiersPage extends Component {
           name="bday"
           onChange={e => {
             untilDate = e.target.value;
+            this.setState({until:untilDate,from:this.state.from})
           }}
         ></input>
 {/* working about hrf */}
         <a href="#top"><button href = "#resultFamilesHrf"
           onClick={() => {
+            if (this.state.from === '' || this.state.until === '') {
+              console.log("pless insert date");
+              this.setState({ alertEnterFullDate: true });
+            } else {
             const dateSoldier = {
-              fromDate: fromDate,
-              untilDate: untilDate,
+              fromDate: this.state.from,
+              untilDate: this.state.until,
               CurrentEmail: localStorage.email
             };
             axios
@@ -44,19 +51,19 @@ export default class SoldiersPage extends Component {
               .then(res => {
                 console.log(res.data, "this is response soldiers date ");
                 let resultFamily = res.data;
-                this.setState({ flag: true, resultFamily: resultFamily });
+                this.setState({ DisplayMatchingFamilies: true, resultFamily: resultFamily });
               })
               .catch(function(error) {
                 // handle error
                 console.log(error);
               });
-          }}
+          }}}
         >
           send
         </button></a>
         </div>
         <div className="resultFamiles" id = "resultFamilesHrf">
-          {this.state.flag ? (
+          {this.state.DisplayMatchingFamilies ? (
             <DisplayMatchingFamilies resultMatch={this.state.resultFamily} />
           ) : (
             ""
@@ -67,6 +74,7 @@ export default class SoldiersPage extends Component {
   }
   componentDidMount(){
     this.props.UserRegister("SoldierNavBar");
+    
   }
  
 }
