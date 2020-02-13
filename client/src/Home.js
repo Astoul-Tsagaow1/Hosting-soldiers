@@ -1,24 +1,28 @@
 import React, { Component } from "react";
-import Carousel from "react-bootstrap/Carousel";
+// import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
-import soldier from "./images/soldiers-11.jpg";
-import soldier2 from "./images/soldiers-6.jpg";
-import soldier3 from "./images/soldiers-20.jpg";
+// import soldier from "./images/soldiers-11.jpg";
+// import soldier2 from "./images/soldiers-6.jpg";
+// import soldier3 from "./images/soldiers-20.jpg";
 import { Link } from "react-router-dom";
 export default class Home extends Component {
   render() {
     return (
       <div className="Home-page">
         <div className="Sign-up-form">
-          <Link className="SignUpSoldiersButoonHomePage" to="/SignUpSoldiers">
-          SignUp Soldiers
-           
+          {" "}
+          <Link to="/SignUpSoldiers">
+            <button className="btn btn SignUpSoldiersButoonHomePage btn-dark">  SignUp Soldiers</button>
+          
           </Link>
-          <Link className="SignUpFamilyButoonHomePage" to="/SignUpFamily">
-          SignUp Family
-           
+          <Link to="/SignUpFamily">
+            <button className="btn btn  SignUpFamilyButoonHomePage btn-dark">
+              SignUp Family
+            </button>
           </Link>
-          <button className="btn btn LoginButton submitbutoon ">Login</button>
+          <Link className="main-navBar" to="/Login">
+            <button className="btn btn LoginButton submitbutoon ">Login</button>
+          </Link>
           <div className="Wrapper-Sign-up-form-content"></div>
         </div>
 
