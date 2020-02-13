@@ -10,16 +10,19 @@ export default class Home extends Component {
     return (
       <div className="Home-page">
         <div className="Sign-up-form">
-          <Link className="main-navBar" to="/SignUpSoldiers">
-            SignUp Sold
+          <Link className="SignUpSoldiersButoonHomePage" to="/SignUpSoldiers">
+          SignUp Soldiers
+           
           </Link>
-          <Link className="main-navBar" to="/SignUpFamily">
-            SignUp Family
+          <Link className="SignUpFamilyButoonHomePage" to="/SignUpFamily">
+          SignUp Family
+           
           </Link>
+          <button className="btn btn LoginButton submitbutoon ">Login</button>
           <div className="Wrapper-Sign-up-form-content"></div>
         </div>
 
-        <div className="Carousel divWarp">
+        {/* <div className="Carousel divWarp">
           <Carousel>
             <Carousel.Item>
               <img className="carusel-images" src={soldier} alt="First slide" />
@@ -39,7 +42,7 @@ export default class Home extends Component {
               />
             </Carousel.Item>
           </Carousel>
-        </div>
+        </div> */}
         {/* <div className = "footer">
                     <Footer/>
                 </div> */}

@@ -233,8 +233,28 @@ export default class SignUpFamily extends Component {
                 placeholder="sscss"
               />
             </div>
+
+            <div class="form-group col-md-6">
+              <label htmlFor="FamilyDescription"> About the family : </label>
+              <br />
+              <textarea
+                value={this.state.FamilyDescriptionvlue}
+                name="FamilyDescription"
+                id="FamilyDescription"
+                rows="2"
+                cols="39"
+                className="border"
+                placeholder="Ex:A family that loves soldiers very much and wants to host and make them happy .."
+                onChange={this.Hendelchange}
+              ></textarea>
+            </div>
           </div>
-          <button type="submit" classNameName="submitbutoon">
+
+          <button
+            type="submit"
+          
+                        className="submitbutoon  bg-primary EditButoon"
+          >
             Edit account
           </button>
         </form>
@@ -269,7 +289,6 @@ export default class SignUpFamily extends Component {
           {" "}
           Delete account{" "}
         </button>
-        <br />
 
         {this.state.EmailIsIncorrect ? (
           <div
