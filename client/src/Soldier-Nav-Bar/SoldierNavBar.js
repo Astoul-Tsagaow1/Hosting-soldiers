@@ -7,16 +7,16 @@ export default class SoldierNavBar extends Component {
       <div>
         <Navbar navbar bg="dark" navbar="true">
           <Nav className="mr-auto">
-            <Link to="/">
+            <Link className="SoldierNavBar" to="/">
               <img
                 src="https://img.icons8.com/color/48/000000/camo-cream.png(2 kB)https://img.icons8.com/color/48/000000/camo-cream.png"
                 alt="logo"
               />
             </Link>
 
-            <Link to="/" onClick = {()=>{}}>Home</Link>
+            <Link to="/" className="SoldierNavBar" onClick = {()=>{}}>Home</Link>
 
-            <Link onClick={() => localStorage.clear()} to="/">
+            <Link className="SoldierNavBar" onClick={() => localStorage.clear()} to="/">
               Logout
             </Link>
 
@@ -26,7 +26,7 @@ export default class SoldierNavBar extends Component {
               History
             </Link>
 
-            <Link to="/EditSoldier">Edit</Link>
+            <Link className="SoldierNavBar" to="/EditSoldier">Edit</Link>
 
             <Link 
             to="/About">About soldier</Link>

@@ -1,6 +1,5 @@
 .App{
   position: relative;
-  border:solid;
   min-height: calc(100vh - 1rem);
 }
 
