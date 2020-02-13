@@ -37,6 +37,7 @@ export default class HistoryFamily extends Component {
       
     </div>)
   }
+  
 }
 
 

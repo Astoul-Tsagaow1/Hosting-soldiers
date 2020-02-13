@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Table from "react-bootstrap/Table";
 export default class DisplaySoldierHistory extends Component {
     render() {
+      console.log(Historyprop,"history")
         let Historyprop = [...this.props.soldierHistory];
         let History = Historyprop.map((familyObj , index) => {  return (
             <tr>
@@ -33,5 +34,5 @@ export default class DisplaySoldierHistory extends Component {
             </div>
         )
     }
-
+   
 }

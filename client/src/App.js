@@ -136,9 +136,9 @@ class App extends Component {
 
             <Route
               exact
-              path="/HistoryFamily"
+              path="/history"
               render={() => {
-                return <HistoryFamily />;
+                return <HistoryPage />;
               }}
             />
 
