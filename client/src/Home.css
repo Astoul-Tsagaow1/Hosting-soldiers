@@ -1,73 +1,145 @@
-.Home-page{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.068), rgba(0, 0, 0, 0.281)) ,url(../src/images/soldiers-3.jpg);
-    height: 100vh ;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-   
-   
- }
- .Carousel{
-     text-align: center;
-     top:30%;
-     position: relative;
-     left: 3%;
-     width: 45%;
-     border: solid;
-     height: 50%;
- }
- .d-block {
-     position: inherit;
-     left: 18%;
-   
- }
- .carusel-images{
-     opacity: 0.5;
- }
- .carusel-images:hover{
-     opacity: 1;
- }
+.Home-page {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.068), rgba(0, 0, 0, 0.281)),
+    url(../src/images/soldiers-3.jpg);
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: calc(100vh - 1rem);
+  
+}
+.Carousel {
+  text-align: center;
+  top: 65%;
+  position: absolute;
+  left: 25%;
+  width: 45%;
+  border: solid;
+  height: 50%;
+ 
+}
+.d-block {
+  position: inherit;
+  left: 18%;
+}
+.carusel-images {
+  opacity: 0.5;
+}
+.carusel-images:hover {
+  opacity: 1;
+}
 
- .carusel-images{
+.carusel-images {
+  height: 350px;
+  width: 500px;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
 
-    height: 350px;
-    width: 500px;
- }
-*{
-    padding: 0;
-    margin: 0;
+.Sign-up-form {
+  background: inherit;
+  width: 35%; /* =cw */
+  height: 45%; /* =ch */
+  border-radius: 8px;
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 35%; /* =ct */
+  left: 25%; /* =cl */
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.Wrapper-Sign-up-form-content {
+  background: inherit;
+  height: 100vh;
+  width: 166.667%;
+  position: absolute;
+  left: 35%;
+  top: 35%;
+  transform: translate(-30%, -30%);
+  filter: blur(25px);
+  z-index: -1;
 }
 
 
-.Sign-up-form{
-    background: inherit;
-    width: 35%; /* =cw */
-    height: 50%; /* =ch */
-    border-radius: 8px;
-    box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
-    position: absolute;
-    top: 45%; /* =ct */
-    left: 30%; /* =cl */
-    transform: translate(-50%, -50%);
-    overflow: hidden;
-    position: relative;
-    text-align: center;
- }
-
-
- .Wrapper-Sign-up-form-content{
-    background: inherit;
-    height: 100vh; 
-    width: 166.667%;
-    position: absolute;
-    left:45%;
-    top: 55%;
-    transform: translate(
-      -30%,
-      -30%
-    );
-    filter: blur(15px);
-    z-index: -1;
+.LoginButton {
+  position: absolute;
+  top: 45%;
+  height: 10% !important;
+  width: 50% !important;
 }
+
+.SignUpFamilyButoonHomePage {
+  display: block;
+  z-index: 5;
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  width: 50%;
+  background-color:rgb(52, 58, 64) ;
+  border-radius: 5px;
+
+ 
+}
+.SignUpFamilyButoonHomePage::before {
+  display: inline-block;
+  transform-origin: left;
+  transform: scaleX(0);
+  background-color: rgb(33, 99, 64);
+  transition: all 1.5s;
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+
+.SignUpFamilyButoonHomePage:hover::before {
+  transform: scale(1);
+  border-radius: 5px;
+  color: aliceblue;
+}
+
+
+.SignUpSoldiersButoonHomePage{
+    display: block;
+    z-index: 5;
+    position: absolute;
+    top: 39%;
+    left: 25%;
+    width: 50%;
+  background-color:rgb(52, 58, 64) ;
+  border-radius: 5px;
+
+    
+}
+
+.SignUpSoldiersButoonHomePage::before{
+
+    display: inline-block;
+  transform-origin: right;
+  transform: scaleX(0);
+  background-color: rgb(33, 99, 64);
+  transition: all 1.5s;
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.SignUpSoldiersButoonHomePage:hover::before {
+    transform: scale(1);
+    border-radius: 5px;
+  }
