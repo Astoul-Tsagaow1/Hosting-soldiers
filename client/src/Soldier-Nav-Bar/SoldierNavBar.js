@@ -14,7 +14,7 @@ export default class SoldierNavBar extends Component {
               />
             </Link>
 
-            <Link to="/">Home</Link>
+            <Link to="/" onClick = {()=>{}}>Home</Link>
 
             <Link onClick={() => localStorage.clear()} to="/">
               Logout
