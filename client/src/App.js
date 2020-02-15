@@ -167,8 +167,8 @@ class App extends Component {
               }}
             />
           </Switch> 
-
-          <Fooetr class = {(localStorage.user === "soldier") ? "footerSoldier" : "footerElse"} />  
+          {sessionStorage.page === "soldierHomePage" ? "" : <Fooetr/>}
+            
 
         </div>
                   

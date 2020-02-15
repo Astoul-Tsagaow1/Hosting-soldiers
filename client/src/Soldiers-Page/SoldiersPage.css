@@ -20,10 +20,11 @@
 }
 .resultFamiles{
     width: 100%;
+    margin-bottom: 1%;
 }
-/* .footer1{
-    top:110%
-} */
+.buttonSearchAccommodation{
+
+}
 /* @media screen and (min-width: 1000px){
     .resultFamiles{
         width: 100%;

@@ -2,9 +2,32 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./SoldiersPage.css";
 import DisplayMatchingFamilies from "../Display-Matching-Families/DisplayMatchingFamilies";
+import Fooetr from "../Footer/Footer";
 export default class SoldiersPage extends Component {
   state = { DisplayMatchingFamilies: false, resultFamily: [] , alertSuccessfuly: false, alertEnterFullDate: false , from:'',until:'' };
-  
+  searchAccommodation = ()=>{
+    if (this.state.from === '' || this.state.until === '') {
+      console.log("pless insert date");
+      this.setState({ alertEnterFullDate: true });
+    } else {
+    const dateSoldier = {
+      fromDate: this.state.from,
+      untilDate: this.state.until,
+      CurrentEmail: localStorage.email
+    };
+    axios
+      .post("/SoldierDate", dateSoldier)
+      .then(res => {
+        console.log(res.data, "this is response soldiers date ");
+        let resultFamily = res.data;
+        this.setState({ DisplayMatchingFamilies: true, resultFamily: resultFamily, from:"" , until:"" });
+      })
+      .catch(function(error) {
+        // handle error
+        console.log(error);
+      });
+  }
+  }
   render() {
     let fromDate, untilDate;
     console.log(this.state);
@@ -14,7 +37,7 @@ export default class SoldiersPage extends Component {
             
         </div>
       <div className="soldierPageSearch">
-        <h3>SoldiersPage</h3>
+        <h3>Find accommodation</h3>
         From what date:
         <input
           type="date"
@@ -36,32 +59,14 @@ export default class SoldiersPage extends Component {
           }}
         ></input>
 {/* working about hrf */}
-        <a href="#top"><button href = "#resultFamilesHrf"
-          onClick={() => {
-            if (this.state.from === '' || this.state.until === '') {
-              console.log("pless insert date");
-              this.setState({ alertEnterFullDate: true });
-            } else {
-            const dateSoldier = {
-              fromDate: this.state.from,
-              untilDate: this.state.until,
-              CurrentEmail: localStorage.email
-            };
-            axios
-              .post("/SoldierDate", dateSoldier)
-              .then(res => {
-                console.log(res.data, "this is response soldiers date ");
-                let resultFamily = res.data;
-                this.setState({ DisplayMatchingFamilies: true, resultFamily: resultFamily, from:"" , until:"" });
-              })
-              .catch(function(error) {
-                // handle error
-                console.log(error);
-              });
-          }}}
-        >
-          send
-        </button></a>
+        <a href="#top"><button
+         type="button" 
+         class="btn btn-success buttonSearchAccommodation"
+         href = "#resultFamilesHrf"
+         onClick={this.searchAccommodation}
+         >
+          Search
+          </button></a>
         </div>
         <div className="resultFamiles" id = "resultFamilesHrf">
           {this.state.DisplayMatchingFamilies ? (
@@ -70,12 +75,16 @@ export default class SoldiersPage extends Component {
             ""
           )}
         </div>
+        <Fooetr/>
       </div>
     );
   }
   componentDidMount(){
+    sessionStorage.setItem("page","soldierHomePage");
     this.props.UserRegister("SoldierNavBar");
-    
   }
- 
+ componentWillUnmount(){
+   sessionStorage.removeItem("page");
+   this.props.UserRegister("SoldierNavBar");
+ }
 }

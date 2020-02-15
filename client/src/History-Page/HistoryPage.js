@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import axios from "axios";
 import HistoryFamily from "../Display-Family-History/HistoryFamily";
 import DisplaySoldierHistory from "../Display-Soldier-History/DisplaySoldierHistory";
+import "./HistoryPage.css";
 export default class historyPage extends Component {
-   
    state = {result : ""}
     
     render() {
         let user = localStorage.user;
         return ( 
-            <div>    
+            <div className = "warpAllHistory">    
                 {(user === "soldier") ? <DisplaySoldierHistory soldierHistory ={this.state.result}/> : <HistoryFamily FamilyHistory = {this.state.result}/>}
             </div>
         )

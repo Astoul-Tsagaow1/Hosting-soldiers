@@ -179,6 +179,23 @@ function Login(req, res) {
 
 function sendMail(req , res) {
   console.log(req.body.familyObj.email,"dfffffffffffffffffffffffffffffff")
+  sendE(req);
+  updateHistory(req ,soldiersCollection);
+  updateHistory(req , FamliysCollection);
+  res.status(201).send({email:"was send"});
+}
+
+function sendE(req , argUser) {
+  let sendTo , textSend; 
+  if(argUser === "soldier"){
+    sendTo;
+    textSend;
+
+  }
+  else{
+    sendTo = req.body.familyObj.email;
+    textSend = req.body.familyObj.message;
+  }
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -188,9 +205,9 @@ function sendMail(req , res) {
   });
   let mailOptions = {
     from: 'soldierhostingwebsite@gmail.com',
-    to: req.body.familyObj.email,
+    to: sendTo,
     subject: 'Sending Email using Node.js',
-    text: req.body.familyObj.message
+    text: textSend
   };
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
@@ -200,9 +217,6 @@ function sendMail(req , res) {
       console.log('Email sent: ' + info.response);
     }
   });
-  updateHistory(req ,soldiersCollection);
-  updateHistory(req , FamliysCollection);
-  res.status(201).send({email:"was send"});
 }
 
 function updateHistory(req,collectionARG){
