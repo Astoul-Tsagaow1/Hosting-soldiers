@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./SignUpFamily.css";
 import { Redirect } from "react-router-dom";
+import IconeFamily from "../images/icons8-full-family-90.png";
+import EmailIcone from "../images/icons8-email-100.png";
+import PhoneIcone from "../images/icons8-phone-100.png";
+import CityIcone from "../images/icons8-location-48.png";
+import passwordIcone from "../images/icons8-password-96.png";
+import imageIcone from "../images/icons8-add-image-60.png";
+import selectIcone from "../images/icons8-select-48.png";
+
 export default class SignUpFamily extends Component {
   state = { flag2: false };
   constructor(props) {
@@ -19,7 +27,7 @@ export default class SignUpFamily extends Component {
       fromDate: "",
       untilDate: "",
       file: "",
-      hostingHistory:[]
+      hostingHistory: []
     };
     this.Hendelchange = this.Hendelchange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -45,7 +53,7 @@ export default class SignUpFamily extends Component {
       untilDate: this.state.untilDate,
       FamilyDescriptionvlue: this.state.FamilyDescription,
       file: this.state.file,
-      hostingHistory : this.state.hostingHistory
+      hostingHistory: this.state.hostingHistory
     };
 
     console.log(Familyobj, "family obj");
@@ -107,45 +115,45 @@ export default class SignUpFamily extends Component {
           <h1 className="Sign-up-FamilyPage">Sign up</h1>
           <form className="text" onSubmit={this.handleSubmit}>
             <div className="col-50 right-side-form">
-              <label htmlFor="fname"> Family-Name : </label>
-              <br />
+              <img src={IconeFamily} height="40px"></img>
               <input
                 value={this.state.fname}
                 name="fname"
                 type="text"
                 required="required"
                 onChange={this.Hendelchange}
+                placeholder="Family-Name "
               />{" "}
               <br />
-              <label htmlFor="email"> e-mail : </label>
-              <br />
+              <img src={EmailIcone} height="40px"></img>
               <input
                 value={this.state.femail}
                 name="femail"
                 type="email"
                 required="required"
                 onChange={this.Hendelchange}
+                placeholder="Email"
               />{" "}
               <br />
-              <label htmlFor="Phone-Number"> Phone-Number : </label>
-              <br />
+              <img src={PhoneIcone} height="40px"></img>
               <input
                 value={this.state.fPhonNumber}
                 name="fPhonNumber"
                 id="Phone-Number"
                 type="number"
                 required="required"
+                placeholder="Phone-Number"
                 onChange={this.Hendelchange}
               />{" "}
               <br />
-              <label htmlFor="City"> City : </label>
-              <br />
+              <img src={CityIcone} height="40px"></img>
               <input
                 value={this.state.fCity}
                 name="fCity"
                 id="City"
                 type="text"
                 required="required"
+                placeholder="City"
                 onChange={this.Hendelchange}
               />{" "}
               <br />
@@ -159,60 +167,62 @@ export default class SignUpFamily extends Component {
                 placeholder="Ex:A family that loves soldiers very much and wants to host and make them happy .."
                 onChange={this.Hendelchange}
               ></textarea>
-              <br />
             </div>
-            <div className="col-20 h-25 left-side-form">
-              family photo :
+            <div className=" left-side-form">
+            <div className="InputIconeWrapper">
+              <img src={imageIcone} height="35px"></img>
               <input
                 type="file"
                 required
                 name="imgf"
                 className="file-input"
+                placeholder=""
                 onChange={e => {
                   this.setState({ file: e.target.files[0] });
 
                   console.log(this.state.file);
                 }}
               ></input>{" "}
-              <label htmlFor="NumberSoldiers">
+
+              </div>
+              <div className="InputIconeWrapper">
                 {" "}
-                Number of soliders you can host :{" "}
-              </label>
-              <br />
-              <input
-                value={this.state.fNumberSoldiersHosts}
-                name="fNumberSoldiersHosts"
-                id="NumberSoldiers"
-                type="number"
-                required="required"
-                onChange={this.Hendelchange}
-              />{" "}
-              <br />
-              <label htmlFor="Password"> Password : </label>
-              <br />
+                <img src={selectIcone} height="35px"></img>
+                <input
+                  value={this.state.fNumberSoldiersHosts}
+                  name="fNumberSoldiersHosts"
+                  id="NumberSoldiers"
+                  type="number"
+                  required="required"
+                  onChange={this.Hendelchange}
+                  placeholder="fNumberSoldiersHosts"
+                />{" "}
+              </div>
+
+              <div className="InputIconeWrapper">
+              <img src={passwordIcone} height="35px"></img>
+
               <input
                 value={this.state.fPassword}
                 name="fPassword"
                 type="Password"
                 id="Password"
+                placeholder="Password"
                 required="required"
                 onChange={this.Hendelchange}
-              />{" "}
-              <br />
-              <label htmlFor=" ConfirmePassword ">
-                {" "}
-                Confirme - Password :{" "}
-              </label>
-              <br />
+              />{" "}</div>
+              <div className="InputIconeWrapper">
+              <img src={passwordIcone} height="35px"></img>
+
               <input
                 value={this.state.ConfirmePassword}
                 name="ConfirmePassword"
                 type="Password"
                 id="ConfirmePassword"
                 required="required"
+                placeholder="ConfirmePassword"
                 onChange={this.Hendelchange}
-              />{" "}
-              <br />
+              />{" "}</div>
               <button
                 required="required"
                 type="submit"
@@ -221,14 +231,6 @@ export default class SignUpFamily extends Component {
                 {" "}
                 Submit{" "}
               </button>
-              {/* <div className="facebookwrpper">
-                                        <button className="facebookbutton">facebook</button>
-                                        </div>
-                                        <div className="gmailwrapper">
-                                            <button className="gmailbutton">Gmail</button>
-                                          
-                                         
-                                        </div> */}
             </div>
           </form>
 

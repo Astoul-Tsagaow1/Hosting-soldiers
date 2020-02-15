@@ -37,7 +37,7 @@ export default class Home extends Component {
         </div>
         <div className="Titel-Home-Page">
           <div class="page-header">
-            <h1>You'll Never Walk Alone</h1>
+            <i> <h1>'You'll Never Walk Alone'</h1></i>
           </div>
      
         </div>

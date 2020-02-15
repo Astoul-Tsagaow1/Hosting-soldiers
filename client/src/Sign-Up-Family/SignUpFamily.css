@@ -114,7 +114,7 @@
   height: 60%;
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
   position: absolute;
   top:15%;
 
@@ -123,12 +123,30 @@
 }
 
 .left-side-form{
-  height: 70%;
-  /* flex: 50%; */
-  width: 45%;
+  height: 100% !important;
+  display: flex;
+  flex-direction: column;
+  width: 45% !important;
+  align-items: flex-end;
+}
 
- 
 
+.InputIconeWrapper{
+  width: 100%;
+  display: flex;
+  margin: 2px;
+  /* padding: 2px; */
+}
+.InputIconeWrapper > input{
+  height: 65%;
+}
+.InputIconeWrapper > img {
+  padding-bottom:4px;
+  margin: 2.5px;
+}
+.left-side-form > img{
+  padding:3.5px;
+  margin: 2.5px;
 }
 
 .right-side-form{
@@ -137,10 +155,23 @@
   width: 45%;
 
 }
+.right-side-form > input {
+
+  width: 85%;
+  height: 15%;
+}
+.right-side-form > img{
+  padding:3.5px;
+  margin: 2.5px;
+}
  
 #FamilyDescription{
   border: none;
   border-radius: 5px;
+}
+textarea{
+  margin-left: 10%;
+  width: 86%;
 }
 
 @media screen and (max-width: 870px) {

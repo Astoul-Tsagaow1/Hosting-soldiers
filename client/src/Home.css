@@ -24,7 +24,7 @@
   border-radius: 8px;
   box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
   position: absolute;
-  top: 35%; /* =ct */
+  top:40%; /* =ct */
   left: 15%; /* =cl */
   transform: translate(-50%, -50%);
   overflow: hidden;
@@ -49,12 +49,17 @@
   position:absolute;
   top: 10%;
   width: 100%;
+  justify-content: center;
+  right: 15%;
+
 }
 .Soldiers-Home-page{
   display: flex;
   position:absolute;
   top: 35%;
   width: 100%;
+  justify-content: center;
+  right: 15%;
 
 
 }
