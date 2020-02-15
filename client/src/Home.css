@@ -5,7 +5,7 @@
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top; 
+  background-position: top ; 
   position: relative;
   /* min-height: calc(100vh - 1rem); */
   
@@ -19,19 +19,23 @@
 
 .Sign-up-form {
   background: inherit;
-  width: 25%; /* =cw */
+  width: 23%; /* =cw */
   height: 55%; /* =ch */
   border-radius: 8px;
   box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
   position: absolute;
-  top:40%; /* =ct */
+  top:50%; /* =ct */
   left: 15%; /* =cl */
   transform: translate(-50%, -50%);
   overflow: hidden;
   position: relative;
   text-align: center;
 }
-
+.seconde-Titel{
+  position: absolute;
+  left: 80%;
+  top: 25%;
+}
 .Wrapper-Sign-up-form-content {
   background: inherit;
   height: 100vh;
@@ -166,5 +170,6 @@
 
     position: absolute;
     top: 45%;
+    left: 5%;
     width: 100%;
   }

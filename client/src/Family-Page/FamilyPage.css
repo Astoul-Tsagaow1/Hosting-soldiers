@@ -1,26 +1,36 @@
 
-
+.Family-Page-button{
+ position: absolute;
+  height:9%;
+  width: 55%;
+  top:68%;
+}
 
 .Family-Page-Wrapper {
-  background: url(../images/soldiers=24.jpg);
-  height: 100vh; /* =h */
+  background:linear-gradient(rgba(0, 0, 0, 0.068), rgba(0, 0, 0, 0.596)), url(../images/soldiers=24.jpg);
+  height:78.7vh; /* =h */
   background-size: cover;
   width: 100%;
   
 }
-.Family-Page-Form{
+.Family-Page-Inputs-Wrapper{
 position: absolute;
-top: 30%;
-left: 25%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 25%;
   width: 50%;
   color: aliceblue;
+  top: 10%;
+  left: 25%;
+  flex-direction: column;
+ border: solid;
+ border-radius: 10px;
+   align-items: center;
+   height: 65%;
+ }
+
+.Family-Page-Titel{
+
+  text-transform: uppercase;
 }
-
-
 .Date-is-NotEnter{
 
     height: 170px;
@@ -33,113 +43,22 @@ left: 25%;
 
 .Family-image{
    height:200px;
-   width:30%;
-   border-radius: 100%;
-   text-align: center;
-
-
+   width:25%;
+   border-radius: 50%;
+ 
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   transition: 0.5s;
+}
+.Family-image:hover{
+  transform: scale(1.1);
 }
 .FamilyPage-input{
-
-  width: 80%;
-  padding: 2%;
+  width: 45%;
   margin:1.5%;
+  height: 7%;
 }
 .alert{
   height: 90px;
 }
 
 
-/* @media only screen and (max-width: 865px){
-  .Family-Page-button{
-    position: absolute;
-    top: 65%;
-    left:10%;
-    width: 80%;
-    margin: 0;
-    height: 9%;
-
-}
-.FamilyPage-input{
-  width: 80%;
-  padding: 10px;
-  margin:5px;
-
-
-}
-
-
-.Family-Page-Form {
-  background: inherit;
-  width:70%; 
-  height: 70%;
-  border-radius: 8px;
-  box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
-  position: absolute;
-  top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%);
-  overflow: hidden;
-}
-   
-} */
-
-/* @media only screen and (max-width: 445px){
-
-  .Family-Page-button{
-    position: absolute;
-    top: 80%;
-    left:2%;
-    width: 90%;
-    margin: 0;
-    height: 9%;
-
-}
-
-.FamilyPage-input{
-  width: 90%;
-  padding: 10px;
-  margin:5px;
-
-
-}
-
-.Family-image{
-  height:200px;
-  width:75%;
-  border-radius: 100%;
-
-
-}
-
-
-}
-@media only screen and (max-height: 701px){
-  .Family-Page-button{
-    position: absolute;
-    top: 80%;
-    left:11%;
-    width: 80%;
-    margin: 0;
-    height: 9%;
-
-}
-
-
-
-}
-
-@media only screen and (max-width: 340px){
-  .Family-Page-button{
-    position: absolute;
-    top: 80%;
-    left:11%;
-    width: 80%;
-    margin: 0;
-    height: 9%;
-
-}
-
-
-
-} */

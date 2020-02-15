@@ -23,15 +23,10 @@ https://img.icons8.com/color/48/000000/camo-cream.png
             <Link className="main-navBar" to="/">
               Home
             </Link>
-            {/* <Link className="main-navBar" to="/SignUpSoldiers">
-              SignUp Soldiers
-            </Link>
-            <Link className="main-navBar" to="/SignUpFamily">
-              SignUp Family
-            </Link> */}
+    
 
             <Link className="main-navBar" to="/About">
-              About
+              About Use 
             </Link>
           </Nav>
           <Nav> Hosting soldiers</Nav>

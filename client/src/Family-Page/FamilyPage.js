@@ -16,13 +16,11 @@ export default class FamilyPage extends Component {
     }
     return (
       <div className="Family-Page-Wrapper">
-        <div className="Family-Page-Form">
-         
           <div className="Family-Page-Inputs-Wrapper">   {" "}
-            <h1 >Welcome {FamilyName} </h1>
+            <i><h3 className="Family-Page-Titel">Welcome {FamilyName} </h3></i>
             <img className="Family-image" src={familyimage} alt="some"></img>
-            <h2>When can you host ?</h2>
-            From ?{" "}
+            <h2 className="Family-Page-Titel">When can you host ?</h2>
+           <strong >From ?{" "}</strong> 
             <input
               className="FamilyPage-input"
               type="date"
@@ -31,8 +29,9 @@ export default class FamilyPage extends Component {
                 this.setState({until:this.state.until,from:from})
               }}
             />{" "}
-            <br />
-            Until. ?{" "}
+           <strong > Until. ?{" "}</strong> 
+
+           
             <input
               className="FamilyPage-input"
               type="date"
@@ -113,8 +112,6 @@ export default class FamilyPage extends Component {
               ""
             )}
           </div>
-          {/* <div className="Family-Page-blur-background"></div> */}
-        </div>
       </div>
     );
   }
