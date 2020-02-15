@@ -178,18 +178,20 @@ function Login(req, res) {
 }
 
 function sendMail(req , res) {
-  console.log(req.body.familyObj.email,"dfffffffffffffffffffffffffffffff")
-  sendE(req);
+  // console.log(req.body.emailSoldier.email,"dfffffffffffffffffffffffffffffff");
+  // console.log(req.body.familyObj.email,"dfffffffffffffffffffffffffffffff");
+  sendEmailToUser(req,"soldier");
+  sendEmailToUser(req,"family");
   updateHistory(req ,soldiersCollection);
   updateHistory(req , FamliysCollection);
   res.status(201).send({email:"was send"});
 }
 
-function sendE(req , argUser) {
+function sendEmailToUser(req , argUser) {
   let sendTo , textSend; 
   if(argUser === "soldier"){
-    sendTo;
-    textSend;
+    sendTo = req.body.soldierObj.email;
+    textSend = req.body.soldierObj.message;
 
   }
   else{
@@ -206,7 +208,7 @@ function sendE(req , argUser) {
   let mailOptions = {
     from: 'soldierhostingwebsite@gmail.com',
     to: sendTo,
-    subject: 'Sending Email using Node.js',
+    subject: 'Soldier hosting web site',
     text: textSend
   };
   transporter.sendMail(mailOptions, function (error, info) {

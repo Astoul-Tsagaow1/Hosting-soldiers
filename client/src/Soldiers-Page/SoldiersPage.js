@@ -28,6 +28,7 @@ export default class SoldiersPage extends Component {
       });
   }
   }
+  
   render() {
     let fromDate, untilDate;
     console.log(this.state);

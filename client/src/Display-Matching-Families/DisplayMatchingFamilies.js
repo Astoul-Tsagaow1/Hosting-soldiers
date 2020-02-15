@@ -1,43 +1,43 @@
 import React, { Component } from "react";
 import "./DisplayMatchingFamilies.css";
-import GuidelinesForContactingTheHostamily from "../Guidelines-for-contacting-the-host-family/GuidelinesForContactingTheHostamily"
+import GuidelinesForContactingTheHostamily from "../Guidelines-for-contacting-the-host-family/GuidelinesForContactingTheHostamily";
 import axios from "axios";
 export default class DisplayMatchingFamilies extends Component {
   state = {
-    ssuccessMatch : false , 
-    familyName:'' , 
-    familyPhonNumber: ''};
+    ssuccessMatch: false,
+    familyName: "",
+    familyPhonNumber: ""
+  };
 
-  displayContacxt(familiesArray , componentDisplayFamilies){
-   if(this.state.ssuccessMatch){
-     console.log('successMatch');
-     let familyDatalies = {...this.state};
-      return <GuidelinesForContactingTheHostamily familyDatalies = {familyDatalies}/>
-   }
-    else if(familiesArray.length > 0){
-    console.log('componentDisplayFamilies' , this.state.ssuccessMatch);
-    
-      return componentDisplayFamilies   
-   }
-   else{
-    console.log('No result');
-      return <h3>No result</h3>
-   }
+  displayContacxt(familiesArray, componentDisplayFamilies) {
+    if (this.state.ssuccessMatch) {
+      console.log("successMatch");
+      let familyDatalies = { ...this.state };
+      return (
+        <GuidelinesForContactingTheHostamily familyDatalies={familyDatalies} />
+      );
+    } else if (familiesArray.length > 0) {
+      console.log("componentDisplayFamilies", this.state.ssuccessMatch);
+
+      return componentDisplayFamilies;
+    } else {
+      console.log("No result");
+      return <h3>No result</h3>;
+    }
   }
 
-  componentWillReceiveProps(prevState, prevProps){
-    console.log(prevState,prevProps);
-    
+  componentWillReceiveProps(prevState, prevProps) {
+    console.log(prevState, prevProps);
   }
   render() {
     console.log(this.props);
-    
+
     const families = this.props.resultMatch;
-    console.log(families)
+    console.log(families);
     const displayFimilies = families.map((obj, index) => {
       return (
         <div id="cards" key={index}>
-          <div className="card" style={{ width: "18rem"}}>
+          <div className="card" style={{ width: "18rem" }}>
             <img
               className="card-img-top"
               src={obj.image}
@@ -56,43 +56,55 @@ export default class DisplayMatchingFamilies extends Component {
               <a href="#" className="card-link">
                 Card link
               </a>
-              <a href="#" className="card-link">  
-              </a>
+              <a href="#" className="card-link"></a>
             </div>
-            <button className="buttonSendReqHosting" onClick = {()=>{
-              let ObjHistory = {familyObj :{ 
-                                email: obj.email,
-                                familyName: obj.familyname,
-                                hostingDate: obj.fromDate,
-                                familyPhonNumber: obj.PhonNumber,
-                                familyCity: obj.familyCity,
-                                message:`${localStorage.name} wants to stay with you on the ${localStorage.fromDate} date.`,
-                                emailSoldier: localStorage.email},
+            <button
+              className="buttonSendReqHosting"
+              onClick={() => {
+                let ObjHistory = {
+                  familyObj: {
+                    email: obj.email,
+                    familyName: obj.familyname,
+                    hostingDate: obj.fromDate,
+                    familyPhonNumber: obj.PhonNumber,
+                    familyCity: obj.familyCity,
+                    message: `${localStorage.name} wants to stay with you on the ${localStorage.fromDate} date.`,
+                    emailSoldier: localStorage.email
+                  },
 
-                                soldierObj:{
-                                emailFamily: obj.email,
-                                soldierName : localStorage.name,
-                                email: localStorage.email,
-                                // phoneNumberSoldirs : localStorage.phoneNumberSoldirs,
-                                hostingDate : obj.fromDate
-
-                                }}
-              axios.post("/sendMail", ObjHistory)
-              .then(response => {
-                this.setState({ssuccessMatch : true , familyName : obj.familyname , familyPhonNumber: obj.PhonNumber})
-              })
-              .catch(err => {
-                console.log(err);
-              });
-            }}>send</button>
+                  soldierObj: {
+                    emailFamily: obj.email,
+                    soldierName: localStorage.name,
+                    email: localStorage.email,
+                    // phoneNumberSoldirs : localStorage.phoneNumberSoldirs,
+                    hostingDate: obj.fromDate,
+                    message: `Please contact the ${obj.familyname} family at ${obj.PhonNumber} as soon as possible to arrange your accommodation`
+                  }
+                };
+                axios
+                  .post("/sendMail", ObjHistory)
+                  .then(response => {
+                    this.setState({
+                      ssuccessMatch: true,
+                      familyName: obj.familyname,
+                      familyPhonNumber: obj.PhonNumber
+                    });
+                  })
+                  .catch(err => {
+                    console.log(err);
+                  });
+              }}
+            >
+              send
+            </button>
           </div>
         </div>
       );
     });
     return (
       <div className="warpResultMAtch">
-        {this.displayContacxt(families ,displayFimilies)}
+        {this.displayContacxt(families, displayFimilies)}
       </div>
-    )
+    );
   }
 }

@@ -14,21 +14,33 @@ export default class SoldierNavBar extends Component {
               />
             </Link>
 
-            <Link to="/" className="SoldierNavBar" onClick = {()=>{}}>Home</Link>
+            <Link 
+            to="/" 
+            className="SoldierNavBar" 
+            onClick = {()=>{}}
+            >Home
+            </Link>
 
-            <Link className="SoldierNavBar" onClick={() => localStorage.clear()} to="/">
+            <Link 
+            className="SoldierNavBar" 
+            onClick={() => localStorage.clear()}
+             to="/">
               Logout
             </Link>
 
             <Link
+            className="SoldierNavBar"
               to="/history"
             >
               History
             </Link>
 
-            <Link className="SoldierNavBar" to="/EditSoldier">Edit</Link>
+            <Link 
+            className="SoldierNavBar" 
+            to="/EditSoldier">Edit</Link>
 
             <Link 
+            className="SoldierNavBar"
             to="/About">About soldier</Link>
 
           </Nav>
