@@ -1,55 +1,26 @@
 
-.titel-family-page-wraper{
-   text-align: center;
-}
+
 
 .Family-Page-Wrapper {
-  background: url(../images/soldiers-5.jpg);
-  height: 75vh; /* =h */
+  background: url(../images/soldiers=24.jpg);
+  height: 100vh; /* =h */
   background-size: cover;
+  width: 100%;
+  
+}
+.Family-Page-Form{
+position: absolute;
+top: 30%;
+left: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25%;
+  width: 50%;
+  color: aliceblue;
 }
 
-.Family-Page-Form {
-  background: inherit;
-  width:40%; /* =cw */
-  height: 70%; /* =ch */
-  border-radius: 8px;
-  box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
-  position: absolute;
-  top: 50%; /* =ct */
-  left: 40%; /* =cl */
-  transform: translate(-50%, -50%);
-  overflow: hidden;
-  /* min-height: calc(82.1vh - 1rem); */
 
-}
-
-
-
- .Family-Page-blur-background {
-  background: inherit;
-  height: 100vh; /* h */
-  width: 166.667%; /* (100/cw) x 100% */
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform: translate(
-    -10%,
-    -30%
-  ); /* - [cl - (cw/2)] % ,  -[ct - (ch/2)] % */
-  filter: blur(15px);
-  z-index: -1;
-}
-
-.Family-Page-button{
-    position: absolute;
-    top: 79%;
-    left: 9%;
-    width: 80%;
-    margin: 0;
-    height: 12%;
-
-}
 .Date-is-NotEnter{
 
     height: 170px;
@@ -64,6 +35,7 @@
    height:200px;
    width:30%;
    border-radius: 100%;
+   text-align: center;
 
 
 }
@@ -78,7 +50,7 @@
 }
 
 
-@media only screen and (max-width: 865px){
+/* @media only screen and (max-width: 865px){
   .Family-Page-button{
     position: absolute;
     top: 65%;
@@ -99,20 +71,20 @@
 
 .Family-Page-Form {
   background: inherit;
-  width:70%; /* =cw */
-  height: 70%; /* =ch */
+  width:70%; 
+  height: 70%;
   border-radius: 8px;
   box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
   position: absolute;
-  top: 50%; /* =ct */
-  left: 50%; /* =cl */
+  top: 50%; 
+  left: 50%; 
   transform: translate(-50%, -50%);
   overflow: hidden;
 }
    
-}
+} */
 
-@media only screen and (max-width: 445px){
+/* @media only screen and (max-width: 445px){
 
   .Family-Page-button{
     position: absolute;
@@ -170,4 +142,4 @@
 
 
 
-}
+} */

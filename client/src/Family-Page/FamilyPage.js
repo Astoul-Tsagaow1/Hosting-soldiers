@@ -1,6 +1,7 @@
 import "./FamilyPage.css";
 import axios from "axios";
 import React, { Component } from "react";
+import SmaileIcone from '../images/icons8-happy-100.png'
 export default class FamilyPage extends Component {
   state = { alertSuccessfuly: false, alertEnterFullDate: false , from:'',until:''};
   render() {
@@ -16,13 +17,10 @@ export default class FamilyPage extends Component {
     return (
       <div className="Family-Page-Wrapper">
         <div className="Family-Page-Form">
-          <div className="titel-family-page-wraper">
-            {" "}
+         
+          <div className="Family-Page-Inputs-Wrapper">   {" "}
             <h1 >Welcome {FamilyName} </h1>
             <img className="Family-image" src={familyimage} alt="some"></img>
-          </div>
-
-          <div className="Family-Page-Inputs-Wrapper">
             <h2>When can you host ?</h2>
             From ?{" "}
             <input
@@ -76,7 +74,8 @@ export default class FamilyPage extends Component {
             </button>
             {this.state.alertSuccessfuly ? (
               <div class="alert alert-success" role="alert">
-               Your date has been sent successfully{" "}
+               Your date has been sent successfully, The soldier will contact you...{" "}
+               <img src={SmaileIcone} height="30px"/>
                <button
                   type="button"
                   class="close"
@@ -114,7 +113,7 @@ export default class FamilyPage extends Component {
               ""
             )}
           </div>
-          <div className="Family-Page-blur-background"></div>
+          {/* <div className="Family-Page-blur-background"></div> */}
         </div>
       </div>
     );
