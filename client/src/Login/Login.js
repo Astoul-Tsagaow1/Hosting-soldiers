@@ -2,7 +2,8 @@ import "./Login.css";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import React, { Component } from "react";
-
+import iconEmail from '../images/icons8-email-100.png'
+import iconePassword from '../images/icons8-password-96.png'
 export default class Login extends Component {
   state = { flage: "", flag2: false, show: true, setShow: false , email :"", password:"" , inCorrectLogin : false};
   
@@ -29,10 +30,10 @@ export default class Login extends Component {
     return (
       <div className="bg-Login-Page">
         <div className="Wrapper-Login-content">
-          <h1>Login</h1>
+          <h1 className="Login-Titel">Login</h1>
 
           {this.renderSwitchLogin(this.state.flage)}
-          <input
+          <img src={iconEmail} height="30px"/>         <input
             type="email"
             placeholder="Email"
             required="required"
@@ -44,6 +45,7 @@ export default class Login extends Component {
             this.setState({[e.target.name]:e.target.value});}}
           />
           <br />
+          <img src={iconePassword} height="30px"></img>
           <input
             className="Password-Login"
             placeholder=" Password"

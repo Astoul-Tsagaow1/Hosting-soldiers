@@ -5,7 +5,7 @@
 
 .Family-Page-Wrapper {
   background: url(../images/soldiers-5.jpg);
-  height: 88.3vh; /* =h */
+  height: 75vh; /* =h */
   background-size: cover;
 }
 
@@ -20,6 +20,8 @@
   left: 40%; /* =cl */
   transform: translate(-50%, -50%);
   overflow: hidden;
+  /* min-height: calc(82.1vh - 1rem); */
+
 }
 
 

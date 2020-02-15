@@ -1,12 +1,38 @@
 import React from 'react'
 import './Footer.css'
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <div className="footer1">
-      < ul>
-        
-      </ul> 
-    </div>
+    <footer>
+      <div className="Inner-footer">
+      <div className="Footer-items">
+         <h4 className="Titel-footer">Hosting soldiers</h4>
+         <p>We believe in connections</p>
+         
+      </div> 
+      <div className="Footer-items">
+       
+         <h4 className="Titel-footer">Staye in touch</h4>
+        <p> our Email : soldierhostingwebsite@gmail.com </p>
+      </div> 
+      <div className="Footer-items">
+        <h4 className="Titel-footer">Links</h4>
+         
+      </div> 
+      <div className="Footer-items">
+        <h4 className="Titel-footer">Quick Links</h4>
+         <ul className="Footer-ul">
+           <Link to="/About"><li> About use</li></Link>
+           <Link to="/Login" > <li> Login </li></Link>
+           <Link to="/SignUpSoldiers" > <li> Sgin Up soldiers</li></Link>
+           <Link to="/SignUpFamily" > <li> Sgin Up Family </li></Link>
+         </ul>
+      </div> 
+      <div className="Footer-Bottom">
+        &copy; Hosting soldiers | bild by astoul and shay
+      </div>
+      </div>
+    </footer>
   )
 }

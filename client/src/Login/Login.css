@@ -10,7 +10,15 @@
     
 }
 
-
+.Login-Titel{
+  /* color: #fff; */
+  text-decoration:rgb(33, 99, 64) underline ;
+  letter-spacing: 1.5px;
+  
+}
+.glyphicon-envelope{
+  font-size: 25px;
+}
  .bg-Login-Page {
    background: url(../images/soldiers-6.jpg);
    height: 75.5vh; /* =h */

@@ -1,40 +1,17 @@
 .Home-page {
   background-image: linear-gradient(rgba(0, 0, 0, 0.068), rgba(0, 0, 0, 0.281)),
-    url(../src/images/soldiers-3.jpg);
-  height: 80.4vh;
+    url(../src/images/soldiers-21.jpg);
+  height: 90.4vh;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: top; 
   position: relative;
   /* min-height: calc(100vh - 1rem); */
   
 }
-.Carousel {
-  text-align: center;
-  top: 65%;
-  position: absolute;
-  left: 25%;
-  width: 45%;
-  border: solid;
-  height: 50%;
- 
-}
-.d-block {
-  position: inherit;
-  left: 18%;
-}
-.carusel-images {
-  opacity: 0.5;
-}
-.carusel-images:hover {
-  opacity: 1;
-}
 
-.carusel-images {
-  height: 350px;
-  width: 500px;
-}
+
 * {
   padding: 0;
   margin: 0;
@@ -42,13 +19,13 @@
 
 .Sign-up-form {
   background: inherit;
-  width: 35%; /* =cw */
-  height: 45%; /* =ch */
+  width: 25%; /* =cw */
+  height: 55%; /* =ch */
   border-radius: 8px;
   box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 35%; /* =ct */
-  left: 25%; /* =cl */
+  left: 15%; /* =cl */
   transform: translate(-50%, -50%);
   overflow: hidden;
   position: relative;
@@ -58,33 +35,46 @@
 .Wrapper-Sign-up-form-content {
   background: inherit;
   height: 100vh;
-  width: 166.667%;
+  width: 166.5%;
   position: absolute;
-  left: 35%;
-  top: 35%;
+  left: 30%;
+  top: 45%;
   transform: translate(-30%, -30%);
-  filter: blur(25px);
+  filter: blur(15px);
   z-index: -1;
 }
 
+.Family-Home-page{
+  display: flex;
+  position:absolute;
+  top: 15%;
+  width: 100%;
+}
+.Soldiers-Home-page{
+  display: flex;
+  position:absolute;
+  top: 50%;
+  width: 100%;
 
+
+}
 .LoginButton {
   position: absolute;
   top: 45%;
   right: 0%;
   height: 10% !important;
-  width: 50% !important;
+  width: 65% !important;
 }
 
 .SignUpFamilyButoonHomePage {
   display: block;
   z-index: 5;
-  position: absolute;
+  position: relative;
   top: 40%;
   left: 25%;
-  height: 11%;
+  height: 65%;
   padding: 10px;
-  width: 50%;
+  width: 160%;
   border-radius: 5px ;
   border: none;
 
@@ -123,11 +113,11 @@
 .SignUpSoldiersButoonHomePage{
     display: block;
     z-index: 5;
-    position: absolute;
+    position: relative;
     top: 20%;
     left: 25%;
-    width: 50%;
-    height: 11%;
+    width: 150%;
+    height: 65%;
     padding: 10px;
   background-color:rgb(52, 58, 64) ;
   border-radius: 5px;
@@ -157,3 +147,20 @@
  
   }
   
+
+  .page-header{
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    color: white;
+  transform: translate(-50%, -50%);
+
+  }
+
+  .Login-Home-Page{
+
+    position: absolute;
+    top: 65%;
+    width: 100%;
+  }

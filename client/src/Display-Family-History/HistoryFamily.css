@@ -1,4 +1,9 @@
 .History-family{
+  min-height: calc(82.1vh - 1rem);
+}
 
-  min-height: calc(100vh - 1rem);
+
+@media screen and (min-width: 1000px){
+   
+   
 }

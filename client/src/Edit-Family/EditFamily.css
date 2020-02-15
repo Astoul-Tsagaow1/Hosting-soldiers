@@ -1,6 +1,6 @@
 .Delete-account {
   position: absolute;
-  top: 47%;
+  top: 50%;
   height:4%;
   width: 25%;
   background-color: rgba(143, 1, 1, 0.979);
@@ -8,14 +8,14 @@
 }
 .EditButoon {
   position: absolute;
-  top: 53%;
+  top: 56%;
   /* left: 10%; */
   width: 47%;
   height: 5%;
 }
 .warpFormEdit-family {
   position: relative;
-  min-height: calc(100vh - 1rem);
+  min-height: calc(82.1vh - 1rem);
 }
 .formEdit-Family {
   position: absolute;
@@ -23,4 +23,24 @@
   top:15%;
   width: 50%;
   height: 80%;
+}
+
+
+
+@media screen and (min-width: 1000px){
+   
+  .warpFormEdit-family {
+    min-height: calc(85vh - 1rem);
+
+
+  }
+  .EditButoon{
+  top:80%;
+
+  }
+  .Delete-account{
+  top: 66.2%;
+
+  }
+ 
 }

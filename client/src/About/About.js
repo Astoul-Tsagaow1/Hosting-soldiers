@@ -8,6 +8,16 @@ export default class About extends Component{
   render(){
     return (
       <div>
+        <div class="bg-light py-5">
+<div class="container py-5">
+  <div class="row mb-4">
+    <div class="col-lg-5">
+      <h2 class="display-4 font-weight-light">Our Goal</h2>
+      <p class="font-italic text-muted">Our goal is to establish a connection between families and soldiers when we served in the army we saw this need not enough directions for the soldiers and we wanted</p>
+    </div>
+  </div>
+</div>
+</div>
 <div class="bg-white py-5">
 <div class="container py-5">
   <div class="row align-items-center mb-5">
@@ -27,14 +37,6 @@ export default class About extends Component{
 </div>
 </div>
 
-<div class="bg-light py-5">
-<div class="container py-5">
-  <div class="row mb-4">
-    <div class="col-lg-5">
-      <h2 class="display-4 font-weight-light">Our Goal</h2>
-      <p class="font-italic text-muted">Our goal is to establish a connection between families and soldiers when we served in the army we saw this need not enough directions for the soldiers and we wanted</p>
-    </div>
-  </div>
 
   {/* <div class="row text-center">
     <div class="col-xl-3 col-sm-6 mb-5">
@@ -86,8 +88,7 @@ export default class About extends Component{
     </div>
 
   </div> */}
-</div>
-</div>
+
 
 
 <footer class="bg-light pb-5"/>
