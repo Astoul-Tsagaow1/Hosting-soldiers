@@ -25,7 +25,13 @@ export default class DisplayMatchingFamilies extends Component {
    }
   }
 
+  componentWillReceiveProps(prevState, prevProps){
+    console.log(prevState,prevProps);
+    
+  }
   render() {
+    console.log(this.props);
+    
     const families = this.props.resultMatch;
     console.log(families)
     const displayFimilies = families.map((obj, index) => {

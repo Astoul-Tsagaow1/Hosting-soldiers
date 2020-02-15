@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./SoldiersPage.css";
 import DisplayMatchingFamilies from "../Display-Matching-Families/DisplayMatchingFamilies";
-// import Axios from "axios";
 export default class SoldiersPage extends Component {
   state = { DisplayMatchingFamilies: false, resultFamily: [] , alertSuccessfuly: false, alertEnterFullDate: false , from:'',until:'' };
-
+  
   render() {
     let fromDate, untilDate;
-
+    console.log(this.state);
     return (
       <div className = "warpAllSoldierPage">
         <div className = "backSoliderPage">
@@ -20,6 +19,7 @@ export default class SoldiersPage extends Component {
         <input
           type="date"
           name="bday"
+          value = {this.state.from}
           onChange={e => {
             fromDate = e.target.value;
             this.setState({until:this.state.until,from:fromDate})
@@ -29,6 +29,7 @@ export default class SoldiersPage extends Component {
         <input
           type="date"
           name="bday"
+          value = {this.state.until}
           onChange={e => {
             untilDate = e.target.value;
             this.setState({until:untilDate,from:this.state.from})
@@ -51,7 +52,7 @@ export default class SoldiersPage extends Component {
               .then(res => {
                 console.log(res.data, "this is response soldiers date ");
                 let resultFamily = res.data;
-                this.setState({ DisplayMatchingFamilies: true, resultFamily: resultFamily });
+                this.setState({ DisplayMatchingFamilies: true, resultFamily: resultFamily, from:"" , until:"" });
               })
               .catch(function(error) {
                 // handle error
@@ -64,7 +65,7 @@ export default class SoldiersPage extends Component {
         </div>
         <div className="resultFamiles" id = "resultFamilesHrf">
           {this.state.DisplayMatchingFamilies ? (
-            <DisplayMatchingFamilies resultMatch={this.state.resultFamily} />
+            <DisplayMatchingFamilies  resultMatch={this.state.resultFamily} />
           ) : (
             ""
           )}

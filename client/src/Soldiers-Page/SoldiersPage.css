@@ -4,6 +4,8 @@
 }
 .warpAllSoldierPage{
     height: 84vh;
+    position: relative;
+    min-height: calc(100vh - 1rem);
 }
 .backSoliderPage{
     background-image: url(../images/soldiers-1.jpeg);
@@ -15,16 +17,13 @@
 .soldierPageSearch{
     margin-left: 24%;
     width: 50%;
-    /* border: solid; */
 }
 .resultFamiles{
     width: 100%;
-    /* border:1px solid blue; */
-    
 }
-.footer1{
+/* .footer1{
     top:110%
-}
+} */
 /* @media screen and (min-width: 1000px){
     .resultFamiles{
         width: 100%;

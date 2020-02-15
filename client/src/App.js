@@ -73,7 +73,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="App">
+        <div className= {localStorage.user === "soldier"?"soldierApp":"App"}>
           {this.renderSwitch(this.state.ChangeNabBar)}
           <Switch>
             {/* <Route
@@ -166,8 +166,9 @@ class App extends Component {
                 return <About UserRegister = {this.UserRegister}/>;
               }}
             />
-          </Switch>  
-          <Fooetr />  
+          </Switch> 
+
+          <Fooetr class = {(localStorage.user === "soldier") ? "footerSoldier" : "footerElse"} />  
 
         </div>
                   

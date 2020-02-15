@@ -14,7 +14,7 @@ export default class DisplaySoldierHistory extends Component {
           </tr>
             )})
         return (
-             <div>
+             <div className = "warpsTableHistory">
                 <Table striped bordered hover>
           <thead>
             <tr>
@@ -27,7 +27,7 @@ export default class DisplaySoldierHistory extends Component {
           </thead>
           <tbody>
             
-              {History}
+              {Historyprop.length ? History : ""}
             
           </tbody>
         </Table>
