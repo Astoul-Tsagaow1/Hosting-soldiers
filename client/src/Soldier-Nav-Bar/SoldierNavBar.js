@@ -7,13 +7,13 @@ export default class SoldierNavBar extends Component {
       <div>
         <Navbar navbar bg="dark" navbar="true">
           <Nav className="mr-auto">
-            <Link className="SoldierNavBar" to="/">
-              <img
-                src="https://img.icons8.com/color/48/000000/camo-cream.png(2 kB)https://img.icons8.com/color/48/000000/camo-cream.png"
-                alt="logo"
-              />
-            </Link>
-
+          <Navbar.Brand >
+         <Link to="/"> <img
+            src="https://img.icons8.com/color/48/000000/camo-cream.png(2 kB)
+https://img.icons8.com/color/48/000000/camo-cream.png
+"
+          /></Link>
+        </Navbar.Brand>
             <Link 
             to="/" 
             className="SoldierNavBar" 
