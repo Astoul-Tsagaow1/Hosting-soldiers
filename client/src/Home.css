@@ -1,7 +1,7 @@
 .Home-page {
   background-image: linear-gradient(rgba(0, 0, 0, 0.068), rgba(0, 0, 0, 0.281)),
     url(../src/images/soldiers-21.jpg);
-  height: 90.4vh;
+  height: 70.8vh;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -40,27 +40,26 @@
   left: 30%;
   top: 45%;
   transform: translate(-30%, -30%);
-  filter: blur(15px);
+  filter: blur(25px);
   z-index: -1;
 }
 
 .Family-Home-page{
   display: flex;
   position:absolute;
-  top: 15%;
+  top: 10%;
   width: 100%;
 }
 .Soldiers-Home-page{
   display: flex;
   position:absolute;
-  top: 50%;
+  top: 35%;
   width: 100%;
 
 
 }
 .LoginButton {
   position: absolute;
-  top: 45%;
   right: 0%;
   height: 10% !important;
   width: 65% !important;
@@ -161,6 +160,6 @@
   .Login-Home-Page{
 
     position: absolute;
-    top: 65%;
+    top: 45%;
     width: 100%;
   }
