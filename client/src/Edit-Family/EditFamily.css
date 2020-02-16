@@ -14,7 +14,6 @@
   height: 5%;
 }
 .warpFormEdit-family {
-  position: relative;
   min-height: calc(82.1vh - 1rem);
 }
 .formEdit-Family {
@@ -35,11 +34,11 @@
 
   }
   .EditButoon{
-  top:80%;
+  top:55.9%;
 
   }
   .Delete-account{
-  top: 66.2%;
+  top: 50%;
 
   }
  
