@@ -248,6 +248,7 @@ function updateHistory(req,collectionARG){
           }
         }
         else{
+
           newHosting = {
             soldierEmail: req.body.soldierObj.email,
             soldierName: req.body.soldierObj.soldierName,
@@ -256,8 +257,6 @@ function updateHistory(req,collectionARG){
       }
            console.log(newHosting,"**********123");
            console.log(req.body.soldierObj);
-           
-           
         }
         tempArrayHistory.push(newHosting);
         console.log(tempArrayHistory,"************************************************")
@@ -265,9 +264,30 @@ function updateHistory(req,collectionARG){
         MongoClient.connect(url, function(err, db) {
           if (err) throw err;
           var dbo = db.db(mydb);
-          
-          let newvalues = {
-            $set: { hostingHistory: tempArrayHistory}
+          let newvalues
+          if(collectionARG != "soldiers"){
+            let tempNumber = Number(emailExist.NumberSoldiersHosts) - 1;
+            emailExist.NumberSoldiersHosts = tempNumber.toString();
+            if(emailExist.NumberSoldiersHosts === "0"){
+              emailExist.fromDate = '';
+              emailExist.untilDate = '';
+            }
+            else{
+              console.log(emailExist.NumberSoldiersHosts , "Number soldiers mor hosts")
+            }
+            
+             newvalues = {
+              $set: { hostingHistory: tempArrayHistory , 
+                      NumberSoldiersHosts: emailExist.NumberSoldiersHosts , 
+                      fromDate : emailExist.fromDate , 
+                      untilDate : emailExist.untilDate
+                    }
+            };
+          }
+          else{
+            newvalues = {
+              $set: { hostingHistory: tempArrayHistory}
+          }
           };
           dbo
             .collection(collectionARG)

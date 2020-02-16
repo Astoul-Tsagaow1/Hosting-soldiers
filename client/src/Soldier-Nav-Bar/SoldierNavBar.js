@@ -17,7 +17,6 @@ https://img.icons8.com/color/48/000000/camo-cream.png
             <Link 
             to="/" 
             className="SoldierNavBar" 
-            onClick = {()=>{}}
             >Home
             </Link>
 

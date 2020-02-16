@@ -3,6 +3,7 @@ import "./GuidelinesForContactingTheHostamily.css";
 export default function GuidelinesForContactingTheHostamily(props){
     return (
         <div className = "warpDivAfterSendMail">
+            
            <h3>
            {localStorage.name}, Your request was sent and received in the system.
            </h3>

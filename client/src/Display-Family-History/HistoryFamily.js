@@ -6,20 +6,20 @@ export default class HistoryFamily extends Component {
   render() {
     console.log(this.props.FamilyHistory);
     let Historyprop = [...this.props.FamilyHistory];
-    let History = Historyprop.map(his => {
-      return (<tr>
+    let History = Historyprop.map((his , index) => {
+      return (
+      <tr Key = {index}>
               <td>{his.soldierEmail}</td>
               <td>{his.soldierName}</td>
               <td>{his.hostingDate}</td>
               <td>{his.soldierPhonNumber}</td>
         </tr> 
-       
-       
       );
     });
     console.log(this.props.FamilyHistory);
 
-    return (<div className="History-family">
+    return (
+    <div className="History-family">
       <Table striped bordered hover>
           <thead>
             <tr>
@@ -30,14 +30,13 @@ export default class HistoryFamily extends Component {
             </tr>
           </thead>
           <tbody>
-         { Historyprop.length?   History :""}
+         { Historyprop.length?   History : ""}
           </tbody>
         </Table>
       
       
     </div>)
   }
-  
 }
 
 
