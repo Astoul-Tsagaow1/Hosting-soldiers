@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import "./Home.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import PageNotFound from "./Page-Not-Found/PageNotFound";
+// import PageNotFound from "./Page-Not-Found/PageNotFound";
 import About from "./About/About";
 
 import Home from "./Home";
