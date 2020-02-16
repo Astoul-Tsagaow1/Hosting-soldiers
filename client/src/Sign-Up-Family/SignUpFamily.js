@@ -66,7 +66,7 @@ export default class SignUpFamily extends Component {
     console.log(Familyobj, "data");
 
     let ImgData = new FormData();
-    const config = { headers: { "content-type": "multipart/form-data" } };
+    // const config = { headers: { "content-type": "multipart/form-data" } };
 
     ImgData.append("FamilyIMG", Familyobj.file);
     ImgData.append("familyname", Familyobj.familyname);
@@ -82,7 +82,7 @@ export default class SignUpFamily extends Component {
     ImgData.append("hostingHistory", Familyobj.hostingHistory);
 
     axios
-      .post("/family", ImgData, config)
+      .post("/family", ImgData)
       .then(response => {
         alert("family");
         console.log(response.status, "inside axios");
@@ -105,7 +105,6 @@ export default class SignUpFamily extends Component {
         this.setState({ flag2: true });
       });
   };
-
   render() {
     return (
       <div className="blurred-bg-container">
