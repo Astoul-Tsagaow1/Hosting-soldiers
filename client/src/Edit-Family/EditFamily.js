@@ -42,7 +42,7 @@ export default class SignUpFamily extends Component {
     if (this.state.fPassword === this.state.ConfirmePassword) {
       const Familyobj = {
         familyname: this.state.fname,
-        NewEmail: this.state.femail,
+        emailForUpdate: this.state.femail,
         familyPhonNumber: this.state.fPhonNumber,
         familyNumberSoldiersHosts: this.state.fNumberSoldiersHosts,
         familyPassword: this.state.fPassword,
@@ -79,7 +79,7 @@ console.log(ImgData, "send to server");
           if (response.status === 201) {
             console.log(response.status, "inside axios");
             console.log(response.data, "***147");
-            localStorage.setItem("email", response.data.email);
+            localStorage.setItem("email", response.data.emaileForUpdate);
             localStorage.setItem("name", response.data.familyname);
             // localStorage.setItem("image", "familyPhoto" + this.state.file.name);
             localStorage.setItem("user", "family");

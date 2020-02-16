@@ -10,6 +10,7 @@ export default class SignUpFamily extends Component {
     this.state = {
       fname: "",
       femail: "",
+      emailForUpdate:"",
       fPhonNumber: "",
       fNumberSoldiersHosts: "",
       fPassword: "",
@@ -37,6 +38,7 @@ export default class SignUpFamily extends Component {
     const Familyobj = {
       familyname: this.state.fname,
       email: this.state.femail,
+      emailForUpdate:this.state.femail,
       familyPhonNumber: this.state.fPhonNumber,
       familyNumberSoldiersHosts: this.state.fNumberSoldiersHosts,
       familyPassword: this.state.fPassword,

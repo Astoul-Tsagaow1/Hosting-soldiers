@@ -172,4 +172,31 @@
     top: 45%;
     left: 5%;
     width: 100%;
+    
   }
+  @media screen and (max-width:879px ){
+    .Sign-up-form{
+
+      top: 65%;
+      left: 50%;
+      width: 60%;
+    }
+    .page-header{
+      top: 25%;
+    }
+
+
+  }
+
+  @media screen and (max-width:313 ){
+    .Sign-up-form{
+
+      top: 65%;
+      left: 50%;
+      height: 100%;
+    }
+
+
+
+  }
+  
