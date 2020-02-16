@@ -66,6 +66,7 @@ export default class SignUpFamily extends Component {
     ImgData.append("FamilyIMG", Familyobj.file);
     ImgData.append("familyname", Familyobj.familyname);
     ImgData.append("email", Familyobj.email);
+    ImgData.append("emailForUpdate", Familyobj.emailForUpdate);
     ImgData.append("PhonNumber", Familyobj.familyPhonNumber);
     ImgData.append("NumberSoldiersHosts", Familyobj.familyNumberSoldiersHosts);
     ImgData.append("Password", Familyobj.familyPassword);

@@ -60,7 +60,7 @@ console.log(Familyobj, "send to server");
       ImgData.append("FamilyIMG", Familyobj.file);
       ImgData.append("familyname", Familyobj.familyname);
       ImgData.append("currentEmail", localStorage.email);
-      ImgData.append("NewEmail", Familyobj.NewEmail);
+      ImgData.append("emailForUpdate", Familyobj.emailForUpdate);
       ImgData.append("PhonNumber", Familyobj.familyPhonNumber);
       ImgData.append("NumberSoldiersHosts",Familyobj.familyNumberSoldiersHosts);
       ImgData.append("Password", Familyobj.familyPassword);
@@ -81,7 +81,7 @@ console.log(ImgData, "send to server");
             console.log(response.data, "***147");
             localStorage.setItem("email", response.data.emaileForUpdate);
             localStorage.setItem("name", response.data.familyname);
-            // localStorage.setItem("image", "familyPhoto" + this.state.file.name);
+            localStorage.setItem("image", "familyPhoto" + response.image);
             localStorage.setItem("user", "family");
             this.props.UserRegister(false);
 
