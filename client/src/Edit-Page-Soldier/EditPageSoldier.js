@@ -29,7 +29,6 @@ export default class EditPageSoldier extends Component {
         this.handelChange = this.handelChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
       }
-
       handelChange(e) {
         console.log(e.target.name);
         console.log(e.target.value, "value before");

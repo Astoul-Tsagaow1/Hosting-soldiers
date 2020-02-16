@@ -349,13 +349,17 @@ function Updatethis(req ,response,collection) {
             .findOne({ email: req.body.currentEmail }, function(err, result) {
               if (err) throw err;
               Thempobj = {...result};
-              console.log(Thempobj, "**123");
+              console.log(Thempobj, "**123456789");
               if (result === null) {
                 console.log("notul found");
                 Thempobj = "asto";
               } else {
-      
-                let Updateobj = req.body
+                
+                let Updateobj = req.body;
+                if(Updateobj.emailForUpdate === "" || Updateobj.emailForUpdate === undefined){
+                  console.log(Thempobj.email , "helpppppppppppppppp");
+                  Updateobj.emailForUpdate = Thempobj.email;
+                }
                 for (const [key, value] of Object.entries(Updateobj)) {
                   console.log(`${key} ${value}`); 
                   if(value == "" || value === undefined){
@@ -394,15 +398,15 @@ function Updatethis(req ,response,collection) {
                   else{
                     newvalues = {
                       $set: {
-                        name : req.body.name,
-                        lastName : req.body.lastName,
-                        quite:req.body.quite,
-                        email:req.body.NewEmail,
-                        phone:req.body.phone,
-                        password:req.body.password,
-                        confirmPassword: req.body.confirmPassword,
-                        address:req.body.address,
-                        loneSoldier:req.body.loneSoldier
+                        name : Updateobj.name,
+                        lastName : Updateobj.lastName,
+                        quite:Updateobj.quite,
+                        email:Updateobj.emailForUpdate,
+                        phone:Updateobj.phone,
+                        password:Updateobj.password,
+                        confirmPassword: Updateobj.confirmPassword,
+                        address:Updateobj.address,
+                        loneSoldier:Updateobj.loneSoldier
                       }
                     };
                     console.log(newvalues , "Datals to update!!!!!@!@");
