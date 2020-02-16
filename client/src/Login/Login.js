@@ -54,8 +54,7 @@ export default class Login extends Component {
             required="required"
             value = {this.state.password}
             onChange={(e)=>{console.log(e.target.name,"target name");
-            console.log(e.target.value,"target value")
-            console.log(email,"target value")
+            console.log(e.target.value,"target value");
             password = e.target.value;
             this.setState({ [e.target.name]:e.target.value});}}
           />
@@ -74,8 +73,7 @@ export default class Login extends Component {
               } else {
                
                 console.log(objUser, " this is the obj");
-                axios
-                  .post("/Login", objUser)
+                axios.post("/Login", objUser)
                   .then(res => {
                     console.log(res.data, "this is the data");
                     console.log(res.status, "this is status");
