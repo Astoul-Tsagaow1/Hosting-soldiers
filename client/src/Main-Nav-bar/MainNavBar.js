@@ -29,7 +29,7 @@ https://img.icons8.com/color/48/000000/camo-cream.png
               About Use 
             </Link>
           </Nav>
-          <Nav> Hosting soldiers</Nav>
+          <Nav style={{color:"#fff"}}> Hosting soldiers</Nav>
         </Navbar.Collapse>
       </Navbar>
     </div>

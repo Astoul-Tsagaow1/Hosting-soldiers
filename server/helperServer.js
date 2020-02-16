@@ -346,7 +346,6 @@ function Updatethis(req ,response,collection) {
             .collection(collection)
             .findOne({ email: req.body.currentEmail }, function(err, result) {
               if (err) throw err;
-      
               Thempobj = result;
               console.log(Thempobj, "**123");
               if (result === null) {

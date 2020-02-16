@@ -64,7 +64,6 @@ export default class EditPageSoldier extends Component {
           hostingHistory: this.state.hostingHistory,
           currentEmail : localStorage.email
         };
-      
         console.log(soldierObj, "soldier obj---------------------");
         axios
         .patch("/UpdateSoldier", soldierObj)
