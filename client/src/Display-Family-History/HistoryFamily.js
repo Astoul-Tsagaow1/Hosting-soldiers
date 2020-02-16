@@ -30,7 +30,7 @@ export default class HistoryFamily extends Component {
             </tr>
           </thead>
           <tbody>
-         { Historyprop.length?   History :""}
+         { Historyprop.length ?   History :""}
           </tbody>
         </Table>
       

@@ -8,7 +8,7 @@ export default class FamilyPage extends Component {
     console.log("Family page");
     let from;
     let Until;
-    let FamilyName = localStorage.namfamily;
+    let FamilyName = localStorage.name;
     let familyimage = localStorage.image;
 
     if (from < Until) {

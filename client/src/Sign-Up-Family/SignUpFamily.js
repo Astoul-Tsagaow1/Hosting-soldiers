@@ -59,7 +59,7 @@ export default class SignUpFamily extends Component {
     console.log(Familyobj, "family obj");
 
     localStorage.setItem("email", this.state.femail);
-    localStorage.setItem("namfamily", this.state.fname);
+    localStorage.setItem("name", this.state.fname);
     localStorage.setItem("image", "familyPhoto" + this.state.file.name);
     localStorage.setItem("user", "family");
 

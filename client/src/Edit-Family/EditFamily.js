@@ -54,16 +54,15 @@ export default class SignUpFamily extends Component {
         file: this.state.file,
         hostingHistory: this.state.hostingHistory
       };
+console.log(Familyobj, "send to server");
+
       let ImgData = new FormData();
       ImgData.append("FamilyIMG", Familyobj.file);
       ImgData.append("familyname", Familyobj.familyname);
       ImgData.append("currentEmail", localStorage.email);
       ImgData.append("NewEmail", Familyobj.NewEmail);
       ImgData.append("PhonNumber", Familyobj.familyPhonNumber);
-      ImgData.append(
-        "NumberSoldiersHosts",
-        Familyobj.familyNumberSoldiersHosts
-      );
+      ImgData.append("NumberSoldiersHosts",Familyobj.familyNumberSoldiersHosts);
       ImgData.append("Password", Familyobj.familyPassword);
       ImgData.append("ConfirmePassword", Familyobj.familyConfirmePassword);
       ImgData.append("familyCity", Familyobj.familyCity);
@@ -71,6 +70,7 @@ export default class SignUpFamily extends Component {
       ImgData.append("untilDate", Familyobj.untilDate);
       ImgData.append("discriptionFamily", Familyobj.FamilyDescriptionvlue);
       ImgData.append("hostingHistory", Familyobj.hostingHistory);
+console.log(ImgData, "send to server");
 
       axios
         .patch("/Updatefamily", ImgData)
@@ -79,8 +79,8 @@ export default class SignUpFamily extends Component {
           if (response.status === 201) {
             console.log(response.status, "inside axios");
             console.log(response.data, "***147");
-            localStorage.setItem("email", response.data.NewEmail);
-            localStorage.setItem("namfamily", response.data.familyname);
+            localStorage.setItem("email", response.data.email);
+            localStorage.setItem("name", response.data.familyname);
             // localStorage.setItem("image", "familyPhoto" + this.state.file.name);
             localStorage.setItem("user", "family");
             this.props.UserRegister(false);
