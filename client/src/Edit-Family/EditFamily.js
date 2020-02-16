@@ -81,7 +81,7 @@ console.log(ImgData, "send to server");
             console.log(response.data, "***147");
             localStorage.setItem("email", response.data.emaileForUpdate);
             localStorage.setItem("name", response.data.familyname);
-            localStorage.setItem("image", "familyPhoto" + response.image);
+            localStorage.setItem("image", "familyPhoto" + response.data.image);
             localStorage.setItem("user", "family");
             this.props.UserRegister(false);
 

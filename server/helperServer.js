@@ -353,13 +353,9 @@ function Updatethis(req ,response,collection) {
               if (result === null) {
                 console.log("notul found");
                 Thempobj = "asto";
-              } 
-              
-              else {
-                if(req.body.emailForUpdate === ""){
-                  req.body.emailForUpdate = Thempobj.email;
-                }
-                let Updateobj = req.body;
+              } else {
+      
+                let Updateobj = req.body
                 for (const [key, value] of Object.entries(Updateobj)) {
                   console.log(`${key} ${value}`); 
                   if(value == "" || value === undefined){
@@ -380,21 +376,20 @@ function Updatethis(req ,response,collection) {
                   if(collection == "families"){
                     newvalues = {
                       $set: {
-                        familyname: Updateobj.familyname,
-                        email: Updateobj.emailForUpdate,
-                        PhonNumber: Updateobj.PhonNumber,
-                        NumberSoldiersHosts: Updateobj.NumberSoldiersHosts,
-                        Password: Updateobj.Password,
-                        ConfirmePassword: Updateobj.ConfirmePassword,
-                        familyCity: Updateobj.familyCity,
-                        fromDate: Updateobj.fromDate,
-                        untilDate: Updateobj.untilDate,
-                        discriptionFamily: Updateobj.discriptionFamily,
-                        hostingHistory: Updateobj.hostingHistory,
-                        image: Updateobj.file
+                        familyname: req.body.familyname,
+                        email: req.body.NewEmail,
+                        PhonNumber: req.body.PhonNumber,
+                        NumberSoldiersHosts: req.body.NumberSoldiersHosts,
+                        Password: req.body.Password,
+                        ConfirmePassword: req.body.ConfirmePassword,
+                        familyCity: req.body.familyCity,
+                        fromDate: req.body.fromDate,
+                        untilDate: req.body.untilDate,
+                        discriptionFamily: req.body.discriptionFamily,
+                        hostingHistory: req.body.hostingHistory,
+                        image: req.file
                       }
                     };
-                    console.log(newvalues , "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr")
                   }
                   else{
                     newvalues = {
@@ -424,9 +419,7 @@ function Updatethis(req ,response,collection) {
                       db.close();
                     });
                 });
-              
               }
-
             });
         })
         
