@@ -330,23 +330,25 @@ function getHistory(collection,req, res) {
 //// Edit 
 
 function Updatethis(req ,response,collection) {
+  console.log(req.body.NewEmail,"find and Update");
   let Thempobj;
   MongoClient.connect(url, function(err, db) {
+
     if (err) throw err;
     var dbo = db.db(mydb);
-    dbo.collection(collection).findOne({email: req.body.NewEmail}, function(err, result) {
+    dbo.collection(collection).findOne({email: req.body.emailForUpdate}, function(err, result) {
 
       if (result === null) {
 
         MongoClient.connect(url, function(err, db) {
-          console.log("find and Update");
+          console.log(req.body,"find and Update");
           if (err) throw err;
           var dbo = db.db(mydb);
           dbo
             .collection(collection)
             .findOne({ email: req.body.currentEmail }, function(err, result) {
               if (err) throw err;
-              Thempobj = result;
+              Thempobj = {...result};
               console.log(Thempobj, "**123");
               if (result === null) {
                 console.log("notul found");
@@ -356,7 +358,7 @@ function Updatethis(req ,response,collection) {
                 let Updateobj = req.body
                 for (const [key, value] of Object.entries(Updateobj)) {
                   console.log(`${key} ${value}`); 
-                  if(value == ""){
+                  if(value == "" || value === undefined){
                     Updateobj[key] = Thempobj[key];
                   }
                 }

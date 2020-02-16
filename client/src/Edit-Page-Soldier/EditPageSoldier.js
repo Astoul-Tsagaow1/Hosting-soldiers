@@ -55,7 +55,7 @@ export default class EditPageSoldier extends Component {
           age: this.state.age,
           quite: this.state.quite,
           identityNumber: this.state.identityNumber,
-          NewEmail: this.state.NewEmail,
+          emailForUpdate: this.state.NewEmail,
           phone: this.state.phone,
           password: this.state.password,
           confirmPassword: this.state.confirmPassword,
@@ -68,11 +68,12 @@ export default class EditPageSoldier extends Component {
         axios
         .patch("/UpdateSoldier", soldierObj)
         .then(response => {
+          console.log(response.status, "inside axios");
           alert("soldier");
           if (response.status === 201) {
             console.log(response.status, "inside axios");
             console.log(response.data, "***147");
-            localStorage.setItem("email", response.data.NewEmail);
+            localStorage.setItem("email", response.data.emailForUpdate);
             localStorage.setItem("user", "soldier");
             localStorage.setItem("phoneNumberSoldirs", response.data.phone);
             localStorage.setItem("soldierName", response.data.name);
