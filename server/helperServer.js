@@ -330,7 +330,7 @@ function getHistory(collection,req, res) {
 //// Edit 
 
 function Updatethis(req ,response,collection) {
-  console.log(req.body.emailForUpdate,"find and Updatexxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+  // console.log(req.file.filename,"find and Updatexxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
   let Thempobj;
   MongoClient.connect(url, function(err, db) {
 
@@ -349,24 +349,33 @@ function Updatethis(req ,response,collection) {
             .findOne({ email: req.body.currentEmail}, function(err, result) {
               if (err) throw err;
               Thempobj = {...result};
-              console.log(Thempobj, "**123456789");
               if (result === null) {
                 console.log("notul found");
                 Thempobj = "asto";
               } else {
                 
                 let Updateobj = req.body;
+                console.log(Updateobj, "**123456789");
+
                 if(Updateobj.emailForUpdate === "" || Updateobj.emailForUpdate === undefined){
                   console.log(Thempobj.email , "helpppppppppppppppp");
                   Updateobj.emailForUpdate = Thempobj.email;
+                  
                 }
+                
                 for (const [key, value] of Object.entries(Updateobj)) {
                   console.log(`${key} ${value} `); 
                   if(value == "" || value === undefined){
                     Updateobj[key] = Thempobj[key];
                   }
                 }
+                if (req.file.filename === "" || req.file.filename === undefined) {
+                  req.file.filename = Thempobj.image;
+                  Updateobj.image = req.file.filename;
+                }
                 console.log(Updateobj , "after update obj ")
+                console.log(req.body.file,"123555555555555555555555");
+                
       
       
                 Thempobj = result;

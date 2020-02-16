@@ -79,10 +79,12 @@ console.log(ImgData, "send to server");
           alert("family");
           if (response.status === 201) {
             console.log(response.status, "inside axios");
+            console.log(response, "*********************");
+            
             console.log(response.data, "***147");
             localStorage.setItem("email", response.data.emailForUpdate);
             localStorage.setItem("name", response.data.familyname);
-            localStorage.setItem("image", "familyPhoto" + response.data.image);
+            localStorage.setItem("image", response.data.FamilyIMG);
             localStorage.setItem("user", "family");
             this.props.UserRegister(false);
 
