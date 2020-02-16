@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import Table from "react-bootstrap/Table";
 export default class DisplaySoldierHistory extends Component {
     render() {
-      console.log(Historyprop,"history")
         let Historyprop = [...this.props.soldierHistory];
         let History = Historyprop.map((familyObj , index) => {  return (
-            <tr>
+            <tr Key = {index}>
               <td>{familyObj.familyName}</td>
               <td>{familyObj.fanilyEmail}</td>
               <td>{familyObj.hostingDate}</td>
               <td>{familyObj.familyPhonNumber}</td>
-             <td>{familyObj.familyCity}</td>
+              <td>{familyObj.familyCity}</td>
           </tr>
             )})
         return (

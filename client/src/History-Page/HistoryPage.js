@@ -4,7 +4,7 @@ import HistoryFamily from "../Display-Family-History/HistoryFamily";
 import DisplaySoldierHistory from "../Display-Soldier-History/DisplaySoldierHistory";
 import "./HistoryPage.css";
 export default class historyPage extends Component {
-   state = {result : ""}
+   state = {result : "" , renderPage:false}
     
     render() {
         let user = localStorage.user;
@@ -16,6 +16,7 @@ export default class historyPage extends Component {
     }
 
     componentDidMount(){
+        this.props.UserRegister(false);
         let user = localStorage.user;
         let emailSearch = {email : localStorage.email};
         let userHistory;
@@ -31,6 +32,6 @@ export default class historyPage extends Component {
   })
   let userNavBar;
   (user === "soldier") ? userNavBar = "SoldierNavBar" : userNavBar = "FamilyNavBar";
-  
+  ;
     }
-}
+}  

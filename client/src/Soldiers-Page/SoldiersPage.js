@@ -59,16 +59,17 @@ export default class SoldiersPage extends Component {
             this.setState({until:untilDate,from:this.state.from})
           }}
         ></input>
-{/* working about hrf */}
-        <a href="#top"><button
+
+        <button
          type="button" 
          class="btn btn-success buttonSearchAccommodation"
          href = "#resultFamilesHrf"
          onClick={this.searchAccommodation}
          >
           Search
-          </button></a>
+          </button>
         </div>
+
         <div className="resultFamiles" id = "resultFamilesHrf">
           {this.state.DisplayMatchingFamilies ? (
             <DisplayMatchingFamilies  resultMatch={this.state.resultFamily} />
@@ -76,7 +77,9 @@ export default class SoldiersPage extends Component {
             ""
           )}
         </div>
+
         <Fooetr/>
+        
       </div>
     );
   }

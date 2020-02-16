@@ -87,6 +87,7 @@ app.post("/Login", (req, res) => {
 
 // =====================History request
 app.post("/historySoldier", (req, res) => {
+  console.log("got history request")
   helperServer.getHistory(soldiersCollection, req, res);
 });
 

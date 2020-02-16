@@ -21,7 +21,12 @@ import EditFamily from "./Edit-Family/EditFamily";
 import Fooetr from "./Footer/Footer";
 
 class App extends Component {
-  state = { ChangeNabBar: false, falg: false, authentication: "" };
+  state = { 
+    ChangeNabBar : false , 
+    falg : false , 
+    authentication : "" , 
+    renderSoldierHomePage : false 
+  };
   UserRegister = arg => {
     this.setState({ ChangeNabBar: arg });
   };
@@ -29,14 +34,16 @@ class App extends Component {
   changeAuthentication = arg => {
     this.setState({ authentication: arg });
   };
-
+renderSoldierHomePage = ()=>{
+  this.setState({renderSoldierHomePage : true})
+}
   renderSwitch(arg) {
     switch (arg) {
       case false:
         return <MainNavBar />;
 
       case "SoldierNavBar":
-        return <SoldierNavBar UserRegister={this.UserRegister}/>;
+        return <SoldierNavBar UserRegister={this.UserRegister} renderSoldierHomePage = {this.renderSoldierHomePage}/>;
 
       case "FamilyNavBar":
         return <FamilyNavBar UserRegister={this.UserRegister}/>;
@@ -76,17 +83,13 @@ class App extends Component {
         <div className= {localStorage.user === "soldier"?"soldierApp":"App"}>
           {this.renderSwitch(this.state.ChangeNabBar)}
           <Switch>
-            {/* <Route
-              exact
-              path="/logout"
-              render={() => <Home UserRegister={this.UserRegister} />}
-            /> */}
-
+           
             <Route
               exact
               path="/"
               render={() => this.renderAuthentication(localStorage.user)}
             />
+
             <Route
               exact
               path="/SignUpSoldiers"
@@ -97,6 +100,7 @@ class App extends Component {
                 />
               )}
             />
+
             <Route
               exact
               path="/SignUpFamily"
@@ -109,6 +113,7 @@ class App extends Component {
                 );
               }}
             />
+
             <Route
               exact
               path="/FamilyPage"
@@ -116,6 +121,7 @@ class App extends Component {
                 this.renderAuthenticationSoldierOrFamilyPage(localStorage.user)
               }
             />
+
             <Route
               exact
               path="/SoldiersPage"
@@ -138,7 +144,7 @@ class App extends Component {
               exact
               path="/history"
               render={() => {
-                return <HistoryPage />;
+                return <HistoryPage UserRegister={this.UserRegister}/>;
               }}
             />
 
@@ -158,7 +164,6 @@ class App extends Component {
               }}
             />
 
-
             <Route
               exact
               path="/About"
@@ -166,12 +171,11 @@ class App extends Component {
                 return <About UserRegister = {this.UserRegister}/>;
               }}
             />
+
           </Switch> 
           {sessionStorage.page === "soldierHomePage" ? "" : <Fooetr/>}
-            
 
-        </div>
-                  
+        </div>       
       </BrowserRouter>
     );
   }
