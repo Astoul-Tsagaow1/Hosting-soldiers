@@ -89,7 +89,7 @@ export default class SignUpSoldiers extends Component {
         <div className="contentSoldiers">
           <form className="warpInputs" onSubmit={this.handelSubmit}>
             <div className="titleSignUp">
-              <h2>Sign up</h2>
+              <h2 className="titleSignUp">Sign up</h2>
             </div>
 
             <div className="warpb">
@@ -134,7 +134,8 @@ export default class SignUpSoldiers extends Component {
                   placeholder="identity num"
                   onChange={this.handelChange}
                 ></input>
-                Lone soldier:
+                <h5 id="checkBox-Titel"> Lone soldier:</h5>
+               
                 <input
                   id="checkBox"
                   className="asideLeft-item inputs"

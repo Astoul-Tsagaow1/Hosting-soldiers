@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-// import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import soldier from "./images/soldiers-11.jpg";
 import IconeFamily from "./images/icons8-full-family-90.png";
 import IconeSoldiers from "./images/icons8-soldier-90.png";
-// 216340
 import { Link } from "react-router-dom";
-import IconeConctions from './images/icons8-safety-collection-place-100.png'
-import IconeLonesoldiers from './images/icons8-soldier-50.png'
+
 export default class Home extends Component {
   render() {
     return (

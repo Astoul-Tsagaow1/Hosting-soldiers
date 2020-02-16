@@ -22,9 +22,14 @@
     width: 100%;
     margin-bottom: 1%;
 }
-.buttonSearchAccommodation{
 
+#checkBox-Titel{
+
+    color: #fff;
 }
+/* .buttonSearchAccommodation{
+
+} */
 /* @media screen and (min-width: 1000px){
     .resultFamiles{
         width: 100%;

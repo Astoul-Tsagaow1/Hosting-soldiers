@@ -2,13 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./SignUpFamily.css";
 import { Redirect } from "react-router-dom";
-import IconeFamily from "../images/icons8-full-family-90.png";
-import EmailIcone from "../images/icons8-email-100.png";
-import PhoneIcone from "../images/icons8-phone-100.png";
-import CityIcone from "../images/icons8-location-48.png";
-import passwordIcone from "../images/icons8-password-96.png";
-import imageIcone from "../images/icons8-add-image-60.png";
-import selectIcone from "../images/icons8-select-48.png";
 
 export default class SignUpFamily extends Component {
   state = { flag2: false };
@@ -114,7 +107,6 @@ export default class SignUpFamily extends Component {
           <h1 className="Sign-up-FamilyPage">Sign up</h1>
           <form className="text" onSubmit={this.handleSubmit}>
             <div className="col-50 right-side-form">
-              <img src={IconeFamily} height="40px"></img>
               <input
                 value={this.state.fname}
                 name="fname"
@@ -124,7 +116,6 @@ export default class SignUpFamily extends Component {
                 placeholder="Family-Name "
               />{" "}
               <br />
-              <img src={EmailIcone} height="40px"></img>
               <input
                 value={this.state.femail}
                 name="femail"
@@ -134,7 +125,6 @@ export default class SignUpFamily extends Component {
                 placeholder="Email"
               />{" "}
               <br />
-              <img src={PhoneIcone} height="40px"></img>
               <input
                 value={this.state.fPhonNumber}
                 name="fPhonNumber"
@@ -145,7 +135,6 @@ export default class SignUpFamily extends Component {
                 onChange={this.Hendelchange}
               />{" "}
               <br />
-              <img src={CityIcone} height="40px"></img>
               <input
                 value={this.state.fCity}
                 name="fCity"
@@ -167,26 +156,21 @@ export default class SignUpFamily extends Component {
                 onChange={this.Hendelchange}
               ></textarea>
             </div>
-            <div className=" left-side-form">
-            <div className="InputIconeWrapper">
-              <img src={imageIcone} height="35px"></img>
-              <input
-                type="file"
-                required
-                name="imgf"
-                className="file-input"
-                placeholder=""
-                onChange={e => {
-                  this.setState({ file: e.target.files[0] });
+            <div className="left-side-form">
+              
+                <input
+                  type="file"
+                  required
+                  name="imgf"
+                  className="file-input"
+                  placeholder=""
+                  onChange={e => {
+                    this.setState({ file: e.target.files[0] });
 
-                  console.log(this.state.file);
-                }}
-              ></input>{" "}
-
-              </div>
-              <div className="InputIconeWrapper">
+                    console.log(this.state.file);
+                  }}
+                ></input>{" "}
                 {" "}
-                <img src={selectIcone} height="35px"></img>
                 <input
                   value={this.state.fNumberSoldiersHosts}
                   name="fNumberSoldiersHosts"
@@ -196,32 +180,25 @@ export default class SignUpFamily extends Component {
                   onChange={this.Hendelchange}
                   placeholder="fNumberSoldiersHosts"
                 />{" "}
-              </div>
 
-              <div className="InputIconeWrapper">
-              <img src={passwordIcone} height="35px"></img>
-
-              <input
-                value={this.state.fPassword}
-                name="fPassword"
-                type="Password"
-                id="Password"
-                placeholder="Password"
-                required="required"
-                onChange={this.Hendelchange}
-              />{" "}</div>
-              <div className="InputIconeWrapper">
-              <img src={passwordIcone} height="35px"></img>
-
-              <input
-                value={this.state.ConfirmePassword}
-                name="ConfirmePassword"
-                type="Password"
-                id="ConfirmePassword"
-                required="required"
-                placeholder="ConfirmePassword"
-                onChange={this.Hendelchange}
-              />{" "}</div>
+                <input
+                  value={this.state.fPassword}
+                  name="fPassword"
+                  type="Password"
+                  id="Password"
+                  placeholder="Password"
+                  required="required"
+                  onChange={this.Hendelchange}
+                />{" "}
+                <input
+                  value={this.state.ConfirmePassword}
+                  name="ConfirmePassword"
+                  type="Password"
+                  id="ConfirmePassword"
+                  required="required"
+                  placeholder="ConfirmePassword"
+                  onChange={this.Hendelchange}
+                />{" "}
               <button
                 required="required"
                 type="submit"

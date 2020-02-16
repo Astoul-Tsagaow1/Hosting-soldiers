@@ -3,7 +3,7 @@
  position: absolute;
   height:9%;
   width: 55%;
-  top:68%;
+  top:75%;
 }
 
 .Family-Page-Wrapper {
@@ -43,10 +43,10 @@ position: absolute;
 
 .Family-image{
    height:200px;
-   width:25%;
+   width:30%;
    border-radius: 50%;
  
-   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.425), 0 6px 20px 0 rgba(0, 0, 0, 0.466);
    transition: 0.5s;
 }
 .Family-image:hover{
@@ -60,3 +60,12 @@ position: absolute;
 .alert{
   height: 90px;
 }
+
+
+/* @media screen and (min-width: 1000px){
+    .resultFamiles{
+        width: 100%;
+        justify-content: space-evenly;
+    }
+   
+} */
