@@ -330,7 +330,7 @@ function getHistory(collection,req, res) {
 //// Edit 
 
 function Updatethis(req ,response,collection) {
-  console.log(req.body.NewEmail,"find and Update");
+  console.log(req.body.emailForUpdate,"find and Updatexxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
   let Thempobj;
   MongoClient.connect(url, function(err, db) {
 
@@ -346,7 +346,7 @@ function Updatethis(req ,response,collection) {
           var dbo = db.db(mydb);
           dbo
             .collection(collection)
-            .findOne({ email: req.body.currentEmail }, function(err, result) {
+            .findOne({ email: req.body.currentEmail}, function(err, result) {
               if (err) throw err;
               Thempobj = {...result};
               console.log(Thempobj, "**123456789");
@@ -361,7 +361,7 @@ function Updatethis(req ,response,collection) {
                   Updateobj.emailForUpdate = Thempobj.email;
                 }
                 for (const [key, value] of Object.entries(Updateobj)) {
-                  console.log(`${key} ${value}`); 
+                  console.log(`${key} ${value} `); 
                   if(value == "" || value === undefined){
                     Updateobj[key] = Thempobj[key];
                   }
@@ -380,18 +380,18 @@ function Updatethis(req ,response,collection) {
                   if(collection == "families"){
                     newvalues = {
                       $set: {
-                        familyname: req.body.familyname,
-                        email: req.body.NewEmail,
-                        PhonNumber: req.body.PhonNumber,
-                        NumberSoldiersHosts: req.body.NumberSoldiersHosts,
-                        Password: req.body.Password,
-                        ConfirmePassword: req.body.ConfirmePassword,
-                        familyCity: req.body.familyCity,
-                        fromDate: req.body.fromDate,
-                        untilDate: req.body.untilDate,
-                        discriptionFamily: req.body.discriptionFamily,
-                        hostingHistory: req.body.hostingHistory,
-                        image: req.file
+                        familyname: Updateobj.familyname,
+                        email: Updateobj.emailForUpdate,
+                        PhonNumber: Updateobj.PhonNumber,
+                        NumberSoldiersHosts: Updateobj.NumberSoldiersHosts,
+                        Password: Updateobj.Password,
+                        ConfirmePassword: Updateobj.ConfirmePassword,
+                        familyCity: Updateobj.familyCity,
+                        fromDate: Updateobj.fromDate,
+                        untilDate: Updateobj.untilDate,
+                        discriptionFamily: Updateobj.discriptionFamily,
+                        hostingHistory: Updateobj.hostingHistory,
+                        image: Updateobj.image
                       }
                     };
                   }

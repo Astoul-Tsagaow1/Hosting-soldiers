@@ -14,7 +14,7 @@ export default class SignUpFamily extends Component {
     super(props);
     this.state = {
       fname: "",
-      femail: "",
+      NewEmail: "",
       fPhonNumber: "",
       fNumberSoldiersHosts: "",
       fPassword: "",
@@ -40,9 +40,10 @@ export default class SignUpFamily extends Component {
     console.log("form");
     console.log(event.target.fname.value);
     if (this.state.fPassword === this.state.ConfirmePassword) {
+      console.log(this.state.NewEmail , "the new email befor send update reqest")
       const Familyobj = {
         familyname: this.state.fname,
-        emailForUpdate: this.state.femail,
+        emailForUpdate: this.state.NewEmail,
         familyPhonNumber: this.state.fPhonNumber,
         familyNumberSoldiersHosts: this.state.fNumberSoldiersHosts,
         familyPassword: this.state.fPassword,
@@ -79,7 +80,7 @@ console.log(ImgData, "send to server");
           if (response.status === 201) {
             console.log(response.status, "inside axios");
             console.log(response.data, "***147");
-            localStorage.setItem("email", response.data.emaileForUpdate);
+            localStorage.setItem("email", response.data.emailForUpdate);
             localStorage.setItem("name", response.data.familyname);
             localStorage.setItem("image", "familyPhoto" + response.data.image);
             localStorage.setItem("user", "family");
@@ -131,7 +132,7 @@ console.log(ImgData, "send to server");
                 class="form-control"
                 id="inputPassword4"
                 value={this.state.femail}
-                name="femail"
+                name="NewEmail"
                 type="email"
                 placeholder="Email"
                 onChange={this.Hendelchange}
