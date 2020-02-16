@@ -369,10 +369,16 @@ function Updatethis(req ,response,collection) {
                     Updateobj[key] = Thempobj[key];
                   }
                 }
-                if (req.file.filename === "" || req.file.filename === undefined) {
-                  req.file.filename = Thempobj.image;
-                  Updateobj.image = req.file.filename;
+                if(collection === "families"){
+                  if (req.file === undefined) {
+                    Updateobj.image = Thempobj.image;
+                  }
+                  else{
+                    Updateobj.image = req.file.filename;
+                  }
                 }
+                
+                console.log(Thempobj , "ccccccccccccccccccccccccccccccccccccccccccccccccccccccccc ")
                 console.log(Updateobj , "after update obj ")
                 console.log(req.body.file,"123555555555555555555555");
                 
