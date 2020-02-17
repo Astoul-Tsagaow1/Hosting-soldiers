@@ -77,7 +77,6 @@ export default class SignUpFamily extends Component {
     axios
       .post("/family", ImgData)
       .then(response => {
-        alert("family");
         console.log(response.status, "inside axios");
 
         if (response.status === 201) {

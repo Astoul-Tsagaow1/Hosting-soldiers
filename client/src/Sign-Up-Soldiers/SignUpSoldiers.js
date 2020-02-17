@@ -64,7 +64,6 @@ export default class SignUpSoldiers extends Component {
     axios
       .post("/soldiers", { soldierObj})
       .then(res => {
-        alert("soldier");
         if (res.status === 201) {
           console.log(res.data, "Welcome to your page");
           this.props.UserRegister(true);

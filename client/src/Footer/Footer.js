@@ -17,7 +17,8 @@ export default function Footer() {
         <p> our Email : soldierhostingwebsite@gmail.com </p>
       </div> 
       <div className="Footer-items">
-        <h4 className="Titel-footer">Links</h4>
+        <h4 className="Titel-footer">Location</h4>
+        <h6>Lod</h6>
          
       </div> 
       <div className="Footer-items">
