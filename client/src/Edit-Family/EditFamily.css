@@ -1,6 +1,6 @@
 .Delete-account {
   position: absolute;
-  top: 50%;
+  top: 51% !important;
   height:4%;
   width: 25%;
   background-color: rgba(143, 1, 1, 0.979);
@@ -9,7 +9,7 @@
 .EditButoon {
   position: absolute;
   top: 56%;
-  /* left: 10%; */
+  right:  53% !important;
   width: 47%;
   height: 5%;
 }

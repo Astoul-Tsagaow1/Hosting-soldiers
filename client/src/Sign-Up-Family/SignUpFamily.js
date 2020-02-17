@@ -178,7 +178,7 @@ export default class SignUpFamily extends Component {
                   type="number"
                   required="required"
                   onChange={this.Hendelchange}
-                  placeholder="fNumberSoldiersHosts"
+                  placeholder="Number Soldiers You can host"
                 />{" "}
 
                 <input

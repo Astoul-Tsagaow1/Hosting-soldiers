@@ -4,11 +4,12 @@
   height:9%;
   width: 55%;
   top:75%;
+  right: 22.5%;
 }
 
 .Family-Page-Wrapper {
   background:linear-gradient(rgba(0, 0, 0, 0.068), rgba(0, 0, 0, 0.596)), url(../images/soldiers=24.jpg);
-  height:78.7vh; /* =h */
+  height:82vh; /* =h */
   background-size: cover;
   width: 100%;
   
