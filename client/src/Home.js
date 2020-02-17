@@ -12,7 +12,7 @@ export default class Home extends Component {
           {" "}
           <div className="Soldiers-Home-page">
             {" "}
-            <img src={IconeSoldiers} height="55px" />
+            <img src={IconeSoldiers} alr= "" height="55px" />
             <Link to="/SignUpSoldiers">
               <button className="btn btn SignUpSoldiersButoonHomePage btn-dark">
                 {" "}
