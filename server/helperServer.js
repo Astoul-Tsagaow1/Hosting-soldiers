@@ -16,20 +16,18 @@ module.exports.Login = Login;
 module.exports.Updatethis = Updatethis;
 module.exports.FindAndInsertUsers = FindAndInsertUsers;
 module.exports.updateDate = updateDate;
-///  chack if user exsist
 
+///  chack if user exsist befor Registration and Registration user
 function FindAndInsertUsers(req, res, collectionARG) {
   let serchEmail;
     console.log(req.body);
 
   if (collectionARG == "soldiers") {
-    
     serchEmail = req.body.soldierObj.email;
-    console.log(serchEmail, "undifind----------------------------");
+    console.log(serchEmail);
   } else {
     serchEmail = req.body.email;
-
-    console.log(serchEmail, "undifind*******");
+    console.log(serchEmail);
   }
 
   MongoClient.connect(url, function(err, db) {
@@ -56,24 +54,20 @@ function FindAndInsertUsers(req, res, collectionARG) {
   });
 }
 
+// User Registration
 function InsertUsers(req, collectionARG) {
   let myobj;
   MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     const dbo = db.db(mydb);
     if (collectionARG == "soldiers") {
-      console.log("insert new soldier");
-
       myobj = req.body.soldierObj;
-      console.log(myobj);
-      
+      console.log(myobj,"insert new soldier");
     } else {
-      console.log("insert new Family");
-
+     
       myobj = req.body;
       myobj.image = req.file.filename;
-      console.log(myobj , "$$$$$$$");
-
+      console.log(myobj,"Insert new Family");
     }
     dbo.collection(collectionARG).insertOne(myobj, function(err, res) {
       if (err) throw err;
@@ -83,7 +77,8 @@ function InsertUsers(req, collectionARG) {
   });
 }
 
-// === update
+
+// === Insert date 
 function updateDate(req, res, collectionARG) {
   MongoClient.connect(url, function(err, db) {
     if (err) throw err;
@@ -108,6 +103,7 @@ function updateDate(req, res, collectionARG) {
   });
 }
 
+// Find matching family
 function FindRelevantFamilies(req, res) {
   MongoClient.connect(url, function(err, db) {
     if (err) throw err;
@@ -125,10 +121,11 @@ function FindRelevantFamilies(req, res) {
   });
 }
 
+// Login soldier
 function SoldiersUsers(collection, serchEmail, req, res) {
   MongoClient.connect(url, function(err, db) {
-    console.log(serchEmail , "inside soldier user hhhhhhhhhhhhhhh");
-    // if (err) throw err;
+    console.log(serchEmail , "inside soldier user");
+    if (err) throw err;
     var dbo = db.db(mydb);
     dbo
       .collection(collection)
@@ -140,7 +137,7 @@ function SoldiersUsers(collection, serchEmail, req, res) {
           return res.status(209).send(result);
         }
          else {
-           console.log(result,"password soldier $$$$$$$$$$$$");
+           console.log(result,"password soldier");
           return res.status(203).send({email : result.email});
          
         }
@@ -168,7 +165,7 @@ function Login(req, res) {
 
         if (result.Password === serchEmail.password) {
           console.log("success");
-          console.log(result, "result status 205 login ");
+          console.log(result, "result status 205 login");
           
 
           return res.status(201).send(result);
@@ -189,6 +186,7 @@ function sendMail(req , res) {
   updateHistory(req , FamliysCollection);
   res.status(201).send({email:"was send"});
 }
+
 
 function sendEmailToUser(req , argUser) {
   let sendTo , textSend; 
@@ -224,6 +222,7 @@ function sendEmailToUser(req , argUser) {
   });
 }
 
+// update history user
 function updateHistory(req,collectionARG){
   MongoClient.connect(url, function(err, db) {
     if (err) throw err;
@@ -321,7 +320,6 @@ function getHistory(collection,req, res) {
 
 
 //// Edit 
-
 function Updatethis(req ,response,collection) {
   let Thempobj;
   MongoClient.connect(url, function(err, db) {
