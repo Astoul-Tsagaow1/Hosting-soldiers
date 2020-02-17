@@ -68,14 +68,9 @@ export default class DisplayMatchingFamilies extends Component {
               <li className="list-group-item">From date:{obj.fromDate}</li>
               <li className="list-group-item">until date:{obj.untilDate}</li>
             </ul>
-            <div className="card-body">
-              <a href="#" className="card-link">
-                Card link
-              </a>
-              <a href="#" className="card-link"></a>
-            </div>
+           
             <button
-              className="buttonSendReqHosting"
+              className="buttonSendReqHosting   submitbutoon"
               onClick={() => {
                 let ObjHistory = {
                   familyObj: {

@@ -9,10 +9,10 @@
 }
 .backSoliderPage{
     background-image: url(../images/soldiers-1.jpeg);
-    height: 70vh;
+    height: 65vh;
     width: 100%;
     background-size: cover;
-    background-position: top;
+    background-position:  top;
 }
 .soldierPageSearch{
     margin-left: 33%;

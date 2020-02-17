@@ -2,7 +2,7 @@
 #cards{
     width: 23%;
     display: inline-block;
-    margin: 1% 1%;
+    margin: 1% 5%;
 }
 .buttonSendReqHosting{
     background-color: green;
@@ -20,4 +20,10 @@
     width: 14.6%;
     display: inline-block;
     }
+}
+.buttonSendReqHosting{
+    border-radius: 5px;  
+      left: 0.1% !important;
+    background-color: rgb(52, 58, 64) !important;
+
 }
