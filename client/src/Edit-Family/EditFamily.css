@@ -8,7 +8,7 @@
 }
 .EditButoon {
   position: absolute;
-  top: 56%;
+  top: 57.4% !important;
   right:  53% !important;
   width: 47%;
   height: 5%;

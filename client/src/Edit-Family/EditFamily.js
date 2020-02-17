@@ -35,7 +35,6 @@ export default class SignUpFamily extends Component {
     });
   }
   handleSubmit = event => {
-    alert(147);
     event.preventDefault();
     console.log("form");
     console.log(event.target.fname.value);
@@ -76,7 +75,7 @@ console.log(ImgData, "send to server");
       axios
         .patch("/Updatefamily", ImgData)
         .then(response => {
-          alert("family");
+          alert("your Profile Was Edit");
           if (response.status === 201) {
             console.log(response.status, "inside axios");
             console.log(response, "*********************");

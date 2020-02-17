@@ -47,3 +47,13 @@
     }
     
 }
+
+@media screen and (max-width: 1550px) {
+    .warpFormEdit{
+    min-height: calc(100vh - 1rem);   
+    }
+    #deleteButton{
+        bottom: 19.3%;
+    }
+    
+}

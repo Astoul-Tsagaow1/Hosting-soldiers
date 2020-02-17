@@ -9,7 +9,7 @@
 
 .Family-Page-Wrapper {
   background:linear-gradient(rgba(0, 0, 0, 0.068), rgba(0, 0, 0, 0.596)), url(../images/soldiers=24.jpg);
-  height:82vh; /* =h */
+  height:80vh; /* =h */
   background-size: cover;
   width: 100%;
   
@@ -19,13 +19,13 @@ position: absolute;
   display: flex;
   width: 50%;
   color: aliceblue;
-  top: 10%;
+  top: 11%;
   left: 25%;
   flex-direction: column;
  border: solid;
  border-radius: 10px;
    align-items: center;
-   height: 65%;
+   height: 67%;
  }
 
 .Family-Page-Titel{
@@ -63,10 +63,3 @@ position: absolute;
 }
 
 
-/* @media screen and (min-width: 1000px){
-    .resultFamiles{
-        width: 100%;
-        justify-content: space-evenly;
-    }
-   
-} */

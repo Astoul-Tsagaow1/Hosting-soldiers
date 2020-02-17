@@ -26,7 +26,7 @@ https://img.icons8.com/color/48/000000/camo-cream.png
     
 
             <Link className="main-navBar" to="/About">
-              About Use 
+              About Us
             </Link>
           </Nav>
           <Nav style={{color:"#fff",fontStyle: "italic"}}> Hosting soldiers</Nav>

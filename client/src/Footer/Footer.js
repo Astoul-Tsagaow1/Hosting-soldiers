@@ -13,7 +13,7 @@ export default function Footer() {
       </div> 
       <div className="Footer-items">
        
-         <h4 className="Titel-footer">Staye in touch</h4>
+         <h4 className="Titel-footer">Stay in touch</h4>
         <p> our Email : soldierhostingwebsite@gmail.com </p>
       </div> 
       <div className="Footer-items">
@@ -23,7 +23,7 @@ export default function Footer() {
       <div className="Footer-items">
         <h4 className="Titel-footer">Quick Links</h4>
          <ul className="Footer-ul">
-           <Link to="/About"><li> About use</li></Link>
+           <Link to="/About"><li> About us</li></Link>
         
          </ul>
       </div> 
