@@ -13,6 +13,7 @@ const mydb = "soldiersHosting";
 let newObj;
 const path = require("path");
 const LocationOfImgs = "uploads";
+require("dotenv").config();
 app.use(express.static(path.join(__dirname, "..", LocationOfImgs)));
 console.log(path.join(__dirname, LocationOfImgs));
 

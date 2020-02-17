@@ -9,10 +9,15 @@ let nodemailer = require('nodemailer');
 
 
 
-
+module.exports.Deletethis = Deletethis;
+module.exports.getHistory = getHistory;
+module.exports.sendMail = sendMail;
+module.exports.Login = Login;
+module.exports.Updatethis = Updatethis;
 module.exports.FindAndInsertUsers = FindAndInsertUsers;
 module.exports.updateDate = updateDate;
 ///  chack if user exsist
+
 function FindAndInsertUsers(req, res, collectionARG) {
   let serchEmail;
     console.log(req.body);
@@ -178,8 +183,6 @@ function Login(req, res) {
 }
 
 function sendMail(req , res) {
-  // console.log(req.body.emailSoldier.email,"dfffffffffffffffffffffffffffffff");
-  // console.log(req.body.familyObj.email,"dfffffffffffffffffffffffffffffff");
   sendEmailToUser(req,"soldier");
   sendEmailToUser(req,"family");
   updateHistory(req ,soldiersCollection);
@@ -253,13 +256,9 @@ function updateHistory(req,collectionARG){
             soldierEmail: req.body.soldierObj.email,
             soldierName: req.body.soldierObj.soldierName,
             hostingDate: req.body.soldierObj.hostingDate,
-            // soldierPhonNumber: req.body.soldierObj.phone,
       }
-           console.log(newHosting,"**********123");
-           console.log(req.body.soldierObj);
         }
         tempArrayHistory.push(newHosting);
-        console.log(tempArrayHistory,"************************************************")
         myquery = { email:emailSearch};
         MongoClient.connect(url, function(err, db) {
           if (err) throw err;
@@ -272,10 +271,6 @@ function updateHistory(req,collectionARG){
               emailExist.fromDate = '';
               emailExist.untilDate = '';
             }
-            else{
-              console.log(emailExist.NumberSoldiersHosts , "Number soldiers mor hosts")
-            }
-            
              newvalues = {
               $set: { hostingHistory: tempArrayHistory , 
                       NumberSoldiersHosts: emailExist.NumberSoldiersHosts , 
@@ -306,10 +301,8 @@ function updateHistory(req,collectionARG){
   
   // ==========history request
 function getHistory(collection,req, res) {
-  console.log(req.body, "**************&*************8");
   let emailSerach = req.body.emailSearch.email;
   MongoClient.connect(url, function(err, db) {
-    console.log(emailSerach , "inside soldier user");
     if (err) throw err;
     var dbo = db.db(mydb);
     dbo
@@ -330,7 +323,6 @@ function getHistory(collection,req, res) {
 //// Edit 
 
 function Updatethis(req ,response,collection) {
-  // console.log(req.file.filename,"find and Updatexxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
   let Thempobj;
   MongoClient.connect(url, function(err, db) {
 
@@ -358,7 +350,6 @@ function Updatethis(req ,response,collection) {
                 console.log(Updateobj, "**123456789");
 
                 if(Updateobj.emailForUpdate === "" || Updateobj.emailForUpdate === undefined){
-                  console.log(Thempobj.email , "helpppppppppppppppp");
                   Updateobj.emailForUpdate = Thempobj.email;
                   
                 }
@@ -376,17 +367,8 @@ function Updatethis(req ,response,collection) {
                   else{
                     Updateobj.image = req.file.filename;
                   }
-                }
-                
-                console.log(Thempobj , "ccccccccccccccccccccccccccccccccccccccccccccccccccccccccc ")
-                console.log(Updateobj , "after update obj ")
-                console.log(req.body.file,"123555555555555555555555");
-                
-      
-      
+                }           
                 Thempobj = result;
-                console.log(Thempobj, "inside UpdateThis function");
-                console.log(Thempobj, "******* fromUpdate , from find and Update  ");
                 MongoClient.connect(url, function(err, db) {
                   if (err) throw err;
                   var dbo = db.db(mydb);
@@ -424,7 +406,6 @@ function Updatethis(req ,response,collection) {
                         loneSoldier:Updateobj.loneSoldier
                       }
                     };
-                    console.log(newvalues , "Datals to update!!!!!@!@");
                   }
                   dbo
                     .collection(collection)
@@ -432,9 +413,7 @@ function Updatethis(req ,response,collection) {
                       if (err) throw err;
                       console.log("1 document updated");
                       console.log(Updateobj , "**** this is uPdate obj ");
-                      
                         response.status(201).send(Updateobj);
-
                       db.close();
                     });
                 });
@@ -445,7 +424,6 @@ function Updatethis(req ,response,collection) {
       }
       else{
         console.log("cant Edit email is allredy exit");
-
         response.status(203).send(result.email)
         
       }
@@ -456,8 +434,8 @@ function Updatethis(req ,response,collection) {
   })
 ;}
 
-// Edit 
-module.exports.Updatethis = Updatethis;
+
+
 //Delete 
  
 function Deletethis(req, res,collection) {
@@ -467,15 +445,10 @@ function Deletethis(req, res,collection) {
   var myquery = { email: req.params.id };
   dbo.collection(collection).deleteOne(myquery, function(err, obj) {
     if (err) throw err;
-    console.log(obj.result.n + " document(s) deleted");
     res.status(200).send("Deleted")
     db.close();
   });
 });
 }
 
-//Delete 
-module.exports.Deletethis = Deletethis;
-module.exports.getHistory = getHistory;
-module.exports.sendMail = sendMail;
-module.exports.Login = Login;
+
