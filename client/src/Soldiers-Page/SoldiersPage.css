@@ -18,11 +18,13 @@
     margin-left: 33%;
     width: 30%;
 }
+/* .inputSearchDate{
+    width: 90%;
+} */
 .resultFamiles{
     width: 100%;
     margin-bottom: 1%;
 }
-
 #checkBox-Titel{
 
     color: #fff;

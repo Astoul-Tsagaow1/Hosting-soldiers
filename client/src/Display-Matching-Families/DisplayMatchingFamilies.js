@@ -6,7 +6,8 @@ export default class DisplayMatchingFamilies extends Component {
   state = {
     ssuccessMatch: false,
     familyName: "",
-    familyPhonNumber: ""
+    familyPhonNumber: "",
+    AfterAlertNoResult: false
   };
 
   displayContacxt(familiesArray, componentDisplayFamilies) {
@@ -16,13 +17,28 @@ export default class DisplayMatchingFamilies extends Component {
       return (
         <GuidelinesForContactingTheHostamily familyDatalies={familyDatalies} />
       );
-    } else if (familiesArray.length > 0) {
-      console.log("componentDisplayFamilies", this.state.ssuccessMatch);
+        } else if (familiesArray.length > 0) {
+          console.log("componentDisplayFamilies", this.state.ssuccessMatch);
 
-      return componentDisplayFamilies;
-    } else {
+          return componentDisplayFamilies;
+        } 
+        else if(this.state.AfterAlertNoResult){
+          return "";
+        }
+    else {
       console.log("No result");
-      return <h3>No result</h3>;
+      return  (<div class="alert alert-warning alert-dismissible fade show x" role="alert">
+      <strong>{localStorage.name}</strong> We're very sorry, there are no host families on this date.
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+        onClick = {()=>{this.setState({AfterAlertNoResult : true})}}
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>)
     }
   }
 

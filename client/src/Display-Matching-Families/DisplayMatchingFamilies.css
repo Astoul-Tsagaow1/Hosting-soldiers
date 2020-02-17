@@ -12,6 +12,9 @@
     width: 100% !important;
     
 }
+.x{
+    margin-top: 1% ;
+}
 @media screen and (min-width: 1500px){
     #cards{
     width: 14.6%;

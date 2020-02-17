@@ -30,7 +30,7 @@ export default class SoldiersPage extends Component {
   }
   
 
-  
+
   render() {
     let fromDate, untilDate;
     console.log(this.state);
@@ -40,9 +40,10 @@ export default class SoldiersPage extends Component {
             
         </div>
       <div className="soldierPageSearch">
-        <h3>Find accommodation</h3>
+        <h3>Find hosting</h3>
         From what date:
         <input
+        className = "inputSearchDate"
           type="date"
           name="bday"
           value = {this.state.from}
@@ -53,6 +54,7 @@ export default class SoldiersPage extends Component {
         ></input>
         Till what date:
         <input
+        className = "inputSearchDate"
           type="date"
           name="bday"
           value = {this.state.until}
