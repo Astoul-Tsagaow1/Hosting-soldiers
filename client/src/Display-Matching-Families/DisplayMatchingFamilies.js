@@ -27,7 +27,7 @@ export default class DisplayMatchingFamilies extends Component {
         }
     else {
       console.log("No result");
-      return  (<div class="alert alert-warning alert-dismissible fade show x" role="alert">
+      return  (<div class="alert alert-warning alert-dismissible fade show NoRelevantFamiliesWereFoundAlert" role="alert">
       <strong>{localStorage.name}</strong> We're very sorry, there are no host families on this date.
       <button
         type="button"
